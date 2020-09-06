@@ -1,0 +1,17 @@
+[
+    {
+        "name" : "brass",
+        "value" : 150,
+        "color" : "brown"
+    },
+    {
+        "name" : "silver",
+        "value" : 250,
+        "color" : "silver"
+    },
+    {
+        "name" : "gold",
+        "value" : 100,
+        "color" : "yellow"
+    }
+]

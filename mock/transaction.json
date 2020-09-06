@@ -1,0 +1,32 @@
+[
+    {
+        "type" : "credit",
+        "amount" : 2000,
+        "sender" : "John Doe",
+        "receiver" : "Jake",
+        "date" : "August 15 2020"
+
+    },{
+        "type" : "debit",
+        "amount" : 100,
+        "sender" : "John Doe",
+        "receiver" : "Jake",
+        "date" : "August 15 2020"
+
+    }
+    ,{
+        "type" : "credit",
+        "amount" : 200,
+        "sender" : "John Doe",
+        "receiver" : "Jake",
+        "date" : "August 15 2020"
+
+    },{
+        "type" : "debit",
+        "amount" : 1000,
+        "sender" : "John Doe",
+        "receiver" : "Jake",
+        "date" : "August 15 2020"
+
+    }
+]

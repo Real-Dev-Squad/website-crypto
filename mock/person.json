@@ -1,0 +1,10 @@
+{
+    "name" : "kratika",
+    "type" : "active",
+    "photo" : "some photo",
+    "coins" : {
+        "brass" : 200,
+        "gold" : 100,
+        "silver" : 300
+    }
+}

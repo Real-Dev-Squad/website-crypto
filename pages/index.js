@@ -1,65 +1,67 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import {useState} from 'react'
+import transactionData from '../mock/transaction.json'
+import personData from '../mock/person.json'
+import CoinsData from '../mock/Coins.json'
+import TransactionList from '../components/transaction-details'
+import PersonDetail from '../components/user-info'
+import CoinsStatus from '../components/coins-status'
+import Filter from '../components/filter'
+import Button from '../components//Button'
+import Modal from '../components/Modal'
 import styles from '../styles/Home.module.css'
 
+
+//TODO : take out the filter logic
 export default function Home() {
+  const [transaction , setTransaction] = useState(transactionData);
+  const [modal,showModal] = useState(false)
+  const handleCreditSort = () => {
+   let newCreditList =  transactionData.filter((item) => item.type === 'credit')
+   setTransaction(newCreditList)
+  }
+
+  const handleDebitSort = () => {
+    let newCreditList =  transactionData.filter((item) => item.type === 'debit')
+    setTransaction(newCreditList)
+  }
+
+  const showOriginal = () => {
+    setTransaction(transactionData)
+  }
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>RDS-MicroTransaction</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+      <div className={styles.wrapper}>
+        <div className={styles.userinfo}>
+          <PersonDetail personDetails={personData}/>
         </div>
-      </main>
+        <div className={styles.coinstatus}>
+          <CoinsStatus coins={CoinsData}/>
+        </div>
+        <div className={styles.transactions}>
+        <Filter handleCreditSort={handleCreditSort} handleDebitSort ={handleDebitSort} showOriginal = {showOriginal}/>
+        <TransactionList transactions={transaction}/>
+        </div>
+        <div className={styles.transactionButton}>
+          {modal ? <Modal showModal={modal}/> : null}
+        <Button clickHandler={() => showModal(true) } c olor="green">Send</Button>
+        <Button clickHandler={() => showModal(true)} color="pink">Receive</Button>
+        
+        </div>
+      </div>
+    
+      
+     
+      
+     
+      
+      
+            
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
     </div>
   )
 }
