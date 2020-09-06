@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
-import addItem from './item'
+import cartDetails from './cartdetails';
+import getShopListDetails from './shoplist';
 
-export default combineReducers({addItem})
+export default combineReducers({ cartDetails, getShopListDetails });
