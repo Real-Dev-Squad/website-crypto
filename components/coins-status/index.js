@@ -9,23 +9,26 @@ import {useCoinStatus} from './useCoinStatus'
     return (
         <div className="cointype-indicator">
         <div></div>
-        <p> {props.coin.name} {coins} </p>
+        <p> {coins} </p>
         <style jsx>{`
         .cointype-indicator {  
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items : center;
+            margin-left:15px;
+            
         }
         .cointype-indicator > div {
             
             height : 2em;
             width : 2em;
             border-radius : 50%;
-            background-color : ${props.coin.color || 'pink'}
+            background-color : ${props.coin.color || 'pink'};
+            border:2px solid ${props.coin.borderColor};
+            margin-right:5px;
         }
         .cointype-indicator > p {
-            font-size :3em;
+            font-size :1.5em;
+            font-weight:bold;
         }
         `}
         </style>
@@ -47,6 +50,8 @@ const CoinsStatus = (props) => {
             <style jsx>{`
             .coins-container {
                 display : flex;
+                justify-content: flex-end;
+                padding-right:36px;
             }
             `} </style>
         </div>

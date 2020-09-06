@@ -1,17 +1,20 @@
 [
     {
-        "name" : "brass",
-        "value" : 150,
-        "color" : "brown"
+        "name" : "gold",
+        "value" : 100,
+        "color" : "#FFED4B",
+        "borderColor" : "#A58F20"
     },
     {
         "name" : "silver",
         "value" : 250,
-        "color" : "silver"
+        "color" : "#D9D9D9",
+        "borderColor" : "#7F7F7F"
     },
     {
-        "name" : "gold",
-        "value" : 100,
-        "color" : "yellow"
+        "name" : "brass",
+        "value" : 150,
+        "color" : "#B97D04",
+        "borderColor": "#885A01"
     }
 ]

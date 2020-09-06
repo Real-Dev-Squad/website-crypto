@@ -2,7 +2,7 @@ import Head from 'next/head';
 import {useState} from 'react'
 import transactionData from '../mock/transaction.json'
 import personData from '../mock/person.json'
-import CoinsData from '../mock/Coins.json'
+import CoinsData from '../mock/coins.json'
 import TransactionList from '../components/transaction-details'
 import PersonDetail from '../components/user-info'
 import CoinsStatus from '../components/coins-status'
