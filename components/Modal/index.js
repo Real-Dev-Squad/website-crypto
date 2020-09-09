@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from '@components/modal/node_modules/react';
 const Modal = (props) => {
   const [name, setName] = useState();
   return (

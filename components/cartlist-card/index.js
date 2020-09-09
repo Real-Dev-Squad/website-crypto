@@ -1,7 +1,6 @@
 export const CartCard = (props) => {
   const { details: product } = props;
   const handleAddProduct = (item) => {
-    console.log(event);
     props.add.addCartItem(item);
     props.add.addShopListItem(item);
   };
@@ -12,7 +11,7 @@ export const CartCard = (props) => {
   };
   return (
     <div className="cartcard-container">
-      <img src="" />
+      <img src="" alt={product.name} />
       <p> {product.name}</p>
       <p> {product.price}</p>
       <button onClick={() => console.log(product.name)}>Delete Item</button>

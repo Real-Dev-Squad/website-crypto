@@ -3,11 +3,13 @@
       "browser": true,
       "commonjs": true,
       "es6": true,
-      "node": true
+      "node": true,
+      "jest": true,
     },
     "plugins": [
       "react",
-      "react-hooks"
+      "react-hooks",
+      "jest"
     ],
     "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:prettier/recommended"],
     "parserOptions": {
@@ -20,11 +22,16 @@
       }
     },
     "rules": {
-      "linebreak-style": ["error", "unix"],
+      "linebreak-style": ["warn", "unix"],
       "no-unused-vars" : "warn",
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "warn",
       "react/react-in-jsx-scope": "off",
-      "react/prop-types": "off"
+      "react/prop-types": "off",
+      "jest/no-disabled-tests": "warn",
+      "jest/no-focused-tests": "error",
+      "jest/no-identical-title": "error",
+      "jest/prefer-to-have-length": "warn",
+      "jest/valid-expect": "error"
     }
   }

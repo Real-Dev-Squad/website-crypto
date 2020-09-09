@@ -1,8 +1,8 @@
 export const Header = () => {
   return (
-    <div className="header">
+    <Header>
       <div> RDS Bank</div>
       <div>Maybe some other information</div>
-    </div>
+    </Header>
   );
 };
