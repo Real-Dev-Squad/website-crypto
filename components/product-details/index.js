@@ -1,13 +1,22 @@
-export const ProductDetails = ({ product = {} }) => {
+import productData from '../../mock/products.json'
+
+export const ProductDetails = ({ productName}) => {
+  const product = productData[productName];
   return (
     <div className="product-container">
       <img
         className="product-image"
         src="../../styles/user-female-alt-icon.png"
+        alt = {product.id}
       />
       <div>
-        <p> Name : name of the product</p>
-        <p> Where to use : description of the product</p>
+        <h2> {product.name}</h2>
+        <h3> Where to use</h3>
+        <ul>
+          {product.usage.map((use) => {
+            return <li>{use}</li> 
+          })}
+        </ul>
       </div>
       <style jsx>{`
         .product-container {

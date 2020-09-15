@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { CartCard } from '../components/cartlist-card';
 import { getCartItems, getCartTotalItems } from '../redux/selector';
 import {
@@ -17,14 +18,14 @@ const Cart = (props) => {
   const [cartList, setCartList] = useState([]);
 
   useEffect(() => {
-    console.log('Hi I am from cart', props);
     setCartList(Object.keys(props.cartItems));
   }, [props.cartItems]);
 
   return (
     <div className="cart-container">
+      <Link href="/shop">Go to Shop</Link>
       <p> Total Items = {props.totatCartItems}</p>
-      {cartList.map((itemName, index) => {
+      {cartList.map((itemName) => {
         return (
           <CartCard
             details={props.cartItems[itemName].details}
