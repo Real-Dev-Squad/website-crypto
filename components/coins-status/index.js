@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import {useCoinStatus} from './useCoinStatus'
+import { useCoinStatus } from './useCoinStatus';
+
 
   const Coins = (props) => {
     const [coins,changeCoins] = useCoinStatus(0,props.coin.value)
@@ -30,19 +31,18 @@ import {useCoinStatus} from './useCoinStatus'
             font-size :1.5em;
             font-weight:bold;
         }
+
         `}
-        </style>
-        </div>
-    )
-     
-}
+      </style>
+    </div>
+  );
+};
 
 const CoinsStatus = (props) => {
-    let coinsArray = props.coins.map((coin,index) => {
-        return (
-            <Coins coin={coin} />
-        )
-    })
+  let coinsArray = props.coins.map((coin, index) => {
+    return <Coins coin={coin} />;
+  });
+
 
     return (
         <div className="coins-container">
@@ -57,5 +57,6 @@ const CoinsStatus = (props) => {
         </div>
     )
 }
+
 
 export default CoinsStatus;
