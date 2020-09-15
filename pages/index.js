@@ -1,15 +1,18 @@
 import Head from 'next/head';
-import { useState } from 'react';
-import transactionData from '../mock/transaction.json';
-import personData from '../mock/person.json';
-import CoinsData from '../mock/Coins.json';
-import TransactionList from '../components/transaction-details';
-import PersonDetail from '../components/user-info';
-import CoinsStatus from '../components/coins-status';
-import Filter from '../components/filter';
-import Button from '../components/button';
-import Modal from '../components/modal';
-import styles from '../styles/Home.module.css';
+
+import {useState} from 'react'
+import transactionData from '../mock/transaction.json'
+import personData from '../mock/person.json'
+import CoinsData from '../mock/coins.json'
+import TransactionList from '../components/transaction-details'
+import PersonDetail from '../components/user-info'
+import CoinsStatus from '../components/coins-status'
+import Filter from '../components/filter'
+import Button from '../components//Button'
+import Modal from '../components/Modal'
+import styles from '../styles/Home.module.css'
+
+
 
 //TODO : take out the filter logic
 export default function Home() {

@@ -42,11 +42,12 @@
 }
 @media (min-width: 700px) {
   .wrapper {
-    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-columns: 2fr 2fr 1fr;
     grid-template-areas: 
-      "userData userData  transactionsData"
-      "coinsData    transactionButtonData transactionData"
+      "userData coinsData  coinsData "
+      "transactionButtonData transactionButtonData ."
+      "transactionsData transactionsData ." ;
    }
-}
-
+ }
+ 
 
