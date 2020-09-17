@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 export const CartCard = (props) => {
   const { details: product } = props;
   const handleAddProduct = (item) => {
@@ -23,10 +21,4 @@ export const CartCard = (props) => {
       <p> Quantity : {props.quantity}</p>
     </div>
   );
-};
-
-CartCard.propTypes = {
-  name: PropTypes.string,
-  price: PropTypes.number,
-  quantity: PropTypes.number
 };

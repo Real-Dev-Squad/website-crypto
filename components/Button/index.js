@@ -1,5 +1,4 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from '@components/button/node_modules/react';
 
 const Button = (props) => {
   return (
@@ -21,9 +20,5 @@ const Button = (props) => {
     </button>
   );
 };
-
-Button.propTypes = {
-  color: PropTypes.string
-}
 
 export default Button;
