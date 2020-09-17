@@ -1,4 +1,6 @@
-import { useState } from '@components/modal/node_modules/react';
+import { useState } from 'react';
+import PropTypes from 'prop-types';
+
 const Modal = (props) => {
   const [name, setName] = useState();
   return (
@@ -20,5 +22,9 @@ const Modal = (props) => {
     </div>
   );
 };
+
+Modal.propTypes = {
+  name: PropTypes.string
+}
 
 export default Modal;

@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useCoinStatus } from './useCoinStatus';
-
+import PropTypes from 'prop-types';
 
   const Coins = (props) => {
     const [coins,changeCoins] = useCoinStatus(0,props.coin.value)
@@ -58,5 +58,13 @@ const CoinsStatus = (props) => {
     )
 }
 
+Coins.propTypes = {
+  coin: PropTypes.object,
+  value: PropTypes.number,
+  name: PropTypes.string,
+  color: PropTypes.string,
+  borderColor: PropTypes.string
+}
 
 export default CoinsStatus;
+
