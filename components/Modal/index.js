@@ -25,6 +25,6 @@ const Modal = (props) => {
 
 Modal.propTypes = {
   name: PropTypes.string
-}
+};
 
 export default Modal;
