@@ -16,6 +16,11 @@ const Shop = (props) => {
   const { delCartItem, delShopListItem } = props;
   return (
     <div className="shoppinglist-container">
+      <div className="cart-button">
+        <button>
+          <Link href="/cart">Take me to cart</Link>
+        </button>
+      </div>
       {products.map((itemName) => {
         return (
           <ShopCard
@@ -27,7 +32,22 @@ const Shop = (props) => {
           />
         );
       })}
-      <Link href="/cart">Take me to cart</Link>
+      <style jsx>{`
+      .cart-button {
+        text-align:center;
+        padding-top:10px;
+      }
+      button {
+        background: #540075;
+        color: white;
+        border: 1px solid #540075;
+        border-radius: 5px;
+        padding: 0.5rem 2rem;
+        font: inherit;
+        cursor: pointer;
+        align:center;
+      }
+  `}</style>
     </div>
   );
 };

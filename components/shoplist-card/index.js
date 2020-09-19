@@ -12,12 +12,34 @@ export const ShopCard = (props) => {
   };
   return (
     <div className="shop-card">
-      <img src="../public/logo512.png" />
-      <p> {product.name}</p>
-      <p> {product.price}</p>
-      <button onClick={() => handleAddProduct(product.name)}> + </button>
-      <button onClick={() => handleRemoveProduct(product.name)}> - </button>
-      <p> Quantity : {props.quantity}</p>
+      <img src="coffee.jpg" />
+      <div className="shop-card__content">
+        <p> {product.name}</p>
+        <p> {product.price}</p>
+        <button onClick={() => handleAddProduct(product.name)}> + </button>
+        <button onClick={() => handleRemoveProduct(product.name)}> - </button>
+        <p> Quantity : {props.quantity}</p>
+      </div>
+      <style jsx>{`
+      .shop-card {
+        margin: 2rem auto;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+        width: 50rem;
+        max-width: 90%;
+      }
+      .shop-card img {
+        width: 100%;
+        height: 20rem;
+        object-fit: cover;
+      }
+      .shop-card__content {
+        padding: 1rem;
+        text-align: center;
+      }
+      .shop-card__content button {
+        margin-left:5px;
+      }
+  `}</style>
     </div>
   );
 };
