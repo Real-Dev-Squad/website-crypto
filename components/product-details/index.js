@@ -1,3 +1,4 @@
+import path from 'path';
 import productData from '../../mock/products.json';
 
 export const ProductDetails = ({ productName }) => {
@@ -6,7 +7,7 @@ export const ProductDetails = ({ productName }) => {
     <div className="product-container">
       <img
         className="product-image"
-        src="../../styles/user-female-alt-icon.png"
+        src={path.join('../assets',product.image)}
         alt={product.id}
       />
       <div>

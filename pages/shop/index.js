@@ -20,47 +20,35 @@ const Shop = (props) => {
   return (
     <div>
       <Header />
+      <Link href="/cart">Take me to cart</Link>
       <div className="shoppinglist-container">
         {products.map((itemName) => {
           return (
-            <>
-              <Link href="/shop/[product]" as={`/shop/${itemName}`}>
-                <a>
-                  <Image
-                    image={{
-                      src: '',
-                      alt: { itemName },
-                      height: 300,
-                      width: 300,
-                    }}
-                  />
-                </a>
-              </Link>
+          
+              
               <ShopCard
                 key={itemName}
                 product={productData[itemName]}
                 quantity={props.shopListItemsCount[itemName] || 0}
                 add={{ addCartItem, addShopListItem }}
                 del={{ delCartItem, delShopListItem }}
+                link={{href:"/shop/[product]", as :`/shop/${itemName}`}}
               />
-            </>
+              
+              
+              
+          
           );
         })}
       </div>
-      <Link href="/cart">Take me to cart</Link>
+      
       <Footer />
       <style jsx>{`
         .shoppinglist-container {
           display: flex;
-          justify-content: space-between;
+          flex-direction: column;
         }
-        .shoppinglist-container > a {
-          text-decoration: none;
-          color: inherit;
-          height: 300px;
-          width: 300px;
-          border: 1px solid;
-        }
+        
       `}</style>
     </div>
   );
