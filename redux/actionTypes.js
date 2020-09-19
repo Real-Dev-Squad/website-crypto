@@ -1,0 +1,4 @@
+export const ADD_CART_ITEMS = ' ADD_CART_ITEMS';
+export const REMOVE_CART_ITEMS = ' REMOVE_CART';
+export const ADD_SHOPLIST_ITEMS = ' ADD_SHOP_ITEMS';
+export const REMOVE_SHOPLIST_ITEMS = ' REMOVE_SHOP_ITEMS';

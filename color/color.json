@@ -1,0 +1,22 @@
+{
+    "pink" : {
+
+        "light" : "#fccadd",
+        "primary" : "#e30062",
+        "dark" : "#7a0436"
+    },
+    
+    "blue" : {
+
+        "light" : "#023c5c",
+        "primary" : "#041187",
+        "dark" : ""
+    },
+    "green" : {
+        "light" : "#e4f7df",
+        "primary" : "#88d870",
+        "dark" : "#13380a"
+    }
+
+    
+}
