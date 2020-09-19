@@ -12,3 +12,5 @@ export const getShopListCount = (store) =>
   getShopListDetails(store)
     ? getShopListDetails(store).shopListItemsCount
     : null;
+
+export const getCartTotalCost = (store) => getCartDetails(store) ? getCartDetails(store).totalCost : 0

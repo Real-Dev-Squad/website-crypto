@@ -10,9 +10,6 @@ export const ShopCard = (props) => {
 
   const handleRemoveProduct = (item) => {
     props.del.delCartItem(item);
-    {
-      path.join('./assets', product.image);
-    }
     props.del.delShopListItem(item);
   };
   return (
