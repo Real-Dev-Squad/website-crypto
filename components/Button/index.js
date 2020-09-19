@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const Button = (props) => {
   return (
     <button className="custom-button" onClick={props.clickHandler}>
@@ -16,6 +18,10 @@ const Button = (props) => {
       </style>
     </button>
   );
+};
+
+Button.propTypes = {
+  color: PropTypes.string,
 };
 
 export default Button;

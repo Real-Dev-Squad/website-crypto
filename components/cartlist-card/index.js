@@ -1,5 +1,7 @@
 import path from 'path';
 import colors from '../../color/color.json';
+import PropTypes from 'prop-types';
+
 export const CartCard = (props) => {
   const { details: product } = props;
   const handleAddProduct = (item) => {
@@ -15,7 +17,7 @@ export const CartCard = (props) => {
     <div className="cartcard-container">
       <img
         className="card-item"
-        src={path.join('./', 'coins.jpg')}
+        src={path.join('./assets', product.image)}
         alt={product.name}
       />
       <span className="card-item"> {product.name}</span>
@@ -77,4 +79,10 @@ export const CartCard = (props) => {
       `}</style>
     </div>
   );
+};
+
+CartCard.propTypes = {
+  name: PropTypes.string,
+  price: PropTypes.number,
+  quantity: PropTypes.number,
 };
