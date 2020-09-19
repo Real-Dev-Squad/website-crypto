@@ -27,7 +27,7 @@ const SingleTransaction = (props) => {
 };
 const TransactionList = (props) => {
   let transactionItems = props.transactions.map((transactionItem, index) => {
-    return <SingleTransaction transactionItem={transactionItem} />;
+    return <SingleTransaction key={index} transactionItem={transactionItem} />;
   });
   return (
     <div className="transactions-list">

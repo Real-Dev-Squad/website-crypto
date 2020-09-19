@@ -9,7 +9,8 @@
     "plugins": [
       "react",
       "react-hooks",
-      "jest"
+      "jest",
+      "better-styled-components"
     ],
     "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:prettier/recommended"],
     "parserOptions": {
@@ -32,6 +33,7 @@
       "jest/no-focused-tests": "error",
       "jest/no-identical-title": "error",
       "jest/prefer-to-have-length": "warn",
-      "jest/valid-expect": "error"
+      "jest/valid-expect": "error",
+      "better-styled-components/sort-declarations-alphabetically": "warn"
     }
   }

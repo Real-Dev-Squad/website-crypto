@@ -9,9 +9,9 @@ import {
   delShopListItem,
 } from '../../redux/action';
 import { Header } from '../../components/header';
-import {Footer} from '../../components/footer';
-import {Image} from '../../components/image';
-import productData from '../../mock/products.json'
+import { Footer } from '../../components/footer';
+import { Image } from '../../components/image';
+import productData from '../../mock/products.json';
 
 const products = Object.keys(productData);
 const Shop = (props) => {
@@ -19,40 +19,48 @@ const Shop = (props) => {
   const { delCartItem, delShopListItem } = props;
   return (
     <div>
-      <Header/>
-    <div className="shoppinglist-container">
-      {products.map((itemName) => {
-        return (
-          <>
-          <Link href="/shop/[product]" as={`/shop/${itemName}`}> 
-            <a>
-          <Image image = {{src : "", alt : {itemName} , height:300 , width:300}}/>
-            </a>
-          </Link>
-          <ShopCard
-            key={itemName}
-            product={productData[itemName]}
-            quantity={props.shopListItemsCount[itemName] || 0}
-            add={{ addCartItem, addShopListItem }}
-            del={{ delCartItem, delShopListItem }}/>
-          </> 
-        );
-      })}
+      <Header />
+      <div className="shoppinglist-container">
+        {products.map((itemName) => {
+          return (
+            <>
+              <Link href="/shop/[product]" as={`/shop/${itemName}`}>
+                <a>
+                  <Image
+                    image={{
+                      src: '',
+                      alt: { itemName },
+                      height: 300,
+                      width: 300,
+                    }}
+                  />
+                </a>
+              </Link>
+              <ShopCard
+                key={itemName}
+                product={productData[itemName]}
+                quantity={props.shopListItemsCount[itemName] || 0}
+                add={{ addCartItem, addShopListItem }}
+                del={{ delCartItem, delShopListItem }}
+              />
+            </>
+          );
+        })}
       </div>
       <Link href="/cart">Take me to cart</Link>
-      <Footer/>
+      <Footer />
       <style jsx>{`
-      .shoppinglist-container {
-        display : flex;
-        justify-content: space-between;
-      }
-      .shoppinglist-container > a {
-        text-decoration: none;
-        color : inherit;
-        height : 300px;
-        width : 300px;
-        border : 1px solid
-      }
+        .shoppinglist-container {
+          display: flex;
+          justify-content: space-between;
+        }
+        .shoppinglist-container > a {
+          text-decoration: none;
+          color: inherit;
+          height: 300px;
+          width: 300px;
+          border: 1px solid;
+        }
       `}</style>
     </div>
   );

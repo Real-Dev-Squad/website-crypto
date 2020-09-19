@@ -1,13 +1,22 @@
-export const Header = () => {
+import colors from '../../color/color.json';
+
+export const Header = (props) => {
   return (
     <header>
-      Some information related to header 
-      <style jsx>{`
-        header {
-          border : 2px solid red;
-          padding : 20px;
-        }
-      `} </style>
+      {props.msg}
+      {props.comp}
+      <style jsx>
+        {`
+          header {
+            padding: 20px;
+            background-color: ${colors.pink.primary};
+            font-size: 1.5em;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+          }
+        `}
+      </style>
     </header>
   );
 };

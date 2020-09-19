@@ -1,6 +1,7 @@
 {
     "Shoe" :{
         "id" : "Shoe",
+        "image" :"shoe.jpg",
         "name" : "Shoe",
         "usage" : [
             "Can be used if you are pissed of at someone",
@@ -12,6 +13,7 @@
     },
     "Flower" : {
         "id" : "Flower",
+        "image": "flower.jpg",
         "name" : "Flower",
         "usage" : [
             "Can be used as token of appreciation",
@@ -23,10 +25,14 @@
     }, 
     "Coffee" :{
         "id" : "Coffee",
+        "image" : "coffee.jpg",
         "name" : "Coffee",
         "usage" : [
             "Can serve as ice-breaker",
             "Can be used as token of appreciation"
-        ]
+        ],
+        "category" : "Drink",
+        "manufacturer" : "Ankush",
+        "price" : 500
     }
 }

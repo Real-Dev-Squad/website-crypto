@@ -15,23 +15,23 @@ export const ShopCard = (props) => {
       <p> {product.name}</p>
       <p> RDS {product.price}</p>
       <div>
-      <button onClick={() => handleAddProduct(product.name)}> + </button>
-      <button onClick={() => handleRemoveProduct(product.name)}> - </button>
+        <button onClick={() => handleAddProduct(product.name)}> + </button>
+        <button onClick={() => handleRemoveProduct(product.name)}> - </button>
       </div>
       <p> Quantity : {props.quantity}</p>
       <style jsx>{`
-      .shop-card {
-        padding : 10px;
-        display : flex;
-        flex-direction : column;
-        align-items: center;
-        justify-content: center;
-      }
-      .shop-card > img {
-        border : 1px solid;
-        width : 200px;
-        height : 200px;
-      }
+        .shop-card {
+          padding: 10px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+        .shop-card > img {
+          border: 1px solid;
+          width: 200px;
+          height: 200px;
+        }
       `}</style>
     </div>
   );

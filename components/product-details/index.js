@@ -1,20 +1,20 @@
-import productData from '../../mock/products.json'
+import productData from '../../mock/products.json';
 
-export const ProductDetails = ({ productName}) => {
+export const ProductDetails = ({ productName }) => {
   const product = productData[productName];
   return (
     <div className="product-container">
       <img
         className="product-image"
         src="../../styles/user-female-alt-icon.png"
-        alt = {product.id}
+        alt={product.id}
       />
       <div>
         <h2> {product.name}</h2>
         <h3> Where to use</h3>
         <ul>
-          {product.usage.map((use) => {
-            return <li>{use}</li> 
+          {product.usage.map((use, index) => {
+            return <li key={index}>{use}</li>;
           })}
         </ul>
       </div>

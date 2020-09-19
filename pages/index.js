@@ -1,18 +1,16 @@
 import Head from 'next/head';
 
-import {useState} from 'react'
-import transactionData from '../mock/transaction.json'
-import personData from '../mock/person.json'
-import CoinsData from '../mock/coins.json'
-import TransactionList from '../components/transaction-details'
-import PersonDetail from '../components/user-info'
-import CoinsStatus from '../components/coins-status'
-import Filter from '../components/filter'
-import Button from '../components//Button'
-import Modal from '../components/Modal'
-import styles from '../styles/Home.module.css'
-
-
+import { useState } from 'react';
+import transactionData from '../mock/transaction.json';
+import personData from '../mock/person.json';
+import CoinsData from '../mock/coins.json';
+import TransactionList from '../components/transaction-details';
+import PersonDetail from '../components/user-info';
+import CoinsStatus from '../components/coins-status';
+import Filter from '../components/filter';
+import Button from '../components//Button';
+import Modal from '../components/Modal';
+import styles from '../styles/Home.module.css';
 
 //TODO : take out the filter logic
 export default function Home() {
@@ -39,6 +37,7 @@ export default function Home() {
         <title>RDS-MicroTransaction</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <div id="modal" />
       <div className={styles.wrapper}>
         <div className={styles.userinfo}>
           <PersonDetail personDetails={personData} />

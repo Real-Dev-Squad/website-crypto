@@ -1,14 +1,19 @@
 const Image = (props) => {
-    return (
-        <>
-        <img src={"../../public/user-female-alt-icon.png"} alt={props.image.alt} height={300} />
-        <style jsx>{`
+  return (
+    <>
+      <img
+        src={'../../public/user-female-alt-icon.png'}
+        alt={props.image.alt}
+        height={300}
+      />
+      <style jsx>
+        {`
         img {
             
-    `} </style>
+    `}
+      </style>
     </>
-    )
-    
-}
+  );
+};
 
-export {Image}
+export { Image };

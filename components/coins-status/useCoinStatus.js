@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export const useCoinStatus = (lowerLimit, upperLimit) => {
   //TODO : use useInterval instead of setInterval
@@ -14,7 +14,9 @@ export const useCoinStatus = (lowerLimit, upperLimit) => {
         setStart((prevCoin) => prevCoin + 1);
       }
     }, 20);
-  }, [end]);
+
+    return () => clearInterval(setCoinInterval.current);
+  }, [start, end]);
 
   useEffect(() => {
     if (start === end) {
