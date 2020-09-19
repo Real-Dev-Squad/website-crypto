@@ -8,7 +8,7 @@ import ProductDetails from '../../mock/products.json';
 const initialState = {
   cartItems: {},
   totalItemsInCart: 0,
-  totalCost: 0
+  totalCost: 0,
 };
 
 export default function cartData(state = initialState, action) {
@@ -24,7 +24,7 @@ export default function cartData(state = initialState, action) {
             details: ProductDetails[item],
             quantity: 1,
           };
-      const totalAmount = itemDetails.details.price + state.totalCost
+      const totalAmount = itemDetails.details.price + state.totalCost;
       return {
         ...state,
         cartItems: {
@@ -34,8 +34,7 @@ export default function cartData(state = initialState, action) {
           },
         },
         totalItemsInCart: state.totalItemsInCart + 1,
-        totalCost: totalAmount
-
+        totalCost: totalAmount,
       };
     }
     case REMOVE_CART_ITEMS: {
@@ -51,10 +50,12 @@ export default function cartData(state = initialState, action) {
           };
 
       const totalItems = itemDetails.quantity ? itemDetails.quantity - 1 : 0;
-      const amount = state.totalCost-itemDetails.details.price > 0 ? state.totalCost-itemDetails.details.price : 0
+      const amount =
+        state.totalCost - itemDetails.details.price > 0
+          ? state.totalCost - itemDetails.details.price
+          : 0;
 
       if (totalItems) {
-
         return {
           ...state,
           cartItems: {
@@ -65,15 +66,14 @@ export default function cartData(state = initialState, action) {
             },
           },
           totalItemsInCart: state.totalItemsInCart - 1,
-          totalCost: amount
-
+          totalCost: amount,
         };
       } else {
         delete state.cartItems[item];
         return {
           ...state,
           totalItemsInCart: state.totalItemsInCart - 1,
-          totalCost: amount
+          totalCost: amount,
         };
       }
     }

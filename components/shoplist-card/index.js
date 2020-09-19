@@ -14,7 +14,9 @@ export const ShopCard = (props) => {
   };
   return (
     <div className="shop-card">
-      <Link href={props.link.href} as={props.link.as}><img src={path.join('./assets', product.image)} alt={product.name} /></Link>
+      <Link href={props.link.href} as={props.link.as}>
+        <img src={path.join('./assets', product.image)} alt={product.name} />
+      </Link>
       <div className="shop-card__content">
         <p> {product.name}</p>
         <p> {product.price}</p>

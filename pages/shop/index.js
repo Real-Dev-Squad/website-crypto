@@ -24,31 +24,24 @@ const Shop = (props) => {
       <div className="shoppinglist-container">
         {products.map((itemName) => {
           return (
-          
-              
-              <ShopCard
-                key={itemName}
-                product={productData[itemName]}
-                quantity={props.shopListItemsCount[itemName] || 0}
-                add={{ addCartItem, addShopListItem }}
-                del={{ delCartItem, delShopListItem }}
-                link={{href:"/shop/[product]", as :`/shop/${itemName}`}}
-              />
-              
-              
-              
-          
+            <ShopCard
+              key={itemName}
+              product={productData[itemName]}
+              quantity={props.shopListItemsCount[itemName] || 0}
+              add={{ addCartItem, addShopListItem }}
+              del={{ delCartItem, delShopListItem }}
+              link={{ href: '/shop/[product]', as: `/shop/${itemName}` }}
+            />
           );
         })}
       </div>
-      
+
       <Footer />
       <style jsx>{`
         .shoppinglist-container {
           display: flex;
           flex-direction: column;
         }
-        
       `}</style>
     </div>
   );

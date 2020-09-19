@@ -5,7 +5,11 @@ import { Header } from '../components/header';
 import { Footer } from '../components/footer';
 import { CartCard } from '../components/cartlist-card';
 import { CartSummary } from '../components/cart-summary';
-import { getCartItems, getCartTotalItems, getCartTotalCost } from '../redux/selector';
+import {
+  getCartItems,
+  getCartTotalItems,
+  getCartTotalCost,
+} from '../redux/selector';
 import {
   addCartItem,
   delCartItem,
@@ -45,8 +49,8 @@ const Cart = (props) => {
         ) : (
           <p> Oops No Items !</p>
         )}
-        
-        <CartSummary total={props.totalCartCost}/>
+
+        <CartSummary total={props.totalCartCost} />
       </div>
       {/* <Footer /> */}
 
@@ -82,7 +86,7 @@ const mapStateToProps = (state) => {
   const cartItems = getCartItems(state);
   const totatCartItems = getCartTotalItems(state);
   const totalCartCost = getCartTotalCost(state);
-  return { cartItems, totatCartItems,totalCartCost };
+  return { cartItems, totatCartItems, totalCartCost };
 };
 
 export default connect(mapStateToProps, {

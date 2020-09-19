@@ -7,7 +7,7 @@ export const ProductDetails = ({ productName }) => {
     <div className="product-container">
       <img
         className="product-image"
-        src={path.join('../assets',product.image)}
+        src={path.join('../assets', product.image)}
         alt={product.id}
       />
       <div>

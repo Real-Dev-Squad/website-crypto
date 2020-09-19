@@ -1,4 +1,5 @@
-export const CartSummary = ({total = 0} =props) => {
+//TODO: add PropTypes
+export const CartSummary = ({ total = 0 } = props) => {
   return (
     <div className="cart-summary-container">
       <p> SUMMARY </p>
