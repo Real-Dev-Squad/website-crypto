@@ -1,4 +1,4 @@
-import Button from '../button';
+import Button from '../Button';
 
 const Filter = (props) => {
   return (
