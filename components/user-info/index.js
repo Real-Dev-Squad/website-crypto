@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 
  const PersonDetail = (props) => {
     const {name, type, photo} = props.personDetails
@@ -43,6 +44,12 @@
       `}</style>
     </div>
   );
+};
+
+PersonDetail.propTypes = {
+    name: PropTypes.string,
+    photo: PropTypes.string,
+    type: PropTypes.string
 };
 
 export default PersonDetail;

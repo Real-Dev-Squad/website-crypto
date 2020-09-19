@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export const useCoinStatus = (lowerLimit, upperLimit) => {
   //TODO : use useInterval instead of setInterval

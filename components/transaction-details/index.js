@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const SingleTransaction = (props) => {
   const { amount, receiver, date, type } = props.transactionItem;
   return (
@@ -40,6 +42,13 @@ const TransactionList = (props) => {
       `}</style>
     </div>
   );
+};
+
+SingleTransaction.propTypes = {
+  date: PropTypes.string,
+  reciever: PropTypes.string,
+  sender: PropTypes.string,
+  type: PropTypes.string
 };
 
 export default TransactionList;
