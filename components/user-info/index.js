@@ -1,44 +1,17 @@
 import PropTypes from 'prop-types';
+import styles from './user-info.module.css';
+
 const PersonDetail = (props) => {
   const { name, type, photo } = props.personDetails;
   return (
-    <div className="userinfo-container">
-      <div className="img">
-        <img src={photo} alt="profile picture"></img>
+    <>
+      <img src={photo} className={styles.profilePic} alt="Profile Image" />
+      <div className={styles.personalInfo}>
+        <h1>{name}</h1>
+        <p className={styles.userName}>{type}</p>
+        <p className={styles.workDetails}>FrontEnd Developer<br /><span className={styles.userName}>RDS</span></p>
       </div>
-
-      <div>
-        <div className="name"> {name} </div>
-        <div className="text-gray"> {type} </div>
-        <div className="text-gray"> some extra information</div>
-      </div>
-
-      <style jsx>{`
-        .userinfo-container {
-          padding: 1em;
-          display: flex;
-          align-items: center;
-        }
-        .userinfo-container > .img {
-          border: 3px solid #e30062;
-          width: 80px;
-          height: 80px;
-          border-radius: 50%;
-          margin-right: 10px;
-          overflow: hidden;
-        }
-        .userinfo-container > .img img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .userinfo-container .name {
-          color: #e30062;
-          font-size: 36px;
-          font-weight: bold;
-        }
-      `}</style>
-    </div>
+    </>
   );
 };
 

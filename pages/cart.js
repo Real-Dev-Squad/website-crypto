@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Header } from '../components/header';
+import Header from '../components/header';
 import { Footer } from '../components/footer';
 import { CartCard } from '../components/cartlist-card';
 import { CartSummary } from '../components/cart-summary';

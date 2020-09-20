@@ -1,10 +1,10 @@
 {
-    "name" : "kratika",
-    "type" : "active",
-    "photo" : "some photo",
-    "coins" : {
-        "brass" : 200,
-        "gold" : 100,
-        "silver" : 300
-    }
+  "name": "Ankush Dharkar",
+  "type": "Active",
+  "photo": "https://raw.githubusercontent.com/Real-Dev-Squad/website-static/main/members/ankush/img.png",
+  "coins": {
+    "brass": 200,
+    "gold": 100,
+    "silver": 300
+  }
 }

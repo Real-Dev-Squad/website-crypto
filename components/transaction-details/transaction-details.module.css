@@ -1,0 +1,55 @@
+.transactions {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.transactionCard {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-content: flex-start;
+  margin: 10px 0;
+  width: 500px;
+  background-color: #fdfbfb;
+  border: 1px solid #f4f1f1;
+}
+
+.transactionCard .action {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 20%;
+  align-items: center;
+  padding: 15px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.transactionDetails {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 15px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.transactionDetails span {
+  font-size: 15px;
+}
+
+.green {
+  background-color: #2ecc71;
+}
+
+.red {
+  background-color: #ff3838;
+}
