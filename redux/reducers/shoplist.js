@@ -11,7 +11,6 @@ export default function shopData(state = initialState, action) {
   switch (action.type) {
     case ADD_SHOPLIST_ITEMS: {
       const { item } = action.payload;
-      console.log(item, 'shoppinglist');
       let quantity = state.shopListItemsCount[item]
         ? state.shopListItemsCount[item] + 1
         : 1;

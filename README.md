@@ -1,30 +1,54 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Crypto Site
 
-## Getting Started
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+This application enables transaction among members of RDS group. We have three different currencies : Bronze , Silver and Gold and these carry different values. You can shop items and acknowledge people for their work 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-## Learn More
+## What exactly does this means
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+ Virtual currency that has value inside RDS society will be credited based on various factors such as contribution, mentoring, proactive etc. Using that currency you can buy virtual items which can help in any type of acknowledgement(good and bad)
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Tech stack used
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+* Next.js
+
+* Redux
+
+* Jest
+
+
+
+## How it is important and can impact you
+
+
+
+You can showcase all these items outside RDS which will be value addition to your résumé. Getting acknowledged always motivates and these type of transaction are present in other open source societies.
+
+
+
+## What features we have currently:
+
+
+
+* You can shop items
+
+* You can send and receive money
+
+
+
+
+
+## Upcoming features
+
+* Chat bot
+
+* Turn this into a trading application which means prices for the virtual money and items change dynamically.
+
+
+
+### For more details you can connect with @Kratika0907

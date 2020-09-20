@@ -1,9 +1,10 @@
-export const CartSummary = (props) => {
+//TODO: add PropTypes
+export const CartSummary = ({ total = 0 } = props) => {
   return (
     <div className="cart-summary-container">
       <p> SUMMARY </p>
-      <p> Subtotal : </p>
-      <p> Taxes : </p>
+      <p> Subtotal :RDS {total}.00 </p>
+      <p> Taxes : RDS {total > 0 ? 10 : '0.00'} </p>
       <p> Confirm </p>
       <style jsx>
         {`
