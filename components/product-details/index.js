@@ -10,7 +10,7 @@ export const ProductDetails = ({ productName }) => {
         src={path.join('../assets', product.image)}
         alt={product.id}
       />
-      <div>
+      <div className="product-details">
         <h2> {product.name}</h2>
         <h3> Where to use</h3>
         <ul>
@@ -21,7 +21,7 @@ export const ProductDetails = ({ productName }) => {
       </div>
       <style jsx>{`
         .product-container {
-          display: grid;
+          display: flex;
           border: 2px solid green;
           grid-column-gap: 5rem;
         }
@@ -30,6 +30,9 @@ export const ProductDetails = ({ productName }) => {
           background-color: cyan;
           height: 200px;
           width: 200px;
+        }
+        .product-details {
+          margin-left -60px;
         }
       `}</style>
     </div>
