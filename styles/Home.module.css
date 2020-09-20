@@ -1,3 +1,61 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  flex-basis: 100%;
+  padding: 20px;
+}
+
+.branding {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 70px;
+}
+
+.rdsName {
+  font-size: 35px;
+  font-weight: bold;
+  color: #e20665;
+  padding: 0 10px;
+}
+
+.coins {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-self: flex-end;
+  width: 33%;
+  flex-wrap: nowrap;
+}
+
+.coin {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin: 0 10px;
+}
+
+.gold {
+  background-color: #f39c12;
+}
+
+.silver {
+  background-color: #bdc3c7;
+}
+
+.bronze {
+  background-color: #e67e22;
+}
+
 .container {
   display: flex;
   flex-direction: row;
@@ -31,14 +89,10 @@
   border: 1px solid #ff3838;
 }
 
-.icon {
-  width: 25px;
-  margin-right: 15px;
-}
-
 .heading {
   font-size: 30px;
   font-weight: bold;
+  display: inline-block;
 }
 
 .card {

@@ -17,7 +17,6 @@ export const addCartItem = (item) => {
 };
 
 export const delCartItem = (item) => {
-  console.log('delCartItem', item);
   return {
     type: REMOVE_CART_ITEMS,
     payload: {
@@ -36,7 +35,6 @@ export const addShopListItem = (item) => {
 };
 
 export const delShopListItem = (item) => {
-  console.log(item, 'action del item');
   return {
     type: REMOVE_SHOPLIST_ITEMS,
     payload: {

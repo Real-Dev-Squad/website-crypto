@@ -4,30 +4,6 @@
   border-radius: 50%;
 }
 
-.card {
-  margin: 10px;
-  border: 1px solid #f4f4f4;
-  border-radius: 10px;
-  padding: 0 30px 20px;
-  background: white;
-  cursor: pointer;
-  box-shadow: 0 0 15px -7px rgba(0, 0, 0, 0.65);
-}
-
-.card:hover {
-  box-shadow: 0 0 20px -7px rgba(0, 0, 0, 0.65);
-}
-
-.icon {
-  width: 25px;
-  padding: 0 15px;
-}
-
-.heading {
-  font-size: 30px;
-  font-weight: bold;
-}
-
 .userName {
   font-weight: bold;
   font-size: 20px;

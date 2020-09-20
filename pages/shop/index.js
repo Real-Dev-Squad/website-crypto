@@ -8,7 +8,7 @@ import {
   addShopListItem,
   delShopListItem,
 } from '../../redux/action';
-import { Header } from '../../components/header';
+import Header from '../../components/header';
 import { Footer } from '../../components/footer';
 import { Image } from '../../components/image';
 import productData from '../../mock/products.json';

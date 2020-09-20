@@ -47,8 +47,8 @@ const Cart = (props) => {
             })}
           </div>
         ) : (
-          <p> Oops No Items !</p>
-        )}
+            <p> Oops No Items !</p>
+          )}
 
         <CartSummary total={props.totalCartCost} />
       </div>

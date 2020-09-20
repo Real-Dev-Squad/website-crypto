@@ -33,12 +33,13 @@ a {
 
 .icon {
   width: 25px;
-  padding: 0 15px;
+  margin-right: 15px;
 }
 
 .heading {
   font-size: 30px;
   font-weight: bold;
+  display: inline-block;
 }
 
 .userName {

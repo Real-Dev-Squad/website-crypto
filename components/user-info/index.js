@@ -6,10 +6,10 @@ const PersonDetail = (props) => {
   return (
     <>
       <img src={photo} className={styles.profilePic} alt="Profile Image" />
-      <div className={styles.personalInfo}>
+      <div>
         <h1>{name}</h1>
         <p className={styles.userName}>{type}</p>
-        <p className={styles.workDetails}>FrontEnd Developer<br /><span className={styles.userName}>RDS</span></p>
+        <p>FrontEnd Developer<br /><span className={styles.userName}>RDS</span></p>
       </div>
     </>
   );
