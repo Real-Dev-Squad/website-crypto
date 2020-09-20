@@ -8,12 +8,13 @@ import ProductDetails from '../../mock/products.json';
 const initialState = {
   cartItems: {},
   totalItemsInCart: 0,
+  totalCost: 0,
 };
 
 export default function cartData(state = initialState, action) {
   switch (action.type) {
     case ADD_CART_ITEMS: {
-      const { totalItems, item } = action.payload;
+      const { item } = action.payload;
       const itemDetails = state.cartItems[item]
         ? {
             details: ProductDetails[item],
@@ -23,6 +24,7 @@ export default function cartData(state = initialState, action) {
             details: ProductDetails[item],
             quantity: 1,
           };
+      const totalAmount = itemDetails.details.price + state.totalCost;
       return {
         ...state,
         cartItems: {
@@ -31,7 +33,8 @@ export default function cartData(state = initialState, action) {
             ...itemDetails,
           },
         },
-        totalItemsInCart: totalItems,
+        totalItemsInCart: state.totalItemsInCart + 1,
+        totalCost: totalAmount,
       };
     }
     case REMOVE_CART_ITEMS: {
@@ -46,8 +49,12 @@ export default function cartData(state = initialState, action) {
             quantity: 0,
           };
 
-      const totalItems =
-        itemDetails.quantity > 0 ? itemDetails.quantity - 1 : null;
+      const totalItems = itemDetails.quantity ? itemDetails.quantity - 1 : 0;
+      const amount =
+        state.totalCost - itemDetails.details.price > 0
+          ? state.totalCost - itemDetails.details.price
+          : 0;
+
       if (totalItems) {
         return {
           ...state,
@@ -58,12 +65,15 @@ export default function cartData(state = initialState, action) {
               quantity: totalItems,
             },
           },
-          totalItemsInCart: totalItems,
+          totalItemsInCart: state.totalItemsInCart - 1,
+          totalCost: amount,
         };
       } else {
         delete state.cartItems[item];
         return {
           ...state,
+          totalItemsInCart: state.totalItemsInCart - 1,
+          totalCost: amount,
         };
       }
     }

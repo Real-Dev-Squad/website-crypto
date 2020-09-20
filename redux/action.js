@@ -5,24 +5,22 @@ import {
   REMOVE_SHOPLIST_ITEMS,
 } from './actionTypes';
 
-let totalItemsInCart = 0;
-
 export const addCartItem = (item) => {
   // item will be just the name of item
   return {
     type: ADD_CART_ITEMS,
     payload: {
-      totalItems: ++totalItemsInCart,
+      totalItems: 0,
       item,
     },
   };
 };
 
 export const delCartItem = (item) => {
+  console.log('delCartItem', item);
   return {
     type: REMOVE_CART_ITEMS,
     payload: {
-      totalItems: --totalItemsInCart,
       item,
     },
   };
