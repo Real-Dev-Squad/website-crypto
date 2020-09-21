@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p $PORT",
+	"build-static" : "next build && next export"
     "test": "jest --coverage",
     "test:watch": "jest --watch",
     "lint": "eslint --fix . && echo 'Lint complete.'"
