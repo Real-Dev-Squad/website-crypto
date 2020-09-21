@@ -10,6 +10,7 @@ import CoinsStatus from '../components/coins-status';
 import Filter from '../components/filter';
 import Button from '../components//Button';
 import Modal from '../components/Modal';
+import { Footer } from '../components/footer';
 import styles from '../styles/Home.module.css';
 
 //TODO : take out the filter logic
@@ -63,6 +64,7 @@ export default function Home() {
           </Button>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

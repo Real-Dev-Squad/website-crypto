@@ -52,7 +52,7 @@ const Cart = (props) => {
 
         <CartSummary total={props.totalCartCost} />
       </div>
-      {/* <Footer /> */}
+      { <Footer /> }
 
       <style jsx>
         {`

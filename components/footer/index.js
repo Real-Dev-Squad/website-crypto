@@ -1,11 +1,16 @@
 export const Footer = () => {
   return (
     <footer>
-      This project is open sourced and code is hosted at website-crypto on RDS
+      The contents of this website are deployed from this <a href="https://github.com/Real-Dev-Squad/website-crypto" target="_blank">open sourced repo</a>
       <style jsx>{`
         footer {
+          text-align: center;
           border: 2px solid blue;
           padding: 10px;
+          margin: 5px;
+        }
+        footer a {
+          text-decoration: underline;
         }
       `}</style>
     </footer>
