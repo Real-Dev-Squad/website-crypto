@@ -1,53 +1,114 @@
-/* .container {
-  min-height: 100vh;
-  padding: 0 0.5rem;
+.header {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  flex-basis: 100%;
+  padding: 20px;
+}
+
+.branding {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-} */
-.wrapper {
-  display: grid;
-  grid-gap: 2em;
-  grid-template-areas: 
-  "userData"
-  "coinsData"
-  "transactionsData";
+}
 
+.logo {
+  width: 70px;
 }
-.userinfo{
-  grid-area: userData;
+
+.rdsName {
+  font-size: 35px;
+  font-weight: bold;
+  color: #e20665;
+  padding: 0 10px;
 }
-.coinstatus {
-  grid-area: coinsData;
-}
-.transactions {
-  grid-area: transactionsData;
-}
-.transactionButton {
+
+.coins {
   display: flex;
-  grid-area: transactionButtonData;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-self: flex-end;
+  width: 33%;
+  flex-wrap: nowrap;
 }
 
-
-@media (min-width: 500px) {
-  .wrapper {
-    grid-template-columns: 1fr 3fr;
-    grid-template-areas: 
-      "usersData usersData"
-      "coinsData coinsData"
-      "transactionButtonData" "transactionButtonData"
-      "transactionsData transactionsData"
-  }
+.coin {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin: 0 10px;
 }
-@media (min-width: 700px) {
-  .wrapper {
-    grid-template-columns: 2fr 2fr 1fr;
-    grid-template-areas: 
-      "userData coinsData  coinsData "
-      "transactionButtonData transactionButtonData ."
-      "transactionsData transactionsData ." ;
-   }
- }
- 
 
+.gold {
+  background-color: #f39c12;
+}
+
+.silver {
+  background-color: #bdc3c7;
+}
+
+.bronze {
+  background-color: #e67e22;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.sidebar {
+  padding: 20px;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid #e20665;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.greenButton {
+  background-color: #2ecc71;
+  border: 1px solid #2ecc71;
+}
+
+.redButton {
+  color: white;
+  background-color: #ff3838;
+  border: 1px solid #ff3838;
+}
+
+.heading {
+  font-size: 30px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.card {
+  margin: 10px;
+  border: 1px solid #f4f4f4;
+  border-radius: 10px;
+  padding: 20px;
+  background: white;
+  cursor: pointer;
+  box-shadow: 0 0 15px -7px rgba(0, 0, 0, 0.65);
+}
+
+.card:hover {
+  box-shadow: 0 0 20px -7px rgba(0, 0, 0, 0.65);
+}
+
+.content {
+  flex-shrink: 1;
+}

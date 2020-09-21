@@ -1,0 +1,29 @@
+.filter {
+  float: right;
+  position: relative;
+}
+
+.filterContent {
+  display: none;
+  position: absolute;
+  width: 200px;
+  top: 25px;
+  right: 15px;
+  z-index: 5;
+  font-weight: bold;
+  box-shadow: 0 0 10px -7px rgba(0, 0, 0, 0.65);
+}
+
+.filterContent li {
+  list-style-type: none;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.filterContent li:hover {
+  background-color: #bdc3c7;
+}
+
+.filter:hover .filterContent {
+  display: inline-block;
+}

@@ -6,7 +6,6 @@ import { getCartItems, getCartTotalItems } from '../redux/selector';
 
 function Mock(props) {
   const [item, setItemName] = useState('');
-  console.log(props, item);
   return (
     <>
       <p>Hello Mock</p>
@@ -21,7 +20,6 @@ function Mock(props) {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state, 'state from component');
   const cartItems = getCartItems(state.addItem);
   return { cartItems };
 };

@@ -1,0 +1,11 @@
+.profilePic {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.userName {
+  font-weight: bold;
+  font-size: 20px;
+  color: #7f8c8d;
+}
