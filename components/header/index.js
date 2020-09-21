@@ -1,6 +1,6 @@
 import colors from '../../color/color.json';
 
-export const Header = (props) => {
+const Header = (props) => {
   return (
     <header>
       {props.msg}
@@ -20,3 +20,5 @@ export const Header = (props) => {
     </header>
   );
 };
+
+export default Header;
