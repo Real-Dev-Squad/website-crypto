@@ -1,11 +1,13 @@
-/* .container {
-  min-height: 100vh;
-  padding: 0 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-} */
+.container {
+  height: 100vh;
+}
+
+.content {
+  height: 100vh;
+  overflow: auto;
+  padding-bottom: 42px;
+}
+
 .wrapper {
   display: grid;
   grid-gap: 2em;
@@ -13,22 +15,24 @@
   "userData"
   "coinsData"
   "transactionsData";
-
 }
+
 .userinfo{
   grid-area: userData;
 }
+
 .coinstatus {
   grid-area: coinsData;
 }
+
 .transactions {
   grid-area: transactionsData;
 }
+
 .transactionButton {
   display: flex;
   grid-area: transactionButtonData;
 }
-
 
 @media (min-width: 500px) {
   .wrapper {
