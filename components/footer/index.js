@@ -5,9 +5,12 @@ export const Footer = () => {
       <style jsx>{`
         footer {
           text-align: center;
-          border: 2px solid blue;
-          padding: 10px;
-          margin: 5px;
+          padding-top: 20px;
+          margin-bottom: 10px;
+          // following lines are for getting the footer at the bottom on all the pages
+          position: relative;
+          height: 42px;
+          margin-top: -42px;
         }
         footer a {
           text-decoration: underline;
