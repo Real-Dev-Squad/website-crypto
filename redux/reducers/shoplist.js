@@ -1,5 +1,4 @@
 import { ADD_SHOPLIST_ITEMS, REMOVE_SHOPLIST_ITEMS } from '../actionTypes';
-import ProductDetails from '../../mock/products.json';
 /* shopListItemsCount : {
     shoe : 15
 }*/

@@ -1,7 +1,7 @@
 import { createStore } from 'redux';
-import { createWrapper, HYDRATE } from 'next-redux-wrapper';
+import { createWrapper } from 'next-redux-wrapper';
 import rootReducer from './reducers';
 
-const makeStore = (context) => createStore(rootReducer);
+const makeStore = () => createStore(rootReducer);
 
 export const wrapper = createWrapper(makeStore, { debug: true });

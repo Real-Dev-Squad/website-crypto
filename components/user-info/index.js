@@ -9,7 +9,11 @@ const PersonDetail = (props) => {
       <div>
         <h1>{name}</h1>
         <p className={styles.userName}>{type}</p>
-        <p>FrontEnd Developer<br /><span className={styles.userName}>RDS</span></p>
+        <p>
+          FrontEnd Developer
+          <br />
+          <span className={styles.userName}>RDS</span>
+        </p>
       </div>
     </>
   );
