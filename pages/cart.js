@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Header from '../components/header';
 import { Footer } from '../components/footer';
@@ -16,14 +15,13 @@ import {
   addShopListItem,
   delShopListItem,
 } from '../redux/action';
-import productData from '../mock/products.json';
 import colors from '../color/color.json';
 
-const products = Object.keys(productData);
+// const products = Object.keys(productData);
 const Cart = (props) => {
   const { addCartItem, addShopListItem } = props;
   const { delCartItem, delShopListItem } = props;
-  const [showSummary, setShowSummary] = useState(false);
+  // const [showSummary, setShowSummary] = useState(false);
 
   return (
     <div>
@@ -47,12 +45,12 @@ const Cart = (props) => {
             })}
           </div>
         ) : (
-            <p> Oops No Items !</p>
-          )}
+          <p> Oops No Items !</p>
+        )}
 
         <CartSummary total={props.totalCartCost} />
       </div>
-      {/* <Footer /> */}
+      {<Footer />}
 
       <style jsx>
         {`

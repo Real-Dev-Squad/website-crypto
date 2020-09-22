@@ -20,7 +20,7 @@ test('cartlist-card component test add and delete product', () => {
   //   const handleAddProduct = jest.fn();
   //   const handleRemoveProduct = jest.fn();
 
-  const { container, debug, getByLabelText, getByText } = render(
+  const { getByText } = render(
     <CartCard details={fakeProduct} add={add} quantity={10} del={del} />
   );
 

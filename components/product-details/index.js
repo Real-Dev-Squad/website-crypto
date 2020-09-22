@@ -1,20 +1,19 @@
+import PropTypes from 'prop-types';
 import path from 'path';
-import productData from '../../mock/products.json';
 
-export const ProductDetails = ({ productName }) => {
-  const product = productData[productName];
+export const ProductDetails = ({ productJSON }) => {
   return (
     <div className="product-container">
       <img
         className="product-image"
-        src={path.join('../assets', product.image)}
-        alt={product.id}
+        src={path.join('../assets', productJSON.image)}
+        alt={productJSON.id}
       />
       <div className="product-details">
-        <h2> {product.name}</h2>
+        <h2> {productJSON.name}</h2>
         <h3> Where to use</h3>
         <ul>
-          {product.usage.map((use, index) => {
+          {productJSON.usage.map((use, index) => {
             return <li key={index}>{use}</li>;
           })}
         </ul>
@@ -22,13 +21,16 @@ export const ProductDetails = ({ productName }) => {
       <style jsx>{`
         .product-container {
           display: flex;
-          border: 2px solid green;
-          grid-column-gap: 5rem;
+          grid-column-gap: 8rem;
+          padding-top:10px;
+          padding-bottom:10px;
+          padding-left:10px;
         }
         .product-image {
-          border: 2px solid red;
+          border: 1px solid #eee;
+          box-shadow : 0 2px 2px #ccc;
           background-color: cyan;
-          height: 200px;
+          height: auto;
           width: 200px;
         }
         .product-details {
@@ -37,4 +39,12 @@ export const ProductDetails = ({ productName }) => {
       `}</style>
     </div>
   );
+};
+
+ProductDetails.propTypes = {
+  productJSON: PropTypes.object,
+};
+
+ProductDetails.defaultProps = {
+  productJSON: {},
 };

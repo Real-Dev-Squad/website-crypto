@@ -1,5 +1,6 @@
-//TODO: add PropTypes
-export const CartSummary = ({ total = 0 } = props) => {
+import PropTypes from 'prop-types';
+
+export const CartSummary = ({ total }) => {
   return (
     <div className="cart-summary-container">
       <p> SUMMARY </p>
@@ -30,4 +31,12 @@ export const CartSummary = ({ total = 0 } = props) => {
       </style>
     </div>
   );
+};
+
+CartSummary.propTypes = {
+  total: PropTypes.number,
+};
+
+CartSummary.defaultProps = {
+  total: 0,
 };

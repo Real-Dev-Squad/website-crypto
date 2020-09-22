@@ -1,7 +1,6 @@
-import { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 
-const Modal = (props) => {
+const Modal = () => {
   return <div> </div>;
 };
 

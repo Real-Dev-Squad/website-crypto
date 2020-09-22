@@ -4,7 +4,7 @@ import {
   createMemorySource,
   LocationProvider,
 } from 'reach/router';
-import { render, wait } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import 'jest-dom/extend-expect';
 
 export function renderWithRouter(

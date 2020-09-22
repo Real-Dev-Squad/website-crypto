@@ -6,10 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start -p $PORT",
-	"build-static" : "next build && next export",
+    "build-static": "next build && next export",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
-    "lint": "eslint --fix . && echo 'Lint complete.'"
+    "lint": "eslint --fix . && echo 'Lint complete.'",
+    "format": "prettier --write \"./**/*.{js,jsx,ts,tsx,scss,md,json}\""
   },
   "dependencies": {
     "@babel/plugin-transform-react-jsx": "^7.10.4",
@@ -37,6 +38,21 @@
     "eslint-plugin-react-hooks": "^4.1.0",
     "eslint-plugin-react-with-styles": "^2.3.0",
     "jest": "^26.4.2",
-    "prettier": "^2.1.1"
+    "prettier": "^2.1.1",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged --allow-empty"
+    }
+  },
+  "lint-staged": {
+    "./**/*.{js,jsx,ts,tsx}": [
+      "npm run lint"
+    ],
+    "./**/*.{js,jsx,ts,tsx,scss}": [
+      "npm run format"
+    ]
   }
 }

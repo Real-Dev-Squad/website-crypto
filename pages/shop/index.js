@@ -8,9 +8,8 @@ import {
   addShopListItem,
   delShopListItem,
 } from '../../redux/action';
-import Header from '../../components/header';
+// import Header from '../../components/header';
 import { Footer } from '../../components/footer';
-import { Image } from '../../components/image';
 import productData from '../../mock/products.json';
 
 const products = Object.keys(productData);
@@ -19,8 +18,12 @@ const Shop = (props) => {
   const { delCartItem, delShopListItem } = props;
   return (
     <div>
-      <Header />
-      <Link href="/cart">Take me to cart</Link>
+      {/* <Header /> */}
+      <div className="take-to-cart">
+        <button>
+          <Link href="/cart">Take me to cart</Link>
+        </button>
+      </div>
       <div className="shoppinglist-container">
         {products.map((itemName) => {
           return (
@@ -40,7 +43,20 @@ const Shop = (props) => {
       <style jsx>{`
         .shoppinglist-container {
           display: flex;
-          flex-direction: column;
+          flex-direction: row;
+        }
+        .take-to-cart {
+          text-align: center;
+          padding-top: 10px;
+        }
+        .take-to-cart button {
+          background: #540075;
+          color: white;
+          border: 1px solid #540075;
+          border-radius: 5px;
+          padding: 0.5rem 2rem;
+          font: inherit;
+          cursor: pointer;
         }
       `}</style>
     </div>
