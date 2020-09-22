@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Header } from '../components/header';
+import Header from '../components/header';
 import { Footer } from '../components/footer';
 import { CartCard } from '../components/cartlist-card';
 import { CartSummary } from '../components/cart-summary';
@@ -47,8 +47,8 @@ const Cart = (props) => {
             })}
           </div>
         ) : (
-          <p> Oops No Items !</p>
-        )}
+            <p> Oops No Items !</p>
+          )}
 
         <CartSummary total={props.totalCartCost} />
       </div>

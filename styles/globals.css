@@ -1,9 +1,7 @@
-html,
-body {
+html, body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 a {
@@ -15,8 +13,37 @@ a {
   box-sizing: border-box;
 }
 
-.text-gray{
-  color:#363636;
+.text-gray {
+  color: #363636;
 }
 
+.card {
+  margin: 10px;
+  border: 1px solid #f4f4f4;
+  border-radius: 10px;
+  padding: 0 30px 20px;
+  background: white;
+  cursor: pointer;
+  box-shadow: 0 0 15px -7px rgba(0, 0, 0, 0.65);
+}
 
+.card:hover {
+  box-shadow: 0 0 20px -7px rgba(0, 0, 0, 0.65);
+}
+
+.icon {
+  width: 25px;
+  margin-right: 15px;
+}
+
+.heading {
+  font-size: 30px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.userName {
+  font-weight: bold;
+  font-size: 20px;
+  color: #7f8c8d;
+}
