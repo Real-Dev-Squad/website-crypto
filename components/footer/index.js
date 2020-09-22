@@ -5,7 +5,6 @@ export const Footer = () => {
       <style jsx>{`
         footer {
           text-align: center;
-          border: 2px solid blue;
           padding: 10px;
           margin: 5px;
         }
