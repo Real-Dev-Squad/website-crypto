@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .header {
   display: flex;
   flex-direction: row;
@@ -109,64 +108,6 @@
 .card:hover {
   box-shadow: 0 0 20px -7px rgba(0, 0, 0, 0.65);
 }
-=======
-.container {
-  height: 100vh;
-}
-
-.content {
-  height: 100vh;
-  overflow: auto;
-  padding-bottom: 42px;
-}
-
-.wrapper {
-  display: grid;
-  grid-gap: 2em;
-  grid-template-areas: 
-  "userData"
-  "coinsData"
-  "transactionsData";
-}
-
-.userinfo{
-  grid-area: userData;
-}
-
-.coinstatus {
-  grid-area: coinsData;
-}
-
-.transactions {
-  grid-area: transactionsData;
-}
-
-.transactionButton {
-  display: flex;
-  grid-area: transactionButtonData;
-}
-
-@media (min-width: 500px) {
-  .wrapper {
-    grid-template-columns: 1fr 3fr;
-    grid-template-areas: 
-      "usersData usersData"
-      "coinsData coinsData"
-      "transactionButtonData" "transactionButtonData"
-      "transactionsData transactionsData"
-  }
-}
-@media (min-width: 700px) {
-  .wrapper {
-    grid-template-columns: 2fr 2fr 1fr;
-    grid-template-areas: 
-      "userData coinsData  coinsData "
-      "transactionButtonData transactionButtonData ."
-      "transactionsData transactionsData ." ;
-   }
- }
- 
->>>>>>> footer
 
 .content {
   flex-shrink: 1;
