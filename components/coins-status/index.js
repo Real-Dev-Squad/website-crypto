@@ -6,7 +6,7 @@ const Coins = (props) => {
   const [coins, changeCoins] = useCoinStatus(0, props.coin.value);
   useEffect(() => {
     changeCoins(props.coin.value);
-  }, [props.coin.value]);
+  }, [props.coin.value, changeCoins]);
   return (
     <div className="cointype-indicator">
       <div></div>

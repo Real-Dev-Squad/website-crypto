@@ -1,20 +1,20 @@
 [
-    {
-        "name" : "gold",
-        "value" : 100,
-        "color" : "#FFED4B",
-        "borderColor" : "#A58F20"
-    },
-    {
-        "name" : "silver",
-        "value" : 250,
-        "color" : "#D9D9D9",
-        "borderColor" : "#7F7F7F"
-    },
-    {
-        "name" : "brass",
-        "value" : 150,
-        "color" : "#B97D04",
-        "borderColor": "#885A01"
-    }
+  {
+    "name": "gold",
+    "value": 100,
+    "color": "#FFED4B",
+    "borderColor": "#A58F20"
+  },
+  {
+    "name": "silver",
+    "value": 250,
+    "color": "#D9D9D9",
+    "borderColor": "#7F7F7F"
+  },
+  {
+    "name": "brass",
+    "value": 150,
+    "color": "#B97D04",
+    "borderColor": "#885A01"
+  }
 ]

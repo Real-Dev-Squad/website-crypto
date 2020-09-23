@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Header from '../components/header';
 import { Footer } from '../components/footer';
@@ -16,17 +15,15 @@ import {
   addShopListItem,
   delShopListItem,
 } from '../redux/action';
-import productData from '../mock/products.json';
 import colors from '../color/color.json';
 
-const products = Object.keys(productData);
+// const products = Object.keys(productData);
 const Cart = (props) => {
   const { addCartItem, addShopListItem } = props;
   const { delCartItem, delShopListItem } = props;
-  const [showSummary, setShowSummary] = useState(false);
+  // const [showSummary, setShowSummary] = useState(false);
 
   return (
-<<<<<<< HEAD
     <div>
       <Header
         msg={`Your Shopping Cart - ${props.totatCartItems}`}
@@ -48,37 +45,11 @@ const Cart = (props) => {
             })}
           </div>
         ) : (
-=======
-    <div className="main-container">
-      <div className="content">
-        <Header
-          msg={`Your Shopping Cart - ${props.totatCartItems}`}
-          comp={<Link href="/shop">Go to Shop</Link>}
-        />
-        <div className="cart-container">
-          {Object.keys(props.cartItems).length ? (
-            <div className="cart-container-items">
-              {Object.keys(props.cartItems).map((itemName, index) => {
-                return (
-                  <CartCard
-                    key={index}
-                    details={props.cartItems[itemName].details || ''}
-                    quantity={props.cartItems[itemName].quantity || ''}
-                    add={{ addCartItem, addShopListItem }}
-                    del={{ delCartItem, delShopListItem }}
-                  />
-                );
-              })}
-            </div>
-          ) : (
->>>>>>> footer
             <p> Oops No Items !</p>
           )}
-
           <CartSummary total={props.totalCartCost} />
         </div>
-      </div>
-      { <Footer /> }
+        { <Footer /> }
 
       <style jsx>
         {`

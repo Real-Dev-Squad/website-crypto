@@ -26,15 +26,15 @@ export const ShopCard = (props) => {
       </div>
       <style jsx>{`
         .shop-card {
-          margin: 2rem auto;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-          width: 50rem;
-          max-width: 90%;
+          display: inline-block;
+          margin: 10px;
+          border: 1px solid #eee;
+          box-shadow: 0 2px 2px #ccc;
+          width: 200px;
         }
         .shop-card img {
           width: 100%;
           height: auto;
-          object-fit: cover;
         }
         .shop-card__content {
           padding: 1rem;
