@@ -29,7 +29,6 @@ export default function Home() {
   };
   return (
     <div className={styles.container}>
-<<<<<<< HEAD
       <Head>
         <title>RDS-MicroTransaction</title>
         <link rel="icon" href="/favicon.ico" />
@@ -66,38 +65,6 @@ export default function Home() {
             alt="Transaction Icon"
           />
           Transactions
-=======
-      <div className={styles.content}>
-        <Head>
-          <title>RDS-MicroTransaction</title>
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-        <div id="modal" />
-        <div className={styles.wrapper}>
-          <div className={styles.userinfo}>
-            <PersonDetail personDetails={personData} />
-          </div>
-          <div className={styles.coinstatus}>
-            <CoinsStatus coins={CoinsData} />
-          </div>
-          <div className={styles.transactions}>
-            <Filter
-              handleCreditSort={handleCreditSort}
-              handleDebitSort={handleDebitSort}
-              showOriginal={showOriginal}
-            />
-            <TransactionList transactions={transaction} />
-          </div>
-          <div className={styles.transactionButton}>
-            {modal ? <Modal showModal={modal} /> : null}
-            <Button clickHandler={() => showModal(true)} color="green">
-              Send
-            </Button>
-            <Button clickHandler={() => showModal(true)} color="pink">
-              Receive
-            </Button>
-          </div>
->>>>>>> footer
         </div>
         <Filter
           handleCreditSort={handleCreditSort}
