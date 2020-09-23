@@ -24,32 +24,34 @@ const Cart = (props) => {
   // const [showSummary, setShowSummary] = useState(false);
 
   return (
-    <div>
-      <Header
-        msg={`Your Shopping Cart - ${props.totatCartItems}`}
-        comp={<Link href="/shop">Go to Shop</Link>}
-      />
-      <div className="cart-container">
-        {Object.keys(props.cartItems).length ? (
-          <div className="cart-container-items">
-            {Object.keys(props.cartItems).map((itemName, index) => {
-              return (
-                <CartCard
-                  key={index}
-                  details={props.cartItems[itemName].details || ''}
-                  quantity={props.cartItems[itemName].quantity || ''}
-                  add={{ addCartItem, addShopListItem }}
-                  del={{ delCartItem, delShopListItem }}
-                />
-              );
-            })}
-          </div>
-        ) : (
-          <p> Oops No Items !</p>
-        )}
+    <div className="main-container">
+      <div className="content">
+        <Header
+          msg={`Your Shopping Cart - ${props.totatCartItems}`}
+          comp={<Link href="/shop">Go to Shop</Link>}
+        />
+        <div className="cart-container">
+          {Object.keys(props.cartItems).length ? (
+            <div className="cart-container-items">
+              {Object.keys(props.cartItems).map((itemName, index) => {
+                return (
+                  <CartCard
+                    key={index}
+                    details={props.cartItems[itemName].details || ''}
+                    quantity={props.cartItems[itemName].quantity || ''}
+                    add={{ addCartItem, addShopListItem }}
+                    del={{ delCartItem, delShopListItem }}
+                  />
+                );
+              })}
+            </div>
+          ) : (
+            <p> Oops No Items !</p>
+          )}
 
-        <CartSummary total={props.totalCartCost} />
-      </div>
+          <CartSummary total={props.totalCartCost} />
+          </div>
+        </div>
       {<Footer />}
 
       <style jsx>
