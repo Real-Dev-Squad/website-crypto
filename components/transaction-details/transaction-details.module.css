@@ -15,14 +15,15 @@
   width: 500px;
   background-color: #fdfbfb;
   border: 1px solid #f4f1f1;
-}
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;}
 
 .transactionCard .action {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  width: 20%;
+  width: 110px;
   align-items: center;
   padding: 15px;
   border-top-left-radius: 15px;
@@ -52,4 +53,10 @@
 
 .red {
   background-color: #ff3838;
+}
+
+@media only screen and (max-width: 600px) {
+  .transactionCard {
+    width: 100%;
+  }
 }

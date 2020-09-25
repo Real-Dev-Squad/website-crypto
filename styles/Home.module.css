@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
   justify-content: space-between;
   align-items: center;
   flex-basis: 100%;
@@ -33,7 +32,6 @@
   flex-direction: row;
   justify-content: space-evenly;
   align-self: flex-end;
-  width: 33%;
   flex-wrap: nowrap;
 }
 
@@ -45,15 +43,15 @@
 }
 
 .gold {
-  background-color: #f39c12;
+  background-color: #FFD700;
 }
 
 .silver {
-  background-color: #bdc3c7;
+  background-color: #C0C0C0;
 }
 
 .bronze {
-  background-color: #e67e22;
+  background-color: #cd7f32;
 }
 
 .container {
@@ -71,6 +69,7 @@
   display: inline-block;
   padding: 10px 20px;
   border: 1px solid #e20665;
+  border-radius: 5px;
   color: white;
   font-weight: bold;
   font-size: 20px;
@@ -111,4 +110,15 @@
 
 .content {
   flex-shrink: 1;
+}
+
+@media only screen and (max-width: 600px) {
+  .header {
+    flex-direction: column;
+  }
+  .coins {
+    padding-top: 20px;
+    justify-content: space-evenly;
+    align-self: center;
+  }
 }
