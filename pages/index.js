@@ -6,6 +6,7 @@ import personData from '../mock/person.json';
 import TransactionList from '../components/transaction-details';
 import PersonDetail from '../components/user-info';
 import Filter from '../components/filter';
+import { Footer } from '../components/footer';
 import styles from '../styles/Home.module.css';
 
 //TODO : take out the filter logic
@@ -73,6 +74,7 @@ export default function Home() {
         />
         <TransactionList transactions={transaction} />
       </div>
+      <Footer />
     </div>
   );
 }
