@@ -1,0 +1,21 @@
+.transactions {
+  display: flex;
+  justify-content: center;
+}
+
+.transactionCard {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+  width: 500px;
+  height: 100%;
+  background-color: #fdfbfb;
+  border: 1px solid #f4f1f1;
+}
+
+@media only screen and (max-width: 600px) {
+  .transactionCard {
+    width: 100%;
+    height: 100%;
+  }
+}
