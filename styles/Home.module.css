@@ -121,4 +121,7 @@
     justify-content: space-evenly;
     align-self: center;
   }
+  .card {
+    width: 100%;
+  }
 }
