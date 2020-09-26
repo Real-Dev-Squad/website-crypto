@@ -15,7 +15,9 @@
   background-color: #fdfbfb;
   border: 1px solid #f4f1f1;
   border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;}
+  border-bottom-left-radius: 15px;
+  cursor: pointer;
+}
 
 .transactionCard .action {
   display: flex;

@@ -100,7 +100,7 @@
   border-radius: 10px;
   padding: 20px;
   background: white;
-  cursor: pointer;
+  /* cursor: pointer; */
   box-shadow: 0 0 15px -7px rgba(0, 0, 0, 0.65);
 }
 
