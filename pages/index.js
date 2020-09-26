@@ -4,6 +4,8 @@ import { useState } from 'react';
 import transactionData from '../mock/transaction.json';
 import personData from '../mock/person.json';
 import TransactionList from '../components/transaction-details';
+import coinsData from '../mock/coins.json';
+import CoinsStatus from '../components/coins-status';
 import PersonDetail from '../components/user-info';
 import Filter from '../components/filter';
 import styles from '../styles/Home.module.css';
@@ -44,11 +46,7 @@ export default function Home() {
           <div className={styles.rdsName}>Real Dev Squad</div>
         </div>
 
-        <div className={styles.coins}>
-          <div className={`${styles.coin} ${styles.gold}`}></div>
-          <div className={`${styles.coin} ${styles.silver}`}></div>
-          <div className={`${styles.coin} ${styles.bronze}`}></div>
-        </div>
+        <CoinsStatus coins={coinsData} />
       </div>
       {/* Header End */}
 

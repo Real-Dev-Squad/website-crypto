@@ -9,25 +9,24 @@ const Coins = (props) => {
   }, [props.coin.value, changeCoins]);
   return (
     <div className="cointype-indicator">
-      <div></div>
       <p> {coins} </p>
+      <div className="coin"></div>
+
       <style jsx>
         {`
           .cointype-indicator {
             display: flex;
-            align-items: center;
-            margin-left: 15px;
           }
-          .cointype-indicator > div {
-            height: 2em;
-            width: 2em;
+          .coin {
+            background-color: ${props.coin.color};
+            width: 3em;
+            height: 3em;
             border-radius: 50%;
-            background-color: ${props.coin.color || 'pink'};
-            border: 2px solid ${props.coin.borderColor};
-            margin-right: 5px;
+            border: 1px solid ${props.coin.borderColor};
+            margin: 0 10px;
           }
+
           .cointype-indicator > p {
-            font-size: 1.5em;
             font-weight: bold;
           }
         `}
@@ -40,7 +39,6 @@ const CoinsStatus = (props) => {
   let coinsArray = props.coins.map((coin, index) => {
     return <Coins coin={coin} key={index} />;
   });
-
   return (
     <div className="coins-container">
       {coinsArray}
@@ -48,8 +46,11 @@ const CoinsStatus = (props) => {
         {`
           .coins-container {
             display: flex;
-            justify-content: flex-end;
-            padding-right: 36px;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-self: flex-end;
+            width: 33%;
+            flex-wrap: nowrap;
           }
         `}
       </style>

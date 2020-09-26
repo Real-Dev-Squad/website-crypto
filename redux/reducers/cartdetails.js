@@ -1,4 +1,8 @@
-import { ADD_CART_ITEMS, REMOVE_CART_ITEMS } from '../actionTypes';
+import {
+  ADD_CART_ITEMS,
+  REMOVE_CART_ITEMS,
+  DELETE_FROM_CART,
+} from '../actionTypes';
 import ProductDetails from '../../mock/products.json';
 /* productName : {
     details,
@@ -77,6 +81,18 @@ export default function cartData(state = initialState, action) {
         };
       }
     }
+    case DELETE_FROM_CART: {
+      const { item, quantity } = action.payload;
+      const amountToReduce = ProductDetails[item].price * quantity;
+      //TODO : do not mutate this directly
+      delete state.cartItems[item];
+      return {
+        ...state,
+        totalItemsInCart: state.totalItemsInCart - quantity,
+        totalCost: state.totalCost - amountToReduce,
+      };
+    }
+
     default:
       return state;
   }

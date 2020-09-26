@@ -37,24 +37,8 @@
   flex-wrap: nowrap;
 }
 
-.coin {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  margin: 0 10px;
-}
 
-.gold {
-  background-color: #f39c12;
-}
 
-.silver {
-  background-color: #bdc3c7;
-}
-
-.bronze {
-  background-color: #e67e22;
-}
 
 .container {
   display: flex;

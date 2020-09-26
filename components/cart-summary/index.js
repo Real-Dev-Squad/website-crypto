@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import colors from '../../color/color.json';
 
 export const CartSummary = ({ total }) => {
   return (
@@ -10,13 +11,14 @@ export const CartSummary = ({ total }) => {
       <style jsx>
         {`
           .cart-summary-container {
-            width: 25%;
-            background-color: #19279e;
+            background-color: ${colors.blue.light};
             color: white;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
+            border: none;
+            padding: 20px;
+            cursor: pointer;
           }
           p :last-child {
             border: none;
