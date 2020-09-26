@@ -7,8 +7,14 @@ const Filter = (props) => {
         className="icon"
         src="https://www.flaticon.com/svg/static/icons/svg/3126/3126539.svg"
         alt="Filter icon"
+        onClick={() => {
+          document
+            .getElementById('filterContent')
+            .classList.toggle(styles.showList);
+        }}
       />
-      <div className={styles.filterContent}>
+
+      <div className={styles.filterContent} id="filterContent">
         <li onClick={() => props.handleCreditSort()}>Sort on credit</li>
         <li onClick={() => props.handleDebitSort()}>Sort on debit</li>
         <li>Sort on date</li>
