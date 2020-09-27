@@ -39,7 +39,7 @@ const TransactionChart = (props) => {
     chart();
   }, []);
   return (
-    <div>
+    <div className={styles.transactionCard}>
       <Line
         width={500}
         height={300}
