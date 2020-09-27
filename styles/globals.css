@@ -47,3 +47,24 @@ a {
   font-size: 20px;
   color: #7f8c8d;
 }
+
+footer {
+  width: 100%;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  padding-top: 20px;
+}
+
+footer a {
+  text-decoration: underline;
+}
+
+.main-container {
+  height: 100%;
+}
+
+.content{
+  min-height: 92vh;
+  padding-bottom: 50px;
+}
