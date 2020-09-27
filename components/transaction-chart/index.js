@@ -39,12 +39,14 @@ const TransactionChart = (props) => {
     chart();
   }, []);
   return (
-    <div className={styles.transactionCard}>
+    <div>
       <Line
+        width={500}
+        height={300}
         data={chartData}
         options={{
           responsive: true,
-
+          maintainAspectRatio: false,
           title: { text: 'RDS Transaction', display: true },
           scales: {
             yAxes: [

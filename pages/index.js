@@ -8,7 +8,7 @@ import PersonDetail from '../components/user-info';
 import Filter from '../components/filter';
 import { Footer } from '../components/footer';
 import styles from '../styles/Home.module.css';
-import TransactionChart from '../components/transaction-chart/index.js';
+import TransactionChart from '../components/transaction-chart';
 
 //TODO : take out the filter logic
 export default function Home() {
