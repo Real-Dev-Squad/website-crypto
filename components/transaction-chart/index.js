@@ -5,7 +5,6 @@ import styles from './transaction-chart.module.css';
 const TransactionChart = (props) => {
   const { labels, datasets, title, scales } = props.transactionChartData;
   const [chartData, setChartData] = useState({});
-
   const chart = () => {
     setChartData({
       labels: labels,
