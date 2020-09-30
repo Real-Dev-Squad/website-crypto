@@ -3,7 +3,6 @@ import { Line } from 'react-chartjs-2';
 import { useState, useEffect } from 'react/cjs/react.development';
 import styles from './transaction-chart.module.css';
 const TransactionChart = (props) => {
-  console.log('gm');
   const { labels, datasets, title, scales } = props.transactionChartData;
   const [chartData, setChartData] = useState({});
 
