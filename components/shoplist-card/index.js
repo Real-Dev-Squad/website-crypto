@@ -30,10 +30,11 @@ export const ShopCard = (props) => {
           margin: 10px;
           border: 1px solid #eee;
           box-shadow: 0 2px 2px #ccc;
-          width: 200px;
+          width: 400px;
+          text-align: center;
         }
         .shop-card img {
-          width: 100%;
+          width: 150px;
           height: auto;
         }
         .shop-card__content {
