@@ -1,6 +1,9 @@
 .filter {
   float: right;
   position: relative;
+  top: 5px;
+  right: -15px;
+  cursor: pointer;
 }
 
 .filterContent {
@@ -11,7 +14,7 @@
   right: 15px;
   z-index: 5;
   font-weight: bold;
-  box-shadow: 0 0 10px -7px rgba(0, 0, 0, 0.65);
+  box-shadow: 0 0 20px -7px rgba(0, 0, 0, 0.75);
 }
 
 .filterContent li {
@@ -25,5 +28,9 @@
 }
 
 .filter:hover .filterContent {
+  /* display: inline-block; */
+}
+
+.showList {
   display: inline-block;
 }
