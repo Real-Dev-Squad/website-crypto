@@ -1,11 +1,52 @@
-{
-  "transactionDates": [
-    "09/23/2020",
-    "09/24/2020",
-    "09/25/2020",
-    "09/26/2020",
-    "09/27/2020"
-  ],
-  "creditData": [10, 23, 56, 68, 91],
-  "debitData": [5, 13, 46, 58, 71]
-}
+[
+  {
+    "type": "credit",
+    "amount": "60",
+    "timeStamp": "09/23/2020"
+  },
+  {
+    "type": "credit",
+    "amount": "140",
+    "timeStamp": "09/24/2020"
+  },
+  {
+    "type": "credit",
+    "amount": "230",
+    "timeStamp": "09/25/2020"
+  },
+  {
+    "type": "credit",
+    "amount": "273",
+    "timeStamp": "09/26/2020"
+  },
+  {
+    "type": "credit",
+    "amount": "298",
+    "timeStamp": "09/27/2020"
+  },
+  {
+    "type": "debit",
+    "amount": "50",
+    "timeStamp": "09/23/2020"
+  },
+  {
+    "type": "debit",
+    "amount": "90",
+    "timeStamp": "09/24/2020"
+  },
+  {
+    "type": "debit",
+    "amount": "170",
+    "timeStamp": "09/25/2020"
+  },
+  {
+    "type": "debit",
+    "amount": "230",
+    "timeStamp": "09/26/2020"
+  },
+  {
+    "type": "debit",
+    "amount": "130",
+    "timeStamp": "09/27/2020"
+  }
+]
