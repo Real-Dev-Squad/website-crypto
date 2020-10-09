@@ -1,52 +1,44 @@
 [
   {
-    "type": "credit",
-    "amount": "60",
-    "timeStamp": "09/23/2020"
+    "timeStamp": "10/03/2020",
+    "data": [
+      { "type": "credit", "amount": "100" },
+      { "type": "debit", "amount": "100" }
+    ]
   },
   {
-    "type": "credit",
-    "amount": "140",
-    "timeStamp": "09/24/2020"
+    "timeStamp": "10/04/2020",
+    "data": [
+      { "type": "credit", "amount": "240" },
+      { "type": "debit", "amount": "170" }
+    ]
   },
   {
-    "type": "credit",
-    "amount": "230",
-    "timeStamp": "09/25/2020"
+    "timeStamp": "10/05/2020",
+    "data": [
+      { "type": "credit", "amount": "290" },
+      { "type": "debit", "amount": "140" }
+    ]
   },
   {
-    "type": "credit",
-    "amount": "273",
-    "timeStamp": "09/26/2020"
+    "timeStamp": "10/06/2020",
+    "data": [
+      { "type": "credit", "amount": "340" },
+      { "type": "debit", "amount": "240" }
+    ]
   },
   {
-    "type": "credit",
-    "amount": "298",
-    "timeStamp": "09/27/2020"
+    "timeStamp": "10/07/2020",
+    "data": [
+      { "type": "credit", "amount": "390" },
+      { "type": "debit", "amount": "240" }
+    ]
   },
   {
-    "type": "debit",
-    "amount": "50",
-    "timeStamp": "09/23/2020"
-  },
-  {
-    "type": "debit",
-    "amount": "90",
-    "timeStamp": "09/24/2020"
-  },
-  {
-    "type": "debit",
-    "amount": "170",
-    "timeStamp": "09/25/2020"
-  },
-  {
-    "type": "debit",
-    "amount": "230",
-    "timeStamp": "09/26/2020"
-  },
-  {
-    "type": "debit",
-    "amount": "130",
-    "timeStamp": "09/27/2020"
+    "timeStamp": "10/08/2020",
+    "data": [
+      { "type": "credit", "amount": "440" },
+      { "type": "debit", "amount": "340" }
+    ]
   }
 ]

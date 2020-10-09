@@ -7,12 +7,13 @@ function getDataset(transactionData) {
   let dataLabels = [];
   let creditData = [];
   let debitData = [];
-  for (let data of transactionData) {
-    if (data.type === 'credit') {
-      dataLabels.push(data.timeStamp);
-      creditData.push(data.amount);
-    } else {
-      debitData.push(data.amount);
+  for (let eachTransaction of transactionData) {
+    dataLabels.push(eachTransaction.timeStamp);
+    if (eachTransaction.data[0].type === 'credit') {
+      creditData.push(eachTransaction.data[0].amount) || creditData.push(0);
+    }
+    if (eachTransaction.data[1].type === 'debit') {
+      debitData.push(eachTransaction.data[1].amount) || debitData.push(0);
     }
   }
   return {
