@@ -34,8 +34,8 @@ export const ShopCard = (props) => {
           text-align: center;
         }
         .shop-card img {
-          width: 150px;
-          height: auto;
+          width: 100px;
+          height: 100px;
         }
         .shop-card__content {
           padding: 1rem;
