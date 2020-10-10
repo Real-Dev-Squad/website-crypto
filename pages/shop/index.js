@@ -42,10 +42,6 @@ const Shop = (props) => {
       </div>
       <Footer />
       <style jsx>{`
-        .shoppinglist-container {
-          display: flex;
-          flex-direction: row;
-        }
         .take-to-cart {
           text-align: center;
           padding-top: 10px;
