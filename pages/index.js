@@ -46,9 +46,9 @@ export default function Home() {
         </div>
 
         <div className={styles.coins}>
-          <div className={`${styles.coin} ${styles.gold}`}></div>
-          <div className={`${styles.coin} ${styles.silver}`}></div>
-          <div className={`${styles.coin} ${styles.bronze}`}></div>
+          <div className={`${styles.coin} ${styles.goldCoin}`}>200</div>
+          <div className={`${styles.coin} ${styles.silverCoin}`}>300</div>
+          <div className={`${styles.coin} ${styles.bronzeCoin}`}>400</div>
         </div>
       </div>
       {/* Header End */}

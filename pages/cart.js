@@ -50,8 +50,8 @@ const Cart = (props) => {
           )}
 
           <CartSummary total={props.totalCartCost} />
-          </div>
         </div>
+      </div>
       {<Footer />}
 
       <style jsx>
