@@ -1,6 +1,5 @@
-import React from 'react';
 import { Line } from 'react-chartjs-2';
-import { useState, useEffect } from 'react/cjs/react.development';
+import { useState, useEffect } from 'react';
 import styles from './transaction-chart.module.css';
 
 function getDataset(transactionData) {
@@ -25,7 +24,7 @@ function getDataset(transactionData) {
         data: creditData,
         borderColor: ['rgba(42,187,155,0.9)'],
         pointBorderColor: ['rgba(42,187,155,0.9)'],
-        borderWidth: 4
+        borderWidth: 4,
       },
       {
         label: 'Debit',
@@ -33,9 +32,9 @@ function getDataset(transactionData) {
         data: debitData,
         borderColor: ['rgba(255,0,0,06)'],
         pointBorderColor: ['rgba(255,0,0,0.6)'],
-        borderWidth: 4
-      }
-    ]
+        borderWidth: 4,
+      },
+    ],
   };
 }
 
@@ -63,21 +62,21 @@ const TransactionChart = (props) => {
             yAxes: [
               {
                 ticks: {
-                  autoSkip: true
+                  autoSkip: true,
                 },
                 gridLines: {
-                  display: true
-                }
-              }
+                  display: true,
+                },
+              },
             ],
             xAxes: [
               {
                 gridLines: {
-                  display: true
-                }
-              }
-            ]
-          }
+                  display: true,
+                },
+              },
+            ],
+          },
         }}
       />
     </div>
