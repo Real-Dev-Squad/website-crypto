@@ -2,12 +2,14 @@ import Head from 'next/head';
 import Link from 'next/link';
 import transactionData from '../mock/transaction.json';
 import personData from '../mock/person.json';
+import transactionChartData from '../mock/transaction-graph-data.json';
 import TransactionList from '../components/transaction-details';
 import coinsData from '../mock/coins.json';
 import CoinsStatus from '../components/coins-status';
 import PersonDetail from '../components/user-info';
 import { Footer } from '../components/footer';
 import styles from '../styles/Home.module.css';
+import TransactionChart from '../components/transaction-chart';
 
 export default function Home() {
   return (
@@ -54,8 +56,13 @@ export default function Home() {
           <div className={`${styles.button} ${styles.redButton}`}>Receive</div>
         </div>
       </div>
+
       <div className={styles.homeTransaction}>
-        <div className={styles.transactionGraph}></div>
+        <div className={styles.transactionGraph}>
+ <div className={`${styles.card}`}>
+        <TransactionChart transactionChartData={transactionChartData} />
+      </div>
+</div>
         <div className={styles.transactionMenu}>
           <div className={`${styles.card} ${styles.content}`}>
             <div className={`${styles.heading}`}>
@@ -73,6 +80,6 @@ export default function Home() {
         {' '}
         <Footer />
       </div>
-    </div>
+</div>
   );
 }
