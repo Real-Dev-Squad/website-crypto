@@ -5,6 +5,7 @@ import {
   REMOVE_SHOPLIST_ITEMS,
   SAVE_FOR_LATER,
   DELETE_FROM_CART,
+  DEL_FROM_SAVELATER,
 } from './actionTypes';
 
 //TODO : Move all export at bottom of file (named export)
@@ -37,12 +38,17 @@ export const addShopListItem = (item) => {
   };
 };
 
-export const delShopListItem = (item, saveForLater = false) => {
+export const delShopListItem = (
+  item,
+  saveForLater = false,
+  delFromCart = false
+) => {
   return {
     type: REMOVE_SHOPLIST_ITEMS,
     payload: {
       item,
       saveForLater,
+      delFromCart,
     },
   };
 };
@@ -57,14 +63,14 @@ export const saveForLater = (item) => {
   };
 };
 
-// export const moveToCart = (item) => {
-//   return {
-//     type : MOVE_TO_CART,
-//     payload: {
-//       item
-//     }
-//   }
-// }
+export const delFromSaveLater = (item) => {
+  return {
+    type: DEL_FROM_SAVELATER,
+    payload: {
+      item,
+    },
+  };
+};
 
 export const delFromCart = (item, quantity) => {
   return {
