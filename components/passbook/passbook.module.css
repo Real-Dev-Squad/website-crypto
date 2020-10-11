@@ -21,25 +21,25 @@
     text-align: center;
 }
 
-@media (min-device-width : 1024px) and (max-device-width : 1200px) {
+@media only screen and (min-device-width : 1024px) and (max-device-width : 1200px) {
     .transaction {
         margin: 2% 20%;
     }
 }
 
-@media (min-device-width : 768px) and (max-device-width : 1024px) {
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
     .transaction {
         margin: 2% 15%;
     }
 }
 
-@media (min-device-width : 520px) and (max-device-width : 768px) {
+@media only screen and (min-device-width : 520px) and (max-device-width : 768px) {
     .transaction {
         margin: 2% 5%;
     }
 }
 
-@media (max-device-width : 520px) {
+@media only screen and (max-device-width : 520px) {
     .transaction {
         margin: 2% 2%;
     }
