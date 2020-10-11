@@ -1,4 +1,4 @@
-import { SAVE_FOR_LATER } from '../actionTypes';
+import { SAVE_FOR_LATER, DEL_FROM_SAVELATER } from '../actionTypes';
 import ProductDetails from '../../mock/products.json';
 
 const initialState = {
@@ -11,6 +11,9 @@ export default function saveLaterData(state = initialState, action) {
     case SAVE_FOR_LATER: {
       const { item } = action.payload;
       const itemDetails = ProductDetails[item];
+      if (state.saveLaterItems[item]) {
+        return state;
+      }
 
       return {
         saveLaterItems: {
@@ -18,6 +21,17 @@ export default function saveLaterData(state = initialState, action) {
           [item]: itemDetails,
         },
         totalItemsForSaveLater: state.totalItemsForSaveLater + 1,
+      };
+    }
+    case DEL_FROM_SAVELATER: {
+      const { item } = action.payload;
+      let newState = {
+        ...state,
+      };
+      delete newState.saveLaterItems[item];
+      newState.totalItemsForSaveLater = newState.totalItemsForSaveLater - 1;
+      return {
+        ...newState,
       };
     }
     default:

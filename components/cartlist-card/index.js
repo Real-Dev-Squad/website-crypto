@@ -13,6 +13,10 @@ export const CartCard = (props) => {
     props.del.delCartItem(item);
     props.del.delShopListItem(item);
   };
+  const handleDeleteFromCart = (item, quantity) => {
+    props.cartDel(item, quantity);
+    props.del.delShopListItem(item, false, true);
+  };
 
   const handleSaveForLater = (item, quantity) => {
     props.cartDel(item, quantity);
@@ -34,7 +38,9 @@ export const CartCard = (props) => {
       </div>
       <span className="card-item"> RDS {product.price} </span>
       <div className="cartcard-fnbutton card-item">
-        <button onClick={() => props.cartDel(product.name, props.quantity)}>
+        <button
+          onClick={() => handleDeleteFromCart(product.name, props.quantity)}
+        >
           {' '}
           Delete from Cart
         </button>

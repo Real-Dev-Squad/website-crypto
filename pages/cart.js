@@ -19,6 +19,7 @@ import {
   delShopListItem,
   delFromCart,
   saveForLater,
+  delFromSaveLater,
 } from '../redux/action';
 import colors from '../color/color.json';
 
@@ -75,7 +76,14 @@ const Cart = (props) => {
       <div className="saveforlater-container">
         <h2> Save For Later - {props.saveLaterItemsQuantity} </h2>
         {Object.keys(props.saveLaterItems).map((item, id) => {
-          return <SaveLater key={id} details={props.saveLaterItems[item]} />;
+          return (
+            <SaveLater
+              key={id}
+              details={props.saveLaterItems[item]}
+              add={{ addCartItem, addShopListItem }}
+              remove={props.delFromSaveLater}
+            />
+          );
         })}
       </div>
 
@@ -162,4 +170,5 @@ export default connect(mapStateToProps, {
   delShopListItem,
   delFromCart,
   saveForLater,
+  delFromSaveLater,
 })(Cart);
