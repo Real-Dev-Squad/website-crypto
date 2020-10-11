@@ -1,5 +1,6 @@
 export const getCartDetails = (store) => store.cartDetails;
 export const getShopListDetails = (store) => store.getShopListDetails;
+export const getSaveForLaterDetails = (store) => store.getSaveForLaterDetails;
 
 export const getCartItems = (store) => {
   return getCartDetails(store) ? getCartDetails(store).cartItems : 'empty cart';
@@ -15,3 +16,13 @@ export const getShopListCount = (store) =>
 
 export const getCartTotalCost = (store) =>
   getCartDetails(store) ? getCartDetails(store).totalCost : 0;
+
+export const getSaveForLaterItems = (store) =>
+  getSaveForLaterDetails(store)
+    ? getSaveForLaterDetails(store).saveLaterItems
+    : 'no items saved';
+
+export const getSaveForLaterItemsCount = (store) =>
+  getSaveForLaterDetails(store)
+    ? getSaveForLaterDetails(store).totalItemsForSaveLater
+    : 0;
