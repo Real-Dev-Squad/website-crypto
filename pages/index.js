@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { useState } from 'react';
 import transactionData from '../mock/transaction.json';
 import personData from '../mock/person.json';
+import transactionChartData from '../mock/transaction-graph-data.json';
 import TransactionList from '../components/transaction-details';
 import coinsData from '../mock/coins.json';
 import CoinsStatus from '../components/coins-status';
@@ -10,6 +11,7 @@ import PersonDetail from '../components/user-info';
 import Filter from '../components/filter';
 import { Footer } from '../components/footer';
 import styles from '../styles/Home.module.css';
+import TransactionChart from '../components/transaction-chart';
 
 //TODO : take out the filter logic
 export default function Home() {
@@ -70,6 +72,9 @@ export default function Home() {
           showOriginal={showOriginal}
         />
         <TransactionList transactions={transaction} />
+      </div>
+      <div className={`${styles.card}`}>
+        <TransactionChart transactionChartData={transactionChartData} />
       </div>
       <Footer />
     </div>
