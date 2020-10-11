@@ -13,6 +13,12 @@ export const CartCard = (props) => {
     props.del.delCartItem(item);
     props.del.delShopListItem(item);
   };
+
+  const handleSaveForLater = (item, quantity) => {
+    props.cartDel(item, quantity);
+    props.saveForLater(item);
+    props.del.delShopListItem(item, true);
+  };
   return (
     <div className="cartcard-container">
       <img
@@ -27,6 +33,18 @@ export const CartCard = (props) => {
         <button onClick={() => handleRemoveProduct(product.name)}>-</button>
       </div>
       <span className="card-item"> RDS {product.price} </span>
+      <div className="cartcard-fnbutton card-item">
+        <button onClick={() => props.cartDel(product.name, props.quantity)}>
+          {' '}
+          Delete from Cart
+        </button>
+        <button
+          onClick={() => handleSaveForLater(product.name, props.quantity)}
+        >
+          {' '}
+          Save for Later{' '}
+        </button>
+      </div>
       <style jsx>{`
         .cartcard-container {
           display: flex;
@@ -67,8 +85,22 @@ export const CartCard = (props) => {
           font-size: 16px;
           margin-bottom: 0.5em;
           cursor: pointer;
-          width: 20px;
+          width: 50px;
           padding: 2px;
+        }
+        .cartcard-fnbutton {
+          display: flex;
+
+          justify-content: space-between;
+        }
+        .cartcard-fnbutton > button {
+          border: none;
+          padding: 5px;
+          width: 6em;
+          color: white;
+          display: inline-block;
+          background-color: ${colors.pink.dark};
+          font-size: 16px;
         }
 
         @media only screen and (max-width: 600px) {

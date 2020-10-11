@@ -1,3 +1,18 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  /* Variables */
+  --gold: #ffd700;
+  --dark-gold: #e6c401;
+  --silver: #c0c0c0;
+  --dark-silver: #a8a8a8;
+  --bronze: #cd7f32;
+  --dark-bronze: #ae7235;
+}
+
 .header {
   display: flex;
   flex-direction: row;
@@ -40,25 +55,31 @@
   height: 70px;
   border-radius: 50%;
   margin: 0 10px;
-}
 
-.gold {
-  background-color: #FFD700;
-}
-
-.silver {
-  background-color: #C0C0C0;
-}
-
-.bronze {
-  background-color: #cd7f32;
-}
-
-.container {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+
+  font: bold 20px arial, sans-serif;
+  text-shadow: 0 -1px 0 #000, 0 1px 0 #ddd;
+}
+
+.goldCoin {
+  color: var(--dark-gold);
+  border: 5px solid var(--dark-gold);
+  background-color: var(--gold);
+}
+
+.silverCoin {
+  color: var(--dark-silver);
+  border: 5px solid var(--dark-silver);
+  background-color: var(--silver);
+}
+
+.bronzeCoin {
+  color: var(--dark-bronze);
+  border: 5px solid var(--dark-bronze);
+  background-color: var(--bronze);
 }
 
 .sidebar {

@@ -5,6 +5,8 @@ import transactionData from '../mock/transaction.json';
 import personData from '../mock/person.json';
 import transactionChartData from '../mock/transaction-graph-data.json';
 import TransactionList from '../components/transaction-details';
+import coinsData from '../mock/coins.json';
+import CoinsStatus from '../components/coins-status';
 import PersonDetail from '../components/user-info';
 import Filter from '../components/filter';
 import { Footer } from '../components/footer';
@@ -47,14 +49,9 @@ export default function Home() {
           <div className={styles.rdsName}>Real Dev Squad</div>
         </div>
 
-        <div className={styles.coins}>
-          <div className={`${styles.coin} ${styles.gold}`}></div>
-          <div className={`${styles.coin} ${styles.silver}`}></div>
-          <div className={`${styles.coin} ${styles.bronze}`}></div>
-        </div>
+        <CoinsStatus coins={coinsData} />
       </div>
       {/* Header End */}
-
       <div className={styles.sidebar}>
         <PersonDetail personDetails={personData} />
         <div className={`${styles.button} ${styles.greenButton}`}>Send</div>
