@@ -13,7 +13,7 @@ export default class TransactionHistory extends Component {
     });
 
     sortedTransactions.sort((a, b) => b.timeStamp - a.timeStamp);
-    let length = 10;
+    let length = 6;
     this.state = {
       allTransaction: Array.from(sortedTransactions.slice(0, length)),
       hasMore: true,
