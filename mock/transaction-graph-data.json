@@ -1,0 +1,44 @@
+[
+  {
+    "timeStamp": "10/03/2020",
+    "data": [
+      { "type": "credit", "amount": "100" },
+      { "type": "debit", "amount": "100" }
+    ]
+  },
+  {
+    "timeStamp": "10/04/2020",
+    "data": [
+      { "type": "credit", "amount": "240" },
+      { "type": "debit", "amount": "170" }
+    ]
+  },
+  {
+    "timeStamp": "10/05/2020",
+    "data": [
+      { "type": "credit", "amount": "290" },
+      { "type": "debit", "amount": "140" }
+    ]
+  },
+  {
+    "timeStamp": "10/06/2020",
+    "data": [
+      { "type": "credit", "amount": "340" },
+      { "type": "debit", "amount": "240" }
+    ]
+  },
+  {
+    "timeStamp": "10/07/2020",
+    "data": [
+      { "type": "credit", "amount": "390" },
+      { "type": "debit", "amount": "240" }
+    ]
+  },
+  {
+    "timeStamp": "10/08/2020",
+    "data": [
+      { "type": "credit", "amount": "440" },
+      { "type": "debit", "amount": "340" }
+    ]
+  }
+]

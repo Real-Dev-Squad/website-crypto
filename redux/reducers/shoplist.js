@@ -22,8 +22,8 @@ export default function shopData(state = initialState, action) {
       };
     }
     case REMOVE_SHOPLIST_ITEMS: {
-      const { item, saveForLater } = action.payload;
-      if (saveForLater) {
+      const { item, saveForLater, delFromCart } = action.payload;
+      if (saveForLater || delFromCart) {
         return {
           ...state,
           shopListItemsCount: {
