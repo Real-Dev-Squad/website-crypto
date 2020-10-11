@@ -52,7 +52,7 @@ export default class TransactionHistory extends Component {
           dataLength={this.state.allTransaction.length}
           next={this.fetchMoreData}
           hasMore={this.state.hasMore}
-          loader={<h2 id={styles.message}>loading...</h2>}
+          loader={<h2 id={styles.message}>Loading...</h2>}
           endMessage={<h2 id={styles.message}>You are all caught up!</h2>}
         >
           {showThem}
