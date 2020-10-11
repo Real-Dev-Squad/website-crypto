@@ -1,77 +1,78 @@
 import Head from 'next/head';
-
-import { useState } from 'react';
+import Link from 'next/link';
 import transactionData from '../mock/transaction.json';
 import personData from '../mock/person.json';
 import TransactionList from '../components/transaction-details';
 import coinsData from '../mock/coins.json';
 import CoinsStatus from '../components/coins-status';
 import PersonDetail from '../components/user-info';
-import Filter from '../components/filter';
 import { Footer } from '../components/footer';
 import styles from '../styles/Home.module.css';
 
-//TODO : take out the filter logic
 export default function Home() {
-  const [transaction, setTransaction] = useState(transactionData);
-  // const [modal, showModal] = useState(false);
-  const handleCreditSort = () => {
-    let newCreditList = transactionData.filter(
-      (item) => item.type === 'Credit'
-    );
-    setTransaction(newCreditList);
-  };
-
-  const handleDebitSort = () => {
-    let newCreditList = transactionData.filter((item) => item.type === 'Debit');
-    setTransaction(newCreditList);
-  };
-
-  const showOriginal = () => {
-    setTransaction(transactionData);
-  };
   return (
-    <div className={styles.container}>
+    <div className={styles.homeContainer}>
       <Head>
         <title>RDS-MicroTransaction</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {/* TODO - Fix one header component to be used across all the pages  */}
-      <div className={styles.header}>
-        <div className={styles.branding}>
-          <img
-            className={styles.logo}
-            src="https://staging-members-rds.herokuapp.com/images/Real-Dev-Squad@1x.png"
-            alt="RealDevSquad Logo"
-          />
-          <div className={styles.rdsName}>Real Dev Squad</div>
+      <div className={styles.homeHeader}>
+        <div className={styles.navBar}>
+          <ul>
+            <li>
+              <img
+                className={styles.logo}
+                src="https://staging-members-rds.herokuapp.com/images/Real-Dev-Squad@1x.png"
+                alt="RealDevSquad Logo"
+              />
+            </li>
+            <li>
+              <Link href="/shop">Shop </Link>
+            </li>
+            <li>
+              {' '}
+              <Link href="/cart">Cart </Link>
+            </li>
+          </ul>
         </div>
-
-        <CoinsStatus coins={coinsData} />
       </div>
-      {/* Header End */}
-      <div className={styles.sidebar}>
-        <PersonDetail personDetails={personData} />
-        <div className={`${styles.button} ${styles.greenButton}`}>Send</div>
-        <div className={`${styles.button} ${styles.redButton}`}>Receive</div>
-      </div>
-      <div className={`${styles.card} ${styles.content}`}>
-        <div className={`${styles.heading}`}>
-          <img
-            src="https://www.flaticon.com/svg/static/icons/svg/810/810375.svg"
-            className="icon"
-            alt="Transaction Icon"
-          />
-          Transactions
-        </div>
-        <Filter
-          handleCreditSort={handleCreditSort}
-          handleDebitSort={handleDebitSort}
-          showOriginal={showOriginal}
+      <div className={styles.homeLogin}>
+        <p></p>
+        <img
+          src={personData.photo}
+          className={styles.profilePic}
+          alt="Profile Image"
+          height="80"
+          width="80"
         />
-        <TransactionList transactions={transaction} />
       </div>
-      <Footer />
+      <div className={styles.homeUser}>
+        <CoinsStatus coins={coinsData} />
+        <div className={styles.sidebar}>
+          <PersonDetail personDetails={personData} />
+          <div className={`${styles.button} ${styles.greenButton}`}>Send</div>
+          <div className={`${styles.button} ${styles.redButton}`}>Receive</div>
+        </div>
+      </div>
+      <div className={styles.homeTransaction}>
+        <div className={styles.transactionGraph}></div>
+        <div className={styles.transactionMenu}>
+          <div className={`${styles.card} ${styles.content}`}>
+            <div className={`${styles.heading}`}>
+              <img
+                src="https://www.flaticon.com/svg/static/icons/svg/810/810375.svg"
+                className="icon"
+                alt="Transaction Icon"
+              />
+            </div>
+            <TransactionList transactions={transactionData} />
+          </div>
+        </div>
+      </div>
+      <div className={styles.homeFooter}>
+        {' '}
+        <Footer />
+      </div>
     </div>
   );
 }

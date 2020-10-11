@@ -5,7 +5,6 @@ const PersonDetail = (props) => {
   const { name, type, photo } = props.personDetails;
   return (
     <>
-      <img src={photo} className={styles.profilePic} alt="Profile Image" />
       <div>
         <h1>{name}</h1>
         <p className={styles.userName}>{type}</p>
