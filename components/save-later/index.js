@@ -2,6 +2,11 @@ import path from 'path';
 import colors from '../../color/color.json';
 const SaveLater = (props) => {
   const { details: product } = props;
+  const handleMoveToCart = (item) => {
+    props.add.addCartItem(item);
+    props.add.addShopListItem(item);
+    props.remove(item);
+  };
   return (
     <div className="savelateritem-container">
       <img
@@ -10,7 +15,9 @@ const SaveLater = (props) => {
         alt={product.name}
       />
       <span className="savelater-product-name">{product.name}</span>
-      <button onClick={() => console.log('move to cart')}>Move to Cart</button>
+      <button onClick={() => handleMoveToCart(product.name)}>
+        Move to Cart
+      </button>
       <style jsx>
         {`
             .savelateritem-container {
