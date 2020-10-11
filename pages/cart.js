@@ -74,8 +74,8 @@ const Cart = (props) => {
 
       <div className="saveforlater-container">
         <h2> Save For Later - {props.saveLaterItemsQuantity} </h2>
-        {Object.keys(props.saveLaterItems).map((item) => {
-          return <SaveLater details={props.saveLaterItems[item]} />;
+        {Object.keys(props.saveLaterItems).map((item, id) => {
+          return <SaveLater key={id} details={props.saveLaterItems[item]} />;
         })}
       </div>
 
