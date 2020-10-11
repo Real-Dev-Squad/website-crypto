@@ -22,7 +22,16 @@ export default function shopData(state = initialState, action) {
       };
     }
     case REMOVE_SHOPLIST_ITEMS: {
-      const { item } = action.payload;
+      const { item, saveForLater } = action.payload;
+      if (saveForLater) {
+        return {
+          ...state,
+          shopListItemsCount: {
+            ...state.shopListItemsCount,
+            [item]: 0,
+          },
+        };
+      }
       let quantity = state.shopListItemsCount[item]
         ? state.shopListItemsCount[item] - 1
         : 0;
