@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import styles from './passbook.module.css';
 
 export default class TransactionHistory extends Component {
   constructor(props) {
@@ -34,31 +35,14 @@ export default class TransactionHistory extends Component {
   render() {
     const showThem = this.state.allTransaction.map((transaction) => {
       return (
-        <div className="transaction" key={transaction.timeStamp}>
+        <div className={styles.transaction} key={transaction.timeStamp}>
           <div>
-            <div className="usersInvolved">
+            <div className={styles.usersInvolved}>
               {`${transaction.sender} => ${transaction.receiver}`}
             </div>
-            <div className="date">{`${transaction.date}`}</div>
+            <div className={styles.date}>{`${transaction.date}`}</div>
           </div>
-          <div className="amount">{`Amount: ${transaction.amount}`}</div>
-          <style jsx>
-            {`
-              .transaction {
-                display: flex;
-                justify-content: space-between;
-                border: 2px solid black;
-                padding: 10px;
-                margin: 20px;
-              }
-              .usersInvolved {
-                font-size: 1.5rem;
-              }
-              #endMessage {
-                text-align: center;
-              }
-            `}
-          </style>
+          <div className={styles.amount}>{`Amount: ${transaction.amount}`}</div>
         </div>
       );
     });
@@ -68,17 +52,11 @@ export default class TransactionHistory extends Component {
           dataLength={this.state.allTransaction.length}
           next={this.fetchMoreData}
           hasMore={this.state.hasMore}
-          loader={<h2 id="loadMessage">loading...</h2>}
-          endMessage={<h2 id="endMessage">You are all caught up!</h2>}
+          loader={<h2 id={styles.message}>loading...</h2>}
+          endMessage={<h2 id={styles.message}>You are all caught up!</h2>}
         >
           {showThem}
         </InfiniteScroll>
-        <style jsx>{`
-          #endMessage,
-          #loadMessage {
-            text-align: center;
-          }
-        `}</style>
       </div>
     );
   }
