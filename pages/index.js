@@ -30,7 +30,6 @@ export default function Home() {
               <Link href="/shop">Shop </Link>
             </li>
             <li>
-              {' '}
               <Link href="/cart">Cart </Link>
             </li>
           </ul>

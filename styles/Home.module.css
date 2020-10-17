@@ -1,8 +1,5 @@
 .container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
+ 
 
   /* Variables */
   --gold: #ffd700;
@@ -13,56 +10,22 @@
   --dark-bronze: #ae7235;
 }
 
-/* .header {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  flex-basis: 100%;
-  padding: 10px;
-}
-
-.branding {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center; */
 
 
 .logo {
   width: 70px;
 }
 
-.rdsName {
-  font-size: 35px;
-  font-weight: bold;
-  color: #e20665;
+
+
+
+
+.content {
+    flex-shrink: 1;
+  }
   
-}
 
-.coins {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-self: flex-end;
-  flex-wrap: nowrap;
-}
 
-.coin {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  margin: 0 10px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  font: bold 20px arial, sans-serif;
-  text-shadow: 0 -1px 0 #000, 0 1px 0 #ddd;
-}
 
 .goldCoin {
   color: var(--dark-gold);
@@ -109,11 +72,7 @@
   border: 1px solid #ff3838;
 }
 
-.heading {
-  font-size: 30px;
-  font-weight: bold;
-  display: inline-block;
-}
+
 
 .card {
   margin: 10px;
@@ -129,28 +88,10 @@
   box-shadow: 0 0 20px -7px rgba(0, 0, 0, 0.65);
 }
 
-.content {
-  flex-shrink: 1;
-}
 
-@media only screen and (max-width: 600px) {
-  .header {
-    flex-direction: column;
-  }
-  .coins {
-    padding-top: 20px;
-    justify-content: space-evenly;
-    align-self: center;
-  }
-  .card {
-    width: 100%;
-  }
-}
 
-.navBar{
-  
 
-}
+
 .navBar > ul {
   list-style-type: none;
   margin: 0;
@@ -159,19 +100,19 @@
   background-color: #93D973;
   align-items:center;
   font-size: 30px;
-  
-  
+
   
 }
 .navBar li {
   display: block;
-
+  color:#f2f2f2;
   text-align: center;
   padding: 0px 16px 0px 0px;
   text-decoration: none;
   
   
 }
+
 
 
 .navBar Link {
@@ -181,7 +122,7 @@
 
 
 .navBar li a:hover {
-  background-color:#DB0A76
+ text-decoration: underline;
 }
 
 
