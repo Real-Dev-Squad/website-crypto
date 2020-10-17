@@ -23,7 +23,6 @@ const Coins = (props) => {
             height: 3em;
             border-radius: 50%;
             border: 1px solid ${props.coin.borderColor};
-            margin: 0 10px;
           }
 
           .cointype-indicator > p {
@@ -47,10 +46,8 @@ const CoinsStatus = (props) => {
           .coins-container {
             display: flex;
             flex-direction: row;
-            justify-content: space-evenly;
-            align-self: flex-end;
-            width: 33%;
-            flex-wrap: nowrap;
+            //justify-content: space-evenly;
+            // align-self: flex-end;
           }
         `}
       </style>
