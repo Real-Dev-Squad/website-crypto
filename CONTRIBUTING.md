@@ -51,7 +51,7 @@
 
 Fork this repository using the **Fork** option at the top-right corner of this page. This will create your own copy of this repository. You'll be redirected to your forked repository. Copy the link of this repository (which will look like `https://github.com/<your-username>/website-crypto/`) as you'll need it in the step 2.
 
-![how-to-fork](https://i.imgur.com/VfoTxmy.png)
+![how-to-fork](https://i.imgur.com/56p1D0k.png)
 
 2. **Cloning repository**
 
