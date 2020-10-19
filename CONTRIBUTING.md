@@ -1,6 +1,5 @@
 # How can I contribute?
 
-- You can add questions and answers in FAQ.
 - You can style the pages using CSS.
 - If you find a bug anywhere, you can fix it.
 - You can add a feature once you get approval from the community.
