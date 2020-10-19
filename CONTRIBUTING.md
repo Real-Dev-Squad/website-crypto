@@ -8,19 +8,18 @@
 # File Structure
 
 ```
-├── index.html                         For homepage HTML page 
-├── __tests__                          All the images go here
-├── test
+├── __tests__                          Sample tests
+├── test                               Test file
 ├── styles                             All the reference to styling goes here
-├── redux                              All the images go here
+├── redux                              All the cart actions go here
 │   ├── reducers
 ├── public                             All the images go here
 │   ├── assets
-├── pages                              All the images go here
+├── pages                              All the main pages and related api calls go here
 │   ├── api
 │   ├── shop
-├── mock
-├── components                         All the images go here
+├── mock                               Mock data
+├── components                         All the components go here
 │   ├── Button
 │   ├── cart-summary
 │   ├── cartlist-card
@@ -37,12 +36,12 @@
 │   ├── transaction-chart
 │   ├── transaction-details
 │   ├── user-info
-├── color
+├── color                              Color Dictionary
 ├── CONTRIBUTING.md                    Contribution file     
 ├── README.md                          README file for the repository
-├── jsconfig.json                      README file for the repository
-├── package.json                       README file for the repository
-├── jest.config.js                     README file for the repository
+├── jsconfig.json                      Components config file for the repository
+├── jest.config.js                     Export config file for the repository
+├── package.json
 ```
 
 # How can you make your first **Pull Request**
@@ -50,7 +49,7 @@
 1. **Forking repository**
 
 
-Fork this repository using the **Fork** option at the top-right corner of this page. This will create your own copy of this repository. You'll be redirected to your forked repository. Copy the link of this repository (which will look like `https://github.com/<your-username>/website-welcome/`) as you'll need it in the step 2.
+Fork this repository using the **Fork** option at the top-right corner of this page. This will create your own copy of this repository. You'll be redirected to your forked repository. Copy the link of this repository (which will look like `https://github.com/<your-username>/website-crypto/`) as you'll need it in the step 2.
 
 ![how-to-fork](https://i.imgur.com/VfoTxmy.png)
 
@@ -67,7 +66,7 @@ git clone <link which you copied in the step 1>
 
 Add the original repository as a remote repository, so that you can anytime pull the latest changes from the main repository which is being deployed. This needs to be done only for the first time.
 ``` 
-git remote add upstream https://github.com/Real-Dev-Squad/website-welcome/ 
+git remote add upstream https://github.com/Real-Dev-Squad/website-crypto/ 
 ```
 To make sure you always have the latest copy of the main repository before starting with your changes, execute the following command:
 ```
