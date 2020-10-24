@@ -9,8 +9,11 @@ const Coins = (props) => {
   }, [props.coin.value, changeCoins]);
   return (
     <div className="cointype-indicator">
+      <div className="tooltip">
+        <div className="coin"></div>
+        <span className="tooltiptext">{props.coin.name}</span>
+      </div>
       <p> {coins} </p>
-      <div className="coin"></div>
 
       <style jsx>
         {`
@@ -27,6 +30,24 @@ const Coins = (props) => {
 
           .cointype-indicator > p {
             font-weight: bold;
+          }
+
+          .tooltip {
+            position: relative;
+            display: inline-block;
+          }
+          .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 70px;
+
+            color: ${props.coin.borderColor};
+            text-align: center;
+            position: absolute;
+            z-index: 1;
+          }
+
+          .tooltip:hover .tooltiptext {
+            visibility: visible;
           }
         `}
       </style>
@@ -46,8 +67,7 @@ const CoinsStatus = (props) => {
           .coins-container {
             display: flex;
             flex-direction: row;
-            //justify-content: space-evenly;
-            // align-self: flex-end;
+            justify-content: space-between;
           }
         `}
       </style>

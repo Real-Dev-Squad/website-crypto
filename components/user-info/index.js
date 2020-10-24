@@ -2,16 +2,14 @@ import PropTypes from 'prop-types';
 import styles from './user-info.module.css';
 
 const PersonDetail = (props) => {
-  const { name, type, photo } = props.personDetails;
+  const { type } = props.personDetails;
   return (
     <>
       <div>
-        <h1>{name}</h1>
         <p className={styles.userName}>{type}</p>
         <p>
           FrontEnd Developer
           <br />
-          <span className={styles.userName}>RDS</span>
         </p>
       </div>
     </>
