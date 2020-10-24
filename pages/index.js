@@ -12,11 +12,12 @@ import Filter from '../components/filter';
 import { Footer } from '../components/footer';
 import styles from '../styles/Home.module.css';
 import TransactionChart from '../components/transaction-chart';
+import TransactionOperation from '@components/transaction-operation';
 
 //TODO : take out the filter logic
 export default function Home() {
   const [transaction, setTransaction] = useState(transactionData);
-  // const [modal, showModal] = useState(false);
+  const [modal, showModal] = useState(false);
   const handleCreditSort = () => {
     let newCreditList = transactionData.filter(
       (item) => item.type === 'Credit'
@@ -31,6 +32,10 @@ export default function Home() {
 
   const showOriginal = () => {
     setTransaction(transactionData);
+  };
+
+  const sendTransaction = () => {
+    showModal((prev) => !prev);
   };
   return (
     <div className={styles.container}>
@@ -54,7 +59,13 @@ export default function Home() {
       {/* Header End */}
       <div className={styles.sidebar}>
         <PersonDetail personDetails={personData} />
-        <div className={`${styles.button} ${styles.greenButton}`}>Send</div>
+        <div
+          className={`${styles.button} ${styles.greenButton}`}
+          onClick={sendTransaction}
+        >
+          Send
+        </div>
+
         <div className={`${styles.button} ${styles.redButton}`}>Receive</div>
       </div>
       <div className={`${styles.card} ${styles.content}`}>
@@ -76,6 +87,7 @@ export default function Home() {
       <div className={`${styles.card}`}>
         <TransactionChart transactionChartData={transactionChartData} />
       </div>
+      <TransactionOperation modal={modal} showModal={showModal} />
       <Footer />
     </div>
   );
