@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { useState } from 'react';
 import transactionData from '../mock/transaction.json';
 import personData from '../mock/person.json';
+import receivers from '../mock/receivers.json';
 import transactionChartData from '../mock/transaction-graph-data.json';
 import TransactionList from '../components/transaction-details';
 import coinsData from '../mock/coins.json';
@@ -87,7 +88,12 @@ export default function Home() {
       <div className={`${styles.card}`}>
         <TransactionChart transactionChartData={transactionChartData} />
       </div>
-      <TransactionOperation modal={modal} showModal={showModal} />
+      <TransactionOperation
+        modal={modal}
+        showModal={showModal}
+        personData={personData}
+        receivers={receivers}
+      />
       <Footer />
     </div>
   );
