@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './transaction-operation.module.css';
 
 const TransactionOperation = (props) => {
-  const { modal, showModal, personData, receivers } = props;
+  const { modal, showModal, personData, receivers, transactionType } = props;
 
   return (
     <>
@@ -17,9 +17,16 @@ const TransactionOperation = (props) => {
               ❌
             </div>
             <div>
-              <label className={styles.label} htmlFor="to">
-                To
-              </label>
+              {transactionType === 'Send' && (
+                <label className={styles.label} htmlFor="to">
+                  To
+                </label>
+              )}
+              {transactionType === 'Receive' && (
+                <label className={styles.label} htmlFor="to">
+                  From
+                </label>
+              )}
               <select className={styles.select} name="receivers" id="receivers">
                 {receivers &&
                   receivers.map((receiver) => (
@@ -52,9 +59,16 @@ const TransactionOperation = (props) => {
                 name="transaction-amount"
                 id="transaction-amount"
               />
-              <div className={` ${styles.button} ${styles.greenButton}`}>
-                Send
-              </div>
+              {transactionType === 'Send' && (
+                <div className={` ${styles.button} ${styles.greenButton}`}>
+                  {transactionType}
+                </div>
+              )}
+              {transactionType === 'Receive' && (
+                <div className={` ${styles.button} ${styles.redButton}`}>
+                  {transactionType}
+                </div>
+              )}
             </div>
           </div>
         </div>

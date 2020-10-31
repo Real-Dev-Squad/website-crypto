@@ -19,6 +19,7 @@ import TransactionOperation from '@components/transaction-operation';
 export default function Home() {
   const [transaction, setTransaction] = useState(transactionData);
   const [modal, showModal] = useState(false);
+  const [transactionType, setTransactionType] = useState('');
   const handleCreditSort = () => {
     let newCreditList = transactionData.filter(
       (item) => item.type === 'Credit'
@@ -37,6 +38,11 @@ export default function Home() {
 
   const sendTransaction = () => {
     showModal((prev) => !prev);
+    setTransactionType('Send');
+  };
+  const receiveTransaction = () => {
+    showModal((prev) => !prev);
+    setTransactionType('Receive');
   };
   return (
     <div className={styles.container}>
@@ -67,7 +73,12 @@ export default function Home() {
           Send
         </div>
 
-        <div className={`${styles.button} ${styles.redButton}`}>Receive</div>
+        <div
+          className={`${styles.button} ${styles.redButton}`}
+          onClick={receiveTransaction}
+        >
+          Receive
+        </div>
       </div>
       <div className={`${styles.card} ${styles.content}`}>
         <div className={`${styles.heading}`}>
@@ -93,6 +104,7 @@ export default function Home() {
         showModal={showModal}
         personData={personData}
         receivers={receivers}
+        transactionType={transactionType}
       />
       <Footer />
     </div>
