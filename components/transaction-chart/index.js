@@ -46,7 +46,7 @@ const TransactionChart = (props) => {
 
   useEffect(() => {
     chart();
-  }, []);
+  }, [chart]);
 
   return (
     <div className={styles.transactionCard}>

@@ -1,9 +1,4 @@
 .container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-
   /* Variables */
   --gold: #ffd700;
   --dark-gold: #e6c401;
@@ -12,80 +7,30 @@
   --bronze: #cd7f32;
   --dark-bronze: #ae7235;
 }
-
-.header {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  flex-basis: 100%;
-  padding: 20px;
-}
-
-.branding {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-
 .logo {
   width: 70px;
 }
-
-.rdsName {
-  font-size: 35px;
-  font-weight: bold;
-  color: #e20665;
-  padding: 0 10px;
+.content {
+  flex-shrink: 1;
 }
-
-.coins {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-self: flex-end;
-  flex-wrap: nowrap;
-}
-
-.coin {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  margin: 0 10px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  font: bold 20px arial, sans-serif;
-  text-shadow: 0 -1px 0 #000, 0 1px 0 #ddd;
-}
-
 .goldCoin {
   color: var(--dark-gold);
   border: 5px solid var(--dark-gold);
   background-color: var(--gold);
 }
-
 .silverCoin {
   color: var(--dark-silver);
   border: 5px solid var(--dark-silver);
   background-color: var(--silver);
 }
-
 .bronzeCoin {
   color: var(--dark-bronze);
   border: 5px solid var(--dark-bronze);
   background-color: var(--bronze);
 }
-
 .sidebar {
   padding: 20px;
 }
-
 .button {
   display: inline-block;
   padding: 10px 20px;
@@ -97,52 +42,109 @@
   cursor: pointer;
   margin-right: 10px;
 }
-
 .greenButton {
   background-color: #2ecc71;
   border: 1px solid #2ecc71;
 }
-
 .redButton {
   color: white;
   background-color: #ff3838;
   border: 1px solid #ff3838;
 }
-
-.heading {
-  font-size: 30px;
-  font-weight: bold;
-  display: inline-block;
-}
-
 .card {
   margin: 10px;
   border: 1px solid #f4f4f4;
   border-radius: 10px;
   padding: 20px;
   background: white;
-  /* cursor: pointer; */
   box-shadow: 0 0 15px -7px rgba(0, 0, 0, 0.65);
 }
-
 .card:hover {
   box-shadow: 0 0 20px -7px rgba(0, 0, 0, 0.65);
 }
-
-.content {
-  flex-shrink: 1;
+.navBar > ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  background-color: #93d973;
+  align-items: center;
+  font-size: 30px;
+}
+.navBar li {
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 0px 16px 0px 0px;
+  text-decoration: none;
+}
+.navBar Link {
+  border: 10px solid;
+}
+.navBar li a:hover {
+  text-decoration: underline;
 }
 
-@media only screen and (max-width: 600px) {
-  .header {
-    flex-direction: column;
+.homeContainer {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(4, minmax(200px, auto));
+  grid-template-rows: repeat(3, minmax(100px, auto));
+  background-color: #fff;
+}
+.homeHeader {
+  grid-column: 1 / 4;
+  grid-row: 1;
+}
+
+.homeLogin {
+  grid-column: 4;
+  display: flex;
+  justify-content: space-between;
+}
+.homeLogin > img {
+  border-radius: 50%;
+}
+
+.homeUser {
+  grid-column: 1;
+  grid-row: 2 / 4;
+}
+
+.homeTransaction {
+  grid-column: 2 / 5;
+  grid-row: 2 / 4;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: repeat(2, auto);
+  gap: 5px;
+}
+.transactionGraph {
+  grid-row: 1/2;
+}
+.transactionMenu {
+  grid-row: 2/3;
+}
+.homeFooter {
+  grid-row: 4;
+  grid-column: 1/5;
+}
+
+@media only screen and (max-width: 650px) {
+  .homeContainer {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: auto;
   }
-  .coins {
-    padding-top: 20px;
-    justify-content: space-evenly;
-    align-self: center;
+  .homeHeader {
+    grid-column: 1/4;
   }
-  .card {
-    width: 100%;
+  .homeUser {
+    grid-column: 3/4;
+    grid-row: auto;
+  }
+  .homeTransaction {
+    grid-column: 1/5;
+    grid-row: auto;
   }
 }

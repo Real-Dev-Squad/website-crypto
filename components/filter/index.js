@@ -1,6 +1,7 @@
 import styles from './filter.module.css';
 
 const Filter = (props) => {
+  const { changeTransactions } = props;
   return (
     <div className={styles.filter}>
       <img
@@ -15,10 +16,16 @@ const Filter = (props) => {
       />
 
       <div className={styles.filterContent} id="filterContent">
-        <li onClick={() => props.handleCreditSort()}>Sort on credit</li>
-        <li onClick={() => props.handleDebitSort()}>Sort on debit</li>
+        <li onClick={() => changeTransactions({ type: 'credit' })}>
+          Sort on credit
+        </li>
+        <li onClick={() => changeTransactions({ type: 'debit' })}>
+          Sort on debit
+        </li>
         <li>Sort on date</li>
-        <li onClick={() => props.showOriginal()}>Show original data</li>
+        <li onClick={() => changeTransactions({ type: 'reset' })}>
+          Show original data
+        </li>
       </div>
     </div>
   );
