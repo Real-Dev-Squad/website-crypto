@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <div className={styles.homeContainer}>
       <Head>
-        <title>RDS-MicroTransaction</title>
+        <title>Bank Dashboard</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.homeHeader}>
@@ -29,10 +29,10 @@ export default function Home() {
               />
             </li>
             <li>
-              <Link href="/shop">Shop </Link>
+              <Link href="/shop">Shop</Link>
             </li>
             <li>
-              <Link href="/cart"> Cart </Link>
+              <Link href="/cart">Cart</Link>
             </li>
           </ul>
         </div>
