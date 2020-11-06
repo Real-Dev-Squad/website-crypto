@@ -14,7 +14,7 @@ const TransactionOperation = (props) => {
               className={styles.closedButton}
               onClick={() => showModal((prev) => !prev)}
             >
-              ❌
+              x
             </div>
             <div>
               {transactionType === 'Send' && (

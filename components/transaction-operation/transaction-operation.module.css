@@ -67,12 +67,16 @@
 .closedButton {
   cursor: pointer;
   position: absolute;
-  top: 5px;
-  right: 20px;
-  width: 10px;
-  height: 10px;
-  padding: 0;
+  top: 8px;
+  right: 15px;
   z-index: 10;
+  width: 20px;
+  height: 20px;
+  color: rgb(199, 57, 57);
+  border-radius: 50%;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 @media only screen and (max-width: 600px) {
@@ -93,10 +97,10 @@
     background: white;
     border-radius: 10px;
     padding: 20px 10px;
-    width: 40%;
+    width: 90%;
     height: auto;
     top: 30vh;
-    left: 30%;
+    left: 5%;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     display: block;
     animation: fade-slide-in 0.3s ease-out forwards;
