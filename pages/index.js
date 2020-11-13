@@ -12,6 +12,9 @@ import TransactionChart from '../components/transaction-chart';
 import OperationModal from '@components/operationModal';
 import { useState } from 'react';
 
+import { useState } from 'react';
+import TransactionOperationModal from '@components/transaction-operation-modal';
+
 export default function Home() {
   const [transactionType, setTransactionType] = useState('');
   return (
@@ -51,8 +54,7 @@ export default function Home() {
       </div>
       <div className={styles.homeUser}>
         <CoinsStatus coins={coinsData} />
-        <div className={`${styles.button} ${styles.greenButton}`}>Send</div>
-        <div className={`${styles.button} ${styles.redButton}`}>Receive</div>
+        <TransactionOperationModal personData={personData} />
       </div>
       <div className={styles.homeTransaction}>
         <div className={styles.transactionGraph}>
