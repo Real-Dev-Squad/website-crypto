@@ -5,8 +5,7 @@ const PersonDetail = (props) => {
   const { type } = props.personDetails;
   return (
     <>
-      <div>
-        <p className={styles.userName}>{type}</p>
+      <div className={styles.userInfoContainer}>
         <p>
           FrontEnd Developer
           <br />

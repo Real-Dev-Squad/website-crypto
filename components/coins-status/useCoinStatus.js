@@ -1,28 +1,25 @@
 import { useState, useEffect, useRef } from 'react';
 
-export const useCoinStatus = (lowerLimit, upperLimit) => {
-  //TODO : use useInterval instead of setInterval
-  const [start, setStart] = useState(lowerLimit);
-  const [end, setEnd] = useState(upperLimit);
-  let setCoinInterval = useRef(null);
-
-  useEffect(() => {
-    setCoinInterval.current = setInterval(function coinInterval() {
-      if (start > end) {
-        setStart((prevCoin) => prevCoin - 1);
-      } else {
-        setStart((prevCoin) => prevCoin + 1);
-      }
-    }, 20);
-
-    return () => clearInterval(setCoinInterval.current);
-  }, [start, end]);
-
-  useEffect(() => {
-    if (start === end) {
-      clearInterval(setCoinInterval.current);
+export const useAnimateValue = (startPoint, endPoint, duration) => {
+  const [start, setStart] = useState(startPoint);
+  const [end, setEnd] = useState(endPoint);
+  let startTimestamp = useRef(null);
+  const step = (timestamp) => {
+    if (!startTimestamp.current) startTimestamp.current = timestamp;
+    const progress = Math.min(
+      (timestamp - startTimestamp.current) / duration,
+      1
+    );
+    setStart(Math.floor(progress * (end - startPoint) + startPoint));
+    if (progress < 1) {
+      window.requestAnimationFrame(step);
+    } else {
+      startTimestamp.current = null;
     }
-  }, [start, end]);
-
+  };
+  useEffect(() => {
+    startPoint = start;
+    window.requestAnimationFrame(step);
+  }, [end]);
   return [start, setEnd];
 };
