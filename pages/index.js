@@ -10,6 +10,9 @@ import { Footer } from '../components/footer';
 import styles from '../styles/Home.module.css';
 import TransactionChart from '../components/transaction-chart';
 
+import { useState } from 'react';
+import TransactionOperationModal from '@components/transaction-operation-modal';
+
 export default function Home() {
   return (
     <div className={styles.homeContainer}>
@@ -48,8 +51,7 @@ export default function Home() {
       </div>
       <div className={styles.homeUser}>
         <CoinsStatus coins={coinsData} />
-        <div className={`${styles.button} ${styles.greenButton}`}>Send</div>
-        <div className={`${styles.button} ${styles.redButton}`}>Receive</div>
+        <TransactionOperationModal personData={personData} />
       </div>
       <div className={styles.homeTransaction}>
         <div className={styles.transactionGraph}>
