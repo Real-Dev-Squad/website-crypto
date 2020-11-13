@@ -10,8 +10,11 @@ import PersonDetail from '../components/user-info';
 import { Footer } from '../components/footer';
 import styles from '../styles/Home.module.css';
 import TransactionChart from '../components/transaction-chart';
+import OperationModal from '@components/operationModal';
+import { useState } from 'react';
 
 export default function Home() {
+  const [transactionType, setTransactionType] = useState('');
   return (
     <div className={styles.homeContainer}>
       <Head>
@@ -51,8 +54,18 @@ export default function Home() {
         <CoinsStatus coins={coinsData} />
         <div className={styles.sidebar}>
           <PersonDetail personDetails={personData} />
-          <div className={`${styles.button} ${styles.greenButton}`}>Send</div>
-          <div className={`${styles.button} ${styles.redButton}`}>Receive</div>
+          <div
+            className={`${styles.button} ${styles.greenButton}`}
+            onClick={() => setTransactionType('Send')}
+          >
+            Send
+          </div>
+          <div
+            className={`${styles.button} ${styles.redButton}`}
+            onClick={() => setTransactionType('Receive')}
+          >
+            Receive
+          </div>
         </div>
       </div>
       <div className={styles.homeTransaction}>
@@ -70,6 +83,12 @@ export default function Home() {
             </div>
             <TransactionList transactions={transactionData} />
           </div>
+        </div>
+        <div>
+          <OperationModal
+            transactionType={transactionType}
+            personData={personData}
+          />
         </div>
       </div>
       <div className={styles.homeFooter}>
