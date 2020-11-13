@@ -9,8 +9,11 @@ import CoinsStatus from '../components/coins-status';
 import { Footer } from '../components/footer';
 import styles from '../styles/Home.module.css';
 import TransactionChart from '../components/transaction-chart';
+import OperationModal from '@components/operationModal';
+import { useState } from 'react';
 
 export default function Home() {
+  const [transactionType, setTransactionType] = useState('');
   return (
     <div className={styles.homeContainer}>
       <Head>
@@ -66,6 +69,12 @@ export default function Home() {
             </div>
             <TransactionList transactions={transactionData} />
           </div>
+        </div>
+        <div>
+          <OperationModal
+            transactionType={transactionType}
+            personData={personData}
+          />
         </div>
       </div>
       <div className={styles.homeFooter}>
