@@ -13,24 +13,8 @@
 .content {
   flex-shrink: 1;
 }
-.goldCoin {
-  color: var(--dark-gold);
-  border: 5px solid var(--dark-gold);
-  background-color: var(--gold);
-}
-.silverCoin {
-  color: var(--dark-silver);
-  border: 5px solid var(--dark-silver);
-  background-color: var(--silver);
-}
-.bronzeCoin {
-  color: var(--dark-bronze);
-  border: 5px solid var(--dark-bronze);
-  background-color: var(--bronze);
-}
-.sidebar {
-  padding: 20px;
-}
+
+
 .button {
   display: inline-block;
   padding: 10px 20px;
@@ -40,14 +24,15 @@
   font-weight: bold;
   font-size: 20px;
   cursor: pointer;
-  margin-right: 10px;
+  margin:2px;
+  width:6em;
 }
 .greenButton {
   background-color: #2ecc71;
   border: 1px solid #2ecc71;
 }
 .redButton {
-  color: white;
+
   background-color: #ff3838;
   border: 1px solid #ff3838;
 }
@@ -67,7 +52,7 @@
   margin: 0;
   padding: 0;
   display: flex;
-  background-color: #93d973;
+  background-color:#041187;
   align-items: center;
   font-size: 30px;
 }
@@ -109,6 +94,8 @@
 .homeUser {
   grid-column: 1;
   grid-row: 2 / 4;
+
+
 }
 
 .homeTransaction {
@@ -142,6 +129,10 @@
   .homeUser {
     grid-column: 3/4;
     grid-row: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
   }
   .homeTransaction {
     grid-column: 1/5;

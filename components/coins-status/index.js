@@ -1,19 +1,20 @@
 import { useEffect } from 'react';
-import { useCoinStatus } from './useCoinStatus';
+import { useAnimateValue } from './useCoinStatus';
 import PropTypes from 'prop-types';
 
 const Coins = (props) => {
-  const [coins, changeCoins] = useCoinStatus(0, props.coin.value);
+  const [coins, changeCoins] = useAnimateValue(0, props.coin.value, 5000);
   useEffect(() => {
     changeCoins(props.coin.value);
   }, [props.coin.value, changeCoins]);
   return (
     <div className="cointype-indicator">
       <div className="tooltip">
-        <div className="coin"></div>
+        <div className="coin">
+          <p> {coins} </p>
+        </div>
         <span className="tooltiptext">{props.coin.name}</span>
       </div>
-      <p> {coins} </p>
 
       <style jsx>
         {`
@@ -26,10 +27,15 @@ const Coins = (props) => {
             height: 3em;
             border-radius: 50%;
             border: 1px solid ${props.coin.borderColor};
+            position: absolute;
           }
 
-          .cointype-indicator > p {
+          .coin > p {
+            text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
+            color: #9c8468;
             font-weight: bold;
+            opacity: 0.7;
+            transform: translate(20%, -10%);
           }
 
           .tooltip {
@@ -39,8 +45,6 @@ const Coins = (props) => {
           .tooltip .tooltiptext {
             visibility: hidden;
             width: 70px;
-
-            color: ${props.coin.borderColor};
             text-align: center;
             position: absolute;
             z-index: 1;
@@ -68,6 +72,8 @@ const CoinsStatus = (props) => {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            width: 12em;
+            height: 4em;
           }
         `}
       </style>

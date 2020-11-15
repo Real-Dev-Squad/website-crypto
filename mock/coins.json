@@ -1,13 +1,13 @@
 [
   {
     "name": "gold",
-    "value": 100,
+    "value": 110,
     "color": " #f39c12",
     "borderColor": "#A58F20"
   },
   {
     "name": "silver",
-    "value": 250,
+    "value": 120,
     "color": " #bdc3c7",
     "borderColor": "#7F7F7F"
   },
