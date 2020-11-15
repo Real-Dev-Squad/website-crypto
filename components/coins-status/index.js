@@ -34,7 +34,7 @@ const Coins = (props) => {
             text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
             color: #9c8468;
             font-weight: bold;
-            opacity: 0.3;
+            opacity: 0.7;
             transform: translate(20%, -10%);
           }
 
@@ -45,8 +45,6 @@ const Coins = (props) => {
           .tooltip .tooltiptext {
             visibility: hidden;
             width: 70px;
-
-            color: ${props.coin.borderColor};
             text-align: center;
             position: absolute;
             z-index: 1;
