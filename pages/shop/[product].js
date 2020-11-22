@@ -7,6 +7,7 @@ const ProductDetail = ({ productJSON }) => {
 };
 
 export async function getServerSideProps(context) {
+  context.res.setHeader('Cache-Control', 'max-age=43200');
   const {
     params: { product },
   } = context;
