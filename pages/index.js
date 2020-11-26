@@ -6,7 +6,6 @@ import transactionChartData from '../mock/transaction-graph-data.json';
 import TransactionList from '../components/transaction-details';
 import coinsData from '../mock/coins.json';
 import CoinsStatus from '../components/coins-status';
-import PersonDetail from '../components/user-info';
 import { Footer } from '../components/footer';
 import styles from '../styles/Home.module.css';
 import TransactionChart from '../components/transaction-chart';
@@ -49,11 +48,8 @@ export default function Home() {
       </div>
       <div className={styles.homeUser}>
         <CoinsStatus coins={coinsData} />
-        <div className={styles.sidebar}>
-          <PersonDetail personDetails={personData} />
-          <div className={`${styles.button} ${styles.greenButton}`}>Send</div>
-          <div className={`${styles.button} ${styles.redButton}`}>Receive</div>
-        </div>
+        <div className={`${styles.button} ${styles.greenButton}`}>Send</div>
+        <div className={`${styles.button} ${styles.redButton}`}>Receive</div>
       </div>
       <div className={styles.homeTransaction}>
         <div className={styles.transactionGraph}>
