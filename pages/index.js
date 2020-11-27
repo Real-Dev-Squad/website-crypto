@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import { useState } from 'react';
 import transactionData from '../mock/transaction.json';
 import personData from '../mock/person.json';
 import transactionChartData from '../mock/transaction-graph-data.json';
@@ -10,7 +11,6 @@ import { Footer } from '../components/footer';
 import styles from '../styles/Home.module.css';
 import TransactionChart from '../components/transaction-chart';
 import OperationModal from '@components/operationModal';
-import { useState } from 'react';
 import TransactionOperationModal from '@components/transaction-operation-modal';
 
 export default function Home() {

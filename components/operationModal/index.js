@@ -1,11 +1,9 @@
 import TransactionOperation from '@components/transaction-operation';
 import React, { useEffect, useState } from 'react';
 import receivers from '../../mock/receivers';
-const OperationModal = (props) => {
-  const { transactionType, personData } = props;
+const OperationModal = ({ transactionType, personData }) => {
   const [modal, showModal] = useState(false);
   useEffect(() => {
-    console.log(transactionType);
     if (transactionType) {
       showModal((prev) => !prev);
     }
