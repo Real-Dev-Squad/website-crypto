@@ -1,29 +1,29 @@
 //TODO : change the image path
 import path from 'path';
 import Link from 'next/link';
-export const ShopCard = (props) => {
-  const { product, quantity } = props;
+export const ShopCard = ({ product, quantity, add, del, link }) => {
+  const { image, name, price } = product;
   const handleAddProduct = (item) => {
-    props.add.addCartItem(item);
-    props.add.addShopListItem(item);
+    add.addCartItem(item);
+    add.addShopListItem(item);
   };
 
   const handleRemoveProduct = (item) => {
-    props.del.delCartItem(item);
-    props.del.delShopListItem(item);
+    del.delCartItem(item);
+    del.delShopListItem(item);
   };
   return (
     <div className="shop-card">
-      <Link href={props.link.href} as={props.link.as}>
-        <img src={path.join('./assets', product.image)} alt={product.name} />
+      <Link href={link.href} as={link.as}>
+        <img src={path.join('./assets', image)} alt={name} />
       </Link>
       <div className="shop-card__content">
-        <p className="shop-card-product-name"> {product.name}</p>
-        <p className="shop-card-product-price"> {product.price}</p>
+        <p className="shop-card-product-name"> {name}</p>
+        <p className="shop-card-product-price"> {price}</p>
         <div className="shop-card-product-qnty">
-          <button onClick={() => handleAddProduct(product.name)}> + </button>
+          <button onClick={() => handleAddProduct(name)}> + </button>
           <span>{quantity}</span>
-          <button onClick={() => handleRemoveProduct(product.name)}> - </button>
+          <button onClick={() => handleRemoveProduct(name)}> - </button>
         </div>
       </div>
       <style jsx>{`
