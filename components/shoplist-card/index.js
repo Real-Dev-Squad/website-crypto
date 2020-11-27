@@ -51,12 +51,12 @@ export const ShopCard = (props) => {
         .shop-card__content {
           text-align: center;
           width: 100%;
-          padding: 1em;
+          padding: 1rem;
         }
         .shop-card__content button {
           background: none;
-          border: 0.2em solid #540075;
-          border-radius: 0.4em;
+          border: 0.2rem solid #540075;
+          border-radius: 0.4rem;
           font-size: 1.1em;
           font-weight: bold;
         }
@@ -66,8 +66,8 @@ export const ShopCard = (props) => {
           color: #540075;
         }
         p {
-          margin-block-start: 0.5em;
-          margin-block-end: 0.5em;
+          margin-block-start: 0.5rem;
+          margin-block-end: 0.5rem;
         }
         .shop-card-product-price {
           font-weight: bold;
@@ -76,6 +76,7 @@ export const ShopCard = (props) => {
         }
         .shop-card-product-qnty {
           display: flex;
+          font-size: 1.3em;
           width: 100%;
           justify-content: space-evenly;
           align-items: center;
