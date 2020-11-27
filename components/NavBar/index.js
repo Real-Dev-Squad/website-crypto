@@ -12,21 +12,20 @@ const NavBar = ({ personData: { photo } }) => {
         />
 
         <div className={styles.homeLogin}>
-          <ul>
-            <li>
-              <Link href="/shop">Shop</Link>
-            </li>
-            <li>
-              <Link href="/cart">Cart</Link>
-            </li>
-          </ul>
+          <li>
+            <Link href="/shop">Shop</Link>
+          </li>
+          <li>
+            <Link href="/cart">Cart</Link>
+          </li>
+
           <p></p>
           <img
             src={photo}
             className={styles.profilePic}
             alt="Profile Image"
-            height="60"
-            width="60"
+            height="70"
+            width="70"
           />
         </div>
       </div>
