@@ -11,8 +11,6 @@ import styles from '../styles/Home.module.css';
 import TransactionChart from '../components/transaction-chart';
 import OperationModal from '@components/operationModal';
 import { useState } from 'react';
-
-import { useState } from 'react';
 import TransactionOperationModal from '@components/transaction-operation-modal';
 
 export default function Home() {
