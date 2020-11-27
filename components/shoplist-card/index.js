@@ -2,7 +2,7 @@
 import path from 'path';
 import Link from 'next/link';
 export const ShopCard = (props) => {
-  const { product } = props;
+  const { product, quantity } = props;
   const handleAddProduct = (item) => {
     props.add.addCartItem(item);
     props.add.addShopListItem(item);
@@ -22,7 +22,7 @@ export const ShopCard = (props) => {
         <p className="shop-card-product-price"> {product.price}</p>
         <div className="shop-card-product-qnty">
           <button onClick={() => handleAddProduct(product.name)}> + </button>
-          <span>{props.quantity}</span>
+          <span>{quantity}</span>
           <button onClick={() => handleRemoveProduct(product.name)}> - </button>
         </div>
       </div>
