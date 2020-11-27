@@ -1,0 +1,39 @@
+.navBar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  background-color: #041484;
+  align-items: center;
+  font-size: 1rem;
+}
+.navBar li {
+  display: block;
+  color: #f2f2f2;
+  padding: 0px 16px 0px 0px;
+  text-decoration: none;
+  float: left;
+}
+.navBar Link {
+  border: 10px solid;
+}
+.navBar li a:hover {
+  color: #e30464;
+}
+
+.logo {
+  width: 50px;
+}
+
+.homeHeader {
+  grid-column: 1 / 5;
+  grid-row: 1;
+}
+.homeLogin {
+  grid-column: 1;
+  display: flex;
+}
+.homeLogin > img {
+  border-radius: 50%;
+}

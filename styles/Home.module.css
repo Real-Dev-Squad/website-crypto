@@ -7,9 +7,7 @@
   --bronze: #cd7f32;
   --dark-bronze: #ae7235;
 }
-.logo {
-  width: 70px;
-}
+
 .content {
   flex-shrink: 1;
 }
@@ -47,28 +45,7 @@
 .card:hover {
   box-shadow: 0 0 20px -7px rgba(0, 0, 0, 0.65);
 }
-.navBar > ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  background-color:#041187;
-  align-items: center;
-  font-size: 30px;
-}
-.navBar li {
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 0px 16px 0px 0px;
-  text-decoration: none;
-}
-.navBar Link {
-  border: 10px solid;
-}
-.navBar li a:hover {
-  text-decoration: underline;
-}
+
 
 .homeContainer {
   display: grid;
@@ -77,19 +54,7 @@
   grid-template-rows: repeat(3, minmax(100px, auto));
   background-color: #fff;
 }
-.homeHeader {
-  grid-column: 1 / 4;
-  grid-row: 1;
-}
 
-.homeLogin {
-  grid-column: 4;
-  display: flex;
-  justify-content: space-between;
-}
-.homeLogin > img {
-  border-radius: 50%;
-}
 
 .homeUser {
   grid-column: 1;
