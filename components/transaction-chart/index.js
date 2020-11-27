@@ -38,14 +38,14 @@ function getDataset(transactionData) {
   };
 }
 
-const TransactionChart = (props) => {
+const TransactionChart = ({ transactionChartData }) => {
   const [chartData, setChartData] = useState({});
   useEffect(() => {
     const chart = () => {
-      setChartData(getDataset(props.transactionChartData));
+      setChartData(getDataset(transactionChartData));
     };
     chart();
-  }, [props.transactionChartData]);
+  }, [transactionChartData]);
 
   return (
     <div className={styles.transactionCard}>
