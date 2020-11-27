@@ -2,14 +2,12 @@ import Link from 'next/link';
 import React from 'react';
 import styles from './navbar.module.css';
 const NavBar = ({ personData: { photo } }) => {
+  const RDSLogo =
+    'https://staging-members-rds.herokuapp.com/images/Real-Dev-Squad@1x.png';
   return (
     <div className={styles.homeHeader}>
       <div className={styles.navBar}>
-        <img
-          className={styles.logo}
-          src="https://staging-members-rds.herokuapp.com/images/Real-Dev-Squad@1x.png"
-          alt="RealDevSquad Logo"
-        />
+        <img className={styles.logo} src={RDSLogo} alt="RealDevSquad Logo" />
 
         <div className={styles.homeLogin}>
           <li>
