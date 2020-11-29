@@ -42,7 +42,6 @@ const Cart = (props) => {
           src="https://img.icons8.com/wired/64/000000/bill.png"
           alt="Sumarry icon"
           onClick={() => {
-            console.log('Hi i am clicked ');
             setShowSummary(!showSummary);
           }}
         />

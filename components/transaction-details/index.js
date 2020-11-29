@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import PropTypes from 'prop-types';
+import Filter from '../filter';
 import styles from './transaction-details.module.css';
 
 const SingleTransaction = (props) => {
@@ -21,10 +23,32 @@ const SingleTransaction = (props) => {
   );
 };
 const TransactionList = (props) => {
-  let transactionItems = props.transactions.map((transactionItem, index) => {
+  const { transactions } = props;
+  const [transactionList, setTransaction] = useState(transactions);
+  const filterStateReducer = (state, type) => {
+    if (type === 'credit') {
+      return state.filter((x) => x.type === 'Credit');
+    }
+    if (type === 'debit') {
+      return state.filter((x) => x.type === 'Debit');
+    }
+    if (type === 'reset') {
+      return state;
+    }
+    return state;
+  };
+  const filterTransaction = ({ type }) => {
+    setTransaction(filterStateReducer(transactions, type));
+  };
+  let transactionItems = transactionList.map((transactionItem, index) => {
     return <SingleTransaction key={index} transactionItem={transactionItem} />;
   });
-  return <>{transactionItems}</>;
+  return (
+    <div>
+      <Filter changeTransactions={filterTransaction} />
+      {transactionItems}
+    </div>
+  );
 };
 
 SingleTransaction.propTypes = {

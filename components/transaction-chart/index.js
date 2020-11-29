@@ -40,13 +40,12 @@ function getDataset(transactionData) {
 
 const TransactionChart = (props) => {
   const [chartData, setChartData] = useState({});
-  const chart = () => {
-    setChartData(getDataset(props.transactionChartData));
-  };
-
   useEffect(() => {
+    const chart = () => {
+      setChartData(getDataset(props.transactionChartData));
+    };
     chart();
-  }, []);
+  }, [props.transactionChartData]);
 
   return (
     <div className={styles.transactionCard}>
