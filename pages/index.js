@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Link from 'next/link';
 import transactionData from '../mock/transaction.json';
 import personData from '../mock/person.json';
 import transactionChartData from '../mock/transaction-graph-data.json';
@@ -9,6 +8,7 @@ import CoinsStatus from '../components/coins-status';
 import { Footer } from '../components/footer';
 import styles from '../styles/Home.module.css';
 import TransactionChart from '../components/transaction-chart';
+import NavBar from '@components/NavBar';
 
 export default function Home() {
   return (
@@ -17,35 +17,7 @@ export default function Home() {
         <title>Bank Dashboard</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className={styles.homeHeader}>
-        <div className={styles.navBar}>
-          <ul>
-            <li>
-              <img
-                className={styles.logo}
-                src="https://staging-members-rds.herokuapp.com/images/Real-Dev-Squad@1x.png"
-                alt="RealDevSquad Logo"
-              />
-            </li>
-            <li>
-              <Link href="/shop">Shop</Link>
-            </li>
-            <li>
-              <Link href="/cart">Cart</Link>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div className={styles.homeLogin}>
-        <p></p>
-        <img
-          src={personData.photo}
-          className={styles.profilePic}
-          alt="Profile Image"
-          height="80"
-          width="80"
-        />
-      </div>
+      <NavBar personData={personData} />
       <div className={styles.homeUser}>
         <CoinsStatus coins={coinsData} />
         <div className={`${styles.button} ${styles.greenButton}`}>Send</div>
