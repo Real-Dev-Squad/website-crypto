@@ -51,6 +51,8 @@
   flex-wrap: wrap;
   justify-content: space-around;
   padding-top: 0.5em;
+  width: 100%;
+  overflow: hidden;
 }
 
 .homeUser {
