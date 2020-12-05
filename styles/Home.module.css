@@ -46,21 +46,17 @@
   box-shadow: 0 0 20px -7px rgba(0, 0, 0, 0.65);
 }
 
-
-.homeContainer {
-  display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(4, minmax(200px, auto));
-  grid-template-rows: repeat(3, minmax(100px, auto));
-  background-color: #fff;
+.mainBody{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-top: 0.5em;
 }
 
-
 .homeUser {
-  grid-column: 1;
-  grid-row: 2 / 4;
-
-
+  display: flex;
+  flex-flow: column nowrap;
+  margin-top: 0.7em;
 }
 
 .homeTransaction {
@@ -71,26 +67,21 @@
   grid-template-rows: repeat(2, auto);
   gap: 5px;
 }
+
 .transactionGraph {
   grid-row: 1/2;
 }
+
 .transactionMenu {
   grid-row: 2/3;
 }
+
 .homeFooter {
   grid-row: 4;
   grid-column: 1/5;
 }
 
 @media only screen and (max-width: 650px) {
-  .homeContainer {
-    display: grid;
-    grid-template-columns: repeat(4, auto);
-    grid-template-rows: auto;
-  }
-  .homeHeader {
-    grid-column: 1/4;
-  }
   .homeUser {
     grid-column: 3/4;
     grid-row: auto;
@@ -99,6 +90,7 @@
     align-items: center;
 
   }
+  
   .homeTransaction {
     grid-column: 1/5;
     grid-row: auto;

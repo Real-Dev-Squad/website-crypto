@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Navbar from '../components/navbar';
 import transactionData from '../mock/transaction.json';
 import personData from '../mock/person.json';
 import transactionChartData from '../mock/transaction-graph-data.json';
@@ -13,18 +12,21 @@ import NavBar from '@components/NavBar';
 
 export default function Home() {
   return (
-    <div>
-      <Navbar />
-      <div className={styles.homeContainer}>
-        <Head>
-          <title>Bank Dashboard</title>
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-        <NavBar personData={personData} />
+    <div className={styles.homeContainer}>
+      <Head>
+        <title>Bank Dashboard</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <NavBar personData={personData} />
+      <main className={styles.mainBody}>
         <div className={styles.homeUser}>
           <CoinsStatus coins={coinsData} />
-          <div className={`${styles.button} ${styles.greenButton}`}>Send</div>
-          <div className={`${styles.button} ${styles.redButton}`}>Receive</div>
+          <div>
+            <div className={`${styles.button} ${styles.greenButton}`}>Send</div>
+            <div className={`${styles.button} ${styles.redButton}`}>
+              Receive
+            </div>
+          </div>
         </div>
         <div className={styles.homeTransaction}>
           <div className={styles.transactionGraph}>
@@ -43,10 +45,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className={styles.homeFooter}>
-          {' '}
-          <Footer />
-        </div>
+      </main>
+      <div className={styles.homeFooter}>
+        {' '}
+        <Footer />
       </div>
     </div>
   );
