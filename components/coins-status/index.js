@@ -32,10 +32,11 @@ const Coins = (props) => {
           }
 
           .coin > p {
-            padding-top: 1rem;
+            padding-top: 0.5rem;
             text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
             color: #9c8468;
             font-weight: bold;
+            font-size: 1.5rem;
             opacity: 0.7;
             transform: translate(20%, -10%);
           }
