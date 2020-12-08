@@ -10,7 +10,7 @@ const Coins = (props) => {
   return (
     <div className="cointype-indicator">
       <div className="tooltip">
-        <div className="coin">
+        <div className="coin rotate-vert-center ">
           <p> {coins} </p>
         </div>
         <span className="tooltiptext">{props.coin.name}</span>
@@ -23,19 +23,35 @@ const Coins = (props) => {
           }
           .coin {
             background-color: ${props.coin.color};
-            width: 3em;
-            height: 3em;
+            width: 5rem;
+            height: 5em;
             border-radius: 50%;
+            box-shadow: 3px 3px 3px #000;
             border: 1px solid ${props.coin.borderColor};
             position: absolute;
           }
 
           .coin > p {
+            padding-top: 1rem;
             text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
             color: #9c8468;
             font-weight: bold;
             opacity: 0.7;
             transform: translate(20%, -10%);
+          }
+
+          .rotate-vert-center {
+            animation: rotate-vert-center 0.5s
+              cubic-bezier(0.455, 0.03, 0.515, 0.955) 1s both;
+          }
+
+          @keyframes rotate-vert-center {
+            0% {
+              transform: rotateY(0);
+            }
+            100% {
+              transform: rotateY(360deg);
+            }
           }
 
           .tooltip {
@@ -70,6 +86,7 @@ const CoinsStatus = (props) => {
         {`
           .coins-container {
             display: flex;
+            margin-left: 2rem;
             flex-direction: row;
             justify-content: space-between;
             width: 12em;

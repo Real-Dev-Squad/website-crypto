@@ -22,7 +22,7 @@
   font-weight: bold;
   font-size: 20px;
   cursor: pointer;
-  margin:2px;
+  margin:1.5rem;
   width:6em;
 }
 .greenButton {
@@ -46,7 +46,7 @@
   box-shadow: 0 0 20px -7px rgba(0, 0, 0, 0.65);
 }
 
-.mainBody{
+.mainBody{ 
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -85,8 +85,6 @@
 
 @media only screen and (max-width: 650px) {
   .homeUser {
-    grid-column: 3/4;
-    grid-row: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
