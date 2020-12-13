@@ -5,29 +5,24 @@ const NavBar = ({ personData: { photo } }) => {
   const RDSLogo =
     'https://staging-members-rds.herokuapp.com/images/Real-Dev-Squad@1x.png';
   return (
-    <div className={styles.homeHeader}>
-      <div className={styles.navBar}>
+    <nav className={styles.navBar}>
+      <Link href="https://crypto.realdevsquad.com/">
         <img className={styles.logo} src={RDSLogo} alt="RealDevSquad Logo" />
-
-        <div className={styles.homeLogin}>
-          <li>
-            <Link href="/shop">Shop</Link>
-          </li>
-          <li>
-            <Link href="/cart">Cart</Link>
-          </li>
-
-          <p></p>
-          <img
-            src={photo}
-            className={styles.profilePic}
-            alt="Profile Image"
-            height="70"
-            width="70"
-          />
-        </div>
+      </Link>
+      <li>
+        <Link href="/shop">
+          <a>Shop</a>
+        </Link>
+      </li>
+      <li>
+        <Link href="/cart">
+          <a>Cart</a>
+        </Link>
+      </li>
+      <div className={styles.profilePic}>
+        <img src={photo} alt="Profile Image" height="70" width="70" />
       </div>
-    </div>
+    </nav>
   );
 };
 
