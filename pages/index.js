@@ -1,6 +1,4 @@
 import Head from 'next/head';
-import Link from 'next/link';
-import { useState } from 'react';
 import transactionData from '../mock/transaction.json';
 import personData from '../mock/person.json';
 import transactionChartData from '../mock/transaction-graph-data.json';
@@ -10,54 +8,31 @@ import CoinsStatus from '../components/coins-status';
 import { Footer } from '../components/footer';
 import styles from '../styles/Home.module.css';
 import TransactionChart from '../components/transaction-chart';
-import OperationModal from '@components/operationModal';
 import TransactionOperationModal from '@components/transaction-operation-modal';
+import NavBar from '@components/NavBar';
 
 export default function Home() {
-  const [transactionType, setTransactionType] = useState('');
   return (
     <div className={styles.homeContainer}>
       <Head>
         <title>Bank Dashboard</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className={styles.homeHeader}>
-        <div className={styles.navBar}>
-          <ul>
-            <li>
-              <img
-                className={styles.logo}
-                src="https://staging-members-rds.herokuapp.com/images/Real-Dev-Squad@1x.png"
-                alt="RealDevSquad Logo"
-              />
-            </li>
-            <li>
-              <Link href="/shop">Shop</Link>
-            </li>
-            <li>
-              <Link href="/cart">Cart</Link>
-            </li>
-          </ul>
+      <NavBar personData={personData} />
+      <main className={styles.mainBody}>
+        <div className={styles.homeUser}>
+          <CoinsStatus coins={coinsData} />
+          <TransactionOperationModal personData={personData} />
         </div>
-      </div>
-      <div className={styles.homeLogin}>
-        <p></p>
-        <img
-          src={personData.photo}
-          className={styles.profilePic}
-          alt="Profile Image"
-          height="80"
-          width="80"
-        />
-      </div>
-      <div className={styles.homeUser}>
-        <CoinsStatus coins={coinsData} />
-        <TransactionOperationModal personData={personData} />
-      </div>
-      <div className={styles.homeTransaction}>
-        <div className={styles.transactionGraph}>
-          <TransactionChart transactionChartData={transactionChartData} />
+
+        <div className={styles.homeTransaction}>
+          <div className={styles.transactionGraph}>
+            <div className={`${styles.card} ${styles.content}`}>
+              <TransactionChart transactionChartData={transactionChartData} />
+            </div>
+          </div>
         </div>
+
         <div className={styles.transactionMenu}>
           <div className={`${styles.card} ${styles.content}`}>
             <div className={`${styles.heading}`}>
@@ -70,13 +45,7 @@ export default function Home() {
             <TransactionList transactions={transactionData} />
           </div>
         </div>
-        <div>
-          <OperationModal
-            transactionType={transactionType}
-            personData={personData}
-          />
-        </div>
-      </div>
+      </main>
       <div className={styles.homeFooter}>
         {' '}
         <Footer />

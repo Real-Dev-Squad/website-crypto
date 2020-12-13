@@ -55,6 +55,13 @@ const Shop = (props) => {
           font: inherit;
           cursor: pointer;
         }
+        .shoppinglist-container {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: space-evenly;
+          align-items: stretch;
+        }
       `}</style>
     </div>
   );

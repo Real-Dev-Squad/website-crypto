@@ -1,0 +1,38 @@
+.navBar {
+  display: flex;
+  background-color: #041484;
+  align-items: center;
+  font-size: 0.9rem;
+  width: 100%;
+  padding: 0.3rem 0.5rem;
+  overflow: hidden;
+  border-bottom: 2px solid #e30464;
+}
+
+.navBar li {
+  list-style-type: none;
+  color: #f2f2f2;
+  padding: 0 0.6em;
+  font-size: 1.05em;
+}
+
+.navBar li a:hover {
+  color: #e30464;
+}
+
+.logo {
+  width: 3em;
+  margin-right: auto;
+}
+
+.profilePic {
+  width: 3em;
+  height: 3em;
+  margin-left: 1em;
+}
+
+.profilePic > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}

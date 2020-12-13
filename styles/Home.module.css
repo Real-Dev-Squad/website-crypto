@@ -1,3 +1,4 @@
+
 .container {
   /* Variables */
   --gold: #ffd700;
@@ -7,9 +8,7 @@
   --bronze: #cd7f32;
   --dark-bronze: #ae7235;
 }
-.logo {
-  width: 70px;
-}
+
 .content {
   flex-shrink: 1;
 }
@@ -24,7 +23,7 @@
   font-weight: bold;
   font-size: 20px;
   cursor: pointer;
-  margin:2px;
+  margin:3rem 1.5rem 0 1.5rem;
   width:6em;
 }
 .greenButton {
@@ -47,95 +46,60 @@
 .card:hover {
   box-shadow: 0 0 20px -7px rgba(0, 0, 0, 0.65);
 }
-.navBar > ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  background-color:#041187;
-  align-items: center;
-  font-size: 30px;
-}
-.navBar li {
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 0px 16px 0px 0px;
-  text-decoration: none;
-}
-.navBar Link {
-  border: 10px solid;
-}
-.navBar li a:hover {
-  text-decoration: underline;
-}
 
-.homeContainer {
-  display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(4, minmax(200px, auto));
-  grid-template-rows: repeat(3, minmax(100px, auto));
-  background-color: #fff;
-}
-.homeHeader {
-  grid-column: 1 / 4;
-  grid-row: 1;
-}
-
-.homeLogin {
-  grid-column: 4;
+.mainBody{ 
   display: flex;
-  justify-content: space-between;
-}
-.homeLogin > img {
-  border-radius: 50%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-top: 0.5em;
+  width: 100%;
+  overflow: hidden;
 }
 
 .homeUser {
-  grid-column: 1;
-  grid-row: 2 / 4;
-
-
+  display: flex;
+  flex-flow: column nowrap;
+  margin-top: 0.7em;
 }
 
 .homeTransaction {
-  grid-column: 2 / 5;
+  /* grid-column: 2 / 5;
   grid-row: 2 / 4;
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: repeat(2, auto);
-  gap: 5px;
+  gap: 5px; */
+  display: flex;
+  padding: 0.5rem 0.5rem;
+  margin: 0.5rem 0.5rem;
 }
+
 .transactionGraph {
   grid-row: 1/2;
 }
+
 .transactionMenu {
   grid-row: 2/3;
 }
+
 .homeFooter {
   grid-row: 4;
   grid-column: 1/5;
 }
 
 @media only screen and (max-width: 650px) {
-  .homeContainer {
-    display: grid;
-    grid-template-columns: repeat(4, auto);
-    grid-template-rows: auto;
-  }
-  .homeHeader {
-    grid-column: 1/4;
-  }
   .homeUser {
-    grid-column: 3/4;
-    grid-row: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
 
   }
+  
   .homeTransaction {
-    grid-column: 1/5;
-    grid-row: auto;
+    /* grid-column: 1/5;
+    grid-row: auto; */
+    display: flex;
+    padding: 0.5rem 0.5rem;
+    margin: 0.5rem 0.5rem;
   }
 }
