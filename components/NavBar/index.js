@@ -6,7 +6,9 @@ const NavBar = ({ personData: { photo } }) => {
     'https://staging-members-rds.herokuapp.com/images/Real-Dev-Squad@1x.png';
   return (
     <nav className={styles.navBar}>
-      <img className={styles.logo} src={RDSLogo} alt="RealDevSquad Logo" />
+      <Link href="https://crypto.realdevsquad.com/">
+        <img className={styles.logo} src={RDSLogo} alt="RealDevSquad Logo" />
+      </Link>
       <li>
         <Link href="/shop">
           <a>Shop</a>
