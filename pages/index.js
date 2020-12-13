@@ -18,28 +18,38 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <NavBar personData={personData} />
-      <div className={styles.homeUser}>
-        <CoinsStatus coins={coinsData} />
-        <div className={`${styles.button} ${styles.greenButton}`}>Send</div>
-        <div className={`${styles.button} ${styles.redButton}`}>Receive</div>
-      </div>
-      <div className={styles.homeTransaction}>
-        <div className={styles.transactionGraph}>
-          <TransactionChart transactionChartData={transactionChartData} />
+      <main className={styles.mainBody}>
+        <div className={styles.homeUser}>
+          <CoinsStatus coins={coinsData} />
+          <div>
+            <div className={`${styles.button} ${styles.greenButton}`}>Send</div>
+            <div className={`${styles.button} ${styles.redButton}`}>
+              Receive
+            </div>
+          </div>
         </div>
         <div className={styles.transactionMenu}>
           <div className={`${styles.card} ${styles.content}`}>
-            <div className={`${styles.heading}`}>
-              <img
-                src="https://www.flaticon.com/svg/static/icons/svg/810/810375.svg"
-                className="icon"
-                alt="Transaction Icon"
-              />
+            <div className={styles.homeTransaction}>
+              <div className={styles.transactionGraph}>
+                <TransactionChart transactionChartData={transactionChartData} />
+              </div>
             </div>
-            <TransactionList transactions={transactionData} />
+          </div>
+          <div className={styles.transactionMenu}>
+            <div className={`${styles.card} ${styles.content}`}>
+              <div className={`${styles.heading}`}>
+                <img
+                  src="https://www.flaticon.com/svg/static/icons/svg/810/810375.svg"
+                  className="icon"
+                  alt="Transaction Icon"
+                />
+              </div>
+              <TransactionList transactions={transactionData} />
+            </div>
           </div>
         </div>
-      </div>
+      </main>
       <div className={styles.homeFooter}>
         {' '}
         <Footer />
