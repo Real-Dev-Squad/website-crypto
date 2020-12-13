@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import Link from 'next/link';
+import personData from '../../mock/person.json';
 import { ShopCard } from '../../components/shoplist-card';
 import { getShopListCount } from '../../redux/selector';
 import {
@@ -11,6 +12,7 @@ import {
 // import Header from '../../components/header';
 import { Footer } from '../../components/footer';
 import productData from '../../mock/products.json';
+import NavBar from '../../components/NavBar';
 
 const products = Object.keys(productData);
 const Shop = (props) => {
@@ -20,11 +22,12 @@ const Shop = (props) => {
     <div className="main-container">
       <div className="content">
         {/* <Header /> */}
-        <div className="take-to-cart">
+        <NavBar personData={personData} />
+        {/* <div className="take-to-cart">
           <button>
             <Link href="/cart">Take me to cart</Link>
           </button>
-        </div>
+        </div> */}
         <div className="shoppinglist-container">
           {products.map((itemName) => {
             return (
