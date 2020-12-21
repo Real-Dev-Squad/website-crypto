@@ -24,6 +24,7 @@
   cursor: pointer;
   margin:3rem 1.5rem 0 1.5rem;
   width:6em;
+  text-align: center;
 }
 .greenButton {
   background-color: #2ecc71;
