@@ -8,6 +8,7 @@ import CoinsStatus from '../components/coins-status';
 import { Footer } from '../components/footer';
 import styles from '../styles/Home.module.css';
 import TransactionChart from '../components/transaction-chart';
+import TransactionOperationModal from '@components/transaction-operation-modal';
 import NavBar from '@components/NavBar';
 
 export default function Home() {
@@ -21,32 +22,27 @@ export default function Home() {
       <main className={styles.mainBody}>
         <div className={styles.homeUser}>
           <CoinsStatus coins={coinsData} />
-          <div>
-            <div className={`${styles.button} ${styles.greenButton}`}>Send</div>
-            <div className={`${styles.button} ${styles.redButton}`}>
-              Receive
+          <TransactionOperationModal personData={personData} />
+        </div>
+
+        <div className={styles.homeTransaction}>
+          <div className={styles.transactionGraph}>
+            <div className={`${styles.card} ${styles.content}`}>
+              <TransactionChart transactionChartData={transactionChartData} />
             </div>
           </div>
         </div>
+
         <div className={styles.transactionMenu}>
           <div className={`${styles.card} ${styles.content}`}>
-            <div className={styles.homeTransaction}>
-              <div className={styles.transactionGraph}>
-                <TransactionChart transactionChartData={transactionChartData} />
-              </div>
+            <div className={`${styles.heading}`}>
+              <img
+                src="https://www.flaticon.com/svg/static/icons/svg/810/810375.svg"
+                className="icon"
+                alt="Transaction Icon"
+              />
             </div>
-          </div>
-          <div className={styles.transactionMenu}>
-            <div className={`${styles.card} ${styles.content}`}>
-              <div className={`${styles.heading}`}>
-                <img
-                  src="https://www.flaticon.com/svg/static/icons/svg/810/810375.svg"
-                  className="icon"
-                  alt="Transaction Icon"
-                />
-              </div>
-              <TransactionList transactions={transactionData} />
-            </div>
+            <TransactionList transactions={transactionData} />
           </div>
         </div>
       </main>
