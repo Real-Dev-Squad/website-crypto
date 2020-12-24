@@ -16,6 +16,7 @@
     "@babel/plugin-transform-react-jsx": "^7.10.4",
     "chart.js": "2.9.3",
     "eslint-plugin-jest": "^24.0.0",
+    "framer-motion": "^2.9.4",
     "next": "9.5.2",
     "next-redux-wrapper": "^6.0.2",
     "path-browserify": "^1.0.1",

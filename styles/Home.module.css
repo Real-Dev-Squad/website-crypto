@@ -1,3 +1,4 @@
+
 .container {
   /* Variables */
   --gold: #ffd700;
@@ -63,12 +64,15 @@
 }
 
 .homeTransaction {
-  grid-column: 2 / 5;
+  /* grid-column: 2 / 5;
   grid-row: 2 / 4;
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: repeat(2, auto);
-  gap: 5px;
+  gap: 5px; */
+  display: flex;
+  padding: 0.5rem 0.5rem;
+  margin: 0.5rem 0.5rem;
 }
 
 .transactionGraph {
@@ -93,7 +97,10 @@
   }
   
   .homeTransaction {
-    grid-column: 1/5;
-    grid-row: auto;
+    /* grid-column: 1/5;
+    grid-row: auto; */
+    display: flex;
+    padding: 0.5rem 0.5rem;
+    margin: 0.5rem 0.5rem;
   }
 }
