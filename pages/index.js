@@ -26,10 +26,8 @@ export default function Home() {
         </div>
 
         <div className={styles.homeTransaction}>
-          <div className={styles.transactionGraph}>
-            <div className={`${styles.card} ${styles.content}`}>
-              <TransactionChart transactionChartData={transactionChartData} />
-            </div>
+          <div className={`${styles.card} ${styles.content}`}>
+            <TransactionChart transactionChartData={transactionChartData} />
           </div>
         </div>
 

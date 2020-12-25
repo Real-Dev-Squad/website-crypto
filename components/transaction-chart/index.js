@@ -24,7 +24,7 @@ function getDataset(transactionData) {
         data: creditData,
         borderColor: ['rgba(42,187,155,0.9)'],
         pointBorderColor: ['rgba(42,187,155,0.9)'],
-        borderWidth: 4,
+        borderWidth: 2,
       },
       {
         label: 'Debit',
@@ -32,7 +32,7 @@ function getDataset(transactionData) {
         data: debitData,
         borderColor: ['rgba(255,0,0,06)'],
         pointBorderColor: ['rgba(255,0,0,0.6)'],
-        borderWidth: 4,
+        borderWidth: 2,
       },
     ],
   };
