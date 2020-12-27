@@ -21,9 +21,9 @@ export const ShopCard = ({ product, quantity, add, del, link }) => {
         <p className="shop-card-product-name"> {name}</p>
         <p className="shop-card-product-price"> {price}</p>
         <div className="shop-card-product-qnty">
-          <button onClick={() => handleAddProduct(name)}> + </button>
-          <span>{quantity}</span>
           <button onClick={() => handleRemoveProduct(name)}> - </button>
+          <span>{quantity}</span>
+          <button onClick={() => handleAddProduct(name)}> + </button>
         </div>
       </div>
       <style jsx>{`
