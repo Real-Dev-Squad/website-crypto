@@ -1,3 +1,5 @@
+[![Better Uptime Badge](https://betteruptime.com/status-badges/v1/monitor/5huv.svg)](https://betteruptime.com/?utm_source=status_badge)
+
 # Crypto Site
 
 This application enables transaction among members of RDS group. We have three different currencies : Bronze , Silver and Gold and these carry different values. You can shop items and acknowledge people for their work
