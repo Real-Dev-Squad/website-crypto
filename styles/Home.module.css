@@ -37,18 +37,27 @@
   border: 1px solid #ff3838;
 }
 .card {
-  margin: 10px;
+  min-width: 20em;
   border: 1px solid #f4f4f4;
-  border-radius: 10px;
-  padding: 20px;
+  border-radius: 5px;
+  padding: 1px;
   background: white;
-  box-shadow: 0 0 15px -7px rgba(0, 0, 0, 0.65);
-}
-.card:hover {
-  box-shadow: 0 0 20px -7px rgba(0, 0, 0, 0.65);
+  font-size: 20px;
+
 }
 
-.mainBody{ 
+.heading {
+  display: flex;
+  justify-content:space-between;
+  height:30px;
+}
+.heading > p {
+  font-weight: bold;
+  transform: translateX(10px);
+  font-size:16px;
+}
+
+.mainBody{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -95,7 +104,11 @@
     align-items: center;
 
   }
-  
+
+  .card {
+    font-size: 12px;
+  }
+
   .homeTransaction {
     /* grid-column: 1/5;
     grid-row: auto; */

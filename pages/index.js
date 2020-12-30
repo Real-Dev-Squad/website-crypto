@@ -36,11 +36,7 @@ export default function Home() {
         <div className={styles.transactionMenu}>
           <div className={`${styles.card} ${styles.content}`}>
             <div className={`${styles.heading}`}>
-              <img
-                src="https://www.flaticon.com/svg/static/icons/svg/810/810375.svg"
-                className="icon"
-                alt="Transaction Icon"
-              />
+            <p> Latest Transactions</p>
             </div>
             <TransactionList transactions={transactionData} />
           </div>
