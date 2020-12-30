@@ -10,12 +10,11 @@ const Coins = (props) => {
   }, [props.coin.value, changeCoins]);
   return (
     <div className={styles.cointypeIndicator}>
-      <div className={styles.tooltip}>
-        <div className={`coin ${styles.rotateVertCenter}`}>
-          <p> {coins} </p>
-        </div>
-        <span className={styles.tooltiptext}>{props.coin.name}</span>
+      <div className={styles.coinData}>
+        <p> {props.coin.name}</p>
+        <p> {coins} </p>
       </div>
+      <div className={`coin ${styles.rotateVertCenter}`}></div>
       <style jsx>{`
         .coin {
           background-color: ${props.coin.color};
@@ -24,16 +23,6 @@ const Coins = (props) => {
           border-radius: 50%;
           box-shadow: 3px 3px 3px #000;
           border: 1px solid ${props.coin.borderColor};
-          position: absolute;
-        }
-        .coin > p {
-          padding-top: 1em;
-          text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
-          color: #9c8468;
-          font-weight: bold;
-          font-size: 1.2em;
-          opacity: 0.7;
-          transform: translate(20%, -10%);
         }
       `}</style>
     </div>
@@ -44,23 +33,7 @@ const CoinsStatus = (props) => {
   let coinsArray = props.coins.map((coin, index) => {
     return <Coins coin={coin} key={index} />;
   });
-  return (
-    <div className="coins-container">
-      {coinsArray}
-      <style jsx>
-        {`
-          .coins-container {
-            display: flex;
-            margin-left: 2rem;
-            flex-direction: row;
-            justify-content: space-between;
-            width: 12em;
-            height: 4em;
-          }
-        `}
-      </style>
-    </div>
-  );
+  return <div className={styles.coinsContainer}>{coinsArray}</div>;
 };
 
 Coins.propTypes = {
