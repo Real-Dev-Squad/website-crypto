@@ -10,7 +10,10 @@ export const useAnimateValue = (startPoint, endPoint, duration) => {
       (timestamp - startTimestamp.current) / duration,
       1
     );
-    setStart(Math.floor(progress * (end - startPoint) + startPoint));
+    const randomProgressStartPoint = Math.floor(
+      progress * (end - startPoint) + startPoint
+    );
+    setStart(randomProgressStartPoint);
     if (progress < 1) {
       window.requestAnimationFrame(step);
     } else {

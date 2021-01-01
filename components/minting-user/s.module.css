@@ -1,0 +1,46 @@
+.user-container {
+  margin-top: 25px;
+  display: block;
+}
+
+.user-display {
+  display: inline-block;
+  padding: 20px;
+  margin: 10px;
+}
+
+.user-uname {
+  vertical-align: middle;
+  display: inline;
+}
+
+.user-img {
+  border-radius: 50%;
+  margin-left: 10px;
+  height: 30px;
+  vertical-align: middle;
+  display: inline;
+}
+
+.user-uname {
+  margin: 0 10px;
+  color: brown;
+}
+
+.user-coins {
+  border-radius: 50%;
+  margin-left: 10px;
+  height: 30px;
+  vertical-align: middle;
+  display: inline;
+}
+
+.btn-add-miner {
+  margin-left: 25px;
+  display: inline-block;
+}
+
+.scrap-value {
+  font-weight: bold;
+  font-size: 1.4em;
+}

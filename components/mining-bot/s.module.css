@@ -1,0 +1,21 @@
+.coin-row {
+  border: 3px solid green;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 10px;
+  padding: 10px;
+  width: 250px;
+}
+
+.scraps-row {
+  margin: 0;
+  padding: 10px 5px;
+}
+
+.scrap {
+  margin-left: 15px;
+  width: 20px;
+  height: 20px;
+  border: 7px solid gold;
+  display: inline-block;
+}
