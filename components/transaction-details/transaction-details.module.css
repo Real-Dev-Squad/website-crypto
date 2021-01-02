@@ -57,5 +57,7 @@
 @media only screen and (max-width: 600px) {
   .transactionCard {
     width: 100%;
+    font-size: 12px;
   }
+
 }
