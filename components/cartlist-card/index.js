@@ -36,7 +36,7 @@ export const CartCard = (props) => {
         <button onClick={() => handleAddProduct(product.name)}>+</button>
         <button onClick={() => handleRemoveProduct(product.name)}>-</button>
       </div>
-      <span className="card-item" style={{fontWeight:"bold"}}> RDS {product.price} </span>
+      <span className="card-item card-bold"> RDS {product.price} </span>
       <div className="cartcard-fnbutton card-item">
         <button
           onClick={() => handleDeleteFromCart(product.name, props.quantity)}
@@ -60,9 +60,11 @@ export const CartCard = (props) => {
           padding: 5px;
           margin: 2px;
         }
-
         .card-item {
           width: 100%;
+        }
+        .card-bold{
+          font-weight: bold;
         }
         .cartcard-container > img {
           border: 2px solid grey;
@@ -72,11 +74,9 @@ export const CartCard = (props) => {
           margin-left: 1.2em;
           padding: 4px;
         }
-
         .cartcard-container > span {
           text-align: center;
         }
-       
         .cartcard-button {
           display: flex;
           flex-direction: column;
@@ -97,7 +97,6 @@ export const CartCard = (props) => {
         }
         .cartcard-fnbutton {
           display: flex;
-
           justify-content: space-between;
         }
         .cartcard-fnbutton > button {
