@@ -19,6 +19,9 @@ export const CartSummary = ({ total }) => {
             border: none;
             padding: 20px;
             cursor: pointer;
+            position: absolute;
+            left: 50%;
+            transform: translateY(30%);
           }
           p :last-child {
             border: none;

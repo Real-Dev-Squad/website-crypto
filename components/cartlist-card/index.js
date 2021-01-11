@@ -36,19 +36,19 @@ export const CartCard = (props) => {
         <button onClick={() => handleAddProduct(product.name)}>+</button>
         <button onClick={() => handleRemoveProduct(product.name)}>-</button>
       </div>
-      <span className="card-item"> RDS {product.price} </span>
+      <span className="card-item card-bold"> RDS {product.price} </span>
       <div className="cartcard-fnbutton card-item">
         <button
           onClick={() => handleDeleteFromCart(product.name, props.quantity)}
         >
           {' '}
-          Delete from Cart
+          Delete
         </button>
         <button
           onClick={() => handleSaveForLater(product.name, props.quantity)}
         >
           {' '}
-          Save for Later{' '}
+          Save{' '}
         </button>
       </div>
       <style jsx>{`
@@ -60,9 +60,11 @@ export const CartCard = (props) => {
           padding: 5px;
           margin: 2px;
         }
-
         .card-item {
-          width: 25%;
+          width: 100%;
+        }
+        .card-bold{
+          font-weight: bold;
         }
         .cartcard-container > img {
           border: 2px solid grey;
@@ -70,12 +72,11 @@ export const CartCard = (props) => {
           height: 5em;
           border-radius: 50%;
           margin-left: 1.2em;
+          padding: 4px;
         }
-
         .cartcard-container > span {
           text-align: center;
         }
-
         .cartcard-button {
           display: flex;
           flex-direction: column;
@@ -96,7 +97,6 @@ export const CartCard = (props) => {
         }
         .cartcard-fnbutton {
           display: flex;
-
           justify-content: space-between;
         }
         .cartcard-fnbutton > button {
@@ -107,11 +107,22 @@ export const CartCard = (props) => {
           display: inline-block;
           background-color: ${colors.pink.dark};
           font-size: 16px;
+          text-align: center;
         }
 
         @media only screen and (max-width: 600px) {
           .cartcard-container {
             flex-direction: column;
+          }
+          .cartcard-button{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+          }
+          .cartcard-fnbutton{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
           }
         }
       `}</style>
