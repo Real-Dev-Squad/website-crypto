@@ -7,45 +7,43 @@
 
 .transactionCard {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   justify-content: flex-start;
-  margin: 10px 0;
-  width: 500px;
-  background-color: #fdfbfb;
-  border: 1px solid #f4f1f1;
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
+  flex-wrap: wrap;
+  width: 100%;
+  border-top: 1px solid #f0e2e7;
+  border-bottom: 1px solid #f0e2e7;;
   cursor: pointer;
+  height:6em;
+  font-size: 17px;
+
 }
+
 
 .transactionCard .action {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  width: 110px;
   align-items: center;
-  padding: 15px;
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
+  padding:4px;
   color: white;
   font-weight: bold;
-  font-size: 25px;
+  width:4em;
+  height: 4em;
+  border-radius: 50%;
+  margin: 10px 8px 0px 5px ;
 }
 
 .transactionDetails {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 15px;
-  font-size: 20px;
+  padding: 8px;
+  font-size: 16px;
+}
+.transactionDetails > div:first-child {
   font-weight: bold;
 }
-
 .transactionDetails span {
-  font-size: 15px;
+  font-size: 12px;
 }
 
 .green {
@@ -59,5 +57,7 @@
 @media only screen and (max-width: 600px) {
   .transactionCard {
     width: 100%;
+    font-size: 12px;
   }
+
 }

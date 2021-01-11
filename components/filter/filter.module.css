@@ -1,8 +1,7 @@
 .filter {
   float: right;
   position: relative;
-  top: 5px;
-  right: -15px;
+  top: -10px;
   cursor: pointer;
 }
 
@@ -14,21 +13,18 @@
   right: 15px;
   z-index: 5;
   font-weight: bold;
-  box-shadow: 0 0 20px -7px rgba(0, 0, 0, 0.75);
+  border: 2px solid;
+  font-size: 14px;
 }
 
 .filterContent li {
   list-style-type: none;
-  padding: 10px;
+  padding: 7px;
   background-color: #fff;
 }
 
 .filterContent li:hover {
   background-color: #bdc3c7;
-}
-
-.filter:hover .filterContent {
-  /* display: inline-block; */
 }
 
 .showList {
