@@ -10,9 +10,8 @@ import {
 } from '../../redux/action';
 // import Header from '../../components/header';
 import { Footer } from '../../components/footer';
-import productData from '../../mock/products.json';
+import products from '../../mock/products.json';
 
-const products = Object.keys(productData);
 const Shop = (props) => {
   const { addCartItem, addShopListItem } = props;
   const { delCartItem, delShopListItem } = props;
@@ -26,15 +25,16 @@ const Shop = (props) => {
           </button>
         </div>
         <div className="shoppinglist-container">
-          {products.map((itemName) => {
+          {products.map((product) => {
+            const { id } = product;
             return (
               <ShopCard
-                key={itemName}
-                product={productData[itemName]}
-                quantity={props.shopListItemsCount[itemName] || 0}
+                key={id}
+                product={product}
+                quantity={props.shopListItemsCount[id] || 0}
                 add={{ addCartItem, addShopListItem }}
                 del={{ delCartItem, delShopListItem }}
-                link={{ href: '/shop/[product]', as: `/shop/${itemName}` }}
+                link={{ href: '/shop/[product]', as: `/shop/${id}` }}
               />
             );
           })}
