@@ -21,7 +21,7 @@ const NavBar = ({ personData: { photo } }) => {
       </li>
       <div className = {styles.profilePic} onClick = {()=>setToggle(!toggle)}>
         <img src={photo} alt="Profile Image" height="70" width="70" />
-        <div div className = {
+        <div className = {
           toggle ? styles.dropdownContent : styles.dropdownContentHide
         } >
           <ul>
