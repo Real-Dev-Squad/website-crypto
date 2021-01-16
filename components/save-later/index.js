@@ -56,5 +56,5 @@ const SaveLater = (props) => {
 };
 
 export default SaveLater;
-//this shoud receive a product and a button that will move item to cart with a quantity 1 it will also have del  button
+//this should receive a product and a button that will move item to cart with a quantity 1 it will also have del  button
 // you cannot have same item in your car and also in save later
