@@ -1,8 +1,6 @@
 //TODO : change the image path
 import path from 'path';
 import Link from 'next/link';
-import Image from 'next/image';
-
 export const ShopCard = ({ product, quantity, add, del, link }) => {
   const { image, name, price } = product;
   const handleAddProduct = (item) => {
@@ -17,15 +15,8 @@ export const ShopCard = ({ product, quantity, add, del, link }) => {
   return (
     <div className="shop-card">
       <Link href={link.href} as={link.as}>
-        <Image
-          src={path.join('/assets', image)}
-          alt={name}
-          width={210}
-          height={210}
-          layout="fixed"
-        />
+        <img src={path.join('./assets', image)} alt={name} />
       </Link>
-
       <div className="shop-card__content">
         <p className="shop-card-product-name"> {name}</p>
         <p className="shop-card-product-price"> {price}</p>
@@ -35,7 +26,6 @@ export const ShopCard = ({ product, quantity, add, del, link }) => {
           <button onClick={() => handleAddProduct(name)}> + </button>
         </div>
       </div>
-
       <style jsx>{`
         .shop-card {
           display: flex;
@@ -54,7 +44,7 @@ export const ShopCard = ({ product, quantity, add, del, link }) => {
           box-shadow: 0px 4px 10px #ccc;
           cursor: pointer;
         }
-        .shop-card .img {
+        .shop-card img {
           width: 80%;
           flex: 1;
         }

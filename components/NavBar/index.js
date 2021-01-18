@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import React from 'react';
 import styles from './navbar.module.css';
 
@@ -11,15 +10,7 @@ const NavBar = ({ personData: { photo } }) => {
       <li></li>
 
       <li>
-        <div className={styles.logo}>
-          <Image
-            src={RDSLogo}
-            alt="RealDevSwaud Logo"
-            width="111"
-            height="111"
-            layout="fixed"
-          />
-        </div>
+        <img className={styles.logo} src={RDSLogo} alt="RealDevSquad Logo" />
       </li>
 
       {/* <li>
@@ -31,15 +22,10 @@ const NavBar = ({ personData: { photo } }) => {
         <Link href="/cart">
           <a>Cart</a>
         </Link>
-      </li>  */}
-
-      {/* <div className={styles.profilePic}>
-        <Image 
-          src={this.photo} 
-          alt="Profile Image"  
-          width="70"
-          height="70"
-        />
+      </li> 
+      
+      <div className={styles.profilePic}>
+        <img src={photo} alt="Profile Image" height="70" width="70" />
       </div> */}
 
       <li>

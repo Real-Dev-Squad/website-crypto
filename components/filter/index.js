@@ -1,23 +1,19 @@
 import styles from './filter.module.css';
-import Image from 'next/image';
 
 const Filter = (props) => {
   const { changeTransactions } = props;
   return (
     <div className={styles.filter}>
-      <div className="icon">
-        <Image
-          src="/assets/filter-icon.svg"
-          alt="Filter icon"
-          width={20}
-          height={20}
-          onClick={() => {
-            document
-              .getElementById('filterContent')
-              .classList.toggle(styles.showList);
-          }}
-        />
-      </div>
+      <img
+        className="icon"
+        src="https://www.flaticon.com/svg/static/icons/svg/3126/3126539.svg"
+        alt="Filter icon"
+        onClick={() => {
+          document
+            .getElementById('filterContent')
+            .classList.toggle(styles.showList);
+        }}
+      />
 
       <div className={styles.filterContent} id="filterContent">
         <li onClick={() => changeTransactions({ type: 'credit' })}>
