@@ -1,38 +1,38 @@
-{
-  "Shoe": {
-    "id": "Shoe",
-    "image": "shoes.jpeg",
-    "name": "Shoe",
-    "usage": [
-      "Can be used if you are pissed of at someone",
-      "Can also be used to promote healthy activites"
-    ],
-    "category": "Footwear",
-    "manufacturer": "Ankush",
-    "price": 200
-  },
-  "Flower": {
-    "id": "Flower",
-    "image": "flowers.jpeg",
-    "name": "Flower",
-    "usage": [
-      "Can be used as token of appreciation",
-      "Can be a good subsitute for gift"
-    ],
-    "category": "Gift",
-    "manufacturer": "Ankush",
-    "price": 300
-  },
-  "Coffee": {
-    "id": "Coffee",
-    "image": "coffee.jpeg",
-    "name": "Coffee",
-    "usage": [
-      "Can serve as ice-breaker",
-      "Can be used as token of appreciation"
-    ],
-    "category": "Drink",
-    "manufacturer": "Ankush",
-    "price": 500
-  }
-}
+[
+    {
+        "id": "Shoe",
+        "image": "shoes.jpeg",
+        "name": "Shoe",
+        "usage": [
+            "Can be used if you are pissed of at someone",
+            "Can also be used to promote healthy activites"
+        ],
+        "category": "Footwear",
+        "manufacturer": "Ankush",
+        "price": 200
+    },
+    {
+        "id": "Flower",
+        "image": "flowers.jpeg",
+        "name": "Flower",
+        "usage": [
+            "Can be used as token of appreciation",
+            "Can be a good subsitute for gift"
+        ],
+        "category": "Gift",
+        "manufacturer": "Ankush",
+        "price": 300
+    },
+    {
+        "id": "Coffee",
+        "image": "coffee.jpeg",
+        "name": "Coffee",
+        "usage": [
+            "Can serve as ice-breaker",
+            "Can be used as token of appreciation"
+        ],
+        "category": "Drink",
+        "manufacturer": "Ankush",
+        "price": 500
+    }
+]

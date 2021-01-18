@@ -36,7 +36,7 @@ export default function Home() {
         <div className={styles.transactionMenu}>
           <div className={`${styles.card} ${styles.content}`}>
             <div className={`${styles.heading}`}>
-            <p> Latest Transactions</p>
+              <p> Latest Transactions</p>
             </div>
             <TransactionList transactions={transactionData} />
           </div>

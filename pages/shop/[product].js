@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import productData from '../../mock/products.json';
+import { getProductById } from '../../utils';
 import { ProductDetails } from '../../components/product-details';
 const CACHE_MAX_AGE = 43200;
 const ProductDetail = ({ productJSON }) => {
@@ -12,7 +12,7 @@ export async function getServerSideProps(context) {
     params: { product },
   } = context;
 
-  const productJSON = productData[product];
+  const productJSON = await getProductById(product);
 
   return { props: { productJSON } };
 }

@@ -63,7 +63,7 @@ export const CartCard = (props) => {
         .card-item {
           width: 100%;
         }
-        .card-bold{
+        .card-bold {
           font-weight: bold;
         }
         .cartcard-container > img {
@@ -114,12 +114,12 @@ export const CartCard = (props) => {
           .cartcard-container {
             flex-direction: column;
           }
-          .cartcard-button{
+          .cartcard-button {
             display: flex;
             flex-direction: row;
             justify-content: space-evenly;
           }
-          .cartcard-fnbutton{
+          .cartcard-fnbutton {
             display: flex;
             flex-direction: row;
             justify-content: space-evenly;
