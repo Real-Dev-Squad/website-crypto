@@ -1,6 +1,7 @@
 import path from 'path';
 import colors from '../../color/color.json';
 import PropTypes from 'prop-types';
+import Image from 'next/image';
 
 export const CartCard = (props) => {
   const { details: product } = props;
@@ -25,11 +26,10 @@ export const CartCard = (props) => {
   };
   return (
     <div className="cartcard-container">
-      <img
-        className="card-item"
-        src={path.join('./assets', product.image)}
-        alt={product.name}
-      />
+      <div className="card-item">
+        <Image src={path.join('./assets', product.image)} alt={product.name} />
+      </div>
+
       <span className="card-item"> {product.name}</span>
       <span className="card-item"> {props.quantity}</span>
       <div className="cartcard-button card-item">
@@ -63,7 +63,7 @@ export const CartCard = (props) => {
         .card-item {
           width: 100%;
         }
-        .card-bold{
+        .card-bold {
           font-weight: bold;
         }
         .cartcard-container > img {
@@ -114,12 +114,12 @@ export const CartCard = (props) => {
           .cartcard-container {
             flex-direction: column;
           }
-          .cartcard-button{
+          .cartcard-button {
             display: flex;
             flex-direction: row;
             justify-content: space-evenly;
           }
-          .cartcard-fnbutton{
+          .cartcard-fnbutton {
             display: flex;
             flex-direction: row;
             justify-content: space-evenly;
