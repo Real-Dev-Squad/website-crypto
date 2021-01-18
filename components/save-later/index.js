@@ -1,5 +1,6 @@
 import path from 'path';
 import colors from '../../color/color.json';
+import Image from 'next/image';
 const SaveLater = (props) => {
   const { details: product } = props;
   const handleMoveToCart = (item) => {
@@ -9,10 +10,11 @@ const SaveLater = (props) => {
   };
   return (
     <div className="savelateritem-container">
-      <img
-        className="savelater-image"
+      <Image
         src={path.join('./assets', product.image)}
         alt={product.name}
+        width={100}
+        height={100}
       />
       <span className="savelater-product-name">{product.name}</span>
       <button onClick={() => handleMoveToCart(product.name)}>
@@ -27,10 +29,6 @@ const SaveLater = (props) => {
                 background-color: ${colors.green.primary};
                 padding :5px;
                 margin : 2px;
-            }
-            .savelater-image {
-                height : 4em;
-                width : 4em;   
             }
             .savelateritem-container > span {
                 font-size:1.5em;
