@@ -59,7 +59,7 @@
 .homeTransaction {
   margin-top: 20px;
 }
-.transactionMenu {
+.rightSection {
   margin-top: 5px;
 }
 
@@ -83,7 +83,7 @@
   .card {
     font-size: 12px;
   }
-  .transactionMenu {
+  .rightSection {
     margin-top: 20px;
     width: 300px;
   }
