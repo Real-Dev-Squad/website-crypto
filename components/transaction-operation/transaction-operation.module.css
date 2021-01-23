@@ -22,7 +22,7 @@
   left: 30%;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   display: block;
-  animation: fade-slide-in 0.3s ease-out forwards;
+  animation: fade-slide-in 0.3s ease-in-out forwards;
 }
 
 @keyframes fade-slide-in {
@@ -75,6 +75,9 @@
   text-align: center;
   font-size: 1rem;
   font-weight: 700;
+}
+.closedButton:hover{
+  transform: scale(2);
 }
 
 @media only screen and (max-width: 600px) {
