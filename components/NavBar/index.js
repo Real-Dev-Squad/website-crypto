@@ -9,25 +9,29 @@ const NavBar = ({ personData: { photo } }) => {
 
   return (
     <nav className={styles.navBar}>
-      <li>
-        <Link href="/shop">
-          <a>Shop</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/cart">
-          <a>Cart</a>
-        </Link>
-      </li>
+      <ul>
+        <li>
+          <Link href="/shop">
+            <a>Shop</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/cart">
+            <a>Cart</a>
+          </Link>
+        </li>
+      </ul>
       <li>
         <div className={styles.logo}>
-          <Image
-            src={RDSLogo}
-            alt="RealDevSquad Logo"
-            width="111"
-            height="111"
-            layout="fixed"
-          />
+          <Link href="/">
+            <Image
+              src={RDSLogo}
+              alt="RealDevSquad Logo"
+              width="100"
+              height="100"
+              layout="fixed"
+            />
+          </Link>
         </div>
       </li>
       <li>
@@ -35,7 +39,7 @@ const NavBar = ({ personData: { photo } }) => {
           <a className={styles.login}>Log in</a>
         </Link>
       </li>
-      <div className={styles.profilePic} onClick={() => setToggle(!toggle)}>
+      {/* <div className={styles.profilePic} onClick={() => setToggle(!toggle)}>
         <img src={photo} alt="Profile Image" height="70" width="70" />
         <div
           className={
@@ -60,7 +64,7 @@ const NavBar = ({ personData: { photo } }) => {
             </li>
           </ul>
         </div>
-      </div>
+      </div> */}
     </nav>
   );
 };
