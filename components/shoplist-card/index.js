@@ -35,7 +35,6 @@ export const ShopCard = ({ product, quantity, add, del, link }) => {
           <button onClick={() => handleAddProduct(name)}> + </button>
         </div>
       </div>
-
       <style jsx>
         {`
           .shop-card {
