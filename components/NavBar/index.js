@@ -34,12 +34,12 @@ const NavBar = ({ personData: { photo } }) => {
           </Link>
         </div>
       </li>
-      <li>
+      {/* <li>
         <Link href="#">
-          <a className={styles.login}>Log in</a>
+          <a className={styles.loginBtn}>Log in</a>
         </Link>
-      </li>
-      {/* <div className={styles.profilePic} onClick={() => setToggle(!toggle)}>
+      </li> */}
+      <div className={styles.profilePic} onClick={() => setToggle(!toggle)}>
         <img src={photo} alt="Profile Image" height="70" width="70" />
         <div
           className={
@@ -64,7 +64,7 @@ const NavBar = ({ personData: { photo } }) => {
             </li>
           </ul>
         </div>
-      </div> */}
+      </div>
     </nav>
   );
 };
