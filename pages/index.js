@@ -34,14 +34,12 @@ export default function Home() {
         </div>
         </div>
         <div className="rightSection">
-          <div className={styles.transactionMenu}>
           <div className={`${styles.card} ${styles.content}`}>
             <div className={`${styles.heading}`}>
             <p> Latest Transactions</p>
-            </div>
+           </div>
             <TransactionList transactions={transactionData} />
           </div>
-        </div>
         </div>
       </main>
       <div className={styles.homeFooter}>
