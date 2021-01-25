@@ -3,49 +3,103 @@
   background-color: #041484;
   font-size: 0.9rem;
   width: 100%;
-  padding: 0.05rem 0;
+  /* padding: 0.05rem 0; */
   position: relative;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 50px;
+  height: 5.5rem;
 }
-
-
+.navBar > ul {
+  display: flex;
+}
 .navBar li {
   list-style-type: none;
   color: #f2f2f2;
-  padding: 0 0.6em;
   font-size: 1.05em;
+  margin-right: 4rem;
 }
-
 .navBar li a:hover {
   color: #e30464;
 }
-  
-
 .logo {
   height: 7rem;
   width: 7rem;
   position: relative;
-  left: 30%;
-  top: 3.05em;
+  top: 2.1em;
+  cursor: pointer;
 }
-
 .profilePic {
-  width: 3em;
-  height: 3em;
-  margin-left: 1em;
+  margin-right: 1em;
+  width: 4em;
+  height: 4em;
 }
-
+.profilePic > img {
+  border-radius: 50%;
+  cursor: pointer;
+}
 .profilePic > img {
   width: 100%;
   height: 100%;
   border-radius: 50%;
+  cursor: pointer;
 }
-
-.login {
+.dropdownContent{
+  position: absolute;
+  right: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+.dropdownContentHide{
+  display: none;
+}
+.dropdownContent ul{
+  list-style: none;
+  margin-top: 0;
+  width: 100px;
+  background-color: azure;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 1px;
+  font-size: 16px;
+  color: black;
+}
+.dropdownContent ul li{
+  color: black;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.281);
+  padding: 5px 15px;
+  margin-right: 0;
+}
+.dropdownContent ul li:hover{
+  background-color: rgb(221, 219, 219);
+}
+.loginBtn {
   align-self: center;
   color: white;
   background-color: #88d870;
   padding: 0.6em 1.2em;
   border-radius: 4px;
+}
+@media (max-width: 540px) {
+  .navBar li {
+    margin-right: 2rem;
+  }
+  .loginBtn {
+    padding: .4em 1em;
+  }
+}
+@media (max-width: 400px) {
+  .navBar {
+    font-size: .8rem;
+    height: 4rem;
+    margin-bottom: 15px;
+  }
+  .navBar li {
+    margin-right: 1.5rem;
+  }
+  .logo{
+    top: 1.5em;
+  }
+  .loginBtn {
+    padding: .5rem .5rem;
+  }
 }

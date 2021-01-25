@@ -8,8 +8,8 @@ import CoinsStatus from '../components/coins-status';
 import { Footer } from '../components/footer';
 import styles from '../styles/Home.module.css';
 import TransactionChart from '../components/transaction-chart';
-import TransactionOperationModal from '@components/transaction-operation-modal';
-import NavBar from '@components/NavBar';
+import TransactionOperationModal from '../components/transaction-operation-modal';
+import NavBar from '../components/NavBar';
 
 export default function Home() {
   return (
@@ -36,7 +36,7 @@ export default function Home() {
         <div className={styles.transactionMenu}>
           <div className={`${styles.card} ${styles.content}`}>
             <div className={`${styles.heading}`}>
-            <p> Latest Transactions</p>
+              <p> Latest Transactions</p>
             </div>
             <TransactionList transactions={transactionData} />
           </div>
