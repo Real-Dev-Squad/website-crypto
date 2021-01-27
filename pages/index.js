@@ -20,20 +20,20 @@ export default function Home() {
       </Head>
       <NavBar personData={personData} />
       <main className={styles.mainBody}>
-        <div className={styles.homeUser}>
-          <CoinsStatus coins={coinsData} />
-          <TransactionOperationModal personData={personData} />
-        </div>
-
-        <div className={styles.homeTransaction}>
-          <div className={styles.transactionGraph}>
-            <div className={`${styles.card} ${styles.content}`}>
-              <TransactionChart transactionChartData={transactionChartData} />
+        <div className={styles.leftSection}>
+          <div className={styles.homeUser}>
+            <CoinsStatus coins={coinsData} />
+            <TransactionOperationModal personData={personData} />
+          </div>
+          <div className={styles.homeTransaction}>
+            <div className={styles.transactionGraph}>
+              <div className={`${styles.card} ${styles.content}`}>
+                <TransactionChart transactionChartData={transactionChartData} />
+              </div>
             </div>
           </div>
         </div>
-
-        <div className={styles.transactionMenu}>
+        <div className="rightSection">
           <div className={`${styles.card} ${styles.content}`}>
             <div className={`${styles.heading}`}>
               <p> Latest Transactions</p>
