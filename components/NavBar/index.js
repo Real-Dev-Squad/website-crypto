@@ -34,11 +34,6 @@ const NavBar = ({ personData: { photo } }) => {
           </Link>
         </div>
       </li>
-      {/* <li>
-        <Link href="#">
-          <a className={styles.loginBtn}>Log in</a>
-        </Link>
-      </li> */}
       <div className={styles.profilePic} onClick={() => setToggle(!toggle)}>
         <img src={photo} alt="Profile Image" height="70" width="70" />
         <div
@@ -46,23 +41,11 @@ const NavBar = ({ personData: { photo } }) => {
             toggle ? styles.dropdownContent : styles.dropdownContentHide
           }
         >
-          <ul>
-            <li>
-              <a href="#">Link 1</a>
-            </li>
-            <li>
-              <a href="#">Link 2</a>
-            </li>
-            <li>
-              <a href="#">Link 3</a>
-            </li>
-            <li>
-              <a href="#">Link 4</a>
-            </li>
-            <li>
-              <a href="#">Link 5</a>
-            </li>
-          </ul>
+          <a href="#">Link 1</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+          <a href="#">Link 4</a>
+          <a href="#">Link 5</a>
         </div>
       </div>
     </nav>
