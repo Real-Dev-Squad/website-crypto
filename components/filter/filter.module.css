@@ -7,7 +7,7 @@
 .filterContent {
   display: none;
   position: absolute;
-  width: 150px;
+  width:  150px;
   top: 25px;
   right: 15px;
   z-index: 5;
