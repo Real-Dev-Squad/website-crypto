@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { connect } from 'react-redux';
 import Link from 'next/link';
 import personData from '../mock/person.json';
@@ -25,14 +25,19 @@ import {
 } from '../redux/action';
 import colors from '../color/color.json';
 import Image from 'next/image';
+import useOutsideClick from './useOutsideClick';
 
 // const products = Object.keys(productData);
 const Cart = (props) => {
   const { addCartItem, addShopListItem } = props;
   const { delCartItem, delShopListItem } = props;
   const [showSummary, setShowSummary] = useState(false);
-  console.log({ showSummary });
+  const ref = useRef();
 
+  useOutsideClick(ref, () => {
+    console.log('there');
+    if (showSummary) setShowSummary(false);
+  });
   return (
     <div>
       <NavBar personData={personData} />
@@ -42,7 +47,7 @@ const Cart = (props) => {
           Your Shopping Cart - {props.totatCartItems}
         </div>
 
-        <div className="summary-icon">
+        <div ref={ref} className="summary-icon">
           <Image
             src="/assets/bill.png"
             alt="Summary icon"
