@@ -25,7 +25,7 @@ import {
 } from '../redux/action';
 import colors from '../color/color.json';
 import Image from 'next/image';
-import useOutsideClick from './useOutsideClick';
+import GenericClosePopUp from '../components/Close-popup/GenericClosePopUp';
 
 // const products = Object.keys(productData);
 const Cart = (props) => {
@@ -33,10 +33,8 @@ const Cart = (props) => {
   const { delCartItem, delShopListItem } = props;
   const [showSummary, setShowSummary] = useState(false);
   const ref = useRef();
-
-  useOutsideClick(ref, () => {
-    console.log('there');
-    if (showSummary) setShowSummary(false);
+  GenericClosePopUp(ref, () => {
+    setShowSummary(false);
   });
   return (
     <div>

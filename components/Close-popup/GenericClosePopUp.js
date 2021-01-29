@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-const useOutsideClick = (ref, callback) => {
+const GenericClosePopUp = (ref, callback) => {
   const handleClick = (e) => {
     if (ref.current && !ref.current.contains(e.target)) {
       callback();
@@ -16,4 +16,4 @@ const useOutsideClick = (ref, callback) => {
   });
 };
 
-export default useOutsideClick;
+export default GenericClosePopUp;
