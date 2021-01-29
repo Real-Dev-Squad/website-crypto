@@ -1,6 +1,8 @@
 //TODO : change the image path
 import path from 'path';
 import Link from 'next/link';
+import Image from 'next/image';
+
 export const ShopCard = ({ product, quantity, add, del, link }) => {
   const { image, name, price } = product;
   const handleAddProduct = (item) => {
@@ -15,8 +17,15 @@ export const ShopCard = ({ product, quantity, add, del, link }) => {
   return (
     <div className="shop-card">
       <Link href={link.href} as={link.as}>
-        <img src={path.join('./assets', image)} alt={name} />
+        <Image
+          src={path.join('/assets', image)}
+          alt={name}
+          width={210}
+          height={210}
+          layout="fixed"
+        />
       </Link>
+
       <div className="shop-card__content">
         <p className="shop-card-product-name"> {name}</p>
         <p className="shop-card-product-price"> {price}</p>
