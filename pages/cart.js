@@ -26,6 +26,7 @@ import {
 import colors from '../color/color.json';
 import Image from 'next/image';
 import GenericClosePopUp from '../components/Close-popup/GenericClosePopUp';
+import { Footer } from '../components/footer';
 
 // const products = Object.keys(productData);
 const Cart = (props) => {
@@ -98,6 +99,7 @@ const Cart = (props) => {
         })}
       </div>
 
+      <Footer />
       <style jsx>
         {`
           .cart-container {
