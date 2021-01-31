@@ -15,8 +15,8 @@ const SingleTransaction = (props) => {
         {type}
       </div>
       <div className={styles.transactionDetails}>
-        <div>{amount}</div>
         <div>{receiver}</div>
+        <div>{amount}</div>
         <span>{date}</span>
       </div>
     </div>

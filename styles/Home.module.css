@@ -1,19 +1,7 @@
-
-.container {
-  /* Variables */
-  --gold: #ffd700;
-  --dark-gold: #e6c401;
-  --silver: #c0c0c0;
-  --dark-silver: #a8a8a8;
-  --bronze: #cd7f32;
-  --dark-bronze: #ae7235;
+.leftSection {
+  display: flex;
+  flex-direction: column;
 }
-
-.content {
-  flex-shrink: 1;
-}
-
-
 .button {
   display: inline-block;
   padding: 10px 20px;
@@ -23,84 +11,80 @@
   font-weight: bold;
   font-size: 20px;
   cursor: pointer;
-  margin:3rem 1.5rem 0 1.5rem;
-  width:6em;
-  text-align: center;
+  margin: 1.5rem 1.5rem 0 1.5rem;
+  width: 7rem;
 }
 .greenButton {
   background-color: #2ecc71;
-  border: 1px solid #2ecc71;
+  text-align: center;
+  border: none;
 }
 .redButton {
-
   background-color: #ff3838;
-  border: 1px solid #ff3838;
+  text-align: center;
+  border: none;
 }
 .card {
-  margin: 10px;
+  min-width: 20em;
   border: 1px solid #f4f4f4;
-  border-radius: 10px;
-  padding: 20px;
+  border-radius: 5px;
+  padding: 1px;
   background: white;
-  box-shadow: 0 0 15px -7px rgba(0, 0, 0, 0.65);
+  font-size: 20px;
 }
-.card:hover {
-  box-shadow: 0 0 20px -7px rgba(0, 0, 0, 0.65);
+.heading {
+  display: flex;
+  justify-content: space-between;
+  height: 30px;
 }
-
-.mainBody{ 
+.heading>p {
+  font-weight: bold;
+  transform: translateX(10px);
+  font-size: 16px;
+}
+.mainBody {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding-top: 0.5em;
+  padding-top: 2.5em;
   width: 100%;
   overflow: hidden;
 }
-
 .homeUser {
   display: flex;
   flex-flow: column nowrap;
   margin-top: 0.7em;
+  margin-left: -30px;
 }
-
 .homeTransaction {
-  /* grid-column: 2 / 5;
-  grid-row: 2 / 4;
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: repeat(2, auto);
-  gap: 5px; */
-  display: flex;
-  padding: 0.5rem 0.5rem;
-  margin: 0.5rem 0.5rem;
+  margin-top: 20px;
+}
+.rightSection {
+  margin-top: 5px;
 }
 
-.transactionGraph {
-  grid-row: 1/2;
-}
-
-.transactionMenu {
-  grid-row: 2/3;
-}
-
-.homeFooter {
-  grid-row: 4;
-  grid-column: 1/5;
-}
-
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 600px) {
+  .button {
+    margin-left: 3.2rem;
+  }
+  .greenButton {
+    padding: 5px 15px;
+    width: 6rem;
+  }
+  .redButton {
+    padding: 5px 15px;
+    width: 6rem;
+  }
   .homeUser {
     display: flex;
     flex-direction: column;
     align-items: center;
-
   }
-  
-  .homeTransaction {
-    /* grid-column: 1/5;
-    grid-row: auto; */
-    display: flex;
-    padding: 0.5rem 0.5rem;
-    margin: 0.5rem 0.5rem;
+  .card {
+    font-size: 12px;
+  }
+  .rightSection {
+    margin-top: 20px;
+    width: 300px;
   }
 }

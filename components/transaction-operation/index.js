@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import styles from './transaction-operation.module.css';
 
 const TransactionOperation = (props) => {
-  const [receiver, setReceiver] = useState('');
-  const [currencyType, setCurrencyType] = useState('');
+  const { modal, showModal, personData, receivers, transactionType } = props;
+  const [receiver, setReceiver] = useState(receivers[0].value);
+  const [currencyType, setCurrencyType] = useState(
+    Object.keys(personData.coins)[0]
+  );
   const [amount, setAmount] = useState('');
   const [message, setMessage] = useState('');
-  const { modal, showModal, personData, receivers, transactionType } = props;
+
   const closeModal = () => {
     showModal((prev) => !prev);
     setReceiver('');
@@ -38,7 +41,7 @@ const TransactionOperation = (props) => {
       {modal ? (
         <div className={styles.modalWrapper}>
           <div className={styles.closedButton} onClick={closeModal}>
-            x
+            &times;
           </div>
           <div>
             {transactionType === 'Send' && (
