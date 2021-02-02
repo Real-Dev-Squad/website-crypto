@@ -7,6 +7,7 @@ import NavBar from '../components/NavBar';
 import { CartCard } from '../components/cartlist-card';
 import { CartSummary } from '../components/cart-summary';
 import SaveLater from '../components/save-later';
+import Modal from '../components/Modal/index';
 import {
   getCartItems,
   getCartTotalItems,
@@ -33,10 +34,22 @@ const Cart = (props) => {
   const [showSummary, setShowSummary] = useState(false);
   console.log({ showSummary });
 
+  const successMsg = () => {
+    <Modal className="modalShow" fname="congrats" lname="transaction" />;
+  };
+  const failMsg = () => {
+    <Modal
+      className="modalShow"
+      fname="no coins"
+      lname={<Link href="/bank"> Go to Bank </Link>}
+    />;
+  };
+
   return (
     <div>
       <NavBar personData={personData} />
       <Header comp={<Link href="/shop">Go to Shop</Link>} />
+      <Modal tog={props.totalCartCost ? successMsg : failMsg} />
       <div className="cart-container">
         <div className="cart-container-heading">
           Your Shopping Cart - {props.totatCartItems}
