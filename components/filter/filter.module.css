@@ -4,11 +4,10 @@
   top: -10px;
   cursor: pointer;
 }
-
 .filterContent {
   display: none;
   position: absolute;
-  width: 200px;
+  width:  150px;
   top: 25px;
   right: 15px;
   z-index: 5;
@@ -16,17 +15,14 @@
   border: 2px solid;
   font-size: 14px;
 }
-
 .filterContent li {
   list-style-type: none;
   padding: 7px;
   background-color: #fff;
 }
-
 .filterContent li:hover {
   background-color: #bdc3c7;
 }
-
 .showList {
   display: inline-block;
 }
