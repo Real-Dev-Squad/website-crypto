@@ -31,6 +31,7 @@
   padding: 1px;
   background: white;
   font-size: 20px;
+  margin-top: 10px;
 }
 .heading {
   display: flex;
@@ -59,9 +60,6 @@
 .homeTransaction {
   margin-top: 20px;
 }
-.rightSection {
-  margin-top: 5px;
-}
 
 @media only screen and (max-width: 600px) {
   .button {
@@ -82,9 +80,6 @@
   }
   .card {
     font-size: 12px;
-  }
-  .rightSection {
-    margin-top: 20px;
-    width: 300px;
+    min-width:  26em;
   }
 }
