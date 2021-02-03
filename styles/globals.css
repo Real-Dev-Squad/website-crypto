@@ -62,7 +62,6 @@ footer {
 }
 footer a {
   text-decoration: underline;
-  z-index: -1;
 }
 .main-container {
   height: 100%;
