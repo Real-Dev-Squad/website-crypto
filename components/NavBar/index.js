@@ -7,8 +7,8 @@ import GenericClosePopUp from '../Close-popup/GenericClosePopUp';
 const NavBar = ({ personData: { photo } }) => {
   const RDSLogo = '/assets/Real-Dev-Squad1x.png';
   const [toggle, setToggle] = useState(false);
-  const ref = useRef();
-  GenericClosePopUp(ref, () => {
+  const navbarRef = useRef();
+  GenericClosePopUp(navbarRef, () => {
     setToggle(false);
   });
 
@@ -42,7 +42,7 @@ const NavBar = ({ personData: { photo } }) => {
 
       <div
         className={styles.profilePic}
-        ref={ref}
+        ref={navbarRef}
         onClick={() => setToggle(!toggle)}
       >
         <img src={photo} alt="Profile Image" height="70" width="70" />

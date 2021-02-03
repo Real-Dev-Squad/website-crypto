@@ -32,8 +32,8 @@ const Cart = (props) => {
   const { addCartItem, addShopListItem } = props;
   const { delCartItem, delShopListItem } = props;
   const [showSummary, setShowSummary] = useState(false);
-  const ref = useRef();
-  GenericClosePopUp(ref, () => {
+  const cartRef = useRef();
+  GenericClosePopUp(cartRef, () => {
     setShowSummary(false);
   });
   return (
@@ -45,7 +45,7 @@ const Cart = (props) => {
           Your Shopping Cart - {props.totatCartItems}
         </div>
 
-        <div ref={ref} className="summary-icon">
+        <div ref={cartRef} className="summary-icon">
           <Image
             src="/assets/bill.png"
             alt="Summary icon"

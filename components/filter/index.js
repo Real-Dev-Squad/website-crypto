@@ -6,8 +6,8 @@ import GenericClosePopUp from '../Close-popup/GenericClosePopUp';
 const Filter = (props) => {
   const { changeTransactions } = props;
   const [toggle, setToggle] = useState(false);
-  const ref = useRef();
-  GenericClosePopUp(ref, () => {
+  const filterRef = useRef();
+  GenericClosePopUp(filterRef, () => {
     setToggle(false);
   });
   return (
@@ -16,7 +16,7 @@ const Filter = (props) => {
       onClick={() => {
         setToggle(!toggle);
       }}
-      ref={ref}
+      ref={filterRef}
     >
       <div className="icon">
         <Image
