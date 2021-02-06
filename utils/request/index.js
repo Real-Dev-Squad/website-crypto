@@ -10,7 +10,7 @@ export const makeRequest = (obj) => {
   const {
     method,
     url,
-    responseType,
+    responseType = 'json',
     headers = {},
     data = {},
     params = {},
