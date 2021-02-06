@@ -12,8 +12,8 @@ const TransactionOperation = (props) => {
 
   const closeModal = () => {
     showModal((prev) => !prev);
-    setReceiver('');
-    setCurrencyType('');
+    // setReceiver('');
+    // setCurrencyType('');
     setAmount('');
     setMessage('');
   };
