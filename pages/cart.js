@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { connect } from 'react-redux';
 import Link from 'next/link';
+import personData from '../mock/person.json';
 import Header from '../components/header';
+import NavBar from '../components/NavBar';
 import { CartCard } from '../components/cartlist-card';
 import { CartSummary } from '../components/cart-summary';
 import SaveLater from '../components/save-later';
@@ -23,6 +25,8 @@ import {
 } from '../redux/action';
 import colors from '../color/color.json';
 import { Footer } from '../components/footer';
+import Image from 'next/image';
+
 
 // const products = Object.keys(productData);
 const Cart = (props) => {
@@ -33,19 +37,25 @@ const Cart = (props) => {
 
   return (
     <div>
+      <NavBar personData={personData} />
       <Header comp={<Link href="/shop">Go to Shop</Link>} />
       <div className="cart-container">
         <div className="cart-container-heading">
           Your Shopping Cart - {props.totatCartItems}
         </div>
-        <img
-          className="sumarry-icon"
-          src="https://img.icons8.com/wired/64/000000/bill.png"
-          alt="Sumarry icon"
-          onClick={() => {
-            setShowSummary(!showSummary);
-          }}
-        />
+
+        <div className="summary-icon">
+          <Image
+            src="/assets/bill.png"
+            alt="Summary icon"
+            height={35}
+            width={35}
+            layout="fixed"
+            onClick={() => {
+              setShowSummary(!showSummary);
+            }}
+          />
+        </div>
         {Object.keys(props.cartItems).length ? (
           <div className="cart-container-items">
             {Object.keys(props.cartItems).map((itemName, index) => {
@@ -103,10 +113,9 @@ const Cart = (props) => {
             font-weight: bold;
             display: inline-block;
           }
-          .sumarry-icon {
+          .summary-icon {
             float: right;
             position: relative;
-            width: 2em;
           }
           .cart-summary-container {
             position: absolute;
