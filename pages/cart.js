@@ -22,6 +22,7 @@ import {
   delFromSaveLater,
 } from '../redux/action';
 import colors from '../color/color.json';
+import { Footer } from '../components/footer';
 
 // const products = Object.keys(productData);
 const Cart = (props) => {
@@ -85,7 +86,7 @@ const Cart = (props) => {
           );
         })}
       </div>
-
+      <Footer />
       <style jsx>
         {`
           .cart-container {
