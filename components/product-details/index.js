@@ -8,6 +8,11 @@ import { Footer } from '../../components/footer';
 import styles from './product-details.module.css';
 
 export const ProductDetails = ({ productJSON }) => {
+  function renderUses() {
+    return productJSON.usage.map((use, id) => {
+      return <p key={id}> {use}</p>;
+    });
+  }
   return (
     <>
       <NavBar personData={personData} />
@@ -28,11 +33,7 @@ export const ProductDetails = ({ productJSON }) => {
             <span>{productJSON.price} Gold Coins</span>
 
             <h3 className={styles.description}>Description</h3>
-            <p>
-              {productJSON.usage.map((use, id) => {
-                return <p key={id}> {use}</p>;
-              })}
-            </p>
+            <p>{renderUses()}</p>
 
             <div className={styles.thumb}>
               <img
