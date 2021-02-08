@@ -1,7 +1,9 @@
-html, body {
+html,
+body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 a {
@@ -53,8 +55,15 @@ footer {
   text-align: center;
   position: relative;
   bottom: 0;
-  padding-top: 20px;
-  margin-bottom: 100px;
+  padding: 20px 0px;
+  background-color: #041484;
+  color: #f4f4f4;
+  font-weight: 100;
+}
+@media only screen and (min-width: 900px) {
+  footer {
+    position: absolute;
+  }
 }
 
 footer a {
@@ -65,7 +74,7 @@ footer a {
   height: 100%;
 }
 
-.content{
+.content {
   min-height: 92vh;
   padding-bottom: 50px;
 }
