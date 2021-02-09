@@ -3,7 +3,7 @@ import Link from 'next/link';
 import PropTypes from 'prop-types';
 import colors from '../../color/color.json';
 import Modal from '../Modal/index';
-import classNames from '../Modal/modal.module.css';
+import styles from '../Modal/modal.module.css';
 
 export const CartSummary = ({ total }) => {
   const [showModal, setShowModal] = useState(false);
@@ -16,7 +16,7 @@ export const CartSummary = ({ total }) => {
       <>
         <h1>Congratulations!!!</h1>
         <h2>Transaction Successful</h2>
-        <span className={classNames.successBtn}>&#10004;</span>
+        <span className={styles.successBtn}>&#10004;</span>
       </>
     ) : (
       <>
