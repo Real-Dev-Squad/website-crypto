@@ -2,6 +2,10 @@ import React, { useCallback, useEffect } from 'react';
 import classNames from './modal.module.css';
 
 export default function Modal({ showModal, setShowModal, render }) {
+  const openModal = () => {
+    setShowModal((prev) => !prev);
+  };
+  
   const keyPress = useCallback(
     (e) => {
       if (e.key === 'Escape' && showModal) {
@@ -19,6 +23,7 @@ export default function Modal({ showModal, setShowModal, render }) {
     <>
       {showModal ? (
         <div>
+          <div onClick={openModal} className={classNames.backdrop}></div>
             <div className={classNames.container}>
             <span
               className={classNames.cancelBtn}
