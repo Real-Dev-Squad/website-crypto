@@ -30,6 +30,7 @@ export const CartSummary = ({ total }) => {
 
   return (
     <>
+    {showModal ? <div onClick={openModal} className={classNames.backdrop}></div> : null }
       <Modal
         showModal={showModal}
         setShowModal={setShowModal}
