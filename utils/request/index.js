@@ -6,7 +6,7 @@ const axiosInstance = axios.create({
   timeout: 1000,
 });
 
-export const makeRequest = (obj) => {
+export const makeRequest = (requestDetails) => {
   const {
     method,
     url,
@@ -14,7 +14,7 @@ export const makeRequest = (obj) => {
     headers = {},
     data = {},
     params = {},
-  } = obj;
+  } = requestDetails;
   const paramString = new URLSearchParams(params);
   try {
     const response = axiosInstance.request(url + paramString, data, {

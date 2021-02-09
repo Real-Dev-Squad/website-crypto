@@ -9,7 +9,6 @@ const TransactionOperation = (props) => {
   );
   const [amount, setAmount] = useState('');
   const [message, setMessage] = useState('');
-
   const closeModal = () => {
     showModal((prev) => !prev);
     setAmount('');
