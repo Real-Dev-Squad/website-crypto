@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect } from 'react';
-import classNames from './modal.module.css';
+import styles from './modal.module.css';
 
 export default function Modal({ showModal, setShowModal, render }) {
   const openModal = () => {
@@ -23,16 +23,16 @@ export default function Modal({ showModal, setShowModal, render }) {
     <>
       {showModal ? (
         <div>
-          <div onClick={openModal} className={classNames.backdrop}></div>
-            <div className={classNames.container}>
+          <div onClick={openModal} className={styles.backdrop}></div>
+            <div className={styles.container}>
             <span
-              className={classNames.cancelBtn}
+              className={styles.cancelBtn}
               button
               onClick={() => setShowModal((prev) => !prev)}
             >
               &times;
             </span>
-            <span className={classNames.subDiv}>{render}</span>
+            <span className={styles.subDiv}>{render}</span>
           </div>
           </div>
       ) : null}
