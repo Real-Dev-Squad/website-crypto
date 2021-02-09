@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import Link from 'next/link';
 import PropTypes from 'prop-types';
 import colors from '../../color/color.json';
 import Modal from '../Modal/index';
 import classNames from '../Modal/modal.module.css';
-import Link from 'next/link';
 
 export const CartSummary = ({ total }) => {
   const [showModal, setShowModal] = useState(false);
