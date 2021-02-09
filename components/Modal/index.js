@@ -6,7 +6,7 @@ export default function Modal({ showModal, setShowModal, render }) {
     setShowModal((prev) => !prev);
   };
   
-  const keyPress = useCallback(
+  const escKeyHandler = useCallback(
     (e) => {
       if (e.key === 'Escape' && showModal) {
         setShowModal(false);
@@ -16,9 +16,9 @@ export default function Modal({ showModal, setShowModal, render }) {
   );
 
   useEffect(() => {
-    document.addEventListener('keydown', keyPress);
-    return () => document.removeEventListener('keydown', keyPress);
-  }, [keyPress]);
+    document.addEventListener('keydown', escKeyHandler);
+    return () => document.removeEventListener('keydown', escKeyHandler);
+  }, [escKeyHandler]);
   return (
     <>
       {showModal ? (
