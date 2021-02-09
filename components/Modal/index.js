@@ -1,13 +1,7 @@
-import React, { useRef, useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import classNames from './modal.module.css';
 
 export default function Modal({ showModal, setShowModal, render }) {
-  const modalRef = useRef();
-  const closeModal = (e) => {
-    if (modalRef.current === e.target) {
-      setShowModal(false);
-    }
-  };
   const keyPress = useCallback(
     (e) => {
       if (e.key === 'Escape' && showModal) {
@@ -24,12 +18,8 @@ export default function Modal({ showModal, setShowModal, render }) {
   return (
     <>
       {showModal ? (
-        <div
-          className={classNames.background}
-          onClick={closeModal}
-          ref={modalRef}
-        >
-          <div className={classNames.container}>
+        <div>
+            <div className={classNames.container}>
             <span
               className={classNames.cancelBtn}
               button
@@ -39,7 +29,7 @@ export default function Modal({ showModal, setShowModal, render }) {
             </span>
             <span className={classNames.subDiv}>{render}</span>
           </div>
-        </div>
+          </div>
       ) : null}
     </>
   );
