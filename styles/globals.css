@@ -55,9 +55,9 @@ footer {
   margin-top: 10px;
 }
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 700px) {
   footer {
-    position: absolute;
+    position: fixed;
   }
 }
 
