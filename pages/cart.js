@@ -38,64 +38,65 @@ const Cart = (props) => {
     <div>
       <NavBar personData={personData} />
       <Header comp={<Link href="/shop">Go to Shop</Link>} />
-      <div className="cart-container">
-        <div className="cart-container-heading">
-          Your Shopping Cart - {props.totatCartItems}
-        </div>
-
-        <div className="summary-icon">
-          <Image
-            src="/assets/bill.png"
-            alt="Summary icon"
-            height={35}
-            width={35}
-            layout="fixed"
-            onClick={() => {
-              setShowSummary(!showSummary);
-            }}
-          />
-        </div>
-        {Object.keys(props.cartItems).length ? (
-          <div className="cart-container-items">
-            {Object.keys(props.cartItems).map((itemName, index) => {
-              return (
-                <CartCard
-                  key={index}
-                  details={props.cartItems[itemName].details || ''}
-                  quantity={props.cartItems[itemName].quantity || ''}
-                  add={{ addCartItem, addShopListItem }}
-                  del={{ delCartItem, delShopListItem }}
-                  cartDel={props.delFromCart}
-                  saveForLater={props.saveForLater}
-                />
-              );
-            })}
+      <div className="main-content">
+        <div className="cart-container">
+          <div className="cart-container-heading">
+            Your Shopping Cart - {props.totatCartItems}
           </div>
-        ) : (
-          <p> Oops No Items !</p>
-        )}
-      </div>
-      {showSummary ? (
-        <div className="cart-summary-container">
-          {' '}
-          <CartSummary total={props.totalCartCost} />
-        </div>
-      ) : null}
 
-      <div className="saveforlater-container">
-        <h2> Save For Later - {props.saveLaterItemsQuantity} </h2>
-        {Object.keys(props.saveLaterItems).map((item, id) => {
-          return (
-            <SaveLater
-              key={id}
-              details={props.saveLaterItems[item]}
-              add={{ addCartItem, addShopListItem }}
-              remove={props.delFromSaveLater}
+          <div className="summary-icon">
+            <Image
+              src="/assets/bill.png"
+              alt="Summary icon"
+              height={35}
+              width={35}
+              layout="fixed"
+              onClick={() => {
+                setShowSummary(!showSummary);
+              }}
             />
-          );
-        })}
-      </div>
+          </div>
+          {Object.keys(props.cartItems).length ? (
+            <div className="cart-container-items">
+              {Object.keys(props.cartItems).map((itemName, index) => {
+                return (
+                  <CartCard
+                    key={index}
+                    details={props.cartItems[itemName].details || ''}
+                    quantity={props.cartItems[itemName].quantity || ''}
+                    add={{ addCartItem, addShopListItem }}
+                    del={{ delCartItem, delShopListItem }}
+                    cartDel={props.delFromCart}
+                    saveForLater={props.saveForLater}
+                  />
+                );
+              })}
+            </div>
+          ) : (
+            <p> Oops No Items !</p>
+          )}
+        </div>
+        {showSummary ? (
+          <div className="cart-summary-container">
+            {' '}
+            <CartSummary total={props.totalCartCost} />
+          </div>
+        ) : null}
 
+        <div className="saveforlater-container">
+          <h2> Save For Later - {props.saveLaterItemsQuantity} </h2>
+          {Object.keys(props.saveLaterItems).map((item, id) => {
+            return (
+              <SaveLater
+                key={id}
+                details={props.saveLaterItems[item]}
+                add={{ addCartItem, addShopListItem }}
+                remove={props.delFromSaveLater}
+              />
+            );
+          })}
+        </div>
+      </div>
       <Footer />
       <style jsx>
         {`
@@ -126,6 +127,10 @@ const Cart = (props) => {
             z-index: 5;
           }
 
+          .main-content {
+            min-height: calc(100vh-58px);
+            position: relative;
+          }
           .cart-container-items {
             display: flex;
             flex-direction: column;

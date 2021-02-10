@@ -46,19 +46,13 @@ a {
 footer {
   width: 100%;
   text-align: center;
-  position: relative;
+  position: absolute;
   bottom: 0;
   padding: 20px 0px;
   background-color: #041484;
   color: #f4f4f4;
   font-weight: 100;
   margin-top: 10px;
-}
-
-@media only screen and (min-width: 700px) {
-  footer {
-    position: fixed;
-  }
 }
 
 footer a {
