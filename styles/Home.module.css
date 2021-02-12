@@ -85,9 +85,7 @@
   }
 }
 
-@media only screen and (max-width: 1024px) {
-  .homeFooter {
-    position: relative;
-    bottom: 0;
-  }
+.homeFooter {
+  position: relative;
+  bottom: 0;
 }
