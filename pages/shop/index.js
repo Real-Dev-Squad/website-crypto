@@ -65,6 +65,10 @@ const Shop = (props) => {
             font: inherit;
             cursor: pointer;
           }
+          .content {
+            min-height: 87vh;
+            padding-bottom: 75px;
+          }
           .shoppinglist-container {
             display: flex;
             flex-direction: row;
