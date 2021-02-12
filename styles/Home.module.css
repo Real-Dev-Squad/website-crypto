@@ -38,7 +38,7 @@
   justify-content: space-between;
   height: 30px;
 }
-.heading>p {
+.heading > p {
   font-weight: bold;
   transform: translateX(10px);
   font-size: 16px;
@@ -49,6 +49,7 @@
   justify-content: space-around;
   padding-top: 2.5em;
   width: 100%;
+  padding-bottom: 100px;
   overflow: hidden;
 }
 .homeUser {
@@ -80,6 +81,17 @@
   }
   .card {
     font-size: 12px;
-    min-width:  26em;
+    min-width: 26em;
+  }
+  .homeFooter {
+    position: relative;
+    bottom: 0;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .homeFooter {
+    position: relative;
+    bottom: 0;
   }
 }
