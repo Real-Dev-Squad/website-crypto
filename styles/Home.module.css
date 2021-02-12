@@ -61,6 +61,10 @@
 .homeTransaction {
   margin-top: 20px;
 }
+.homeFooter {
+  position: relative;
+  bottom: 0;
+}
 
 @media only screen and (max-width: 600px) {
   .button {
@@ -83,9 +87,4 @@
     font-size: 12px;
     min-width: 26em;
   }
-}
-
-.homeFooter {
-  position: relative;
-  bottom: 0;
 }
