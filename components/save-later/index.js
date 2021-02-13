@@ -11,7 +11,7 @@ const SaveLater = (props) => {
   return (
     <div className="savelateritem-container">
       <Image
-        src={path.join('./assets', product.image)}
+        src={path.join('/assets', product.image)}
         alt={product.name}
         width={100}
         height={100}
