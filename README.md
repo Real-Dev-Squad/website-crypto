@@ -1,35 +1,21 @@
-[![Better Uptime Badge](https://betteruptime.com/status-badges/v1/monitor/5huv.svg)](https://betteruptime.com/?utm_source=status_badge)
+**Crypto Site**
 
-# Crypto Site
+This is micro transaction application for RDS. Each member in RDS get assigned certain amount of currencies based on various activities. You can shop items, exchange money from bank, send and request money.
 
-This application enables transaction among members of RDS group. We have three different currencies : Bronze , Silver and Gold and these carry different values. You can shop items and acknowledge people for their work
+**Tech Stack**
 
-## What exactly does this means
+Next, Redux, CSS, Styled Components
 
-Virtual currency that has value inside RDS society will be credited based on various factors such as contribution, mentoring, proactive etc. Using that currency you can buy virtual items which can help in any type of acknowledgement(good and bad)
+**Upcoming features**
 
-## Tech stack used
+Turn this into trading application
 
-- Next.js
+**How to get started**
 
-- Redux
-
-- Jest
-
-## How it is important and can impact you
-
-You can showcase all these items outside RDS which will be value addition to your résumé. Getting acknowledged always motivates and these type of transaction are present in other open source societies.
-
-## What features we have currently:
-
-- You can shop items
-
-- You can send and receive money
-
-## Upcoming features
-
-- Chat bot
-
-- Turn this into a trading application which means prices for the virtual money and items change dynamically.
+- If you are new to React please you go through react documents and we can discuss from there.
+- Clone the repo and go through the code base.
+- Go through the issues and find the one you find interesting.
+- Discuss and send the PR.
+- If you need any other help, feel free to ping on crypto channel at discord.
 
 ### For more details you can connect with @Kratika0907
