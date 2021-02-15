@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import styles from './navbar.module.css';
 import Image from 'next/image';
+import Clock from '../Clock/Clock';
 
 const NavBar = ({ personData: { photo } }) => {
   const RDSLogo = '/assets/Real-Dev-Squad1x.png';
@@ -39,6 +40,9 @@ const NavBar = ({ personData: { photo } }) => {
           <a className={styles.loginBtn}>Log in</a>
         </Link>
       </li> */}
+      <li>
+        <Clock />
+      </li>
       <div className={styles.profilePic} onClick={() => setToggle(!toggle)}>
         <img src={photo} alt="Profile Image" height="70" width="70" />
         <div
