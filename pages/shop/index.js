@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Link from 'next/link';
-import { ShopCard } from '../../components/shoplist-card';
+import { ShopCard } from '@components/shoplist-card';
 import { getShopListCount } from '../../redux/selector';
 import {
   addCartItem,
@@ -8,11 +8,11 @@ import {
   addShopListItem,
   delShopListItem,
 } from '../../redux/action';
-// import Header from '../../components/header';
-import { Footer } from '../../components/footer';
+// import Header from '@components/header';
+import { Footer } from '@components/footer';
 import productData from '../../mock/products.json';
 import personData from '../../mock/person.json';
-import NavBar from '../../components/NavBar';
+import NavBar from '@components/NavBar';
 
 const products = Object.keys(productData);
 const Shop = (props) => {
