@@ -1,11 +1,11 @@
 import React from 'react';
 
-import MintingUser from '../components/minting-user';
-import { Footer } from '../components/footer';
+import MintingUser from '@components/minting-user';
+import { Footer } from '@components/footer';
 import personData from '../mock/person.json';
 
 import { StateProvider } from 'stores/minting';
-import NavBar from '../components/NavBar';
+import NavBar from '@components/NavBar';
 
 const users = [
   'ankush',

@@ -2,11 +2,11 @@ import { useState, useRef } from 'react';
 import { connect } from 'react-redux';
 import Link from 'next/link';
 import personData from '../mock/person.json';
-import Header from '../components/header';
-import NavBar from '../components/NavBar';
-import { CartCard } from '../components/cartlist-card';
-import { CartSummary } from '../components/cart-summary';
-import SaveLater from '../components/save-later';
+import Header from '@components/header';
+import NavBar from '@components/NavBar';
+import { CartCard } from '@components/cartlist-card';
+import { CartSummary } from '@components/cart-summary';
+import SaveLater from '@components/save-later';
 import {
   getCartItems,
   getCartTotalItems,
@@ -25,8 +25,8 @@ import {
 } from '../redux/action';
 import colors from '../color/color.json';
 import Image from 'next/image';
-import { Footer } from '../components/footer';
-import GenericClosePopUp from '../components/Close-popup/GenericClosePopUp';
+import { Footer } from '@components/footer';
+import GenericClosePopUp from '@components/Close-popup/GenericClosePopUp';
 
 // const products = Object.keys(productData);
 const Cart = (props) => {
