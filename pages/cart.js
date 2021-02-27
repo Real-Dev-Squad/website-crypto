@@ -27,8 +27,7 @@ import colors from '../color/color.json';
 import Image from 'next/image';
 import { Footer } from '@components/footer';
 import GenericClosePopUp from '@components/Close-popup/GenericClosePopUp';
-
-// const products = Object.keys(productData);
+// ! ref rather then on summary icon should be on the whole component
 const Cart = (props) => {
   const { addCartItem, addShopListItem } = props;
   const { delCartItem, delShopListItem } = props;
@@ -47,7 +46,7 @@ const Cart = (props) => {
             Your Shopping Cart - {props.totatCartItems}
           </div>
 
-          <div ref={cartRef} className="summary-icon">
+          <div className="summary-icon">
             <Image
               src="/assets/bill.png"
               alt="Summary icon"
