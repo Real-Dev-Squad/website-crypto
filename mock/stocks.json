@@ -1,0 +1,17 @@
+{
+    "stock1": {
+        "id": "stock1",
+        "name": "stock1",
+        "price": 300
+    },
+    "stock2": {
+        "id": "stock2",
+        "name": "stock2",
+        "price": 400
+    },
+    "stock3": {
+        "id": "stock3",
+        "name": "stock3",
+        "price": 700
+    }
+}
