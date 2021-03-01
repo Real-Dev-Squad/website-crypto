@@ -2,11 +2,11 @@ import { useState, useRef } from 'react';
 import { connect } from 'react-redux';
 import Link from 'next/link';
 import personData from '../mock/person.json';
-import Header from '../components/header';
-import NavBar from '../components/NavBar';
-import { CartCard } from '../components/cartlist-card';
-import { CartSummary } from '../components/cart-summary';
-import SaveLater from '../components/save-later';
+import Header from '@components/header';
+import NavBar from '@components/NavBar';
+import { CartCard } from '@components/cartlist-card';
+import { CartSummary } from '@components/cart-summary';
+import SaveLater from '@components/save-later';
 import {
   getCartItems,
   getCartTotalItems,
@@ -25,10 +25,9 @@ import {
 } from '../redux/action';
 import colors from '../color/color.json';
 import Image from 'next/image';
-import { Footer } from '../components/footer';
-import GenericClosePopUp from '../components/Close-popup/GenericClosePopUp';
-
-// const products = Object.keys(productData);
+import { Footer } from '@components/footer';
+import GenericClosePopUp from '@components/Close-popup/GenericClosePopUp';
+// ! ref rather then on summary icon should be on the whole component
 const Cart = (props) => {
   const { addCartItem, addShopListItem } = props;
   const { delCartItem, delShopListItem } = props;
@@ -87,12 +86,6 @@ const Cart = (props) => {
             <p className="no-items-add">No Items Added!</p>
           )}
         </div>
-        {/* {showSummary && (
-          <div className="cart-summary-container-wrapper">
-            <CartSummary total={props.totalCartCost} />
-          </div>
-        )} */}
-
         <div className="saveforlater-container">
           <h2> Save For Later - {props.saveLaterItemsQuantity} </h2>
           {Object.keys(props.saveLaterItems).map((item, id) => {

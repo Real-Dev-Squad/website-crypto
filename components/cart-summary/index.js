@@ -8,7 +8,7 @@ import styles from '../Modal/modal.module.css';
 export const CartSummary = ({ total }) => {
   const [showModal, setShowModal] = useState(false);
   const openModal = () => {
-    setShowModal((prev) => !prev);
+    setShowModal(!showModal);
   };
 
   const renderText =
@@ -35,6 +35,7 @@ export const CartSummary = ({ total }) => {
         setShowModal={setShowModal}
         render={renderText}
       />
+
       <div className="cart-summary-container">
         <h4>SUMMARY</h4>
         <p>Subtotal: RDS {total}.00</p>
