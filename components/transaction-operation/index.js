@@ -17,6 +17,7 @@ const TransactionOperation = (props) => {
     setAmount('');
     setMessage('');
   };
+
   const checkAmount = (amount) => {
     if (transactionType === 'Send' && personData.coins[currencyType] < amount) {
       setAmount(amount);
@@ -37,7 +38,8 @@ const TransactionOperation = (props) => {
       <div
         className={modal ? styles.backgroundVisible : null}
         onClick={closeModal}
-      ></div>{' '}
+      ></div>
+      &nbsp;
       {modal ? (
         <div className={styles.modalWrapper}>
           <div className={styles.closedButton} onClick={closeModal}>

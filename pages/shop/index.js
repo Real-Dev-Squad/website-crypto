@@ -26,9 +26,9 @@ const Shop = (props) => {
           <div className="content">
             {/* <Header /> */}
             <div className="take-to-cart">
-              <button>
-                <Link href="/cart">Take me to cart</Link>
-              </button>
+              <Link href="/cart">
+                <button>Take me to cart</button>
+              </Link>
             </div>
             <div className="shoppinglist-container">
               {products.map((itemName) => {
@@ -49,12 +49,8 @@ const Shop = (props) => {
         </div>
         <style jsx>{`
           .take-to-cart {
-            text-align: center;
-            padding-top: 10px;
-          }
-          .layout {
-            min-height: calc(100vh-58px);
-            position: relative;
+            text-align: right;
+            margin: 50px 16px 20px;
           }
           .take-to-cart button {
             background: #540075;
@@ -64,6 +60,10 @@ const Shop = (props) => {
             padding: 0.5rem 2rem;
             font: inherit;
             cursor: pointer;
+          }
+          .layout {
+            min-height: calc(100vh-58px);
+            position: relative;
           }
           .content {
             min-height: 87vh;

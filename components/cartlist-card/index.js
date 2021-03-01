@@ -41,14 +41,12 @@ export const CartCard = (props) => {
         <button
           onClick={() => handleDeleteFromCart(product.name, props.quantity)}
         >
-          {' '}
           Delete
         </button>
         <button
           onClick={() => handleSaveForLater(product.name, props.quantity)}
         >
-          {' '}
-          Save{' '}
+          Save&nbsp;
         </button>
       </div>
       <style jsx>{`
@@ -57,7 +55,7 @@ export const CartCard = (props) => {
           justify-content: space-evenly;
           align-items: center;
           background-color: ${colors.pink.light};
-          padding: 5px;
+          padding: 12px 16px;
           margin: 2px;
         }
         .card-item {

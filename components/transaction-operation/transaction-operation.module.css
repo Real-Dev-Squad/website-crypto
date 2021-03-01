@@ -15,8 +15,9 @@
   z-index: 100;
   background: white;
   border-radius: 10px;
-  padding: 20px 10px;
+  padding: 32px 24px;
   width: 40%;
+  max-width: 435px;
   height: auto;
   top: 30vh;
   left: 30%;
@@ -76,7 +77,7 @@
   font-size: 1rem;
   font-weight: 700;
 }
-.closedButton:hover{
+.closedButton:hover {
   transform: scale(2);
 }
 
@@ -111,6 +112,7 @@
 .buttonClass {
   width: 100%;
   padding: 10px 20px;
+  margin-top: 16px;
   border-radius: 5px;
   color: white;
   font-weight: bold;
