@@ -57,7 +57,6 @@ const Cart = (props) => {
                 width={35}
                 layout="fixed"
                 onClick={() => {
-                  console.log('Here', showSummary);
                   setShowSummary((showSummary) => !showSummary);
                 }}
               />
