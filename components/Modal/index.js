@@ -5,7 +5,7 @@ export default function Modal({ showModal, setShowModal, render }) {
   const openModal = () => {
     setShowModal((prev) => !prev);
   };
-  
+
   const escKeyHandler = useCallback(
     (e) => {
       if (e.key === 'Escape' && showModal) {
@@ -24,7 +24,7 @@ export default function Modal({ showModal, setShowModal, render }) {
       {showModal ? (
         <div>
           <div onClick={openModal} className={styles.backdrop}></div>
-            <div className={styles.container}>
+          <div className={styles.container}>
             <span
               className={styles.cancelBtn}
               button
@@ -34,7 +34,7 @@ export default function Modal({ showModal, setShowModal, render }) {
             </span>
             <span className={styles.subDiv}>{render}</span>
           </div>
-          </div>
+        </div>
       ) : null}
     </>
   );
