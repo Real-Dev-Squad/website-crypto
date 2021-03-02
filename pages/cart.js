@@ -1,12 +1,12 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { connect } from 'react-redux';
 import Link from 'next/link';
 import personData from '../mock/person.json';
-import Header from '../components/header';
-import NavBar from '../components/NavBar';
-import { CartCard } from '../components/cartlist-card';
-import { CartSummary } from '../components/cart-summary';
-import SaveLater from '../components/save-later';
+import Header from '@components/header';
+import NavBar from '@components/NavBar';
+import { CartCard } from '@components/cartlist-card';
+import { CartSummary } from '@components/cart-summary';
+import SaveLater from '@components/save-later';
 import {
   getCartItems,
   getCartTotalItems,
@@ -25,76 +25,81 @@ import {
 } from '../redux/action';
 import colors from '../color/color.json';
 import Image from 'next/image';
-
-// const products = Object.keys(productData);
+import { Footer } from '@components/footer';
+import GenericClosePopUp from '@components/Close-popup/GenericClosePopUp';
+// ! ref rather then on summary icon should be on the whole component
 const Cart = (props) => {
   const { addCartItem, addShopListItem } = props;
   const { delCartItem, delShopListItem } = props;
   const [showSummary, setShowSummary] = useState(false);
-  console.log({ showSummary });
-
+  const cartRef = useRef();
+  GenericClosePopUp(cartRef, () => {
+    setShowSummary(false);
+  });
   return (
     <div>
       <NavBar personData={personData} />
       <Header comp={<Link href="/shop">Go to Shop</Link>} />
-      <div className="cart-container">
-        <div className="cart-container-heading">
-          Your Shopping Cart - {props.totatCartItems}
-        </div>
-
-        <div className="summary-icon">
-          <Image
-            src="/assets/bill.png"
-            alt="Summary icon"
-            height={35}
-            width={35}
-            layout="fixed"
-            onClick={() => {
-              setShowSummary(!showSummary);
-            }}
-          />
-        </div>
-        {Object.keys(props.cartItems).length ? (
-          <div className="cart-container-items">
-            {Object.keys(props.cartItems).map((itemName, index) => {
-              return (
-                <CartCard
-                  key={index}
-                  details={props.cartItems[itemName].details || ''}
-                  quantity={props.cartItems[itemName].quantity || ''}
-                  add={{ addCartItem, addShopListItem }}
-                  del={{ delCartItem, delShopListItem }}
-                  cartDel={props.delFromCart}
-                  saveForLater={props.saveForLater}
-                />
-              );
-            })}
+      <div className="main-content">
+        <div className="cart-container">
+          <div className="cart-container-heading">
+            Your Shopping Cart - {props.totatCartItems}
           </div>
-        ) : (
-          <p> Oops No Items !</p>
-        )}
-      </div>
-      {showSummary ? (
-        <div className="cart-summary-container">
-          {' '}
-          <CartSummary total={props.totalCartCost} />
-        </div>
-      ) : null}
 
-      <div className="saveforlater-container">
-        <h2> Save For Later - {props.saveLaterItemsQuantity} </h2>
-        {Object.keys(props.saveLaterItems).map((item, id) => {
-          return (
-            <SaveLater
-              key={id}
-              details={props.saveLaterItems[item]}
-              add={{ addCartItem, addShopListItem }}
-              remove={props.delFromSaveLater}
+          <div className="summary-icon">
+            <Image
+              src="/assets/bill.png"
+              alt="Summary icon"
+              height={35}
+              width={35}
+              layout="fixed"
+              onClick={() => {
+                setShowSummary(!showSummary);
+              }}
             />
-          );
-        })}
-      </div>
+          </div>
+          {Object.keys(props.cartItems).length ? (
+            <div className="cart-container-items">
+              {Object.keys(props.cartItems).map((itemName, index) => {
+                return (
+                  <CartCard
+                    key={index}
+                    details={props.cartItems[itemName].details || ''}
+                    quantity={props.cartItems[itemName].quantity || ''}
+                    add={{ addCartItem, addShopListItem }}
+                    del={{ delCartItem, delShopListItem }}
+                    cartDel={props.delFromCart}
+                    saveForLater={props.saveForLater}
+                  />
+                );
+              })}
+            </div>
+          ) : (
+            <p> Oops No Items !</p>
+          )}
+        </div>
+        {showSummary ? (
+          <div className="cart-summary-container">
+            {' '}
+            <CartSummary total={props.totalCartCost} />
+          </div>
+        ) : null}
 
+        <div className="saveforlater-container">
+          <h2> Save For Later - {props.saveLaterItemsQuantity} </h2>
+          {Object.keys(props.saveLaterItems).map((item, id) => {
+            return (
+              <SaveLater
+                key={id}
+                details={props.saveLaterItems[item]}
+                add={{ addCartItem, addShopListItem }}
+                remove={props.delFromSaveLater}
+              />
+            );
+          })}
+        </div>
+      </div>
+      <Footer />
       <style jsx>
         {`
           .cart-container {
@@ -124,6 +129,10 @@ const Cart = (props) => {
             z-index: 5;
           }
 
+          .main-content {
+            min-height: calc(100vh-58px);
+            position: relative;
+          }
           .cart-container-items {
             display: flex;
             flex-direction: column;

@@ -2,8 +2,10 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background-color: rgba(207, 201, 201, 0.356);
+  height: 100%;
 }
 a {
   color: inherit;
@@ -44,11 +46,15 @@ a {
 footer {
   width: 100%;
   text-align: center;
-  position: relative;
+  position: absolute;
   bottom: 0;
-  padding-top: 20px;
-  margin-bottom: 100px;
+  padding: 20px 0px;
+  background-color: #041484;
+  color: #f4f4f4;
+  font-weight: 100;
+  margin-top: 10px;
 }
+
 footer a {
   text-decoration: underline;
 }
