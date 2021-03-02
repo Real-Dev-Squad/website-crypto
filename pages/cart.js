@@ -40,9 +40,6 @@ const Cart = (props) => {
     <div>
       <NavBar personData={personData} />
       <div className="main-content">
-        <Link href="/shop">
-          <button className="goToShop-Button">Go to Shop</button>
-        </Link>
         <div className="cart-container">
           <div>
             <div className="cart-container-heading">
