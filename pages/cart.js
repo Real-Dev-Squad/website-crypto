@@ -80,7 +80,7 @@ const Cart = (props) => {
               })}
             </div>
           ) : (
-            <p className="no-items-add">No Items Added!</p>
+            <p className="no-items">No Items Added!</p>
           )}
         </div>
         <div className="saveforlater-container">
@@ -155,10 +155,10 @@ const Cart = (props) => {
             justify-content: space-around;
             flex: 1 1 0;
           }
-          .no-items-add {
+          .no-items {
             padding: 10px;
           }
-          .no-items-add:hover {
+          .no-items:hover {
             cursor: default;
           }
           p {
