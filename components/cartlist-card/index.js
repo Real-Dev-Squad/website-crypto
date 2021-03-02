@@ -46,7 +46,7 @@ export const CartCard = (props) => {
         <button
           onClick={() => handleSaveForLater(product.name, props.quantity)}
         >
-          Save&nbsp;
+          Save
         </button>
       </div>
       <style jsx>{`

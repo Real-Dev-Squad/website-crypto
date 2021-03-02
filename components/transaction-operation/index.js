@@ -38,8 +38,7 @@ const TransactionOperation = (props) => {
       <div
         className={modal ? styles.backgroundVisible : null}
         onClick={closeModal}
-      ></div>
-      &nbsp;
+      ></div>{' '}
       {modal ? (
         <div className={styles.modalWrapper}>
           <div className={styles.closedButton} onClick={closeModal}>
