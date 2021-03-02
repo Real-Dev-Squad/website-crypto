@@ -42,9 +42,6 @@ const Shop = (props) => {
           <Footer />
         </div>
         <style jsx>{`
-          .cart-container {
-            background-color: purple;
-          }
           .layout {
             min-height: calc(100vh-58px);
             position: relative;
