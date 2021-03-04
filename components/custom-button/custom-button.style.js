@@ -17,15 +17,15 @@ const InvertedButtonStles = css`
 `;
 
 const primaryStyle = css`
-  background-color: #ee1a75;
-  border: none;
+  -webkit-transition: background 0.2s; /* For Safari 3.0 to 6.0 */
+  background-color: #ee1a75; /* For modern browsers */
+  border: 1px solid white;
   color: white;
+  transition: background 0.2s;
   &:hover {
-    /* background-color: white;
-    border: 1px solid #4285f4;
-    color: #4285f4;
-    transform: translate(0, -10%);
-    transition: all 0.2s; */
+    background: white;
+    border: 1px solid #ee1a75;
+    color: #ee1a75;
   }
 `;
 const BaseButtonStyles = css`

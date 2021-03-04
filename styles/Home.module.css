@@ -5,6 +5,11 @@
 .rightSection {
   display: flex;
   flex-direction: column;
+  padding: 1rem;
+}
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
 }
 .button {
   display: inline-block;
@@ -29,7 +34,6 @@
   border: none;
 }
 .card {
-  /* min-width: 20em; */
   border: 1px solid #f4f4f4;
   border-radius: 5px;
   padding: 1px;
