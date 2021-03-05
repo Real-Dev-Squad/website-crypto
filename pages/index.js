@@ -10,8 +10,10 @@ import styles from '../styles/Home.module.css';
 import TransactionChart from '@components/transaction-chart';
 import TransactionOperationModal from '@components/transaction-operation-modal';
 import NavBar from '@components/NavBar';
-
+import CustomButton from 'components/custom-button';
+import { useRouter } from 'next/router';
 export default function Home() {
+  const router = useRouter();
   return (
     <div className={styles.homeContainer}>
       <Head>
@@ -33,7 +35,13 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="rightSection">
+        <div className={styles.rightSection}>
+          <CustomButton
+            onClick={() => router.push('/currency-exchange')}
+            buttonPrimary
+          >
+            Go to currency Exchange
+          </CustomButton>
           <div className={`${styles.card} ${styles.content}`}>
             <div className={`${styles.heading}`}>
               <p> Latest Transactions</p>
