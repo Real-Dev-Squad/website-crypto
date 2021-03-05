@@ -37,10 +37,10 @@ export const CartSummary = ({ total }) => {
       />
 
       <div className="cart-summary-container">
-        <p> SUMMARY </p>
-        <p> Subtotal :RDS {total}.00 </p>
-        <p> Taxes : RDS {total > 0 ? 10 : '0.00'} </p>
-        <p onClick={openModal}> Confirm </p>
+        <h4>SUMMARY</h4>
+        <p>Subtotal: RDS {total}.00</p>
+        <p>Taxes: RDS {total > 0 ? 10 : '0.00'}</p>
+        <button onClick={openModal}>Confirm</button>
         <style jsx>
           {`
             .cart-summary-container {
@@ -51,19 +51,31 @@ export const CartSummary = ({ total }) => {
               align-items: center;
               border: none;
               padding: 20px;
-              cursor: pointer;
-              position: absolute;
-              left: 50%;
-              transform: translateY(30%);
+              cursor: default;
+              border-radius: 6px;
             }
-            p :last-child {
+            .cart-summary-container h4 {
+              margin: auto auto 16px;
+              text-decoration: underline;
+            }
+            .cart-summary-container p {
+              align-self: flex-start;
+            }
+            .cart-summary-container button {
               border: none;
+              color: #fff;
               padding: 8px;
               width: 100%;
               font-size: 20px;
+              cursor: pointer;
               background-color: #88d870;
               text-align: center;
               font-weight: bold;
+              margin-top: 16px;
+              transition: 0.5s;
+            }
+            .cart-summary-container button:hover {
+              background-color: #32cd32;
             }
           `}
         </style>
