@@ -1,11 +1,41 @@
-import PropTypes from 'prop-types';
+import React, { useCallback, useEffect } from 'react';
+import styles from './modal.module.css';
 
-const Modal = () => {
-  return <div> </div>;
-};
+export default function Modal({ showModal, setShowModal, render }) {
+  const openModal = () => {
+    setShowModal((prev) => !prev);
+  };
 
-Modal.propTypes = {
-  name: PropTypes.string,
-};
+  const escKeyHandler = useCallback(
+    (e) => {
+      if (e.key === 'Escape' && showModal) {
+        setShowModal(false);
+      }
+    },
+    [setShowModal, showModal]
+  );
 
-export default Modal;
+  useEffect(() => {
+    document.addEventListener('keydown', escKeyHandler);
+    return () => document.removeEventListener('keydown', escKeyHandler);
+  }, [escKeyHandler]);
+  return (
+    <>
+      {showModal ? (
+        <div>
+          <div onClick={openModal} className={styles.backdrop}></div>
+          <div className={styles.container}>
+            <span
+              className={styles.cancelBtn}
+              button
+              onClick={() => setShowModal((prev) => !prev)}
+            >
+              &times;
+            </span>
+            <span className={styles.subDiv}>{render}</span>
+          </div>
+        </div>
+      ) : null}
+    </>
+  );
+}

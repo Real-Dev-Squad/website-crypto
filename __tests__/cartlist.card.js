@@ -1,6 +1,6 @@
 import React from 'react';
 import { fireEvent, render, cleanup } from '@testing-library/react';
-import { CartCard } from '../components/cartlist-card';
+import { CartCard } from '@components/cartlist-card';
 
 afterEach(cleanup);
 test('cartlist-card component test add and delete product', () => {

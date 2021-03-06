@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import productData from '../../mock/products.json';
-import { ProductDetails } from '../../components/product-details';
+import { ProductDetails } from '@components/product-details';
 const CACHE_MAX_AGE = 43200;
 const ProductDetail = ({ productJSON }) => {
   return <ProductDetails productJSON={productJSON} />;
