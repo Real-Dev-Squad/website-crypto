@@ -17,6 +17,7 @@ const TransactionOperation = (props) => {
     setAmount('');
     setMessage('');
   };
+
   const checkAmount = (amount) => {
     if (transactionType === 'Send' && personData.coins[currencyType] < amount) {
       setAmount(amount);

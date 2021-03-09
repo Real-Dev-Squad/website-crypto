@@ -2,6 +2,15 @@
   display: flex;
   flex-direction: column;
 }
+.rightSection {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+}
 .button {
   display: inline-block;
   padding: 10px 20px;
@@ -25,19 +34,19 @@
   border: none;
 }
 .card {
-  min-width: 20em;
   border: 1px solid #f4f4f4;
   border-radius: 5px;
   padding: 1px;
   background: white;
   font-size: 20px;
+  margin-top: 10px;
 }
 .heading {
   display: flex;
   justify-content: space-between;
   height: 30px;
 }
-.heading>p {
+.heading > p {
   font-weight: bold;
   transform: translateX(10px);
   font-size: 16px;
@@ -48,6 +57,7 @@
   justify-content: space-around;
   padding-top: 2.5em;
   width: 100%;
+  padding-bottom: 100px;
   overflow: hidden;
 }
 .homeUser {
@@ -59,8 +69,9 @@
 .homeTransaction {
   margin-top: 20px;
 }
-.rightSection {
-  margin-top: 5px;
+.homeFooter {
+  position: relative;
+  bottom: 0;
 }
 
 @media only screen and (max-width: 600px) {
@@ -82,9 +93,6 @@
   }
   .card {
     font-size: 12px;
-  }
-  .rightSection {
-    margin-top: 20px;
-    width: 300px;
+    min-width: 26em;
   }
 }

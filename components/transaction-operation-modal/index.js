@@ -1,5 +1,5 @@
 import TransactionOperation from '@components/transaction-operation';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import receivers from '../../mock/receivers';
 import styles from '../../styles/Home.module.css';
 const TransactionOperationModal = (props) => {
@@ -12,7 +12,7 @@ const TransactionOperationModal = (props) => {
   };
 
   return (
-    <div>
+    <div className={styles.buttonWrapper}>
       <div
         className={`${styles.button} ${styles.greenButton}`}
         onClick={() => setTransaction('Send')}
