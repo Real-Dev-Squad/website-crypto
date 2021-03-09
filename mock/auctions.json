@@ -1,0 +1,70 @@
+[
+  {
+    "id": "asdf1234",
+    "seller": "swaraj",
+    "item_type": "neelam",
+    "initial_price": "100 dineros",
+    "quantity": 2,
+    "bidders_and_bids": [
+        {
+          "bidder": "rucha",
+          "last_bid": "120 dineros",
+          "timestamp": "1519211809934"
+        },
+        {
+          "bidder": "sagar",
+          "last_bid": "120 dineros",
+          "timestamp": "1519211809934"
+        }
+      ],
+    "highest_bidder": "rucha",
+    "highest_bid": "200 dineros",
+    "start_time": "1519211809934",
+    "duration": "86400000",
+    "status": "active"
+  },
+  {
+    "id": "asdf12345",
+    "seller": "sumit",
+    "item_type": "neelam",
+    "initial_price": "100 dineros",
+    "quantity": 4,
+    "bidders_and_bids": [
+        {
+          "bidder": "nikhil",
+          "last_bid": "120 dineros",
+          "timestamp": "1519211809934"
+        },
+        {
+          "bidder": "kratika",
+          "last_bid": "120 dineros",
+          "timestamp": "1519211809934"
+        },
+        {
+          "bidder": "nikhil",
+          "last_bid": "120 dineros",
+          "timestamp": "1519211809934"
+        },
+        {
+          "bidder": "kratika",
+          "last_bid": "120 dineros",
+          "timestamp": "1519211809934"
+        },
+        {
+          "bidder": "nikhil",
+          "last_bid": "120 dineros",
+          "timestamp": "1519211809934"
+        },
+        {
+          "bidder": "kratika",
+          "last_bid": "120 dineros",
+          "timestamp": "1519211809934"
+        }
+      ],
+    "highest_bidder": "rucha",
+    "highest_bid": "200 dineros",
+    "start_time": "1519211809934",
+    "duration": "86400000",
+    "status": "active"
+    }
+]
