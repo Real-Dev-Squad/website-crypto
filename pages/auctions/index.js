@@ -1,4 +1,4 @@
-import personData from '../mock/person.json';
+import personData from '../../mock/person.json';
 import NavBar from '@components/NavBar';
 import { Footer } from '@components/footer';
 import HandleAuctions from '@components/Auctions';

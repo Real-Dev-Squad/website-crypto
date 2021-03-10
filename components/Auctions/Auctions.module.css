@@ -34,9 +34,25 @@
   font-weight: 400;
 }
 
+.bidOptions {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputBid {
+  border: 0.5px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  padding-left: 10px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  width: 150px;
+}
+
 .bidBtn {
   height: 50px;
   width: 150px;
+  margin-top: 10px;
   color: white;
   border-color: rgba(27, 31, 35, 0.15);
   border-radius: 6px;
@@ -45,8 +61,6 @@
 
 .bidBtn:hover {
   height: 50px;
-  border-color: rgba(27, 31, 35, 0.15);
-  border-radius: 6px;
   box-shadow: 0 0 15px -7px rgba(0,0,0,.65);
   cursor: pointer;
 }
@@ -75,8 +89,23 @@
   }
 }
 
-/* @media only screen and (max-width: 800px) {
-  .bidders {
+@media only screen and (max-width: 800px) {
+  .auctionContainer {
     flex-direction: column;
+    width: 60%;
   }
-} */
+
+  .itemInfo {
+    justify-content: center;
+  }
+
+  .bidBtn {
+    width: 150px;
+    margin-bottom: 20px;
+  }
+
+  .bidders {
+    max-width: 80%;
+    justify-content: center;
+  }
+}

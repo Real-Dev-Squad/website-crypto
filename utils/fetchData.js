@@ -1,6 +1,5 @@
-const fetchData = async (url) => {
-  const response = await fetch(url);
-  // const json = await response.json();
+const fetchData = async (url, method = 'GET', options = null) => {
+  const response = await fetch(url, { method, ...options });
   return response;
 };
 
