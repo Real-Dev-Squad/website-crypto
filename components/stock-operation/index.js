@@ -4,8 +4,6 @@ import styles from '../../styles/Home.module.css';
 
 const StockOperation = (props) => {
   const { stockName, stockPrice } = props;
-  // const setStockName = stockName;
-  // const setStockPrice = stockPrice;
   const [modal, showModal] = useState(false);
   const [transactionType, setTransactionType] = useState('');
   const setTransaction = (operation) => {
