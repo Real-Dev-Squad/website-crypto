@@ -29,6 +29,7 @@ export const Card = ({ stock }) => {
             align-items: center;
             justify-content: space-between;
             margin: 10px;
+            padding-top: 16px;
             border: 1px solid #eee;
             box-shadow: 0 2px 2px #ccc;
             text-align: center;

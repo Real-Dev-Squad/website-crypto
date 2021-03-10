@@ -9,17 +9,11 @@ const StockOperationModal = (props) => {
     showModal,
     transactionType,
   } = props;
-  const [stockName, setStockName] = useState(nameOfStock);
-  const [listedPrice, setListedPrice] = useState(listedPriceOfStock);
   const [quantity, setQuantity] = useState('');
-  const [totalPrice, setTotalPrice] = useState('');
 
   const closeModal = () => {
     showModal((prev) => !prev);
-    setStockName('');
-    setListedPrice('');
     setQuantity('');
-    setTotalPrice('');
   };
   const submitHandler = () => {
     alert('Trading Successful');
@@ -45,8 +39,7 @@ const StockOperationModal = (props) => {
               type="text"
               name="stock-name"
               id="stock-name"
-              value={stockName}
-              onChange={(e) => setStockName(e.target.value)}
+              value={nameOfStock}
             />
             <label className={styles.label} htmlFor="listed-price">
               Listed Price
@@ -56,8 +49,7 @@ const StockOperationModal = (props) => {
               type="number"
               name="listed-price"
               id="listed-price"
-              value={listedPrice}
-              onChange={(e) => setListedPrice(e.target.value)}
+              value={listedPriceOfStock}
             />
             <label className={styles.label} htmlFor="quantity">
               Quantity
@@ -78,40 +70,19 @@ const StockOperationModal = (props) => {
               type="number"
               name="total-price"
               id="total-price"
-              value={listedPrice * quantity}
-              onChange={(e) => setTotalPrice(e.target.value)}
+              value={listedPriceOfStock * quantity}
             />
-
-            <div
-              className={
-                !(stockName && listedPrice && quantity && totalPrice)
-                  ? styles.buttonDisabled
-                  : null
-              }
+            <button
+              className={`${styles.buttonClass} ${
+                transactionType === 'Buy'
+                  ? styles.greenButton
+                  : styles.redButton
+              }`}
+              disabled={!(nameOfStock && listedPriceOfStock && quantity)}
+              onClick={submitHandler}
             >
-              {transactionType === 'Buy' && (
-                <button
-                  className={` ${styles.buttonClass} ${styles.greenButton}`}
-                  disabled={
-                    !(stockName && listedPrice && quantity && totalPrice)
-                  }
-                  onClick={submitHandler}
-                >
-                  {transactionType}
-                </button>
-              )}
-              {transactionType === 'Sell' && (
-                <button
-                  className={` ${styles.buttonClass} ${styles.redButton}`}
-                  disabled={
-                    !(stockName && listedPrice && quantity && totalPrice)
-                  }
-                  onClick={submitHandler}
-                >
-                  {transactionType}
-                </button>
-              )}
-            </div>
+              {transactionType}
+            </button>
           </div>
         </div>
       ) : null}

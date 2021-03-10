@@ -4,8 +4,8 @@ import styles from '../../styles/Home.module.css';
 
 const StockOperation = (props) => {
   const { stockName, stockPrice } = props;
-  const setStockName = stockName;
-  const setStockPrice = stockPrice;
+  // const setStockName = stockName;
+  // const setStockPrice = stockPrice;
   const [modal, showModal] = useState(false);
   const [transactionType, setTransactionType] = useState('');
   const setTransaction = (operation) => {
@@ -28,8 +28,8 @@ const StockOperation = (props) => {
         SELL
       </div>
       <StockOperationModal
-        nameOfStock={setStockName}
-        listedPriceOfStock={setStockPrice}
+        nameOfStock={stockName}
+        listedPriceOfStock={stockPrice}
         modal={modal}
         showModal={showModal}
         transactionType={transactionType}
