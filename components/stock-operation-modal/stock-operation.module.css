@@ -15,12 +15,12 @@
     z-index: 100;
     background: white;
     border-radius: 10px;
-    padding: 32px 24px;
+    padding: 20px 20px;
     width: 40%;
     max-width: 435px;
     height: auto;
     top: 30vh;
-    left: 30%;
+    left: 34%;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     display: block;
     animation: fade-slide-in 0.3s ease-in-out forwards;
