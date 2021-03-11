@@ -31,19 +31,23 @@ const CreateNewAuction = () => {
   const auctionSubmitHandler = async (e) => {
     e.preventDefault();
     setIsSubmitted(true);
+    const durationInMs = duration * 24 * 60 * 60 * 1000;
     const reqBody = {
-      item_type: itemType,
-      initial_price: initialPrice,
-      duration,
+      item: itemType,
+      initialPrice: initialPrice,
+      duration: durationInMs,
       quantity,
     };
 
     const response = await fetchData(`${AUCTIONS_URL}`, 'POST', {
       credentials: 'include',
       body: JSON.stringify(reqBody),
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
     const { status } = response;
-    if (status == 204) {
+    if (status == 200) {
       setIsSubmitted(false);
       router.push('/auctions');
     }
@@ -52,14 +56,14 @@ const CreateNewAuction = () => {
   return (
     <div className={styles.formContainer}>
       <form className={styles.newAuctionForm} onSubmit={auctionSubmitHandler}>
-        {isSubmitted && <p>Please wait...</p>}
+        {isSubmitted && <h2>Please wait...</h2>}
         <label name="itemType">
           Item to auction:
           <br />
           <input
             className={styles.inputBox}
             htmlFor="itemType"
-            onChange={(e) => setItemType(e.target.value)}
+            onChange={({ target: { value } }) => setItemType(value)}
             required
           />
         </label>
@@ -69,7 +73,7 @@ const CreateNewAuction = () => {
           <input
             className={styles.inputBox}
             htmlFor="quantity"
-            onChange={(e) => setQuantity(e.target.value)}
+            onChange={({ target: { value } }) => setQuantity(value)}
             required
           />
         </label>
@@ -79,7 +83,7 @@ const CreateNewAuction = () => {
           <input
             className={styles.inputBox}
             htmlFor="initialPrice"
-            onChange={(e) => setInitialPrice(e.target.value)}
+            onChange={({ target: { value } }) => setInitialPrice(value)}
             required
           />
         </label>
@@ -89,7 +93,7 @@ const CreateNewAuction = () => {
           <input
             className={styles.inputBox}
             htmlFor="duration"
-            onChange={(e) => setDuration(e.target.value)}
+            onChange={({ target: { value } }) => setDuration(value)}
             required
           />
         </label>

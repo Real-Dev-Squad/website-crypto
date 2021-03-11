@@ -34,20 +34,23 @@ const HandleAuctions = () => {
   }, []);
 
   const fetchAndSetAuctions = async () => {
-    const response = await fetchData('http://localhost:3000/auctions.json');
+    const response = await fetchData(`${AUCTIONS_URL}`);
     const json = await response.json();
     setAuctionsData(json);
   };
 
   const handleNewBid = async (e, auctionId) => {
     e.preventDefault();
-    const reqBody = { my_latest_bid: userBid };
+    const reqBody = { bid: userBid };
     const response = await fetchData(`${AUCTIONS_URL}/${auctionId}`, 'POST', {
       credentials: 'include',
       body: JSON.stringify(reqBody),
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
     const { status } = await response;
-    if (status === 204) {
+    if (status === 200) {
       setFetchAuctions(fetchAuctions + 1);
     }
   };
@@ -58,10 +61,18 @@ const HandleAuctions = () => {
   };
 
   const auctionHandler = auctionsData.map((auction) => {
-    const { id, seller, quantity, highest_bid, bidders_and_bids } = auction;
+    const {
+      id,
+      seller,
+      quantity,
+      highest_bid,
+      highest_bidder,
+      number_of_bidders,
+    } = auction;
     return (
-      <div className={styles.auctionContainer} key={id}>
+      <div className={`${styles.auctionContainer} ${id}`} key={id}>
         <div className={styles.auctionSeller}>
+          <h2>Seller:</h2>
           <Image
             src={`${BASE_IMAGE_URL}/${seller}/img.png`}
             width={100}
@@ -91,14 +102,16 @@ const HandleAuctions = () => {
         <div>
           <form
             className={styles.bidOptions}
-            onSubmit={(e, id) => handleNewBid(e, id)}
+            onSubmit={(e) => handleNewBid(e, id)}
           >
             <input
               className={styles.inputBid}
               type="number"
               min={parseInt(highest_bid) + 1}
               required="true"
-              onBlur={(e) => validateBid(e.target.value, highest_bid)}
+              onBlur={({ target: { value } }) =>
+                validateBid(value, highest_bid)
+              }
             />
             <button type="submit" className={styles.bidBtn}>
               Bid
@@ -106,17 +119,15 @@ const HandleAuctions = () => {
           </form>
         </div>
         <div className={styles.bidders}>
-          {bidders_and_bids.map((info) => {
-            return (
-              <div className={styles.biddersImg} key={info.bidder}>
-                <Image
-                  src={`${BASE_IMAGE_URL}/${info.bidder}/img.png`}
-                  width={80}
-                  height={80}
-                />
-              </div>
-            );
-          })}
+          <div className={styles.biddersImg}>
+            <h2>Bidders:</h2>
+            <Image
+              src={`${BASE_IMAGE_URL}/${highest_bidder}/img.png`}
+              width={80}
+              height={80}
+            />
+            <p>and {number_of_bidders - 1} more</p>
+          </div>
         </div>
       </div>
     );
