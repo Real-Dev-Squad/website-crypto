@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { Card } from '@components/stock-card';
 import { Footer } from '@components/footer';
 import stockData from '../../mock/stocks.json';
@@ -14,9 +13,9 @@ const Invest = () => {
         <div className="layout">
           <div className="content">
             <div className="shoppinglist-container">
-              {stock.map((itemName) => {
-                return <Card key={itemName} stock={stockData[itemName]} />;
-              })}
+              {stock.map((itemName) => (
+                <Card key={itemName} stock={stockData[itemName]} />
+              ))}
             </div>
           </div>
           <Footer />
@@ -33,7 +32,6 @@ const Invest = () => {
           }
           .shoppinglist-container {
             display: flex;
-            flex-direction: row;
             flex-wrap: wrap;
             justify-content: space-evenly;
             align-items: stretch;
