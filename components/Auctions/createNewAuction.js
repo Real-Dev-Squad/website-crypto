@@ -57,42 +57,42 @@ const CreateNewAuction = () => {
     <div className={styles.formContainer}>
       <form className={styles.newAuctionForm} onSubmit={auctionSubmitHandler}>
         {isSubmitted && <h2>Please wait...</h2>}
-        <label name="itemType">
+        <label name="itemType" htmlFor="itemType">
           Item to auction:
           <br />
           <input
             className={styles.inputBox}
-            htmlFor="itemType"
+            id="itemType"
             onChange={({ target: { value } }) => setItemType(value)}
             required
           />
         </label>
-        <label name="quantity">
+        <label name="quantity" htmlFor="quantity">
           Quantity for auction:
           <br />
           <input
             className={styles.inputBox}
-            htmlFor="quantity"
+            id="quantity"
             onChange={({ target: { value } }) => setQuantity(value)}
             required
           />
         </label>
-        <label name="initialPrice">
+        <label name="initialPrice" htmlFor="initialPrice">
           Initial price for this auction:
           <br />
           <input
             className={styles.inputBox}
-            htmlFor="initialPrice"
+            id="initialPrice"
             onChange={({ target: { value } }) => setInitialPrice(value)}
             required
           />
         </label>
-        <label name="duration">
+        <label name="duration" htmlFor="duration">
           Duration of auction (in number of days):
           <br />
           <input
             className={styles.inputBox}
-            htmlFor="duration"
+            id="duration"
             onChange={({ target: { value } }) => setDuration(value)}
             required
           />
