@@ -59,6 +59,7 @@ const StockOperationModal = (props) => {
               type="number"
               name="quantity"
               id="quantity"
+              min="1"
               value={quantity}
               onChange={(e) => setQuantity(e.target.value)}
             />
