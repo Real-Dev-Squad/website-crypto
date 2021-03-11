@@ -13,6 +13,13 @@ export const ProductDetails = ({ productJSON }) => {
       return <p key={id}> {use}</p>;
     });
   }
+
+  function renderThumbImage() {
+    return (
+      <img src={path.join('/assets', productJSON.image)} alt={productJSON.id} />
+    );
+  }
+
   return (
     <>
       <NavBar personData={personData} />
@@ -36,18 +43,9 @@ export const ProductDetails = ({ productJSON }) => {
             <p>{renderUses()}</p>
 
             <div className={styles.thumb}>
-              <img
-                src={path.join('/assets', productJSON.image)}
-                alt={productJSON.id}
-              />
-              <img
-                src={path.join('/assets', productJSON.image)}
-                alt={productJSON.id}
-              />
-              <img
-                src={path.join('/assets', productJSON.image)}
-                alt={productJSON.id}
-              />
+              {renderThumbImage()}
+              {renderThumbImage()}
+              {renderThumbImage()}
             </div>
             <button className={styles.cartBtn}>
               <Link href="/cart">Add to cart</Link>
@@ -59,7 +57,6 @@ export const ProductDetails = ({ productJSON }) => {
     </>
   );
 };
-
 ProductDetails.propTypes = {
   productJSON: PropTypes.object,
 };
