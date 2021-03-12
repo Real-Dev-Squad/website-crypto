@@ -14,21 +14,22 @@ export const ShopCard = ({ product, quantity, add, del, link }) => {
     del.delCartItem(item);
     del.delShopListItem(item);
   };
+
   return (
     <div className="shop-card">
       <Link href={link.href} as={link.as}>
         <Image
           src={path.join('/assets', image)}
           alt={name}
-          width={210}
-          height={210}
+          width={300}
+          height={250}
+          objectFit="cover"
           layout="fixed"
         />
       </Link>
-
       <div className="shop-card__content">
-        <p className="shop-card-product-name"> {name}</p>
-        <p className="shop-card-product-price"> {price}</p>
+        <p className="shop-card-product-name">{name}</p>
+        <p className="shop-card-product-price">{price}</p>
         <div className="shop-card-product-qnty">
           <button onClick={() => handleRemoveProduct(name)}> - </button>
           <span>{quantity}</span>
@@ -47,7 +48,7 @@ export const ShopCard = ({ product, quantity, add, del, link }) => {
             box-shadow: 0 2px 2px #ccc;
             text-align: center;
             min-width: 300px;
-            border-radius: 30px;
+            border-radius: 4px;
             transition: 0.2s;
           }
           .shop-card:hover {
@@ -62,6 +63,7 @@ export const ShopCard = ({ product, quantity, add, del, link }) => {
             text-align: center;
             width: 100%;
             padding: 1rem;
+            background-color: #f4f3ee;
           }
           .shop-card__content button {
             background: none;
@@ -90,6 +92,9 @@ export const ShopCard = ({ product, quantity, add, del, link }) => {
             width: 100%;
             justify-content: space-evenly;
             align-items: center;
+          }
+          .shop-card-product-qnty button {
+            width: 32px;
           }
         `}
       </style>

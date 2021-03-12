@@ -1,11 +1,16 @@
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import styles from './navbar.module.css';
 import Image from 'next/image';
+import GenericClosePopUp from '../Close-popup/GenericClosePopUp';
 
 const NavBar = ({ personData: { photo } }) => {
   const RDSLogo = '/assets/Real-Dev-Squad1x.png';
   const [toggle, setToggle] = useState(false);
+  const navbarRef = useRef();
+  GenericClosePopUp(navbarRef, () => {
+    setToggle(false);
+  });
 
   return (
     <nav className={styles.navBar}>
@@ -34,7 +39,12 @@ const NavBar = ({ personData: { photo } }) => {
           </Link>
         </div>
       </li>
-      <div className={styles.profilePic} onClick={() => setToggle(!toggle)}>
+
+      <div
+        className={styles.profilePic}
+        ref={navbarRef}
+        onClick={() => setToggle(!toggle)}
+      >
         <img src={photo} alt="Profile Image" height="70" width="70" />
         <div
           className={

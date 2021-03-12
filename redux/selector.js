@@ -20,7 +20,7 @@ export const getCartTotalCost = (store) =>
 export const getSaveForLaterItems = (store) =>
   getSaveForLaterDetails(store)
     ? getSaveForLaterDetails(store).saveLaterItems
-    : 'no items saved';
+    : 'No Saved Items';
 
 export const getSaveForLaterItemsCount = (store) =>
   getSaveForLaterDetails(store)
