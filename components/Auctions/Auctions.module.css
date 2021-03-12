@@ -78,7 +78,7 @@
 .bidders {
   display: flex;
   flex-wrap: wrap;
-  max-width: 40%;
+  width: 25%;
 }
 
 .bidders div {
@@ -89,6 +89,25 @@
   margin-left: 10px;
 }
 
+.biddersImg[data-columns="2"]{
+  width: calc(160px/2);
+}
+.biddersImg[data-columns="3"]{
+  width: calc(160px/3);
+}
+.biddersImg[data-columns="4"]{
+  width: calc(160px/4);
+}
+.biddersImg[data-columns="5"]{
+  width: calc(160px/5);
+}
+.biddersImg[data-columns="6"]{
+  width: calc(160px/6);
+}
+.biddersImg[data-columns="7"]{
+  width: calc(160px/7);
+}
+
 @media only screen and (max-width: 1200px) {
   .auctionContainer {
     width: 85%;
@@ -96,6 +115,12 @@
 
   .bidBtn {
     width: 100px;
+  }
+}
+
+@media only screen and (max-width: 800px) and (min-width: 900px) { 
+  .bidders {
+    width: 30%;
   }
 }
 
@@ -115,7 +140,7 @@
   }
 
   .bidders {
-    max-width: 80%;
+    width: 80%;
     justify-content: center;
   }
 }
