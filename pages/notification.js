@@ -1,6 +1,7 @@
 import React from 'react';
 import personData from '../mock/person.json';
 import NavBar from '@components/NavBar';
+import data from '../mock/notifications.json';
 
 export default function notification() {
   return (
@@ -8,60 +9,21 @@ export default function notification() {
       <NavBar personData={personData} />
       <div className="notification">
         <ul>
-          <li>
-            <div className="notificationArea">
-              <h4>Rohit has requested RDS 200 from you</h4>
-              <div className="buttons">
-                <button className="approve">Approve</button>
-                <button className="discard">Discard</button>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div className="notificationArea">
-              <h4>Rohit has requested RDS 200 from you</h4>
-              <div className="buttons">
-                <button className="approve">Approve</button>
-                <button className="discard">Discard</button>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div className="notificationArea">
-              <h4>Rohit has requested RDS 200 from you</h4>
-              <div className="buttons">
-                <button className="approve">Approve</button>
-                <button className="discard">Discard</button>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div className="notificationArea">
-              <h4>Rohit has requested RDS 200 from you</h4>
-              <div className="buttons">
-                <button className="approve">Approve</button>
-                <button className="discard">Discard</button>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div className="notificationArea">
-              <h4>Rohit has requested RDS 200 from you</h4>
-              <div className="buttons">
-                <button className="approve">Approve</button>
-                <button className="discard">Discard</button>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div className="notificationArea">
-              <h4>Rohit has requested RDS 200 from you</h4>
-              <div className="buttons">
-                <button className="approve">Approve</button>
-                <button className="discard">Discard</button>
-              </div>
-            </div>
-          </li>
+          {
+            data.map((item) => {
+              return(
+                <li>
+                  <div className="notificationArea">
+                    <h4>{item.notification}</h4>
+                    <div className="buttons">
+                      <button className="approve">Approve</button>
+                      <button className="discard">Discard</button>
+                    </div>
+                  </div>
+                </li>
+              )
+            })
+          }
         </ul>
       </div>
       <style jsx>
