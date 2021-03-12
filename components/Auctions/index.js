@@ -13,8 +13,7 @@ const HandleAuctions = () => {
   const [auctionsData, setAuctionsData] = useState([]);
   const [userBid, setUserBid] = useState();
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
-  const [selfUsername, setSelfUsername] = useState();
-  const [fetchAuctions, setFetchAuctions] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetchAndSetAuctions();
@@ -24,7 +23,6 @@ const HandleAuctions = () => {
     fetchSelfDetails()
       .then((res) => {
         if (res.status === 200) {
-          setSelfUsername(res.username);
           setIsUserLoggedIn(true);
         }
       })
@@ -37,9 +35,14 @@ const HandleAuctions = () => {
     const response = await fetchData(`${AUCTIONS_URL}`);
     const json = await response.json();
     setAuctionsData(json.auctions);
+    setIsLoading(false);
   };
 
   const handleNewBid = async (e, auctionId) => {
+    if (!isUserLoggedIn) {
+      return alert('Please log in to bid!');
+    }
+    setIsLoading(true);
     e.preventDefault();
     const reqBody = { bid: userBid };
     const response = await fetchData(
@@ -54,8 +57,9 @@ const HandleAuctions = () => {
       }
     );
     const { status } = await response;
-    if (status === 200) {
-      setFetchAuctions(fetchAuctions + 1);
+    if (status === 204) {
+      fetchAndSetAuctions();
+      setIsLoading(false);
     }
   };
 
@@ -141,7 +145,12 @@ const HandleAuctions = () => {
     );
   });
 
-  return <div className={styles.mainContainer}>{auctionHandler}</div>;
+  return (
+    <div className={styles.mainContainer}>
+      <h2>{isLoading ? 'Please wait...' : 'Ongoing Auctions:'}</h2>
+      {auctionHandler}
+    </div>
+  );
 };
 
 export default HandleAuctions;

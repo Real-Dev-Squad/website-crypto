@@ -12,6 +12,7 @@
   box-shadow: 0 0 15px -7px rgba(0,0,0,.65);
   width: 40%;
   background-color: white;
+  overflow-x: hidden; 
 }
 
 .inputBox, .submitBtn {
@@ -21,7 +22,7 @@
   padding-left: 10px;
   margin-bottom: 15px;
   font-size: 1rem;
-  width: 90%;
+  width: 100%;
 }
 
 .submitBtn {
