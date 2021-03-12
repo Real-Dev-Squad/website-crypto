@@ -60,6 +60,10 @@ const HandleAuctions = () => {
     else setUserBid(userBid);
   };
 
+  const getColumns = (totalBidder) => {
+    return totalBidder <= 12 ? Math.ceil(totalBidder / 2) : 7;
+  };
+
   const auctionHandler = auctionsData.map((auction) => {
     const { id, seller, quantity, highest_bid, bidders } = auction;
     return (
@@ -101,7 +105,7 @@ const HandleAuctions = () => {
               className={styles.inputBid}
               type="number"
               min={parseInt(highest_bid) + 1}
-              required="true"
+              required={true}
               onBlur={({ target: { value } }) =>
                 validateBid(value, highest_bid)
               }
@@ -114,7 +118,12 @@ const HandleAuctions = () => {
         <div className={styles.bidders}>
           {bidders.map((bidder) => {
             return (
-              <div className={styles.biddersImg} key={bidder}>
+              <div
+                className={styles.biddersImg}
+                key={bidder}
+                data-columns={getColumns(bidders.length)}
+                title={bidder}
+              >
                 <Image
                   src={`${BASE_IMAGE_URL}/${bidder}/img.png`}
                   width={80}
