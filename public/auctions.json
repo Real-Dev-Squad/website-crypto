@@ -1,0 +1,27 @@
+[
+  {
+    "id": "asdf1234",
+    "seller": "swaraj",
+    "item_type": "neelam",
+    "initial_price": "100 dineros",
+    "quantity": 2,
+    "bidders": ["rucha", "ankush"],
+    "highest_bid": "200 dineros",
+    "start_time": "1519211809934",
+    "duration": "86400000",
+    "status": "active"
+  },
+  {
+    "id": "asdf12345",
+    "seller": "sumit",
+    "item_type": "neelam",
+    "initial_price": "100 dineros",
+    "quantity": 4,
+    "bidders": ["sagar", "kratika"],
+    "highest_bidder": "rucha",
+    "highest_bid": "200 dineros",
+    "start_time": "1519211809934",
+    "duration": "86400000",
+    "status": "active"
+  }
+]

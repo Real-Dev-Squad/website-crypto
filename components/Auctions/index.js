@@ -34,7 +34,7 @@ const HandleAuctions = () => {
   }, []);
 
   const fetchAndSetAuctions = async () => {
-    const response = await fetchData(`${AUCTIONS_URL}`);
+    const response = await fetchData('http://localhost:3000/auctions.json');
     const json = await response.json();
     setAuctionsData(json);
   };
@@ -61,14 +61,7 @@ const HandleAuctions = () => {
   };
 
   const auctionHandler = auctionsData.map((auction) => {
-    const {
-      id,
-      seller,
-      quantity,
-      highest_bid,
-      highest_bidder,
-      number_of_bidders,
-    } = auction;
+    const { id, seller, quantity, highest_bid, bidders } = auction;
     return (
       <div className={`${styles.auctionContainer} ${id}`} key={id}>
         <div className={styles.auctionSeller}>
@@ -119,15 +112,17 @@ const HandleAuctions = () => {
           </form>
         </div>
         <div className={styles.bidders}>
-          <div className={styles.biddersImg}>
-            <h2>Bidders:</h2>
-            <Image
-              src={`${BASE_IMAGE_URL}/${highest_bidder}/img.png`}
-              width={80}
-              height={80}
-            />
-            <p>and {number_of_bidders - 1} more</p>
-          </div>
+          {bidders.map((bidder) => {
+            return (
+              <div className={styles.biddersImg} key={bidder}>
+                <Image
+                  src={`${BASE_IMAGE_URL}/${bidder}/img.png`}
+                  width={80}
+                  height={80}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
     );
