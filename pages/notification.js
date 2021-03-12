@@ -10,9 +10,9 @@ export default function notification() {
       <div className="notification">
         <ul>
           {
-            data.map((item) => {
+            data.map((item, index) => {
               return(
-                <li>
+                <li key="index">
                   <div className="notificationArea">
                     <h4>{item.notification}</h4>
                     <div className="buttons">
