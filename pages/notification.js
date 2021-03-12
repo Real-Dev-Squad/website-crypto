@@ -12,7 +12,7 @@ export default function notification() {
           {
             data.map((item, index) => {
               return(
-                <li key="index">
+                <li key={index}>
                   <div className="notificationArea">
                     <h4>{item.notification}</h4>
                     <div className="buttons">
