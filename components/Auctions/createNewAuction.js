@@ -31,11 +31,11 @@ const CreateNewAuction = () => {
   const auctionSubmitHandler = async (e) => {
     e.preventDefault();
     setIsSubmitted(true);
-    const durationInMs = duration * 24 * 60 * 60 * 1000;
+    const endTimeInMs = Date.now() + duration * 24 * 60 * 60 * 1000;
     const reqBody = {
-      item: itemType,
-      initialPrice: initialPrice,
-      duration: durationInMs,
+      item_type: itemType,
+      initial_price: initialPrice,
+      end_time: endTimeInMs,
       quantity,
     };
 

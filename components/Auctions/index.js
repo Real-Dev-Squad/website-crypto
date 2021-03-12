@@ -34,21 +34,25 @@ const HandleAuctions = () => {
   }, []);
 
   const fetchAndSetAuctions = async () => {
-    const response = await fetchData('http://localhost:3000/auctions.json');
+    const response = await fetchData(`${AUCTIONS_URL}`);
     const json = await response.json();
-    setAuctionsData(json);
+    setAuctionsData(json.auctions);
   };
 
   const handleNewBid = async (e, auctionId) => {
     e.preventDefault();
     const reqBody = { bid: userBid };
-    const response = await fetchData(`${AUCTIONS_URL}/${auctionId}`, 'POST', {
-      credentials: 'include',
-      body: JSON.stringify(reqBody),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+    const response = await fetchData(
+      `${AUCTIONS_URL}/bid/${auctionId}`,
+      'POST',
+      {
+        credentials: 'include',
+        body: JSON.stringify(reqBody),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
     const { status } = await response;
     if (status === 200) {
       setFetchAuctions(fetchAuctions + 1);
