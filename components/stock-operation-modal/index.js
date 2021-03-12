@@ -8,6 +8,7 @@ const StockOperationModal = (props) => {
     modal,
     showModal,
     transactionType,
+    stockID,
   } = props;
   const [quantity, setQuantity] = useState('');
 
@@ -16,9 +17,35 @@ const StockOperationModal = (props) => {
     setQuantity('');
   };
   const submitHandler = () => {
-    alert('Trading Successful');
-  };
+    const body = {
+      tradeType: transactionType,
+      stockName: nameOfStock,
+      stockID,
+      quantity,
+      listedPrice: listedPriceOfStock,
+      totalPrice: quantity * listedPriceOfStock,
+    };
 
+    fetch('http://localhost:5000/trade/username', {
+      credentials: 'include',
+      method: 'PATCH',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    })
+      .then((response) => {
+        // add a check whether the request was success or not and then return data here
+        console.log(response);
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        // update the user balance here
+        alert('Trading success');
+      });
+  };
+  console.log(stockID);
   return (
     <>
       <div

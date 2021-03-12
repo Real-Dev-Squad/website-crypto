@@ -6,7 +6,7 @@ export const Card = ({ stock }) => {
   return (
     <div className="stock-card">
       <Image
-        src={path.join('/assets', stock.image)}
+        src={path.join('/assets', 'stocks.jpg')}
         alt={stock.name}
         width={100}
         height={100}
@@ -18,7 +18,7 @@ export const Card = ({ stock }) => {
         <p className="stock-card-product-name">{stock.name}</p>
         <p className="stock-card-product-price">{stock.price}</p>
         <div>
-          <StockOperation stockName={stock.name} stockPrice={stock.price} />
+          <StockOperation stock={stock} />
         </div>
       </div>
       <style jsx>

@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Card } from '@components/stock-card';
 import { Footer } from '@components/footer';
 import stockData from '../../mock/stocks.json';
@@ -6,6 +7,13 @@ import NavBar from '@components/NavBar';
 
 const stock = Object.keys(stockData);
 const Invest = () => {
+  const [stocks, updateStocks] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:5000/stocks')
+      .then((response) => response.json())
+      .then((data) => updateStocks(data.stock));
+  }, []);
   return (
     <>
       <NavBar personData={personData} />
@@ -13,8 +21,8 @@ const Invest = () => {
         <div className="layout">
           <div className="content">
             <div className="shoppinglist-container">
-              {stock.map((itemName) => (
-                <Card key={itemName} stock={stockData[itemName]} />
+              {stocks.map((itemName) => (
+                <Card key={itemName} stock={itemName} />
               ))}
             </div>
           </div>

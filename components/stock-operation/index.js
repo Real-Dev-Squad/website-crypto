@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import styles from '../../styles/Home.module.css';
 
 const StockOperation = (props) => {
-  const { stockName, stockPrice } = props;
+  const { id, name, price } = props.stock;
   const [modal, showModal] = useState(false);
   const [transactionType, setTransactionType] = useState('');
   const setTransaction = (operation) => {
@@ -26,11 +26,12 @@ const StockOperation = (props) => {
         SELL
       </div>
       <StockOperationModal
-        nameOfStock={stockName}
-        listedPriceOfStock={stockPrice}
+        nameOfStock={name}
+        listedPriceOfStock={price}
         modal={modal}
         showModal={showModal}
         transactionType={transactionType}
+        stockID={id}
       />
     </div>
   );
