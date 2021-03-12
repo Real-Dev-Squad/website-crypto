@@ -7,19 +7,14 @@ import Link from 'next/link';
 import { Footer } from '../../components/footer';
 import styles from './product-details.module.css';
 
+const renderUses = (productJSON) =>
+  productJSON.usage.map((use, id) => <p key={id}> {use} </p>);
+
+const renderThumbImage = (productJSON) => (
+  <img src={path.join('/assets', productJSON.image)} alt={productJSON.id} />
+);
+
 export const ProductDetails = ({ productJSON }) => {
-  function renderUses() {
-    return productJSON.usage.map((use, id) => {
-      return <p key={id}> {use}</p>;
-    });
-  }
-
-  function renderThumbImage() {
-    return (
-      <img src={path.join('/assets', productJSON.image)} alt={productJSON.id} />
-    );
-  }
-
   return (
     <>
       <NavBar personData={personData} />
@@ -40,12 +35,12 @@ export const ProductDetails = ({ productJSON }) => {
             <span>{productJSON.price} Gold Coins</span>
 
             <h3 className={styles.description}>Description</h3>
-            <p>{renderUses()}</p>
+            <p>{renderUses(productJSON)}</p>
 
             <div className={styles.thumb}>
-              {renderThumbImage()}
-              {renderThumbImage()}
-              {renderThumbImage()}
+              {renderThumbImage(productJSON)}
+              {renderThumbImage(productJSON)}
+              {renderThumbImage(productJSON)}
             </div>
             <button className={styles.cartBtn}>
               <Link href="/cart">Add to cart</Link>
