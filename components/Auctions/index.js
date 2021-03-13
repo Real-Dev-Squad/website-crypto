@@ -1,13 +1,12 @@
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
+import { BASE_IMAGE_URL } from 'constants.js';
 import styles from './Auctions.module.css';
 import fetchData from '../../utils/fetchData';
 import fetchSelfDetails from '../../utils/fetchSelfDetails';
 
 const BASE_API_URL = process.env.NEXT_PUBLIC_BASE_API_URL;
 const AUCTIONS_URL = `${BASE_API_URL}/auctions`;
-const BASE_IMAGE_URL =
-  'https://raw.githubusercontent.com/Real-Dev-Squad/website-static/main/members';
 
 const HandleAuctions = () => {
   const [auctionsData, setAuctionsData] = useState([]);
