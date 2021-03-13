@@ -39,7 +39,8 @@ const HandleAuctions = () => {
 
   const handleNewBid = async (e, auctionId) => {
     if (!isUserLoggedIn) {
-      return alert('Please log in to bid!');
+      alert('Please log in to bid!');
+      return;
     }
     setIsLoading(true);
     e.preventDefault();
