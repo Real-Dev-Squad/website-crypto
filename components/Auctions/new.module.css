@@ -1,0 +1,61 @@
+.formContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.newAuctionForm {
+  display: flex;
+  padding: 5% 10%;
+  flex-direction: column;
+  border: 1px solid #f4f4f4;
+  border-radius: 20px;
+  box-shadow: 0 0 15px -7px rgba(0,0,0,.65);
+  width: 40%;
+  background-color: white;
+  overflow-x: hidden; 
+}
+
+.inputBox, .submitBtn {
+  border: 0.5px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  padding-left: 10px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.submitBtn {
+  cursor: pointer;
+  background-color: rgb(27, 199, 27);
+  color: white;
+}
+
+.submitBtn:hover {
+  box-shadow: 0 0 12px -7px rgba(0,0,0,.65);
+  transition: box-shadow 0.1s ease;
+}
+
+@media only screen and (max-width: 1000px) {
+  .newAuctionForm {
+    width: 60%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .newAuctionForm {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .newAuctionForm {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .newAuctionForm {
+    width: 90%;
+  }
+}
