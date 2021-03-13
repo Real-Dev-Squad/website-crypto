@@ -27,7 +27,7 @@ const NavBar = ({ personData: { photo } }) => {
         </li>
         <li>
           <Link href="/auctions">
-            <a>Auctions</a>
+            <a>Auction</a>
           </Link>
         </li>
       </ul>
