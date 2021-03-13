@@ -64,7 +64,8 @@ const HandleAuctions = () => {
   };
 
   const validateBid = (userBid, highestBid) => {
-    if (userBid <= highestBid) alert('You must bid higher than current bid!');
+    if (parseInt(userBid) <= parseInt(highestBid))
+      alert('You must bid higher than current bid!');
     else setUserBid(userBid);
   };
 

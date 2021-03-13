@@ -25,6 +25,11 @@ const NavBar = ({ personData: { photo } }) => {
             <a>Cart</a>
           </Link>
         </li>
+        <li>
+          <Link href="/auctions">
+            <a>Auctions</a>
+          </Link>
+        </li>
       </ul>
       <li>
         <div className={styles.logo}>
