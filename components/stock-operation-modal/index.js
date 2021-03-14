@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import styles from '../stock-operation-modal/stock-operation.module.css';
 
 const StockOperationModal = (props) => {
@@ -37,15 +38,16 @@ const StockOperationModal = (props) => {
     })
       .then((response) => {
         if (response.status === 200) {
-          console.log(response);
           return response.json();
+        } else {
+          throw new Error(response.statusText);
         }
       })
       .then((data) =>
-        alert(`Trading Successful! Your balance is ${data.userBalance}`)
+        alert(`Trading Successful! Your balance is ${data.userBalance} Dineros`)
       )
       .catch((err) => {
-        console.log(err);
+        alert(err.message);
       });
   };
 
