@@ -47,7 +47,7 @@ const CreateNewAuction = () => {
       },
     });
     const { status } = response;
-    if (status == 204) {
+    if (status == 201) {
       setIsSubmitted(false);
       router.push('/auctions');
     }
