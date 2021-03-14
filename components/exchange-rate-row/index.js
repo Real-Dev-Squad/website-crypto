@@ -1,13 +1,7 @@
 import React from 'react';
 import styles from './exchange-rate-row.module.css';
 
-const ExcgangeRateRow = ({
-  first_currency,
-  first_image,
-  second_currency,
-  second_image,
-  normalized_number,
-}) => {
+const ExcgangeRateRow = ({ src, target, value }) => {
   const {
     exchange_rate_row,
     currency_wrapper,
@@ -19,24 +13,14 @@ const ExcgangeRateRow = ({
   return (
     <div className={exchange_rate_row}>
       <div className={currency_wrapper}>
-        <div className={currency_wrapper__normalized_number}>
-          {normalized_number}
-        </div>
-        <div className={currency_wrapper__name}>{first_currency}</div>
-        <img
-          src={first_image}
-          alt={first_currency}
-          className={currency_wrapper__image}
-        />
+        <div className={currency_wrapper__normalized_number}>{value}</div>
+        <div className={currency_wrapper__name}>{src.name}</div>
+        <div className={currency_wrapper__image} />
       </div>
       <span className={exchange_rate_row__arrow}>&#8667;</span>
       <div className={currency_wrapper}>
-        <div className={currency_wrapper__name}>{second_currency}</div>
-        <img
-          src={second_image}
-          alt={second_currency}
-          className={currency_wrapper__image}
-        />
+        <div className={currency_wrapper__name}>{target.name}</div>
+        <div className={currency_wrapper__image} />
       </div>
     </div>
   );
