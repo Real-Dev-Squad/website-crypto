@@ -1,7 +1,40 @@
 .exchange_rates {
-  margin: 5%;
+  flex: 0.6;
+  border: 1px solid rgba(238, 26, 117, 0.5);
+  border-radius: 10px;
+  height: 45vh;
+  overflow-y: auto;
+  padding: 1%;
+}
+.currency_exchange {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 2%;
+  padding: 20px;
+}
+.currency_exchange__left_section {
+  flex: 0.6;
 }
 
+.currency_exchange__right_section {
+  flex: 0.4;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 6px;
+  padding: 1%;
+  background-color: rgba(255, 255, 255, 0.793);
+}
+.currency_exchange_select {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 2%;
+}
+
+.currency_exchange_select > div {
+  flex: 1;
+  height: 50px;
+}
 @media only screen and (max-width: 600px) {
   /*Big smartphones [426px -> 600px]*/
   .exchange_rates {
@@ -10,4 +43,15 @@
 }
 @media only screen and (max-width: 425px) {
   /*Small smartphones [325px -> 425px]*/
+}
+@media only screen and (max-width: 1000px) {
+  /*tablet screns [325px -> 425px]*/
+  .currency_exchange {
+    flex-direction: column;
+    row-gap: 20px;
+    padding: 10px;
+  }
+  .currency_exchange__right_section {
+    row-gap: 20px;
+  }
 }

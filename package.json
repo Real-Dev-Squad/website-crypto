@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 80",
     "build": "next build",
     "start": "next start -p $PORT",
     "build-static": "next build && next export",
@@ -29,7 +29,9 @@
     "react-dom": "17.0.1",
     "react-infinite-scroll-component": "^5.1.0",
     "react-redux": "^7.2.2",
+    "react-select": "^4.2.1",
     "redux": "^4.0.5",
+    "reselect": "^4.0.0",
     "styled-components": "^5.2.1"
   },
   "devDependencies": {

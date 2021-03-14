@@ -7,6 +7,7 @@
   padding: 5px;
   border-radius: 6px;
   letter-spacing: 2px;
+  height: 80px;
 }
 .exchange_rate_row:hover {
   transform: scale(1.015);
@@ -33,6 +34,10 @@
 }
 .currency_wrapper__image {
   margin: auto 0;
+  width: 50px;
+  height: 50px;
+  background-color: rgb(235, 8, 133);
+  border-radius: 50%;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -45,10 +50,7 @@
 }
 @media only screen and (max-width: 600px) {
   /*Big smartphones [426px -> 600px]*/
-  .currency_wrapper__image {
-    width: 40px;
-    height: 40px;
-  }
+
   .exchange_rate_row__arrow {
     font-size: 25px;
   }
@@ -57,5 +59,12 @@
   /*Small smartphones [325px -> 425px]*/
   .exchange_rate_row__arrow {
     font-size: 15px;
+  }
+  .currency_wrapper__normalized_number {
+    font-size: 25px;
+  }
+  .currency_wrapper__image {
+    width: 30px;
+    height: 30px;
   }
 }
