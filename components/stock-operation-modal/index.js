@@ -26,26 +26,28 @@ const StockOperationModal = (props) => {
       totalPrice: quantity * listedPriceOfStock,
     };
 
-    fetch('http://localhost:5000/trade/username', {
+    fetch('https://api.realdevsquad.com/trade/stock/new/self', {
       credentials: 'include',
-      method: 'PATCH',
+      method: 'POST',
       headers: {
         'content-type': 'application/json',
       },
       body: JSON.stringify(body),
     })
       .then((response) => {
-        // add a check whether the request was success or not and then return data here
-        console.log(response);
-        return response.json();
+        if (response.status === 200) {
+          console.log(response);
+          return response.json();
+        }
       })
-      .then((data) => {
-        console.log(data);
-        // update the user balance here
-        alert('Trading success');
+      .then((data) =>
+        alert(`Trading Successful! Your balance is ${data.userBalance}`)
+      )
+      .catch((err) => {
+        console.log(err);
       });
   };
-  console.log(stockID);
+
   return (
     <>
       <div
@@ -102,7 +104,7 @@ const StockOperationModal = (props) => {
             />
             <button
               className={`${styles.buttonClass} ${
-                transactionType === 'Buy'
+                transactionType === 'BUY'
                   ? styles.greenButton
                   : styles.redButton
               }`}

@@ -15,13 +15,13 @@ const StockOperation = (props) => {
     <div className={styles.buttonWrapper}>
       <div
         className={`${styles.button} ${styles.greenButton}`}
-        onClick={() => setTransaction('Buy')}
+        onClick={() => setTransaction('BUY')}
       >
         BUY
       </div>
       <div
         className={`${styles.button} ${styles.redButton}`}
-        onClick={() => setTransaction('Sell')}
+        onClick={() => setTransaction('SELL')}
       >
         SELL
       </div>

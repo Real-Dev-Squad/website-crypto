@@ -1,16 +1,14 @@
 import { useState, useEffect } from 'react';
 import { Card } from '@components/stock-card';
 import { Footer } from '@components/footer';
-import stockData from '../../mock/stocks.json';
 import personData from '../../mock/person.json';
 import NavBar from '@components/NavBar';
 
-const stock = Object.keys(stockData);
 const Invest = () => {
   const [stocks, updateStocks] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/stocks')
+    fetch('https://api.realdevsquad.com/stocks')
       .then((response) => response.json())
       .then((data) => updateStocks(data.stock));
   }, []);
