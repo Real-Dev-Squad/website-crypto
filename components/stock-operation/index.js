@@ -31,7 +31,7 @@ const StockOperation = (props) => {
         modal={modal}
         showModal={showModal}
         transactionType={transactionType}
-        stockID={id}
+        stockId={id}
       />
     </div>
   );

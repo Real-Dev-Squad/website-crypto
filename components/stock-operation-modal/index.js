@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
 import styles from '../stock-operation-modal/stock-operation.module.css';
 
 const StockOperationModal = (props) => {
@@ -9,7 +8,7 @@ const StockOperationModal = (props) => {
     modal,
     showModal,
     transactionType,
-    stockID,
+    stockId,
   } = props;
 
   const [quantity, setQuantity] = useState('');
@@ -22,7 +21,7 @@ const StockOperationModal = (props) => {
     const body = {
       tradeType: transactionType,
       stockName: nameOfStock,
-      stockID,
+      stockId,
       quantity,
       listedPrice: listedPriceOfStock,
       totalPrice: quantity * listedPriceOfStock,
