@@ -57,13 +57,8 @@ const CurrencyExchange = ({ exchangeRates, currencies }) => {
         </div>
         <div className={currency_exchange__right_section}>
           <div className={currency_exchange_select}>
+            <Select options={bankCurrencyOptions} components={makeAnimated()} />
             <Select
-              className="basic-multi-select"
-              options={bankCurrencyOptions}
-              components={makeAnimated()}
-            />
-            <Select
-              className="basic-multi-select"
               isMulti
               options={bankCurrencyOptions}
               components={makeAnimated()}
