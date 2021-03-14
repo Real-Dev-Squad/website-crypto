@@ -13,6 +13,7 @@ const HandleAuctions = () => {
   const [userBid, setUserBid] = useState();
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [isBidding, setIsBidding] = useState(false);
 
   useEffect(() => {
     fetchAndSetAuctions();
@@ -38,11 +39,14 @@ const HandleAuctions = () => {
   };
 
   const handleNewBid = async (e, auctionId) => {
+    console.log(e.target);
+    e.target[1].disabled = 'true';
     if (!isUserLoggedIn) {
       alert('Please log in to bid!');
       return;
     }
     setIsLoading(true);
+    setIsBidding(true);
     e.preventDefault();
     const reqBody = { bid: userBid };
     const response = await fetchData(
@@ -60,6 +64,7 @@ const HandleAuctions = () => {
     if (status === 204) {
       fetchAndSetAuctions();
       setIsLoading(false);
+      setIsBidding(false);
     }
   };
 
@@ -120,7 +125,7 @@ const HandleAuctions = () => {
               }
             />
             <button type="submit" className={styles.bidBtn}>
-              Bid
+              {isBidding ? 'Bidding...' : 'Bid'}
             </button>
           </form>
         </div>
