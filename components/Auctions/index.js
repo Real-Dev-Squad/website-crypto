@@ -7,15 +7,21 @@ import fetchSelfDetails from '../../utils/fetchSelfDetails';
 
 const BASE_API_URL = process.env.NEXT_PUBLIC_BASE_API_URL;
 const AUCTIONS_URL = `${BASE_API_URL}/auctions`;
+const WALLET_URL = `${BASE_API_URL}/wallet`;
 
 const HandleAuctions = () => {
   const [auctionsData, setAuctionsData] = useState([]);
   const [userBid, setUserBid] = useState();
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [userMoney, setUserMoney] = useState();
 
   useEffect(() => {
     fetchAndSetAuctions();
+  }, []);
+
+  useEffect(() => {
+    getUserWallet();
   }, []);
 
   useEffect(() => {
@@ -31,42 +37,62 @@ const HandleAuctions = () => {
   }, []);
 
   const fetchAndSetAuctions = async () => {
-    const response = await fetchData(`${AUCTIONS_URL}`);
+    const response = await fetchData(AUCTIONS_URL);
     const json = await response.json();
     setAuctionsData(json.auctions);
     setIsLoading(false);
   };
 
+  const getUserWallet = async () => {
+    const response = await fetchData(WALLET_URL, 'GET', {
+      credentials: 'include',
+    });
+    const { wallet } = await response.json();
+    if (Object.keys(wallet).length === 0) return setUserMoney(0);
+    else {
+      const {
+        currencies: { dinero },
+      } = wallet;
+      setUserMoney(dinero);
+    }
+  };
+
   const handleNewBid = async (e, auctionId) => {
+    e.preventDefault();
     if (!isUserLoggedIn) {
       alert('Please log in to bid!');
-      return;
-    }
-    setIsLoading(true);
-    e.preventDefault();
-    const reqBody = { bid: userBid };
-    const response = await fetchData(
-      `${AUCTIONS_URL}/bid/${auctionId}`,
-      'POST',
-      {
-        credentials: 'include',
-        body: JSON.stringify(reqBody),
-        headers: {
-          'Content-Type': 'application/json',
-        },
+    } else if (userMoney === 0) {
+      alert('You do not have a wallet!');
+    } else if (parseInt(userBid) > parseInt(userMoney)) {
+      alert('You do not have enough money!');
+    } else {
+      setIsLoading(true);
+      const reqBody = { bid: userBid };
+      const response = await fetchData(
+        `${AUCTIONS_URL}/bid/${auctionId}`,
+        'POST',
+        {
+          credentials: 'include',
+          body: JSON.stringify(reqBody),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+      const { status } = await response;
+      if (status === 201) {
+        fetchAndSetAuctions();
+        setIsLoading(false);
       }
-    );
-    const { status } = await response;
-    if (status === 204) {
-      fetchAndSetAuctions();
-      setIsLoading(false);
     }
   };
 
   const validateBid = (userBid, highestBid) => {
-    if (parseInt(userBid) <= parseInt(highestBid))
+    if (parseInt(userBid) <= parseInt(highestBid)) {
       alert('You must bid higher than current bid!');
-    else setUserBid(userBid);
+      return;
+    }
+    setUserBid(userBid);
   };
 
   const getColumns = (totalBidder) => {
