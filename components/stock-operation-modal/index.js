@@ -10,6 +10,7 @@ const StockOperationModal = (props) => {
     transactionType,
     stockID,
   } = props;
+
   const [quantity, setQuantity] = useState('');
 
   const closeModal = () => {
@@ -69,6 +70,7 @@ const StockOperationModal = (props) => {
               name="stock-name"
               id="stock-name"
               value={nameOfStock}
+              onChange={() => {}}
             />
             <label className={styles.label} htmlFor="listed-price">
               Listed Price
@@ -79,6 +81,7 @@ const StockOperationModal = (props) => {
               name="listed-price"
               id="listed-price"
               value={listedPriceOfStock}
+              onChange={() => {}}
             />
             <label className={styles.label} htmlFor="quantity">
               Quantity
@@ -101,6 +104,7 @@ const StockOperationModal = (props) => {
               name="total-price"
               id="total-price"
               value={listedPriceOfStock * quantity}
+              onChange={() => {}}
             />
             <button
               className={`${styles.buttonClass} ${

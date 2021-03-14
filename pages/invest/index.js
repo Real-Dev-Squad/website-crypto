@@ -1,16 +1,22 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Card } from '@components/stock-card';
 import { Footer } from '@components/footer';
 import personData from '../../mock/person.json';
 import NavBar from '@components/NavBar';
+import { getStocks } from '../../redux/action';
 
 const Invest = () => {
-  const [stocks, updateStocks] = useState([]);
+  const stocks = useSelector((state) => state.stocksDetails.stocks);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    fetch('https://api.realdevsquad.com/stocks')
-      .then((response) => response.json())
-      .then((data) => updateStocks(data.stock));
+    const fetchData = async () => {
+      const actionPayload = await getStocks();
+      dispatch(actionPayload);
+    };
+
+    fetchData();
   }, []);
   return (
     <>
@@ -20,7 +26,7 @@ const Invest = () => {
           <div className="content">
             <div className="shoppinglist-container">
               {stocks.map((itemName) => (
-                <Card key={itemName} stock={itemName} />
+                <Card key={itemName.id} stock={itemName} />
               ))}
             </div>
           </div>
