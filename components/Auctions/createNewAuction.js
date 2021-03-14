@@ -63,6 +63,8 @@ const CreateNewAuction = () => {
           <input
             className={styles.inputBox}
             id="itemType"
+            value="neelam"
+            disabled
             onChange={({ target: { value } }) => setItemType(value)}
             required
           />
@@ -74,6 +76,7 @@ const CreateNewAuction = () => {
             className={styles.inputBox}
             id="quantity"
             onChange={({ target: { value } }) => setQuantity(value)}
+            min="1"
             required
           />
         </label>
@@ -84,6 +87,7 @@ const CreateNewAuction = () => {
             className={styles.inputBox}
             id="initialPrice"
             onChange={({ target: { value } }) => setInitialPrice(value)}
+            min="1"
             required
           />
         </label>
@@ -94,6 +98,7 @@ const CreateNewAuction = () => {
             className={styles.inputBox}
             id="duration"
             onChange={({ target: { value } }) => setDuration(value)}
+            min="1"
             required
           />
         </label>
