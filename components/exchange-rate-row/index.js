@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './exchange-rate-row.module.css';
 
-const ExcgangeRateRow = ({ src, target, value }) => {
+const ExchangeRateRow = ({ src, target, value }) => {
   const {
     exchange_rate_row,
     currency_wrapper,
@@ -26,4 +26,4 @@ const ExcgangeRateRow = ({ src, target, value }) => {
   );
 };
 
-export default ExcgangeRateRow;
+export default ExchangeRateRow;

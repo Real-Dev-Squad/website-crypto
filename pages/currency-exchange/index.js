@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { connect } from 'react-redux';
 import personData from 'mock/person.json';
 import NavBar from '@components/NavBar';
-import ExchageRaterow from '@components/exchange-rate-row';
+import ExchangeRateRow from '@components/exchange-rate-row';
 import styles from './currency-exchange.module.css';
 import { createStructuredSelector } from 'reselect';
 import CustomButton from 'components/custom-button';
@@ -51,7 +51,7 @@ const CurrencyExchange = ({ exchangeRates, currencies }) => {
         <div className={currency_exchange__left_section}>
           <div className={exchange_rates}>
             {exchangeRates.map((row, index) => (
-              <ExchageRaterow {...row} key={index} />
+              <ExchangeRateRow {...row} key={index} />
             ))}
           </div>
         </div>

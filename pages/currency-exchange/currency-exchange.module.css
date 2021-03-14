@@ -10,7 +10,7 @@
   display: flex;
   justify-content: space-between;
   column-gap: 2%;
-  padding: 5%;
+  padding: 20px;
 }
 .currency_exchange__left_section {
   flex: 0.6;
@@ -30,9 +30,6 @@
   justify-content: space-between;
   column-gap: 2%;
 }
-.currency_exchange_select__component {
-  height: 50px !important;
-}
 .currency_exchange_select > div {
   flex: 1;
   height: 50px;
@@ -51,6 +48,7 @@
   .currency_exchange {
     flex-direction: column;
     row-gap: 20px;
+    padding: 10px;
   }
   .currency_exchange__right_section {
     row-gap: 20px;
