@@ -18,8 +18,8 @@ const Coins = (props) => {
       <style jsx>{`
         .coin {
           background-color: ${props.coin.color};
-          width: calc(5em / 2);
-          height: calc(5em / 2);
+          width: calc(4.25em / 2);
+          height: calc(4.25em / 2);
           border-radius: 50%;
           box-shadow: 3px 3px 3px #000;
           border: 1px solid ${props.coin.borderColor};
