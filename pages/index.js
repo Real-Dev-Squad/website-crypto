@@ -50,10 +50,7 @@ export default function Home() {
           </div>
         </div>
       </main>
-      <div className={styles.homeFooter}>
-        {' '}
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 }

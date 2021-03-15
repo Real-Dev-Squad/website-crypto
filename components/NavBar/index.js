@@ -16,6 +16,13 @@ const NavBar = ({ personData: { photo } }) => {
     <nav className={styles.navBar}>
       <ul>
         <li>
+          <div className={styles.logo}>
+            <Link href="https://realdevsquad.com">
+              <Image src={RDSLogo} alt="Navbar Logo" width="50" height="50" />
+            </Link>
+          </div>
+        </li>
+        {/* <li>
           <Link href="/shop">
             <a>Shop</a>
           </Link>
@@ -24,7 +31,7 @@ const NavBar = ({ personData: { photo } }) => {
           <Link href="/cart">
             <a>Cart</a>
           </Link>
-        </li>
+        </li> */}
         <li>
           <Link href="/auctions">
             <a>Auction</a>
@@ -36,19 +43,6 @@ const NavBar = ({ personData: { photo } }) => {
           </Link>
         </li>
       </ul>
-      <li>
-        <div className={styles.logo}>
-          <Link href="/">
-            <Image
-              src={RDSLogo}
-              alt="RealDevSquad Logo"
-              width="100"
-              height="100"
-              layout="fixed"
-            />
-          </Link>
-        </div>
-      </li>
 
       <div
         className={styles.profilePic}
