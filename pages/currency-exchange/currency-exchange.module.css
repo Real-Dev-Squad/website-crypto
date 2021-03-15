@@ -6,6 +6,19 @@
   overflow-y: auto;
   padding: 1%;
 }
+.currency_exchange_from__quantity {
+  font-size: 50px;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20%;
+  color: rgba(5, 22, 148, 0.8);
+}
+.currency_exchange_from__quantity > div:hover {
+  cursor: pointer;
+  color: rgba(33, 53, 206, 0.8);
+  transition: all 0.2s;
+}
 .currency_exchange {
   display: flex;
   justify-content: space-between;

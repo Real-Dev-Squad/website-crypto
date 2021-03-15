@@ -21,12 +21,22 @@ const ModalText = () => (
 );
 const CurrencyExchange = ({ exchangeRates, currencies }) => {
   const [showModal, setShowModal] = useState(false);
+  const [quantity, setQuantity] = useState(0);
+  const [fromCurrencySelected, setFromCurrencySelected] = useState(
+    currencies.length ? currencies[0].id : null
+  );
+  const [toCurrencySelected, setToCurrencySelected] = useState(
+    currencies.length ? currencies[0].id : null
+  );
   const {
     exchange_rates,
     currency_exchange__left_section,
     currency_exchange__right_section,
     currency_exchange,
     currency_exchange_select,
+    currency_exchange_from__quantity,
+    left__arrow,
+    right__arrow,
   } = styles;
   const bankCurrencyOptions = currencies.map((currency) => ({
     value: currency.id,
@@ -34,6 +44,12 @@ const CurrencyExchange = ({ exchangeRates, currencies }) => {
   }));
   const handleButtonClick = () => {
     setShowModal(!showModal);
+  };
+  const handleQuantityAdd = () => {
+    setQuantity(quantity + 1);
+  };
+  const handleQuantitySub = () => {
+    setQuantity(Math.max(quantity - 1, 0));
   };
   return (
     <div>
@@ -57,12 +73,35 @@ const CurrencyExchange = ({ exchangeRates, currencies }) => {
         </div>
         <div className={currency_exchange__right_section}>
           <div className={currency_exchange_select}>
-            <Select options={bankCurrencyOptions} components={makeAnimated()} />
             <Select
-              isMulti
+              value={fromCurrencySelected}
               options={bankCurrencyOptions}
               components={makeAnimated()}
             />
+            <Select
+              value={toCurrencySelected}
+              options={bankCurrencyOptions}
+              components={makeAnimated()}
+            />
+          </div>
+          <div className={currency_exchange_from__quantity}>
+            <div
+              title="Decreas the quantity"
+              onClick={() => handleQuantitySub()}
+              className={left__arrow}
+            >
+              &laquo;
+            </div>
+            <div title="Quantity" className>
+              {quantity}
+            </div>
+            <div
+              title="Increase the quantity"
+              onClick={() => handleQuantityAdd()}
+              className={right__arrow}
+            >
+              &raquo;
+            </div>
           </div>
           <CustomButton onClick={() => handleButtonClick()} buttonPrimary>
             Exchange
