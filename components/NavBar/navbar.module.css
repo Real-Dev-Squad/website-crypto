@@ -8,26 +8,32 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 50px;
-  height: 5.5rem;
 }
-.navBar>ul {
+.navBar > ul {
   display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
 }
 .navBar li {
   list-style-type: none;
   color: #f2f2f2;
-  font-size: 1.05em;
-  margin-right: 4rem;
+  font-size: 20px;
+  margin-right: 3rem;
+  height: 100%;
 }
+
 .navBar li a:hover {
   color: #e30464;
 }
 .logo {
-  position: relative;
-  top: 2.1em;
+  margin: 10px 0 5px 10px;
   cursor: pointer;
 }
 .profilePic {
+
+  display: none;
+
   margin-right: 1em;
   width: 4em;
   height: 4em;

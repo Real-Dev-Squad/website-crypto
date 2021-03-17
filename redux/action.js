@@ -81,3 +81,15 @@ export const delFromCart = (item, quantity) => {
     },
   };
 };
+
+export const getStocks = async () => {
+  const response = await fetch('https://api.realdevsquad.com/stocks');
+  const data = await response.json();
+
+  return {
+    type: 'GET_STOCKS',
+    payload: {
+      stocksData: data.stock,
+    },
+  };
+};
