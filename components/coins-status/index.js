@@ -44,7 +44,8 @@ const Coins = (props) => {
 
 const CoinsStatus = (props) => {
   const [currencies, setCurrencies] = useState();
-  const WALLET_REST_END_POINT = 'http://localhost:3001/wallet';
+  const BASE_API_URL = process.env.NEXT_PUBLIC_BASE_API_URL;
+  const WALLET_URL = `${BASE_API_URL}/wallet`;
 
   useEffect(async () => {
     let i = 1,
@@ -53,7 +54,7 @@ const CoinsStatus = (props) => {
       response,
       coinsArray = [];
 
-    response = await fetch(WALLET_REST_END_POINT, { credentials: 'include' });
+    response = await fetch(WALLET_URL, { credentials: 'include' });
     text = await response.text();
     cur = JSON.parse(text).wallet.currencies;
     for (const name in cur) {
