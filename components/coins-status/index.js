@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 import { useAnimateValue } from './useCoinStatus';
 import styles from './coin.module.css';
 import PropTypes from 'prop-types';
-import fetchSelfDetails from '../../utils/fetchSelfDetails';
-import fetchData from 'utils/fetchData';
+
+const BASE_API_URL = process.env.NEXT_PUBLIC_BASE_API_URL;
+const WALLET_URL = `${BASE_API_URL}/wallet`;
 
 const Coins = (props) => {
   const [coins, changeCoins] = useAnimateValue(0, props.balance, 5000);
@@ -44,21 +45,20 @@ const Coins = (props) => {
 
 const CoinsStatus = (props) => {
   const [currencies, setCurrencies] = useState();
-  const BASE_API_URL = process.env.NEXT_PUBLIC_BASE_API_URL;
-  const WALLET_URL = `${BASE_API_URL}/wallet`;
 
   useEffect(async () => {
-    let i = 1,
-      cur,
-      text,
-      response,
+    let walletJson,
+      walletData,
+      currencyBalance,
       coinsArray = [];
 
-    response = await fetch(WALLET_URL, { credentials: 'include' });
-    text = await response.text();
-    cur = JSON.parse(text).wallet.currencies;
-    for (const name in cur) {
-      coinsArray.push(<Coins coin={name} balance={cur[name]} key={i++} />);
+    walletData = await fetch(WALLET_URL, { credentials: 'include' });
+    walletJson = await walletData.text();
+    currencyBalance = JSON.parse(walletJson).wallet.currencies;
+    for (const name in currencyBalance) {
+      coinsArray.push(
+        <Coins coin={name} balance={currencyBalance[name]} key={name} />
+      );
     }
     setCurrencies(coinsArray);
   }, []);
