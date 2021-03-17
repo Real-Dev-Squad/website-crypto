@@ -4,14 +4,27 @@ import currencies from 'mock/currency';
 const INITIAL_STATE = {
   exchangeRates,
   bankCurrencies: currencies,
+  isFetchingExchangeRates: false,
+  exchangeRatesFaliureMessage: '',
 };
 const bankReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case BankActionTypes.SET_CURRENCY_EXCHANGE_RATES:
+    case BankActionTypes.GET_CURRENCY_EXCHANGE_RATES_START:
+      return {
+        ...state,
+        isFetchingExchangeRates: true,
+      };
+    case BankActionTypes.GET_CURRENCY_EXCHANGE_RATES_SUCCESS:
       return {
         ...state,
         exchangeRates: action.payload,
-        bankCurrencies: currencies,
+        isFetchingExchangeRates: false,
+      };
+    case BankActionTypes.GET_CURRENCY_EXCHANGE_RATES_FALIURE:
+      return {
+        ...state,
+        isFetchingExchangeRates: false,
+        exchangeRatesFaliureMessage: action.payload,
       };
     case BankActionTypes.SET_BANK_CURRENCIES:
       return {

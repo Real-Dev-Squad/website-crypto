@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import { connect } from 'react-redux';
 import personData from 'mock/person.json';
@@ -10,24 +10,42 @@ import CustomButton from 'components/custom-button';
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
 import Modal from 'components/Modal';
+import { getCurrencyExchangeRatesStartAsync } from 'redux/bank/bank.actions';
 import {
+  selectIsFetchingExchangeRates,
   selectCurrencyExchangeRates,
   selectBankCurrencies,
 } from 'redux/bank/bank.selectors';
+import { selectCurrentUser } from 'redux/user/user.selectors';
+import { getCurrentUserStartAsync } from 'redux/user/user.actions';
 const ModalText = () => (
   <div className="modal_text">
     <h1>Transaction Successful</h1>
   </div>
 );
-const CurrencyExchange = ({ exchangeRates, currencies }) => {
+
+const CurrencyExchange = ({
+  exchangeRates,
+  currencies,
+  getRatesStartAsysnc,
+  isLoading,
+  getUserStartAsync,
+}) => {
   const [showModal, setShowModal] = useState(false);
   const [quantity, setQuantity] = useState(0);
+
   const [fromCurrencySelected, setFromCurrencySelected] = useState(
     currencies.length ? currencies[0].id : null
   );
   const [toCurrencySelected, setToCurrencySelected] = useState(
     currencies.length ? currencies[0].id : null
   );
+
+  useEffect(() => {
+    getUserStartAsync();
+    getRatesStartAsysnc();
+  }, [getRatesStartAsysnc, getUserStartAsync]);
+
   const {
     exchange_rates,
     currency_exchange__left_section,
@@ -38,10 +56,12 @@ const CurrencyExchange = ({ exchangeRates, currencies }) => {
     left__arrow,
     right__arrow,
   } = styles;
+
   const bankCurrencyOptions = currencies.map((currency) => ({
     value: currency.id,
     label: currency.name,
   }));
+
   const handleButtonClick = () => {
     setShowModal(!showModal);
   };
@@ -51,6 +71,7 @@ const CurrencyExchange = ({ exchangeRates, currencies }) => {
   const handleQuantitySub = () => {
     setQuantity(Math.max(quantity - 1, 0));
   };
+
   return (
     <div>
       <Modal
@@ -66,9 +87,13 @@ const CurrencyExchange = ({ exchangeRates, currencies }) => {
       <div className={currency_exchange}>
         <div className={currency_exchange__left_section}>
           <div className={exchange_rates}>
-            {exchangeRates.map((row, index) => (
-              <ExchangeRateRow {...row} key={index} />
-            ))}
+            {isLoading ? (
+              <h1 className="">Loading Rates</h1>
+            ) : (
+              exchangeRates.map((row, index) => (
+                <ExchangeRateRow {...row} key={index} />
+              ))
+            )}
           </div>
         </div>
         <div className={currency_exchange__right_section}>
@@ -113,8 +138,13 @@ const CurrencyExchange = ({ exchangeRates, currencies }) => {
 };
 
 const mapStateToProps = createStructuredSelector({
+  isLoading: selectIsFetchingExchangeRates,
   exchangeRates: selectCurrencyExchangeRates,
   currencies: selectBankCurrencies,
+  currentUser: selectCurrentUser,
 });
-
-export default connect(mapStateToProps)(CurrencyExchange);
+const mapDispatchToProps = (dispatch) => ({
+  getRatesStartAsysnc: () => dispatch(getCurrencyExchangeRatesStartAsync()),
+  getUserStartAsync: () => dispatch(getCurrentUserStartAsync()),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(CurrencyExchange);
