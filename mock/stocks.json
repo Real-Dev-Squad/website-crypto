@@ -1,0 +1,20 @@
+{
+  "stock1": {
+    "id": "stock1",
+    "image": "stocks.jpg",
+    "name": "RDS 1",
+    "price": 300
+  },
+  "stock2": {
+    "id": "stock2",
+    "image": "stocks.jpg",
+    "name": "RDS 2",
+    "price": 400
+  },
+  "stock3": {
+    "id": "stock3",
+    "image": "stocks.jpg",
+    "name": "RDS 3",
+    "price": 700
+  }
+}

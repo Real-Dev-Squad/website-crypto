@@ -27,13 +27,6 @@ export default function Home() {
             <CoinsStatus coins={coinsData} />
             <TransactionOperationModal personData={personData} />
           </div>
-          <div className={styles.homeTransaction}>
-            <div className={styles.transactionGraph}>
-              <div className={`${styles.card} ${styles.content}`}>
-                <TransactionChart transactionChartData={transactionChartData} />
-              </div>
-            </div>
-          </div>
         </div>
         <div className={styles.rightSection}>
           <CustomButton
@@ -42,6 +35,13 @@ export default function Home() {
           >
             Go to currency Exchange
           </CustomButton>
+          <div className={styles.homeTransaction}>
+            <div className={styles.transactionGraph}>
+              <div className={`${styles.card} ${styles.content}`}>
+                <TransactionChart transactionChartData={transactionChartData} />
+              </div>
+            </div>
+          </div>
           <div className={`${styles.card} ${styles.content}`}>
             <div className={`${styles.heading}`}>
               <p> Latest Transactions</p>
@@ -50,10 +50,7 @@ export default function Home() {
           </div>
         </div>
       </main>
-      <div className={styles.homeFooter}>
-        {' '}
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 }
