@@ -1,24 +1,25 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Card } from '@components/stock-card';
+import NavBar from '@components/NavBar';
 import { Footer } from '@components/footer';
 import personData from '../../mock/person.json';
-import NavBar from '@components/NavBar';
+import { Card } from '@components/stock-card';
 import Link from 'next/link';
-import { getStocks } from '../../redux/action';
+import { getUserStocks } from '../../redux/action';
 
-const Invest = () => {
-  const stocks = useSelector((state) => state.stocksDetails.stocks);
+const SellStocks = () => {
+  const userStocks = useSelector((state) => state.stocksDetails.userStocks);
   const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchData = async () => {
-      const actionPayload = await getStocks();
+      const actionPayload = await getUserStocks();
       dispatch(actionPayload);
     };
 
     fetchData();
   }, []);
+
   return (
     <>
       <NavBar personData={personData} />
@@ -26,12 +27,12 @@ const Invest = () => {
         <div className="layout">
           <div className="content">
             <div className="shoppinglist-container">
-              {stocks.map((itemName) => (
+              {userStocks.map((itemName) => (
                 <Card key={itemName.id} stock={itemName} />
               ))}
             </div>
             <div>
-              <Link href="/trading/sell">Sell your stocks</Link>
+              <Link href="/trading">Buy Stocks</Link>
             </div>
           </div>
           <Footer />
@@ -58,4 +59,4 @@ const Invest = () => {
   );
 };
 
-export default Invest;
+export default SellStocks;

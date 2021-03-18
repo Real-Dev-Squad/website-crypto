@@ -15,8 +15,16 @@ export const Card = ({ stock }) => {
       />
 
       <div className="stock-card__content">
-        <p className="stock-card-product-name">{stock.name}</p>
-        <p className="stock-card-product-price">{stock.price}</p>
+        <p className="stock-card-product-name">
+          {stock.name || stock.stockName}
+        </p>
+        <p className="stock-card-product-price">
+          {stock.price || stock.initialStockValue} 💲
+        </p>
+        <p className="stock-card-product-quantity">
+          {' '}
+          Quantity : {stock.quantity}
+        </p>
         <div>
           <StockOperation stock={stock} />
         </div>
@@ -66,6 +74,10 @@ export const Card = ({ stock }) => {
             font-weight: bold;
             font-size: 1.3em;
             color: #e30062;
+          }
+          .stock-card-product-quantity {
+            font-size: 1.3em;
+            color: #540075;
           }
         `}
       </style>

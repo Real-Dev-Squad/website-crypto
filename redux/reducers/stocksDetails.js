@@ -1,5 +1,6 @@
 const initialState = {
   stocks: [],
+  userStocks: [],
 };
 
 const stocksDetails = (state = initialState, action) => {
@@ -8,6 +9,12 @@ const stocksDetails = (state = initialState, action) => {
       return {
         ...state,
         stocks: action.payload.stocksData,
+      };
+    }
+    case 'GET_USER_STOCKS': {
+      return {
+        ...state,
+        userStocks: action.payload.userStocksData,
       };
     }
     default: {

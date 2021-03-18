@@ -83,13 +83,27 @@ export const delFromCart = (item, quantity) => {
 };
 
 export const getStocks = async () => {
-  const response = await fetch('https://api.realdevsquad.com/stocks');
+  const response = await fetch('http://localhost:5000/stocks');
   const data = await response.json();
 
   return {
     type: 'GET_STOCKS',
     payload: {
       stocksData: data.stock,
+    },
+  };
+};
+
+export const getUserStocks = async () => {
+  const response = await fetch('http://localhost:5000/users/stocks/self', {
+    credentials: 'include',
+  });
+  const data = await response.json();
+
+  return {
+    type: 'GET_USER_STOCKS',
+    payload: {
+      userStocksData: data.userStocks,
     },
   };
 };
