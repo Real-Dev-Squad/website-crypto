@@ -1,14 +1,8 @@
 import { useState, useEffect } from 'react';
+import { BASE_API_URL, WALLET_URL, CURRENCIES } from '../../constants';
 import { useAnimateValue } from './useCoinStatus';
 import styles from './coin.module.css';
 import PropTypes from 'prop-types';
-
-const BASE_API_URL = process.env.NEXT_PUBLIC_BASE_API_URL;
-const WALLET_URL = `${BASE_API_URL}/wallet`;
-const CURRENCIES = {
-  NEELAM: 'neelam',
-  DINERO: 'dinero',
-};
 
 const Coins = (props) => {
   const { coin, balance, animate } = props;
@@ -55,7 +49,7 @@ const CoinsStatus = () => {
   const [isError, setIsError] = useState(false);
   const coins = [];
 
-  async function fetchData() {
+  const fetchData = async () => {
     await fetch(WALLET_URL, { credentials: 'include' })
       .then((response) => {
         if (response.status >= 400 && response.status < 600) {
@@ -78,7 +72,7 @@ const CoinsStatus = () => {
         setIsError(true);
         console.log(error);
       });
-  }
+  };
 
   useEffect(() => {
     fetchData();
