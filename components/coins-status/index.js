@@ -49,35 +49,34 @@ const CoinsStatus = () => {
   const [isError, setIsError] = useState(false);
   const [isLoginMessage, setIsLoginMessage] = useState(false);
   const coins = [];
-
-  const fetchData = async () => {
-    await fetch(WALLET_URL, { credentials: 'include' })
-      .then((response) => {
-        if (response.status === 401) {
-          setIsLoginMessage(true);
-        } else if (response.status >= 400 && response.status < 600) {
-          throw new Error('Bad response from server');
-        }
-        return response.json();
-      })
-      .then((ResponseJson) => {
-        const currencyBalance = ResponseJson.wallet.currencies;
-        for (const name in currencyBalance) {
-          coins.push({
-            name,
-            balance: currencyBalance[name],
-          });
-        }
-        setCurrencies(coins);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        setIsError(true);
-        console.log(error);
-      });
-  };
-
   useEffect(() => {
+    const fetchData = async () => {
+      await fetch(WALLET_URL, { credentials: 'include' })
+        .then((response) => {
+          if (response.status === 401) {
+            setIsLoginMessage(true);
+          } else if (response.status >= 400 && response.status < 600) {
+            throw new Error('Bad response from server');
+          }
+          return response.json();
+        })
+        .then((ResponseJson) => {
+          const currencyBalance = ResponseJson.wallet.currencies;
+          for (const name in currencyBalance) {
+            coins.push({
+              name,
+              balance: currencyBalance[name],
+            });
+          }
+          setCurrencies(coins);
+          setIsLoading(false);
+        })
+        .catch((err) => {
+          setIsError(true);
+          console.error(err);
+        });
+    };
+
     fetchData();
   }, []);
 
