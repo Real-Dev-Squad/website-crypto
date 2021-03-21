@@ -4,7 +4,7 @@ import styles from '../../styles/Home.module.css';
 import { useRouter } from 'next/router';
 
 const StockOperation = (props) => {
-  const { id, name, price } = props.stock;
+  const { id, name, price } = props;
   const [modal, showModal] = useState(false);
   const [transactionType, setTransactionType] = useState('');
   const setTransaction = (operation) => {
