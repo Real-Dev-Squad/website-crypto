@@ -3,7 +3,9 @@ import { useRouter } from 'next/router';
 import styles from './new.module.css';
 import fetchData from '../../utils/fetchData';
 import fetchSelfDetails from '../../utils/fetchSelfDetails';
+import { CURRENCIES } from 'constants.js';
 
+const { NEELAM } = CURRENCIES;
 const BASE_API_URL = process.env.NEXT_PUBLIC_BASE_API_URL;
 const AUCTIONS_URL = `${BASE_API_URL}/auctions`;
 const WALLET_URL = `${BASE_API_URL}/wallet`;
@@ -11,7 +13,7 @@ const WALLET_URL = `${BASE_API_URL}/wallet`;
 const CreateNewAuction = () => {
   const router = useRouter();
 
-  const [itemType, setItemType] = useState('neelam');
+  const [itemType, setItemType] = useState(NEELAM);
   const [quantity, setQuantity] = useState();
   const [initialPrice, setInitialPrice] = useState();
   const [duration, setDuration] = useState();
@@ -24,15 +26,13 @@ const CreateNewAuction = () => {
         if (res.status === 401) {
           alert('You need to be logged in to be able to create an auction!');
           router.push('/auction');
+        } else {
+          getUserWallet();
         }
       })
       .catch((err) => {
         console.log('Some error occured', err);
       });
-  }, []);
-
-  useEffect(() => {
-    getUserWallet();
   }, []);
 
   const getUserWallet = async () => {
@@ -54,11 +54,11 @@ const CreateNewAuction = () => {
 
   const auctionSubmitHandler = async (e) => {
     e.preventDefault();
-    if (!userMoney['neelam']) {
+    if (!userMoney[NEELAM]) {
       alert('You do not have any neelam!');
       return;
     }
-    if (userMoney['neelam'] < quantity) {
+    if (userMoney[NEELAM] < quantity) {
       alert('You do not have sufficient neelams to sell!');
       return;
     }
