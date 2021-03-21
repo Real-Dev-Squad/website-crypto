@@ -11,8 +11,12 @@ const CURRENCIES = {
 };
 
 const Coins = (props) => {
-  const { coin, balance } = props;
-  const [coins, changeCoins] = useAnimateValue(0, balance, 5000);
+  const { coin, balance, animate } = props;
+  const [animatedBalance, changeAnimatedBalance] = useAnimateValue(
+    0,
+    balance,
+    5000
+  );
   const currencyColor =
     coin === CURRENCIES.NEELAM
       ? styles.blue
@@ -21,14 +25,14 @@ const Coins = (props) => {
       : styles.gray;
 
   useEffect(() => {
-    changeCoins(balance);
-  }, [balance, changeCoins]);
+    changeAnimatedBalance(balance);
+  }, [balance, changeAnimatedBalance]);
 
   return (
     <div className={styles.cointypeIndicator}>
       <div className={styles.coinData}>
         <p>{coin}</p>
-        <p>{balance}</p>
+        <p>{animate ? animatedBalance : balance}</p>
       </div>
       <div className={`coin ${styles.rotateVertCenter}`}></div>
       <style jsx>{`
@@ -47,10 +51,12 @@ const Coins = (props) => {
 
 const CoinsStatus = () => {
   const [currencies, setCurrencies] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
   const coins = [];
 
-  useEffect(async () => {
-    const walletData = await fetch(WALLET_URL, { credentials: 'include' })
+  async function fetchData() {
+    await fetch(WALLET_URL, { credentials: 'include' })
       .then((response) => {
         if (response.status >= 400 && response.status < 600) {
           throw new Error('Bad response from server');
@@ -66,17 +72,33 @@ const CoinsStatus = () => {
           });
         }
         setCurrencies(coins);
+        setIsLoading(false);
       })
       .catch((error) => {
+        setIsError(true);
         console.log(error);
       });
+  }
+
+  useEffect(() => {
+    fetchData();
   }, []);
 
   return (
     <div className={styles.coinsContainer}>
-      {currencies.map((coin) => (
-        <Coins coin={coin.name} balance={coin.balance} key={coin.name} />
-      ))}
+      {isError && <p>Something went wrong ...</p>}
+      {!isError && isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        currencies.map((coin) => (
+          <Coins
+            coin={coin.name}
+            balance={coin.balance}
+            key={coin.name}
+            animate={true}
+          />
+        ))
+      )}
     </div>
   );
 };
