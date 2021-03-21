@@ -19,12 +19,13 @@ const StockOperation = (props) => {
       >
         BUY
       </div>
+      {/* DISABLED UNTIL SELL #BUG ON BACKEND IS FIXED
       <div
         className={`${styles.button} ${styles.redButton}`}
         onClick={() => setTransaction('SELL')}
       >
         SELL
-      </div>
+      </div> */}
       <StockOperationModal
         nameOfStock={name}
         listedPriceOfStock={price}
