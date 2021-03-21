@@ -8,5 +8,6 @@ const CURRENCIES = {
   NEELAM: 'neelam',
   DINERO: 'dinero',
 };
-
-export { BASE_IMAGE_URL, BASE_API_URL, WALLET_URL, CURRENCIES };
+const LOGIN_URL =
+  'https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97';
+export { BASE_IMAGE_URL, BASE_API_URL, WALLET_URL, CURRENCIES, LOGIN_URL };

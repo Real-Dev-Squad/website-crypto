@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BASE_API_URL, WALLET_URL, CURRENCIES } from '../../constants';
+import { WALLET_URL, CURRENCIES } from '../../constants';
 import { useAnimateValue } from './useCoinStatus';
 import styles from './coin.module.css';
 import PropTypes from 'prop-types';
@@ -47,12 +47,15 @@ const CoinsStatus = () => {
   const [currencies, setCurrencies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
+  const [isLoginMessage, setIsLoginMessage] = useState(false);
   const coins = [];
 
   const fetchData = async () => {
     await fetch(WALLET_URL, { credentials: 'include' })
       .then((response) => {
-        if (response.status >= 400 && response.status < 600) {
+        if (response.status === 401) {
+          setIsLoginMessage(true);
+        } else if (response.status >= 400 && response.status < 600) {
           throw new Error('Bad response from server');
         }
         return response.json();
@@ -81,6 +84,11 @@ const CoinsStatus = () => {
   return (
     <div className={styles.coinsContainer}>
       {isError && <p>Something went wrong ...</p>}
+      {isError && isLoginMessage && (
+        <p>
+          Please <a href="LOGIN_URL">login to view your balance.</a>
+        </p>
+      )}
       {!isError && isLoading ? (
         <p>Loading...</p>
       ) : (
