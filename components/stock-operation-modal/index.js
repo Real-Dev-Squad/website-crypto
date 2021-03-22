@@ -11,11 +11,21 @@ const StockOperationModal = (props) => {
     showModal,
     transactionType,
     stockId,
+    availableQty,
   } = props;
 
   const [quantity, setQuantity] = useState('');
   const [isUserLoggedIn, setIsUserLoggedIn] = useState('');
   const [userMoney, setUserMoney] = useState();
+
+  const validateQuantity = (quantity) => {
+    if (quantity > availableQty) {
+      alert(`You can only ${transactionType} ${availableQty} stocks`);
+      setQuantity(availableQty);
+    } else {
+      setQuantity(quantity);
+    }
+  };
 
   const closeModal = () => {
     showModal((prev) => !prev);
@@ -141,7 +151,7 @@ const StockOperationModal = (props) => {
               id="quantity"
               min="1"
               value={quantity}
-              onChange={(e) => setQuantity(e.target.value)}
+              onChange={(e) => validateQuantity(e.target.value)}
             />
             <label className={styles.label} htmlFor="total-price">
               Total Price

@@ -9,7 +9,12 @@ export const Card = ({ stock }) => {
   const getStockOperation = () => {
     if (router.pathname == '/trading') {
       return (
-        <StockOperation id={stock.id} name={stock.name} price={stock.price} />
+        <StockOperation
+          id={stock.id}
+          name={stock.name}
+          price={stock.price}
+          availableQty={stock.quantity}
+        />
       );
     } else {
       return (
@@ -17,6 +22,7 @@ export const Card = ({ stock }) => {
           id={stock.id}
           name={stock.stockName}
           price={stock.initialStockValue}
+          availableQty={stock.quantity}
         />
       );
     }
