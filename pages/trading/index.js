@@ -6,6 +6,7 @@ import personData from '../../mock/person.json';
 import NavBar from '@components/NavBar';
 import Link from 'next/link';
 import { getStocks } from '../../redux/action';
+import styles from '../../styles/Home.module.css';
 
 const Invest = () => {
   const stocks = useSelector((state) => state.stocksDetails.stocks);
@@ -31,7 +32,9 @@ const Invest = () => {
               ))}
             </div>
             <div>
-              <Link href="/trading/sell">Sell your stocks</Link>
+              <Link href="/trading/sell">
+                <div className={`${styles.trade}`}>Sell Stocks</div>
+              </Link>
             </div>
           </div>
           <Footer />

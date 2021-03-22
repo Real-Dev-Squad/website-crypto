@@ -70,6 +70,23 @@
   margin-top: 20px;
 }
 
+.trade{
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+  color: #540075;
+  margin: 0;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 5px 10px;
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  box-shadow: 0 0 15px -7px rgba(0,0,0,.65);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
 @media only screen and (max-width: 600px) {
   .button {
     margin-left: 3.2rem;
