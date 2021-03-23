@@ -69,7 +69,10 @@ const StockOperationModal = (props) => {
       alert('Please log in to continue trading');
     } else if (userMoney === 0) {
       alert('You do not have a wallet!');
-    } else if (parseInt(quantity * listedPriceOfStock) > parseInt(userMoney)) {
+    } else if (
+      transactionType == 'BUY' &&
+      parseInt(quantity * listedPriceOfStock) > parseInt(userMoney)
+    ) {
       alert('You do not have enough money!');
     } else {
       const body = {
