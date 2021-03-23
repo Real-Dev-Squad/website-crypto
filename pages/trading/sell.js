@@ -9,7 +9,10 @@ import { getUserStocks } from '../../redux/action';
 import styles from '../../styles/Home.module.css';
 
 const SellStocks = () => {
-  const userStocks = useSelector((state) => state.stocksDetails.userStocks);
+  const userStocksData = useSelector(
+    (state) => state.stocksDetails.userStocksData
+  );
+  const userStocks = userStocksData.stocks;
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -21,23 +24,36 @@ const SellStocks = () => {
     fetchData();
   }, []);
 
+  const showAlert = () => {
+    return (
+      <div className={`${styles.trade}`}>
+        <Link href="https://www.realdevsquad.com/">
+          Please log in to continue!
+        </Link>
+      </div>
+    );
+  };
+
   return (
     <>
       <NavBar personData={personData} />
       <div className="main-container">
         <div className="layout">
-          <div className="content">
-            <div className="shoppinglist-container">
-              {userStocks.map((itemName) => (
-                <Card key={itemName.id} stock={itemName} />
-              ))}
+          {userStocksData.isLoggedIn && (
+            <div className="content">
+              <div className="shoppinglist-container">
+                {userStocks.map((itemName) => (
+                  <Card key={itemName.id} stock={itemName} />
+                ))}
+              </div>
+              <div>
+                <Link href="/trading">
+                  <div className={`${styles.trade}`}>Buy Stocks</div>
+                </Link>
+              </div>
             </div>
-            <div>
-              <Link href="/trading">
-                <div className={`${styles.trade}`}>Buy Stocks</div>
-              </Link>
-            </div>
-          </div>
+          )}
+          <div>{!userStocksData.isLoggedIn && showAlert()}</div>
           <Footer />
         </div>
         <style jsx>{`

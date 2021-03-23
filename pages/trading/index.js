@@ -20,6 +20,7 @@ const Invest = () => {
 
     fetchData();
   }, []);
+
   return (
     <>
       <NavBar personData={personData} />

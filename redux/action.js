@@ -99,11 +99,15 @@ export const getUserStocks = async () => {
     credentials: 'include',
   });
   const data = await response.json();
+  const userStocksData = {
+    stocks: data.userStocks,
+    isLoggedIn: !(response.status == 401),
+  };
 
   return {
     type: 'GET_USER_STOCKS',
     payload: {
-      userStocksData: data.userStocks,
+      userStocksData,
     },
   };
 };
