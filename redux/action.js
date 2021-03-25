@@ -8,6 +8,8 @@ import {
   DEL_FROM_SAVELATER,
 } from './actionTypes';
 
+const BASE_API_URL = process.env.NEXT_PUBLIC_BASE_API_URL;
+
 //TODO : Move all export at bottom of file (named export)
 export const addCartItem = (item) => {
   // item will be just the name of item
@@ -83,7 +85,7 @@ export const delFromCart = (item, quantity) => {
 };
 
 export const getStocks = async () => {
-  const response = await fetch('http://localhost:5000/stocks');
+  const response = await fetch(`${BASE_API_URL}/stocks`);
   const data = await response.json();
 
   return {
@@ -95,7 +97,7 @@ export const getStocks = async () => {
 };
 
 export const getUserStocks = async () => {
-  const response = await fetch('http://localhost:5000/users/stocks/self', {
+  const response = await fetch(`${BASE_API_URL}/users/stocks/self`, {
     credentials: 'include',
   });
   const data = await response.json();

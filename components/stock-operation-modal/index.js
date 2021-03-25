@@ -3,6 +3,8 @@ import styles from '../stock-operation-modal/stock-operation.module.css';
 import fetchSelfDetails from '../../utils/fetchSelfDetails';
 import fetchData from '../../utils/fetchData';
 
+const BASE_API_URL = process.env.NEXT_PUBLIC_BASE_API_URL;
+
 const StockOperationModal = (props) => {
   const {
     nameOfStock,
@@ -37,7 +39,7 @@ const StockOperationModal = (props) => {
   }, []);
 
   const getUserWallet = async () => {
-    const response = await fetchData(`http://localhost:5000/wallet`, 'GET', {
+    const response = await fetchData(`${BASE_API_URL}/wallet`, 'GET', {
       credentials: 'include',
     });
     const { wallet } = await response.json();
@@ -84,7 +86,7 @@ const StockOperationModal = (props) => {
         totalPrice: quantity * listedPriceOfStock,
       };
 
-      fetch('http://localhost:5000/trade/stock/new/self', {
+      fetch(`${BASE_API_URL}/trade/stock/new/self`, {
         credentials: 'include',
         method: 'POST',
         headers: {
