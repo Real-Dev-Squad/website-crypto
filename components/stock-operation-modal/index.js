@@ -17,8 +17,8 @@ const StockOperationModal = (props) => {
   } = props;
 
   const [quantity, setQuantity] = useState('');
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState('');
-  const [userMoney, setUserMoney] = useState();
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState('false');
+  const [userMoney, setUserMoney] = useState(0);
 
   const validateQuantity = (quantity) => {
     if (quantity > availableQty) {
@@ -44,12 +44,10 @@ const StockOperationModal = (props) => {
     });
     const { wallet } = await response.json();
     if (Object.keys(wallet).length === 0) return setUserMoney(0);
-    else {
-      const {
-        currencies: { dinero },
-      } = wallet;
-      setUserMoney(dinero);
-    }
+    const {
+      currencies: { dinero },
+    } = wallet;
+    setUserMoney(dinero);
   };
 
   getUserWallet();

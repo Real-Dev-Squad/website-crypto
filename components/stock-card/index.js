@@ -7,25 +7,21 @@ export const Card = ({ stock }) => {
   const router = useRouter();
 
   const getStockOperation = () => {
-    if (router.pathname == '/trading') {
-      return (
-        <StockOperation
-          stockId={stock.stockId}
-          name={stock.name}
-          price={stock.price}
-          availableQty={stock.quantity}
-        />
-      );
-    } else {
-      return (
-        <StockOperation
-          stockId={stock.stockId}
-          name={stock.stockName}
-          price={stock.initialStockValue}
-          availableQty={stock.quantity}
-        />
-      );
-    }
+    return router.pathname == '/trading' ? (
+      <StockOperation
+        stockId={stock.stockId}
+        name={stock.name}
+        price={stock.price}
+        availableQty={stock.quantity}
+      />
+    ) : (
+      <StockOperation
+        stockId={stock.stockId}
+        name={stock.stockName}
+        price={stock.initialStockValue}
+        availableQty={stock.quantity}
+      />
+    );
   };
   return (
     <div className="stock-card">
