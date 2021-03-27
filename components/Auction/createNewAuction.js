@@ -3,24 +3,31 @@ import { useRouter } from 'next/router';
 import styles from './new.module.css';
 import fetchData from '../../utils/fetchData';
 import fetchSelfDetails from '../../utils/fetchSelfDetails';
+import { CURRENCIES } from 'constants.js';
 
+const { NEELAM } = CURRENCIES;
 const BASE_API_URL = process.env.NEXT_PUBLIC_BASE_API_URL;
 const AUCTIONS_URL = `${BASE_API_URL}/auctions`;
+const WALLET_URL = `${BASE_API_URL}/wallet`;
 
 const CreateNewAuction = () => {
   const router = useRouter();
 
-  const [itemType, setItemType] = useState();
+  const [itemType, setItemType] = useState(NEELAM);
   const [quantity, setQuantity] = useState();
   const [initialPrice, setInitialPrice] = useState();
   const [duration, setDuration] = useState();
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [userMoney, setUserMoney] = useState();
 
   useEffect(() => {
     fetchSelfDetails()
       .then((res) => {
         if (res.status === 401) {
           alert('You need to be logged in to be able to create an auction!');
+          router.push('/auction');
+        } else {
+          getUserWallet();
         }
       })
       .catch((err) => {
@@ -28,9 +35,33 @@ const CreateNewAuction = () => {
       });
   }, []);
 
+  const getUserWallet = async () => {
+    const response = await fetchData(WALLET_URL, 'GET', {
+      credentials: 'include',
+    });
+    const { status } = await response;
+    if (status === 200) {
+      const { wallet } = await response.json();
+      if (Object.keys(wallet).length === 0) return setUserMoney(0);
+      else {
+        const { currencies } = wallet;
+        setUserMoney(currencies);
+      }
+    } else {
+      setUserMoney(0);
+    }
+  };
+
   const auctionSubmitHandler = async (e) => {
     e.preventDefault();
-    setIsSubmitted(true);
+    if (!userMoney[NEELAM]) {
+      alert('You do not have any neelam!');
+      return;
+    }
+    if (userMoney[NEELAM] < quantity) {
+      alert('You do not have sufficient neelams to sell!');
+      return;
+    }
     const endTimeInMs = Date.now() + duration * 24 * 60 * 60 * 1000;
     const reqBody = {
       item_type: itemType,
@@ -38,7 +69,7 @@ const CreateNewAuction = () => {
       end_time: endTimeInMs,
       quantity,
     };
-
+    setIsSubmitted(true);
     const response = await fetchData(`${AUCTIONS_URL}`, 'POST', {
       credentials: 'include',
       body: JSON.stringify(reqBody),
@@ -49,7 +80,7 @@ const CreateNewAuction = () => {
     const { status } = response;
     if (status == 201) {
       setIsSubmitted(false);
-      router.push('/auctions');
+      router.push('/auction');
     }
   };
 

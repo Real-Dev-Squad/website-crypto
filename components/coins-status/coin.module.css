@@ -1,3 +1,8 @@
+@value blue: blue;
+@value red: #ff0000;
+@value green: green;
+@value gray: gray;
+
 .coinsContainer {
   display: flex;
   flex-wrap: wrap;

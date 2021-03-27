@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 import { BASE_IMAGE_URL } from 'constants.js';
-import styles from './Auctions.module.css';
+import styles from './Auction.module.css';
 import fetchData from '../../utils/fetchData';
 import fetchSelfDetails from '../../utils/fetchSelfDetails';
 
@@ -47,13 +47,18 @@ const HandleAuctions = () => {
     const response = await fetchData(WALLET_URL, 'GET', {
       credentials: 'include',
     });
-    const { wallet } = await response.json();
-    if (Object.keys(wallet).length === 0) return setUserMoney(0);
-    else {
-      const {
-        currencies: { dinero },
-      } = wallet;
-      setUserMoney(dinero);
+    const { status } = await response;
+    if (status === 200) {
+      const { wallet } = await response.json();
+      if (Object.keys(wallet).length === 0) return setUserMoney(0);
+      else {
+        const {
+          currencies: { dinero },
+        } = wallet;
+        setUserMoney(dinero);
+      }
+    } else {
+      setUserMoney(0);
     }
   };
 
