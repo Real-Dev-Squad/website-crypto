@@ -17,7 +17,7 @@ const StockOperationModal = (props) => {
   } = props;
 
   const [quantity, setQuantity] = useState('');
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState('false');
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   const [userMoney, setUserMoney] = useState(0);
 
   const validateQuantity = (quantity) => {
