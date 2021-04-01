@@ -32,8 +32,8 @@ const Coins = (props) => {
       <style jsx>{`
         .coin {
           background-color: ${currencyColor};
-          width: calc(5em / 2);
-          height: calc(5em / 2);
+          width: 40px;
+          height: 40px;
           border-radius: 50%;
           box-shadow: 3px 3px 3px #000;
           border: 1px solid ${currencyColor};
