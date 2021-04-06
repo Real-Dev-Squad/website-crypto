@@ -9,7 +9,7 @@ const Coins = (props) => {
   const [animatedBalance, changeAnimatedBalance] = useAnimateValue(
     0,
     balance,
-    5000
+    1250
   );
   const currencyColor =
     coin === CURRENCIES.NEELAM
