@@ -1,4 +1,3 @@
-import path from 'path';
 import Image from 'next/image';
 import StockOperation from '@components/stock-operation';
 
@@ -6,7 +5,7 @@ export const Card = ({ stock }) => {
   return (
     <div className="stock-card">
       <Image
-        src={path.join('/assets', 'stocks.jpg')}
+        src={stock.imageURL}
         alt={stock.name}
         width={100}
         height={100}
