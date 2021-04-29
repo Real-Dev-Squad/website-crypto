@@ -59,7 +59,7 @@ const StockOperationModal = (props) => {
         }
       })
       .catch((err) => {
-        console.log('User is not logged in', err);
+        console.error('User is not logged in', err);
       });
   }, []);
 
