@@ -1,28 +1,22 @@
 import path from 'path';
 import Image from 'next/image';
 import StockOperation from '@components/stock-operation';
-import { useRouter } from 'next/router';
 
-export const Card = ({ stock }) => {
-  const router = useRouter();
+export const Card = ({ stock, operationType }) => {
+  const {
+    id,
+    stockId,
+    name,
+    stockName,
+    price,
+    quantity,
+    initialStockValue,
+  } = stock;
 
-  const getStockOperation = () => {
-    return router.pathname == '/trading' ? (
-      <StockOperation
-        stockId={stock.stockId}
-        name={stock.name}
-        price={stock.price}
-        availableQty={stock.quantity}
-      />
-    ) : (
-      <StockOperation
-        stockId={stock.stockId}
-        name={stock.stockName}
-        price={stock.initialStockValue}
-        availableQty={stock.quantity}
-      />
-    );
-  };
+  const finalPrice = operationType == 'BUY' ? price : initialStockValue;
+  const finalName = operationType == 'BUY' ? name : stockName;
+  const finalId = operationType == 'BUY' ? id : stockId;
+
   return (
     <div className="stock-card">
       <Image
@@ -45,7 +39,14 @@ export const Card = ({ stock }) => {
           {' '}
           Quantity : {stock.quantity}
         </p>
-        <div>{getStockOperation()}</div>
+        <div>
+          <StockOperation
+            stockId={finalId}
+            name={finalName}
+            price={finalPrice}
+            availableQty={quantity}
+          />
+        </div>
       </div>
       <style jsx>
         {`

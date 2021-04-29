@@ -29,7 +29,11 @@ const Invest = () => {
           <div className="content">
             <div className="shoppinglist-container">
               {stocks.map((itemName) => (
-                <Card key={itemName.id} stock={itemName} />
+                <Card
+                  key={itemName.id}
+                  stock={itemName}
+                  operationType={'BUY'}
+                />
               ))}
             </div>
             <div>

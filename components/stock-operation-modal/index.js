@@ -43,14 +43,13 @@ const StockOperationModal = (props) => {
       credentials: 'include',
     });
     const { wallet } = await response.json();
+    console.log(wallet);
     if (Object.keys(wallet).length === 0) return setUserMoney(0);
     const {
       currencies: { dinero },
     } = wallet;
     setUserMoney(dinero);
   };
-
-  getUserWallet();
 
   useEffect(() => {
     fetchSelfDetails()
