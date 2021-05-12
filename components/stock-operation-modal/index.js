@@ -23,7 +23,6 @@ const StockOperationModal = (props) => {
   const validateQuantity = (quantity) => {
     if (quantity > availableQty) {
       alert(`You can only ${transactionType} ${availableQty} stocks`);
-      setQuantity(availableQty);
     } else {
       setQuantity(quantity);
     }
@@ -43,7 +42,6 @@ const StockOperationModal = (props) => {
       credentials: 'include',
     });
     const { wallet } = await response.json();
-    console.log(wallet);
     if (Object.keys(wallet).length === 0) return setUserMoney(0);
     const {
       currencies: { dinero },
@@ -151,9 +149,9 @@ const StockOperationModal = (props) => {
               type="number"
               name="quantity"
               id="quantity"
-              min="1"
+              min={1}
               value={quantity}
-              onChange={(e) => validateQuantity(e.target.value)}
+              onChange={(e) => validateQuantity(+e.target.value)}
             />
             <label className={styles.label} htmlFor="total-price">
               Total Price
