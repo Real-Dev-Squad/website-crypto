@@ -2,12 +2,26 @@ import path from 'path';
 import Image from 'next/image';
 import StockOperation from '@components/stock-operation';
 
-export const Card = ({ stock }) => {
+export const Card = ({ stock, operationType }) => {
+  const {
+    id,
+    stockId,
+    name,
+    stockName,
+    price,
+    quantity,
+    initialStockValue,
+  } = stock;
+
+  const finalPrice = operationType == 'BUY' ? price : initialStockValue;
+  const finalName = operationType == 'BUY' ? name : stockName;
+  const finalId = operationType == 'BUY' ? id : stockId;
+
   return (
     <div className="stock-card">
       <Image
         src={path.join('/assets', 'stocks.jpg')}
-        alt={stock.name}
+        alt={stock.name || stock.stockName}
         width={100}
         height={100}
         objectFit="cover"
@@ -15,10 +29,23 @@ export const Card = ({ stock }) => {
       />
 
       <div className="stock-card__content">
-        <p className="stock-card-product-name">{stock.name}</p>
-        <p className="stock-card-product-price">{stock.price}</p>
+        <p className="stock-card-product-name">
+          {stock.name || stock.stockName}
+        </p>
+        <p className="stock-card-product-price">
+          {stock.price || stock.initialStockValue} 💲
+        </p>
+        <p className="stock-card-product-quantity">
+          {' '}
+          Quantity : {stock.quantity}
+        </p>
         <div>
-          <StockOperation stock={stock} />
+          <StockOperation
+            stockId={finalId}
+            name={finalName}
+            price={finalPrice}
+            availableQty={quantity}
+          />
         </div>
       </div>
       <style jsx>
@@ -66,6 +93,10 @@ export const Card = ({ stock }) => {
             font-weight: bold;
             font-size: 1.3em;
             color: #e30062;
+          }
+          .stock-card-product-quantity {
+            font-size: 1.3em;
+            color: #540075;
           }
         `}
       </style>

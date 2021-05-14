@@ -8,6 +8,10 @@ import {
   DEL_FROM_SAVELATER,
 } from './actionTypes';
 
+import { GET_STOCKS, GET_USER_STOCKS } from '../constants/trading';
+
+const BASE_API_URL = process.env.NEXT_PUBLIC_BASE_API_URL;
+
 //TODO : Move all export at bottom of file (named export)
 export const addCartItem = (item) => {
   // item will be just the name of item
@@ -83,13 +87,31 @@ export const delFromCart = (item, quantity) => {
 };
 
 export const getStocks = async () => {
-  const response = await fetch('https://api.realdevsquad.com/stocks');
+  const response = await fetch(`${BASE_API_URL}/stocks`);
   const data = await response.json();
 
   return {
-    type: 'GET_STOCKS',
+    type: GET_STOCKS,
     payload: {
       stocksData: data.stock,
+    },
+  };
+};
+
+export const getUserStocks = async () => {
+  const response = await fetch(`${BASE_API_URL}/stocks/user/self`, {
+    credentials: 'include',
+  });
+  const data = await response.json();
+  const userStocksData = {
+    stocks: data.userStocks,
+    isLoggedIn: !(response.status == 401),
+  };
+
+  return {
+    type: GET_USER_STOCKS,
+    payload: {
+      userStocksData,
     },
   };
 };

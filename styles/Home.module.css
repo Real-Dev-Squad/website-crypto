@@ -70,6 +70,18 @@
   margin-top: 20px;
 }
 
+.trade {
+  width: 100%;
+  text-align: center;        
+  margin: 0;
+  padding: 1rem;
+  display: block;
+  color:#540075;
+  font-weight: bold;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 600px) {
   .button {
     margin-left: 3.2rem;

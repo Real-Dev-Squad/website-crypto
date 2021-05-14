@@ -4,7 +4,9 @@ import { Card } from '@components/stock-card';
 import { Footer } from '@components/footer';
 import personData from '../../mock/person.json';
 import NavBar from '@components/NavBar';
+import Link from 'next/link';
 import { getStocks } from '../../redux/action';
+import styles from '../../styles/Home.module.css';
 
 const Invest = () => {
   const stocks = useSelector((state) => state.stocksDetails.stocks);
@@ -18,6 +20,7 @@ const Invest = () => {
 
     fetchData();
   }, []);
+
   return (
     <>
       <NavBar personData={personData} />
@@ -26,8 +29,17 @@ const Invest = () => {
           <div className="content">
             <div className="shoppinglist-container">
               {stocks.map((itemName) => (
-                <Card key={itemName.id} stock={itemName} />
+                <Card
+                  key={itemName.id}
+                  stock={itemName}
+                  operationType={'BUY'}
+                />
               ))}
+            </div>
+            <div>
+              <Link href="/trading/sell">
+                <div className={`${styles.trade}`}>Sell Stocks</div>
+              </Link>
             </div>
           </div>
           <Footer />

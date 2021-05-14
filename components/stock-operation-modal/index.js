@@ -1,5 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from '../stock-operation-modal/stock-operation.module.css';
+import fetchSelfDetails from '../../utils/fetchSelfDetails';
+import fetchData from '../../utils/fetchData';
+
+const BASE_API_URL = process.env.NEXT_PUBLIC_BASE_API_URL;
 
 const StockOperationModal = (props) => {
   const {
@@ -9,45 +13,98 @@ const StockOperationModal = (props) => {
     showModal,
     transactionType,
     stockId,
+    availableQty,
   } = props;
 
   const [quantity, setQuantity] = useState('');
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  const [userMoney, setUserMoney] = useState(0);
+
+  const validateQuantity = (quantity) => {
+    if (quantity > availableQty) {
+      alert(`You can only ${transactionType} ${availableQty} stocks`);
+    } else {
+      setQuantity(quantity);
+    }
+  };
 
   const closeModal = () => {
     showModal((prev) => !prev);
     setQuantity('');
   };
-  const submitHandler = () => {
-    const body = {
-      tradeType: transactionType,
-      stockName: nameOfStock,
-      stockId,
-      quantity,
-      listedPrice: listedPriceOfStock,
-      totalPrice: quantity * listedPriceOfStock,
-    };
 
-    fetch('https://api.realdevsquad.com/trade/stock/new/self', {
+  useEffect(() => {
+    getUserWallet();
+  }, []);
+
+  const getUserWallet = async () => {
+    const response = await fetchData(`${BASE_API_URL}/wallet`, 'GET', {
       credentials: 'include',
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify(body),
-    })
-      .then((response) => {
-        if (response.status === 200) {
-          return response.json();
-        } else {
-          throw new Error(response.statusText);
+    });
+    const { wallet } = await response.json();
+    if (Object.keys(wallet).length === 0) return setUserMoney(0);
+    const {
+      currencies: { dinero },
+    } = wallet;
+    setUserMoney(dinero);
+  };
+
+  useEffect(() => {
+    fetchSelfDetails()
+      .then((res) => {
+        if (res.status === 200) {
+          setIsUserLoggedIn(true);
         }
       })
-      .then((data) =>
-        alert(`Trading Successful! Your balance is ${data.userBalance} Dineros`)
-      )
       .catch((err) => {
-        alert(err.message);
+        console.error('User is not logged in', err);
       });
+  }, []);
+
+  const submitHandler = () => {
+    if (!isUserLoggedIn) {
+      alert('Please log in to continue trading');
+    } else if (userMoney === 0) {
+      alert('You do not have a wallet!');
+    } else if (
+      transactionType == 'BUY' &&
+      parseInt(quantity * listedPriceOfStock) > parseInt(userMoney)
+    ) {
+      alert('You do not have enough money!');
+    } else {
+      const body = {
+        tradeType: transactionType,
+        stockName: nameOfStock,
+        stockId,
+        quantity,
+        listedPrice: listedPriceOfStock,
+        totalPrice: quantity * listedPriceOfStock,
+      };
+
+      fetch(`${BASE_API_URL}/trade/stock/new/self`, {
+        credentials: 'include',
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify(body),
+      })
+        .then((response) => {
+          if (response.status === 200) {
+            return response.json();
+          } else {
+            throw new Error(response.statusText);
+          }
+        })
+        .then((data) =>
+          alert(
+            `Trading Successful! Your balance is ${data.userBalance} Dineros`
+          )
+        )
+        .catch((err) => {
+          alert(err.message);
+        });
+    }
   };
 
   return (
@@ -92,9 +149,9 @@ const StockOperationModal = (props) => {
               type="number"
               name="quantity"
               id="quantity"
-              min="1"
+              min={1}
               value={quantity}
-              onChange={(e) => setQuantity(e.target.value)}
+              onChange={(e) => validateQuantity(+e.target.value)}
             />
             <label className={styles.label} htmlFor="total-price">
               Total Price
