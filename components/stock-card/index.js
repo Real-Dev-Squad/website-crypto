@@ -60,7 +60,7 @@ export const Card = ({ stock, operationType }) => {
             border: 1px solid #eee;
             box-shadow: 0 2px 2px #ccc;
             text-align: center;
-            min-width: 300px;
+            
             border-radius: 4px;
             transition: 0.2s;
             background: #ffffff;

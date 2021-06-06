@@ -55,10 +55,9 @@ const Invest = () => {
             padding-bottom: 75px;
           }
           .shoppinglist-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-evenly;
-            align-items: stretch;
+            display: grid;
+            grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+            padding: 0px 25px;
           }
         `}</style>
       </div>
