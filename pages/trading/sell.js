@@ -34,6 +34,12 @@ const SellStocks = () => {
     );
   };
 
+  const availableStocks = userStocks
+    .filter((itemName) => itemName.quantity)
+    .map((itemName) => (
+      <Card key={itemName.id} stock={itemName} operationType={'SELL'} />
+    ));
+  const Message = "You don't have any stocks yet. Click below to buy some";
   return (
     <>
       <NavBar personData={personData} />
@@ -42,13 +48,7 @@ const SellStocks = () => {
           {userStocksData.isLoggedIn && (
             <div className="content">
               <div className="shoppinglist-container">
-                {userStocks.map((itemName) => (
-                  <Card
-                    key={itemName.id}
-                    stock={itemName}
-                    operationType={'SELL'}
-                  />
-                ))}
+                {availableStocks.length ? availableStocks : Message}
               </div>
               <div>
                 <Link href="/trading">
