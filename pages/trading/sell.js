@@ -12,7 +12,10 @@ const SellStocks = () => {
   const userStocksData = useSelector(
     (state) => state.stocksDetails.userStocksData
   );
-  const userStocks = userStocksData.stocks;
+
+  //if quantity is 0 still it was showing the stock card, so filter the array to only show the stocks having quantity more than 0
+  const userStocks = userStocksData.stocks.filter(stock => stock.quantity != 0);
+  
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -34,6 +37,7 @@ const SellStocks = () => {
     );
   };
 
+  
   return (
     <>
       <NavBar personData={personData} />
@@ -42,6 +46,8 @@ const SellStocks = () => {
           {userStocksData.isLoggedIn && (
             <div className="content">
               <div className="shoppinglist-container">
+                {/* add msg for user if doesn't hold any stocks */}
+                {userStocks.length == 0 && <h2>You don't have any stocks yet. Click below to buy some</h2>}
                 {userStocks.map((itemName) => (
                   <Card
                     key={itemName.id}
