@@ -39,7 +39,8 @@ const SellStocks = () => {
     .map((itemName) => (
       <Card key={itemName.id} stock={itemName} operationType={'SELL'} />
     ));
-  const Message = "You don't have any stocks yet. Click below to buy some";
+  const NO_STOCKS_MESSAGE =
+    "You don't have any stocks yet. Click below to buy some";
   return (
     <>
       <NavBar personData={personData} />
@@ -48,7 +49,7 @@ const SellStocks = () => {
           {userStocksData.isLoggedIn && (
             <div className="content">
               <div className="shoppinglist-container">
-                {availableStocks.length ? availableStocks : Message}
+                {availableStocks.length ? availableStocks : NO_STOCKS_MESSAGE}
               </div>
               <div>
                 <Link href="/trading">
