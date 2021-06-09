@@ -12,7 +12,7 @@ const SellStocks = () => {
   const userStocksData = useSelector(
     (state) => state.stocksDetails.userStocksData
   );
-  const userStocks = userStocksData.stocks;  
+  const userStocks = userStocksData.stocks;
   const dispatch = useDispatch();
 
   useEffect(() => {
