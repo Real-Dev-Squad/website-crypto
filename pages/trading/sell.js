@@ -34,7 +34,6 @@ const SellStocks = () => {
     );
   };
 
-  
   return (
     <>
       <NavBar personData={personData} />
