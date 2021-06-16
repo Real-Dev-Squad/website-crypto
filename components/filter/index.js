@@ -29,16 +29,18 @@ const Filter = (props) => {
           className={toggle ? styles.showList : styles.hideList}
           id="filterContent"
         >
-          <li onClick={() => changeTransactions({ type: 'credit' })}>
-            Sort on credit
-          </li>
-          <li onClick={() => changeTransactions({ type: 'debit' })}>
-            Sort on debit
-          </li>
-          <li>Sort on date</li>
-          <li onClick={() => changeTransactions({ type: 'reset' })}>
-            Show original data
-          </li>
+          <ul>
+            <li onClick={() => changeTransactions({ type: 'credit' })}>
+              Sort on credit
+            </li>
+            <li onClick={() => changeTransactions({ type: 'debit' })}>
+              Sort on debit
+            </li>
+            <li>Sort on date</li>
+            <li onClick={() => changeTransactions({ type: 'reset' })}>
+              Show original data
+            </li>
+          </ul>
         </div>
       </div>
     </div>
