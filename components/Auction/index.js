@@ -104,16 +104,20 @@ const HandleAuctions = () => {
     return totalBidder <= 12 ? Math.ceil(totalBidder / 2) : 7;
   };
 
+  const brokenImageHandler = (e) => {
+    e.target.src = '/assets/default_avatar.jpg';
+  };
+
   const auctionHandler = auctionsData.map((auction) => {
     const { id, seller, quantity, highest_bid, bidders } = auction;
     return (
       <div className={`${styles.auctionContainer} ${id}`} key={id}>
         <div className={styles.auctionSeller}>
           <h2>Seller:</h2>
-          <Image
+          <img
+            className={styles.profilePhoto}
             src={`${BASE_IMAGE_URL}/${seller}/img.png`}
-            width={100}
-            height={100}
+            onError={brokenImageHandler}
           />
         </div>
         <div className={styles.auctionStats}>
@@ -164,10 +168,10 @@ const HandleAuctions = () => {
                 data-columns={getColumns(bidders.length)}
                 title={bidder}
               >
-                <Image
+                <img
+                  className={styles.profilePhoto}
                   src={`${BASE_IMAGE_URL}/${bidder}/img.png`}
-                  width={80}
-                  height={80}
+                  onError={brokenImageHandler}
                 />
               </div>
             );

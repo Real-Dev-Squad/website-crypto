@@ -28,8 +28,8 @@
   align-items: center;
 }
 
-.auctionSeller div {
-  border-radius: 50%;
+.auctionSeller {
+  width: 100px;
 }
 
 .itemInfo {
@@ -81,8 +81,9 @@
   width: 25%;
 }
 
-.bidders div {
+.profilePhoto {
   border-radius: 50%;
+  width: 100%;
 }
 
 .biddersImg {
