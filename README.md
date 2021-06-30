@@ -26,6 +26,8 @@ Turn this into trading application
 
 **Running/Development**
 * `npm run dev`
+* To build: `npm run build`
+* To serve the production build: `npm run start`
 * Visit your app at [http://localhost](http://localhost).
 
 
