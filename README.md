@@ -24,9 +24,9 @@ Turn this into trading application
 * `cd website-crypto`
 * `npm install`
 
-**Runing/Development**
-* `npm run build`
-* `npm run start`
+**Dev**
+* `npm run build` to build production.
+* `npm run start` to serve the production after it is built using previous command.
 
 
 ### For more details you can connect with @Kratika0907
