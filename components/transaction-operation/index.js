@@ -94,6 +94,7 @@ const TransactionOperation = (props) => {
               type="number"
               name="transaction-amount"
               id="transaction-amount"
+              min="1"
               value={amount}
               onChange={(e) => checkAmount(e.target.value)}
             />
