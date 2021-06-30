@@ -24,9 +24,10 @@ Turn this into trading application
 * `cd website-crypto`
 * `npm install`
 
-**Dev**
-* `npm run build` to build production.
-* `npm run start` to serve the production after it is built using previous command.
+**Running/Development**
+* `npm run dev`
+* Visit your app at [http://localhost](http://localhost).
+
 
 
 ### For more details you can connect with @Kratika0907
