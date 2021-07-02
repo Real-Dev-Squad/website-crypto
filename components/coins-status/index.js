@@ -85,7 +85,11 @@ const CoinsStatus = () => {
       {isError && <p>Something went wrong ...</p>}
       {isError && isLoginMessage && (
         <p>
-          Please <a href="LOGIN_URL">login to view your balance.</a>
+          Please{' '}
+          <a href="https://www.realdevsquad.com/">
+            {' '}
+            login to view your balance.
+          </a>
         </p>
       )}
       {!isError && isLoading ? (
