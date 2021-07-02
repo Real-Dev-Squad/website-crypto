@@ -85,9 +85,8 @@ const CoinsStatus = () => {
       {isError && <p>Something went wrong ...</p>}
       {isError && isLoginMessage && (
         <p>
-          Please{' '}
+          Please
           <a href="https://www.realdevsquad.com/">
-            {' '}
             login to view your balance.
           </a>
         </p>
