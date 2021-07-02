@@ -20,16 +20,16 @@ Turn this into trading application
 - If you need any other help, feel free to ping on crypto channel at discord.
 
 **Installation**
-* `git clone<repository-url>` this repository
-* `cd website-crypto`
-* `npm install`
+
+- `git clone<repository-url>` this repository
+- `cd website-crypto`
+- `npm install`
 
 **Running/Development**
-* `npm run dev`
-* To build: `npm run build`
-* To serve the production build: `npm run start`
-* Visit your app at [http://localhost](http://localhost).
 
-
+- `npm run dev`
+- To build: `npm run build`
+- To serve the production build: `npm run start`
+- Visit your app at [http://localhost](http://localhost).
 
 ### For more details you can connect with @Kratika0907
