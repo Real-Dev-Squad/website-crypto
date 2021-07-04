@@ -9,6 +9,12 @@
   margin-left: 1em;
   justify-content: space-between;
 }
+
+.loginMessage{
+  color: blue;
+  text-decoration: underline;
+}
+
 .cointypeIndicator {
   display: flex;
   justify-content: space-between;
