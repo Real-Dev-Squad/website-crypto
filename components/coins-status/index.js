@@ -82,17 +82,17 @@ const CoinsStatus = () => {
 
   return (
     <div className={styles.coinsContainer}>
-      {isError && <p>Something went wrong ...&nbsp;</p>}
+      {isError && <p>Something went wrong ... &nbsp; </p>}
       {isError && isLoginError && (
         <p>
-          Please&nbsp;
+          Please &nbsp;
           <a
             className={styles.loginMessage}
             href="https://www.realdevsquad.com/"
           >
             login
           </a>
-          &nbsp;to view your balance.
+          &nbsp; to view your balance.
         </p>
       )}
       {!isError && isLoading ? (
