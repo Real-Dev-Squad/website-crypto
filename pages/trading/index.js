@@ -57,7 +57,7 @@ const Invest = () => {
           .shoppinglist-container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-evenly;
+            justify-content: space-between;
             align-items: stretch;
           }
         `}</style>
