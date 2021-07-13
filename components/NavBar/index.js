@@ -7,6 +7,8 @@ import GenericClosePopUp from '../Close-popup/GenericClosePopUp';
 const NavBar = ({ personData: { photo } }) => {
   const RDSLogo = '/assets/Real-Dev-Squad1x.png';
   const [toggle, setToggle] = useState(false);
+  const [count, setCount] = useState(15);
+  
   const navbarRef = useRef();
   GenericClosePopUp(navbarRef, () => {
     setToggle(false);
@@ -55,11 +57,11 @@ const NavBar = ({ personData: { photo } }) => {
             toggle ? styles.dropdownContent : styles.dropdownContentHide
           }
         >
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-          <a href="#">Link 4</a>
-          <a href="#">Link 5</a>
+          <a href="">Profile</a>
+          <a href="/notification">Notifications <span className={styles.notificationNumbers}>{count}</span></a>
+          <a href="#">Setting</a>
+          <a href="#">Orders</a>
+          <a href="#">Log Out</a>      
         </div>
       </div>
     </nav>

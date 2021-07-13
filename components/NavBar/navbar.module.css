@@ -60,17 +60,25 @@
 }
 .dropdownContent a {
   color: black;
-  padding: 5px 0;
+  padding: 5px 4px;
   text-decoration: none;
   text-align: center;
-  font-size: 18px;
+  font-size: 14px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.26);
   display: block;
 }
 .dropdownContent a:hover {
   background-color: #e4e2e2
 }
-
+.notificationNumbers{
+  background-color: #041484;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: .3em;
+  font-size: .8em;
+  text-align: center;
+}
 
 @media (max-width: 540px) {
   .navBar li {
