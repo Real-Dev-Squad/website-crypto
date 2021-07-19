@@ -19,6 +19,7 @@ const StockOperationModal = (props) => {
   const [quantity, setQuantity] = useState('');
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   const [userMoney, setUserMoney] = useState(0);
+  const [loading, setLoadingState] = useState(false);
 
   const validateQuantity = (quantity) => {
     if (quantity > availableQty) {
@@ -80,7 +81,7 @@ const StockOperationModal = (props) => {
         listedPrice: listedPriceOfStock,
         totalPrice: quantity * listedPriceOfStock,
       };
-
+      setLoadingState(true);
       fetch(`${BASE_API_URL}/trade/stock/new/self`, {
         credentials: 'include',
         method: 'POST',
@@ -96,13 +97,15 @@ const StockOperationModal = (props) => {
             throw new Error(response.statusText);
           }
         })
-        .then((data) =>
+        .then((data) => {
           alert(
             `Trading Successful! Your balance is ${data.userBalance} Dineros`
-          )
-        )
+          );
+          setLoadingState(false);
+        })
         .catch((err) => {
           alert(err.message);
+          setLoadingState(false);
         });
     }
   };
@@ -170,10 +173,14 @@ const StockOperationModal = (props) => {
                   ? styles.greenButton
                   : styles.redButton
               }`}
-              disabled={!(nameOfStock && listedPriceOfStock && quantity)}
+              disabled={
+                !(nameOfStock && listedPriceOfStock && quantity) && loading
+              }
               onClick={submitHandler}
             >
-              {transactionType}
+              <div className={loading ? styles.spin : ''}>
+                {!loading && transactionType}
+              </div>
             </button>
           </div>
         </div>

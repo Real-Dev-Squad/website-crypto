@@ -1,7 +1,87 @@
 .backgroundVisible {
-    position: fixed;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  display: block;
+  cursor: default;
+}
+
+.modalWrapper {
+  position: fixed;
+  z-index: 100;
+  background: white;
+  border-radius: 10px;
+  padding: 20px 20px;
+  width: 40%;
+  max-width: 435px;
+  height: auto;
+  top: 30vh;
+  left: 34%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  display: block;
+  /* animation: fade-slide-in 0.3s ease-in-out forwards; */
+}
+
+/* @keyframes fade-slide-in {
+    from {
+      transform: translateY(-30rem);
+    }
+    to {
+      transform: translateY(0);
+    }
+  } */
+
+.modalContent {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.modalActions {
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.label {
+  font-weight: bold;
+  margin: 0.5rem 0;
+  color: #464646;
+}
+
+.select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.closedButton {
+  cursor: pointer;
+  position: absolute;
+  top: 8px;
+  right: 15px;
+  z-index: 10;
+  width: 20px;
+  height: 20px;
+  color: rgb(199, 57, 57);
+  border-radius: 50%;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+@media only screen and (max-width: 600px) {
+  .background {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     top: 0;
     left: 0;
     background: rgba(0, 0, 0, 0.5);
@@ -9,140 +89,78 @@
     display: block;
     pointer-events: all;
   }
-  
+
   .modalWrapper {
     position: fixed;
     z-index: 100;
     background: white;
     border-radius: 10px;
-    padding: 20px 20px;
-    width: 40%;
-    max-width: 435px;
+    padding: 20px 10px;
+    width: 80%;
     height: auto;
     top: 30vh;
-    left: 34%;
+    left: 10%;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     display: block;
-    animation: fade-slide-in 0.3s ease-in-out forwards;
+    animation: fade-slide-in 0.3s ease-out forwards;
   }
-  
-  @keyframes fade-slide-in {
-    from {
-      transform: translateY(-30rem);
-    }
-    to {
-      transform: translateY(0);
-    }
+}
+
+.buttonClass {
+  width: 100%;
+  padding: 10px 20px;
+  margin-top: 16px;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+
+.spin {
+  border: 16px solid #0e57c4;
+  border-radius: 50%;
+  border-top: 4px solid #c9d4e6;
+  border-right: 4px solid #bbc9dd;
+  border-bottom: 4px solid #96bff9;
+  border-left: 4px solid #c9e0ff;
+  width: 25px;
+  height: 25px;
+  -webkit-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  .modalContent {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
+  100% {
+    transform: rotate(360deg);
   }
-  
-  .modalActions {
-    padding: 1rem;
-    display: flex;
-    justify-content: flex-end;
-  }
-  
-  .label {
-    font-weight: bold;
-    margin: 0.5rem 0;
-    color: #464646;
-  }
-  
-  .select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  .closedButton {
-    cursor: pointer;
-    position: absolute;
-    top: 8px;
-    right: 15px;
-    z-index: 10;
-    width: 20px;
-    height: 20px;
-    color: rgb(199, 57, 57);
-    border-radius: 50%;
-    text-align: center;
-    font-size: 1rem;
-    font-weight: 700;
-  }
-  .closedButton:hover {
-    transform: scale(2);
-  }
-  
-  @media only screen and (max-width: 600px) {
-    .background {
-      width: 100%;
-      height: 100vh;
-      top: 0;
-      left: 0;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 100;
-      display: block;
-      pointer-events: all;
-    }
-  
-    .modalWrapper {
-      position: fixed;
-      z-index: 100;
-      background: white;
-      border-radius: 10px;
-      padding: 20px 10px;
-      width: 80%;
-      height: auto;
-      top: 30vh;
-      left: 10%;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-      display: block;
-      animation: fade-slide-in 0.3s ease-out forwards;
-    }
-  }
-  
-  .buttonClass {
-    width: 100%;
-    padding: 10px 20px;
-    margin-top: 16px;
-    border-radius: 5px;
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .greenButton {
-    background-color: #2ecc71;
-    border: 1px solid #2ecc71;
-  }
-  
-  .redButton {
-    color: white;
-    background-color: #ff3838;
-    border: 1px solid #ff3838;
-  }
-  
-  .errorMessage {
-    font-size: 0.8rem;
-    margin-top: -10px;
-    margin-bottom: 10px;
-    color: red;
-  }
-  
-  .buttonDisabled {
-    background-color: #cccccc;
-    color: #666666;
-    opacity: 0.5;
-  }
-  
+}
+
+.greenButton {
+  background-color: #2ecc71;
+  border: 1px solid #2ecc71;
+}
+
+.redButton {
+  color: white;
+  background-color: #ff3838;
+  border: 1px solid #ff3838;
+}
+
+.errorMessage {
+  font-size: 0.8rem;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  color: red;
+}
+
+.buttonDisabled {
+  background-color: #cccccc;
+  color: #666666;
+  opacity: 0.5;
+}
