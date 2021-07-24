@@ -5,7 +5,7 @@ import styles from './Auction.module.css';
 import fetchData from '../../utils/fetchData';
 import fetchSelfDetails from '../../utils/fetchSelfDetails';
 
-const BASE_API_URL = `https://api.realdevsquad.com`;
+const BASE_API_URL = process.env.NEXT_PUBLIC_BASE_API_URL;
 const AUCTIONS_URL = `${BASE_API_URL}/auctions`;
 const WALLET_URL = `${BASE_API_URL}/wallet`;
 
