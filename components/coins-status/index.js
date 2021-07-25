@@ -47,14 +47,14 @@ const CoinsStatus = () => {
   const [currencies, setCurrencies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
-  const [isLoginMessage, setIsLoginMessage] = useState(false);
+  const [isLoginError, setIsLoginError] = useState(false);
   const coins = [];
   useEffect(() => {
     const fetchData = async () => {
       await fetch(WALLET_URL, { credentials: 'include' })
         .then((response) => {
           if (response.status === 401) {
-            setIsLoginMessage(true);
+            setIsLoginError(true);
           } else if (response.status >= 400 && response.status < 600) {
             throw new Error('Bad response from server');
           }
@@ -82,10 +82,17 @@ const CoinsStatus = () => {
 
   return (
     <div className={styles.coinsContainer}>
-      {isError && <p>Something went wrong ...</p>}
-      {isError && isLoginMessage && (
+      {isError && <p>Something went wrong ... &nbsp; </p>}
+      {isError && isLoginError && (
         <p>
-          Please <a href="LOGIN_URL">login to view your balance.</a>
+          Please &nbsp;
+          <a
+            className={styles.loginMessage}
+            href="https://www.realdevsquad.com/"
+          >
+            login
+          </a>
+          &nbsp; to view your balance.
         </p>
       )}
       {!isError && isLoading ? (
