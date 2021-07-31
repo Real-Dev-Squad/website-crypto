@@ -16,7 +16,10 @@ const Auctions = () => {
       <NavBar personData={personData} />
       <Link href="/auction/new">
         <a>
-          <h2 className={styles.auctionPageNavigation}>Create New Auction</h2>
+          <h2 className={styles.auctionPageNavigation}>
+            {' '}
+            <button>Create New Auction</button>
+          </h2>
         </a>
       </Link>
       <HandleAuctions />
