@@ -1,6 +1,18 @@
-.auctionPageNavigation {
+.newAuctionBtnContainer {
   text-align: center;
 }
+
+.newAuctionButton { 
+  font-weight : 600 ;
+  height : 60px;
+  font-size : 30px ;
+  border: none;
+  text-align :center;
+  padding: 2px 10px 2px 10px;
+  border-radius: 10px;
+  background-color:rgb(106, 144, 226);
+  text-decoration-color: rgb(255, 255, 255);  
+} 
 
 .mainContainer {
   display: flex;
@@ -12,7 +24,7 @@
 .auctionContainer {
   display: flex;
   width: 70%;
-  background-color: white;
+  background-color: rgb(245, 235, 235);
   justify-content: space-around;
   align-items: center;
   border: 1px solid #f4f4f4;
