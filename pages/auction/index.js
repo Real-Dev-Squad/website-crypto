@@ -16,9 +16,7 @@ const Auctions = () => {
       <NavBar personData={personData} />
       <Link href="/auction/new">
         <div className={styles.newAuctionBtnContainer}>
-          <button className={styles.newAuctionButton}>
-            Create New Auction
-          </button>
+          <button className={styles.newAuctionBtn}>Create New Auction</button>
         </div>
       </Link>
       <HandleAuctions />
