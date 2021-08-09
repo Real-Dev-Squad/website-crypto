@@ -69,6 +69,10 @@
 .homeTransaction {
   margin-top: 20px;
 }
+.homeFooter {
+  position: relative;
+  bottom: 0;
+}
 
 .trade {
   width: 100%;
