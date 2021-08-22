@@ -1,0 +1,13 @@
+.updated_balance_line {
+  display: flex;
+  justify-content: space-around;
+  text-transform: capitalize;
+}
+
+.updated_balance_line span.add {
+  color: green;
+}
+
+.updated_balance_line span.subtract {
+  color: red;
+}
