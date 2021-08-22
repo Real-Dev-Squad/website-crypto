@@ -24,6 +24,12 @@
   justify-content: space-between;
 }
 
+.default_curreny_selectbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .divider {
   margin: 1rem 0;
 }
