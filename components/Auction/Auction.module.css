@@ -3,7 +3,7 @@
 }
 
 .newAuctionBtn {
-    font-weight: 500;
+    font-weight: 550;
     height: 50px;
     font-size: 1.2rem;
     width: 14rem;
@@ -11,8 +11,8 @@
     text-align: center;
     padding: 2px 10px;
     border-radius: 10px;
-    background-color: rgb(207, 211, 250);
-    text-decoration-color: rgb(10, 10, 12);
+    background-color: #101f92;
+    color: white;
 }
 
 .mainContainer {
