@@ -4,13 +4,13 @@
 
 .newAuctionBtn {
   font-weight: 550;
-  height: 3.125rem;
+  height: 50px;
   font-size: 1.2rem;
   width: 14rem;
   border: none;
   text-align: center;
-  padding: 0.125rem 0.625rem;
-  border-radius: 0.625rem;
+  padding: 2px 10px;
+  border-radius: 100px;
   background-color: #101f92;
   color: white;
 }
@@ -19,7 +19,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 6.25rem;
+  margin-bottom: 100px;
 }
 
 .auctionContainer {
@@ -28,11 +28,11 @@
   background-color: rgb(245, 235, 235);
   justify-content: space-around;
   align-items: center;
-  border: 0.063rem solid #f4f4f4;
-  border-radius: 1.25rem;
-  box-shadow: 0 0 0.938rem-0.438rem rgba(0, 0, 0, 0.65);
-  margin-bottom: 1.25rem;
-  padding: 3.125rem 0;
+  border: 1px solid #f4f4f4;
+  border-radius: 20px;
+  box-shadow: 0 0 15px - 7px rgba(0, 0, 0, 0.65);
+  margin-bottom: 20px;
+  padding: 50px 0;
 }
 
 .auctionSeller {
@@ -42,7 +42,7 @@
 }
 
 .auctionSeller {
-  width: 6.25rem;
+  width: 100px;
 }
 
 .itemInfo {
@@ -51,7 +51,7 @@
 }
 
 .gemImage {
-  margin-top: 1.25rem;
+  margin-top: 20px;
 }
 
 .currentBidPrice {
@@ -64,27 +64,27 @@
 }
 
 .inputBid {
-  border: 0.031rem solid #ccc;
-  border-radius: 0.313rem;
-  padding: 0.625rem;
-  margin-bottom: 0.938rem;
+  border: 0.5px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 15px;
   font-size: 1rem;
-  width: 9.375rem;
+  width: 150px;
 }
 
 .bidBtn {
-  height: 3.125rem;
-  width: 9.375rem;
-  margin-top: 0.625rem;
+  height: 50px;
+  width: 150px;
+  margin-top: 10px;
   color: white;
   border-color: rgba(27, 31, 35, 0.15);
-  border-radius: 0.375rem;
+  border-radius: 6px;
   background-color: #42a742;
 }
 
 .bidBtn:hover {
   height: 50px;
-  box-shadow: 0 0 0.938rem-0.438rem rgba(0, 0, 0, 0.65);
+  box-shadow: 0 0 15px - 7px rgba(0, 0, 0, 0.65);
   cursor: pointer;
 }
 
@@ -100,49 +100,49 @@
 }
 
 .biddersImg {
-  margin-left: 0.625rem;
+  margin-left: 10px;
 }
 
 .biddersImg[data-columns='2'] {
-  width: calc(10rem / 2);
+  width: calc(160px / 2);
 }
 
 .biddersImg[data-columns='3'] {
-  width: calc(10rem / 3);
+  width: calc(160px / 3);
 }
 
 .biddersImg[data-columns='4'] {
-  width: calc(10rem / 4);
+  width: calc(160px / 4);
 }
 
 .biddersImg[data-columns='5'] {
-  width: calc(10rem / 5);
+  width: calc(160px / 5);
 }
 
 .biddersImg[data-columns='6'] {
-  width: calc(10rem / 6);
+  width: calc(160px / 6);
 }
 
 .biddersImg[data-columns='7'] {
-  width: calc(10rem / 7);
+  width: calc(160px / 7);
 }
 
-@media only screen and (max-width: 75rem) {
+@media only screen and (max-width: 1200px) {
   .auctionContainer {
     width: 85%;
   }
   .bidBtn {
-    width: 6.25rem;
+    width: 100px;
   }
 }
 
-@media only screen and (max-width: 50rem) and (min-width: 56.25rem) {
+@media only screen and (max-width: 800px) and (min-width: 900px) {
   .bidders {
     width: 30%;
   }
 }
 
-@media only screen and (max-width: 50rem) {
+@media only screen and (max-width: 800px) {
   .auctionContainer {
     flex-direction: column;
     width: 60%;
@@ -151,8 +151,8 @@
     justify-content: center;
   }
   .bidBtn {
-    width: 9.375rem;
-    margin-bottom: 1.25rem;
+    width: 150px;
+    margin-bottom: 20px;
   }
   .bidders {
     width: 80%;
@@ -160,7 +160,7 @@
   }
 }
 
-@media only screen and (max-width: 31.25rem) {
+@media only screen and (max-width: 500px) {
   .auctionContainer {
     width: 90%;
   }
