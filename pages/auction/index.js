@@ -15,9 +15,9 @@ const Auctions = () => {
       </Head>
       <NavBar personData={personData} />
       <Link href="/auction/new">
-        <a>
-          <h2 className={styles.auctionPageNavigation}>Create New Auction</h2>
-        </a>
+        <div className={styles.newAuctionBtnContainer}>
+          <button className={styles.newAuctionBtn}>Create New Auction</button>
+        </div>
       </Link>
       <HandleAuctions />
       <Footer />
