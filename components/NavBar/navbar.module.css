@@ -22,7 +22,8 @@
 
 .navBar li .active {
   color: #88D870;
-  border-bottom: 3px solid #88D870;
+  text-decoration: underline;
+  text-underline-offset: 0.75em;
 }
 
 .navBar li .logo {
