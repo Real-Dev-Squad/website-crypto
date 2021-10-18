@@ -1,39 +1,97 @@
 .navBar {
-  display: flex;
-  background-color: #041484;
-  font-size: 0.9rem;
+  font-family: 'Roboto', sans-serif;
   width: 100%;
-  /* padding: 0.05rem 0; */
-  position: relative;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 50px;
+  min-height: 85px;
+  background-color: #1d1283; 
 }
-.navBar > ul {
-  display: flex;
-  align-items: center;
-  padding: 0;
-  margin: 0;
-}
-.navBar li {
+
+.navBar ul {
   list-style-type: none;
-  color: #f2f2f2;
-  font-size: 20px;
-  margin-right: 3rem;
-  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.navBar ul li:nth-last-child(-n+3){
+  float: right;
+}
+
+.navBar ul li {
+  float: left;
+}
+
+.navBar li .active {
+  color: #88D870;
+  border-bottom: 3px solid #88D870;
+}
+
+.navBar li .logo {
+  padding: 20px 20px 15px;
+}
+
+.navBar li .btnLogin {
+  padding-top: 30px;
+}
+
+.navBar li a {
+  display: block;
+  color: #ffffff;
+  font-weight: 700;
+  text-align: center;
+  padding: 35px 20px 10px;
+  text-decoration: none;
 }
 
 .navBar li a:hover {
-  color: #e30464;
+  color: #87d870;
 }
-.logo {
-  margin: 10px 0 5px 10px;
+
+.btnLogin {
+  font-size: 18px;
+  float: right;
+}
+
+.loginBtnText {
+  font-size: 16px;
+  border-radius: 6px;
+  padding: 0.3rem;
+  background-color: #041484;
+  color: white;
   cursor: pointer;
+  border: 2px solid white;
 }
-.profilePic {
 
+.githubLogo {
+  margin-left: 5px;
+  width: 15px;
+  height: 15px;
+}
+
+.userGreet {
   display: none;
+  font-size: 18px;
+  color: #ffffff;
+  text-align: center;
+  padding: 30px 20px 10px;
+  text-decoration: none;
+}
 
+.userProfilePic {
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  display: inline;
+  vertical-align: middle;
+}
+.userGreetMsg {
+  font-size: 1em;
+  display: inline;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.profilePic {
+  display: none;
   margin-right: 1em;
   width: 4em;
   height: 4em;
@@ -71,29 +129,15 @@
   background-color: #e4e2e2
 }
 
+@media screen and (max-width: 500px) {
+  .navBar li .logo {
+    padding: 4px 4px 100%;
+  }
+  .navBar ul li:nth-last-child(-n+3){
+    float: left;
+  }
 
-@media (max-width: 540px) {
-  .navBar li {
-    margin-right: 2rem;
+  .navBar li a {
+    padding: 18px 14px;
   }
-  .loginBtn {
-    padding: .4em 1em;
-  }
-}
-
-@media (max-width: 400px) {
-  .navBar {
-    font-size: .8rem;
-    height: 4rem;
-    margin-bottom: 15px;
-  }
-  .navBar li {
-    margin-right: 1.5rem;
-  }
-  .logo {
-    top: 1.5em;
-  }
-  .loginBtn {
-    padding: .5rem .5rem;
-  }
-}
+} 
