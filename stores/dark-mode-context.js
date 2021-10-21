@@ -17,25 +17,13 @@ export function DarkModeProvider({ children }) {
 }
 
 export function useDarkModeContext() {
-  //   console.log(DarkModeContext);
-  return useContext(DarkModeContext);
+  const state = useContext(DarkModeContext);
+
+  if (state === undefined) {
+    throw new Error(
+      'useDarkModeContext must be used within a DarkModeProvider'
+    );
+  }
+
+  return state;
 }
-
-// const DarkModeContext = createContext({useDarkMode()});
-
-// export const DarkModeProvider = ({ children }) => {
-//   const [theme, themeToggler] = useDarkMode();
-//   return (
-//     <DarkModeContext.Provider value={{ theme, themeToggler }}>
-//       {children}
-//     </DarkModeContext.Provider>
-//   );
-// };
-
-// export const darkModeContext = () => {
-//   const context = useContext(DarkModeContext); // this needs to be changed
-//   if (!context)
-//     throw new Error(`darkModeContext context can only
-//         be used in a component wrapped with DarkModeContext`);
-//   return context;
-// };
