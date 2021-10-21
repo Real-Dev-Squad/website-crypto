@@ -3,8 +3,11 @@ import React, { useState, useRef } from 'react';
 import styles from './navbar.module.css';
 import Image from 'next/image';
 import GenericClosePopUp from '../Close-popup/GenericClosePopUp';
+import DarkThemeIcon from '../dark-theme-icon/index';
+import { useDarkModeContext } from 'stores/dark-mode-context';
 
 const NavBar = ({ personData: { photo } }) => {
+  const [theme, themeData, themeToggler] = useDarkModeContext();
   const RDSLogo = '/assets/Real-Dev-Squad1x.png';
   const [toggle, setToggle] = useState(false);
   const navbarRef = useRef();
@@ -43,6 +46,9 @@ const NavBar = ({ personData: { photo } }) => {
           </Link>
         </li>
       </ul>
+      <div className={styles.darkTheme}>
+        <DarkThemeIcon theme={theme} themeToggleHandler={themeToggler} />
+      </div>
 
       <div
         className={styles.profilePic}

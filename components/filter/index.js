@@ -2,8 +2,10 @@ import styles from './filter.module.css';
 import Image from 'next/image';
 import { useState, useRef } from 'react';
 import GenericClosePopUp from '../Close-popup/GenericClosePopUp';
+import { useDarkModeContext } from 'stores/dark-mode-context';
 
 const Filter = (props) => {
+  const [theme, themeData, themeToggler] = useDarkModeContext();
   const { changeTransactions } = props;
   const [toggle, setToggle] = useState(false);
   const filterRef = useRef();
@@ -20,7 +22,11 @@ const Filter = (props) => {
     >
       <div className="icon">
         <Image
-          src="/assets/filter-icon.svg"
+          src={
+            theme === 'light'
+              ? '/assets/filter-icon.svg'
+              : '/assets/filter-icon-dark.svg'
+          }
           alt="Filter icon"
           width={20}
           height={20}

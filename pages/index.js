@@ -12,45 +12,62 @@ import TransactionOperationModal from '@components/transaction-operation-modal';
 import NavBar from '@components/NavBar';
 import CustomButton from 'components/custom-button';
 import { useRouter } from 'next/router';
+import GlobalStyles from '@components/Dark-Theme/globalStyles';
+import { ThemeProvider } from 'styled-components';
+import { useDarkModeContext } from 'stores/dark-mode-context';
 export default function Home() {
   const router = useRouter();
+  const [
+    theme,
+    themeData,
+    themeToggler,
+    mountedComponent,
+  ] = useDarkModeContext();
+  if (!mountedComponent) return <div />;
   return (
-    <div className={styles.homeContainer}>
-      <Head>
-        <title>Bank Dashboard</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <NavBar personData={personData} />
-      <main className={styles.mainBody}>
-        <div className={styles.leftSection}>
-          <div className={styles.homeUser}>
-            <CoinsStatus coins={coinsData} />
-            <TransactionOperationModal personData={personData} />
-          </div>
-        </div>
-        <div className={styles.rightSection}>
-          <CustomButton
-            onClick={() => router.push('/currency-exchange')}
-            buttonPrimary
-          >
-            Go to currency Exchange
-          </CustomButton>
-          <div className={styles.homeTransaction}>
-            <div className={styles.transactionGraph}>
-              <div className={`${styles.card} ${styles.content}`}>
-                <TransactionChart transactionChartData={transactionChartData} />
+    <ThemeProvider theme={themeData}>
+      <>
+        <GlobalStyles />
+        <div className={styles.homeContainer}>
+          <Head>
+            <title>Bank Dashboard</title>
+            <link rel="icon" href="/favicon.ico" />
+          </Head>
+          <NavBar personData={personData} />
+          <main className={styles.mainBody}>
+            <div className={styles.leftSection}>
+              <div className={styles.homeUser}>
+                <CoinsStatus coins={coinsData} />
+                <TransactionOperationModal personData={personData} />
               </div>
             </div>
-          </div>
-          <div className={`${styles.card} ${styles.content}`}>
-            <div className={`${styles.heading}`}>
-              <p> Latest Transactions</p>
+            <div className={styles.rightSection}>
+              <CustomButton
+                onClick={() => router.push('/currency-exchange')}
+                buttonPrimary
+              >
+                Go to currency Exchange
+              </CustomButton>
+              <div className={styles.homeTransaction}>
+                <div className={styles.transactionGraph}>
+                  <div className={`${styles.card} ${styles.content}`}>
+                    <TransactionChart
+                      transactionChartData={transactionChartData}
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className={`${styles.card} ${styles.content}`}>
+                <div className={`${styles.heading}`}>
+                  <p> Latest Transactions</p>
+                </div>
+                <TransactionList transactions={transactionData} />
+              </div>
             </div>
-            <TransactionList transactions={transactionData} />
-          </div>
+          </main>
+          <Footer />
         </div>
-      </main>
-      <Footer />
-    </div>
+      </>
+    </ThemeProvider>
   );
 }
