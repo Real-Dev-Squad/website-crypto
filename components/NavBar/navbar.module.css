@@ -30,6 +30,9 @@
   margin: 10px 0 5px 10px;
   cursor: pointer;
 }
+.darkTheme {
+  padding: 14px 16px;
+}
 .profilePic {
 
   display: none;

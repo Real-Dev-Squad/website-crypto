@@ -8,11 +8,11 @@
 .showList li {
   list-style-type: none;
   padding: 7px;
-  background-color: #fff;
+  background-color: var(--colorBackgroundLight);
 }
 
 .showList li:hover {
-  background-color: #bdc3c7;
+  background-color: var(--colorFilterHover);
 }
 
 .showList {

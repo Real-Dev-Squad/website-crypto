@@ -7,16 +7,18 @@
   display: flex;
   padding: 5% 10%;
   flex-direction: column;
-  border: 1px solid #f4f4f4;
+  border: 1px solid var(--colorBackgroundMedium);
   border-radius: 20px;
   box-shadow: 0 0 15px -7px rgba(0,0,0,.65);
   width: 40%;
-  background-color: white;
+  background-color: var(--colorBackgroundMedium);
   overflow-x: hidden; 
 }
 
 .inputBox, .submitBtn {
-  border: 0.5px solid #ccc;
+  border: 0.5px solid var(--colorAuctionInput);
+  background-color: var(--colorBackgroundDark);
+  color: var(--colorWhite);
   border-radius: 5px;
   padding: 10px;
   padding-left: 10px;
@@ -25,10 +27,15 @@
   width: 100%;
 }
 
+.inputBox:disabled{
+  background-color: var(--colorBackgroundLight);
+}
+
 .submitBtn {
   cursor: pointer;
   background-color: rgb(27, 199, 27);
   color: white;
+  border-color: var(--colorBackgroundMedium);
 }
 
 .submitBtn:hover {

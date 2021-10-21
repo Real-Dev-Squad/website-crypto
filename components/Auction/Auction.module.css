@@ -25,10 +25,10 @@
 .auctionContainer {
   display: flex;
   width: 70%;
-  background-color: rgb(245, 235, 235);
+  background-color: var(--colorAuctionBackground);
   justify-content: space-around;
   align-items: center;
-  border: 1px solid #f4f4f4;
+  border: 1px solid var(--colorBackgroundLight);
   border-radius: 20px;
   box-shadow: 0 0 15px - 7px rgba(0, 0, 0, 0.65);
   margin-bottom: 20px;

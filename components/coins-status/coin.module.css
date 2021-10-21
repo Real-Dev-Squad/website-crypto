@@ -26,7 +26,7 @@
   padding: 10px 5px 2px 5px;
   margin-bottom: 8px;
   margin-left: 20px;
-  background-color: white;
+  background-color: var(--colorBackgroundMedium);
 }
 .coinData {
   display: flex;
