@@ -80,7 +80,7 @@
   margin: 0;
   padding: 1rem;
   display: block;
-  color:#540075;
+  color: var(--colorStockText);
   font-weight: bold;
   font-size: 1.2rem;
   cursor: pointer;

@@ -98,7 +98,7 @@
     .modalWrapper {
       position: fixed;
       z-index: 100;
-      background: white;
+      background: var(--colorBackgroundMedium);
       border-radius: 10px;
       padding: 20px 10px;
       width: 80%;

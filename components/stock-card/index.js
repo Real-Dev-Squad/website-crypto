@@ -83,7 +83,7 @@ export const Card = ({ stock, operationType }) => {
           .stock-card-product-name {
             font-weight: bold;
             font-size: 1.3em;
-            color: #540075;
+            color: var(--colorStockText);
           }
           p {
             margin-block-start: 0.5rem;
@@ -96,7 +96,7 @@ export const Card = ({ stock, operationType }) => {
           }
           .stock-card-product-quantity {
             font-size: 1.3em;
-            color: #540075;
+            color: var(--colorStockText);
           }
         `}
       </style>

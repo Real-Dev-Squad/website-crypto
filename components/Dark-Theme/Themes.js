@@ -18,6 +18,7 @@ export const lightTheme = {
   colorStockLablel: '#464646',
   colorChartBackground: 'white',
   colorChartBorder: 'white',
+  colorStockText: '#540075',
 };
 export const darkTheme = {
   colorBackgroundLight: '#27262D',
@@ -39,4 +40,5 @@ export const darkTheme = {
   colorStockLablel: 'var(--colorWhite)',
   colorChartBackground: '#241212',
   colorChartBorder: '#34383a',
+  colorStockText: '#cf56ff',
 };
