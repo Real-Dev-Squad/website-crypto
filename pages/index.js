@@ -53,6 +53,7 @@ export default function Home() {
                   <div className={`${styles.card} ${styles.content}`}>
                     <TransactionChart
                       transactionChartData={transactionChartData}
+                      theme={theme}
                     />
                   </div>
                 </div>
