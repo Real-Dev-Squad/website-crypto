@@ -34,7 +34,7 @@
   border: none;
 }
 .card {
-  border: 1px solid var(--colorBorder2);
+  border: 1px solid var(--colorCardBorder);
   border-radius: 5px;
   padding: 1px;
   background: var(--colorBackgroundLight);

@@ -10,8 +10,8 @@
   justify-content: flex-start;
   flex-wrap: wrap;
   width: 100%;
-  border-top: 1px solid var(--colorBorder);
-  border-bottom: 1px solid var(--colorBorder);
+  border-top: 1px solid var(--colorTransactionBorder);
+  border-bottom: 1px solid var(--colorTransactionBorder);
   cursor: pointer;
   height:6em;
   font-size: 17px;
