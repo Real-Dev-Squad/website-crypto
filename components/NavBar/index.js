@@ -1,11 +1,14 @@
 import Link from 'next/link';
 import React, { useState, useRef } from 'react';
+import { useRouter } from 'next/router';
 import styles from './navbar.module.css';
 import Image from 'next/image';
 import GenericClosePopUp from '../Close-popup/GenericClosePopUp';
 import { LOGIN_URL } from 'constants.js';
 
 const NavBar = ({ personData: { photo } }) => {
+  const router = useRouter();
+
   const RDSLogo = '/assets/Real-Dev-Squad1x.png';
   const GITHUB_LOGO = '/assets/github.png';
   const [toggle, setToggle] = useState(false);
@@ -15,92 +18,125 @@ const NavBar = ({ personData: { photo } }) => {
   });
 
   return (
-    <nav className={styles.navBar}>
-      <ul>
-        <li>
-          <Link href="https://realdevsquad.com">
-            <a className={styles.logo}>
-              <Image
-                width="45px"
-                height="45px"
-                src={RDSLogo}
-                alt="real-dev squad"
-              />
-            </a>
-          </Link>
-        </li>
-        <li>
-          <Link href="https://welcome.realdevsquad.com/">
-            <a>Welcome</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="https://www.realdevsquad.com/events.html">
-            <a>Events</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="https://members.realdevsquad.com/">
-            <a>Members</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="https://crypto.realdevsquad.com/">
-            <a className={styles.active}>Crypto</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="https://status.realdevsquad.com/">
-            <a>Status</a>
-          </Link>
-        </li>
-        <li>
-          <a className={styles.btnLogin} href={LOGIN_URL}>
-            <button className={styles.loginBtnText}>
-              Sign In With Github
+    <div className={styles.wrapper}>
+      <nav className={styles.navBar}>
+        <div
+          className={styles.hamburger}
+          ref={navbarRef}
+          onClick={() => setToggle(!toggle)}
+        >
+          <span className={styles.bar}></span>
+          <span className={styles.bar}></span>
+          <span className={styles.bar}></span>
+        </div>
+        <div className={styles.navBarLogin}>
+          <a
+            className={styles.btnLogin}
+            href="https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97"
+          >
+            <button className={styles.btnLoginText}>
+              Sign In
               <img
                 className={styles.githubLogo}
                 src={GITHUB_LOGO}
-                alt="Github Icon"
+                alt="GitHub Icon"
+                height="15px"
+                width="15px"
               />
             </button>
           </a>
           <div className={styles.userGreet}>
-            <div className={styles.userGreetMsg}>Hello text</div>
+            <div className={styles.userGreetMsg}>Hello, User!</div>
             <img className={styles.userProfilePic} />
           </div>
-        </li>
-        <li>
-          <Link href="/auction">
-            <a>Auction</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/trading">
-            <a>Stocks</a>
-          </Link>
-        </li>
-      </ul>
-
-      <div
-        className={styles.profilePic}
-        ref={navbarRef}
-        onClick={() => setToggle(!toggle)}
-      >
-        <img src={photo} alt="Profile Image" height="70" width="70" />
-        <div
+        </div>
+        <ul
           className={
-            toggle ? styles.dropdownContent : styles.dropdownContentHide
+            toggle ? `${styles.navBarMenu} ${styles.active}` : styles.navBarMenu
           }
         >
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-          <a href="#">Link 4</a>
-          <a href="#">Link 5</a>
-        </div>
+          <li className={styles.navBarLogoLi}>
+            <a href="https://www.realdevsquad.com/">
+              <img
+                src={RDSLogo}
+                alt="home nav logo"
+                height="50px"
+                width="50px"
+              />
+            </a>
+          </li>
+          <li className={styles.homeTab}>
+            <a href="https://www.realdevsquad.com/">Home</a>
+          </li>
+          <li>
+            <a href="https://welcome.realdevsquad.com/">Welcome</a>
+          </li>
+          <li>
+            <a href="https://www.realdevsquad.com/events.html">Events</a>
+          </li>
+          <li>
+            <a href="https://members.realdevsquad.com/">Members</a>
+          </li>
+          <li>
+            <a
+              className={styles.activeTab}
+              href="https://crypto.realdevsquad.com/"
+            >
+              Crypto
+            </a>
+          </li>
+          <li>
+            <a href="https://status.realdevsquad.com/">Status</a>
+          </li>
+          <li className={styles.navBarLoginLi}>
+            <a
+              className={styles.btnLogin}
+              href="https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97"
+            >
+              <button className={styles.btnLoginText}>
+                Sign In With GitHub
+                <img
+                  className={styles.githubLogo}
+                  src={GITHUB_LOGO}
+                  alt="GitHub Icon"
+                  height="15px"
+                  width="15px"
+                />
+              </button>
+            </a>
+            <div className={styles.userGreet}>
+              <div className={styles.userGreetMsg}>Hello, User!</div>
+              <img className={styles.userProfilePic} />
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <div className={styles.header}>
+        <a href="/auction">
+          <button
+            type="button"
+            tabIndex="0"
+            className={`${styles.link} ${
+              router.pathname === '/auction' ? styles.active : ''
+            }`}
+          >
+            Auctions
+          </button>
+        </a>
+        |
+        <a href="/trading">
+          <button
+            type="button"
+            tabIndex="0"
+            className={`${styles.link} ${
+              router.pathname === '/trading' ? styles.active : ''
+            }`}
+          >
+            Stocks
+          </button>
+        </a>
       </div>
-    </nav>
+    </div>
   );
 };
 
