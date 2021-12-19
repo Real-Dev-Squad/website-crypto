@@ -30,10 +30,7 @@ const NavBar = ({ personData: { photo } }) => {
           <span className={styles.bar}></span>
         </div>
         <div className={styles.navBarLogin}>
-          <a
-            className={styles.btnLogin}
-            href="https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97"
-          >
+          <a className={styles.btnLogin} href={LOGIN_URL}>
             <button className={styles.btnLoginText}>
               Sign In
               <img
@@ -89,10 +86,7 @@ const NavBar = ({ personData: { photo } }) => {
             <a href="https://status.realdevsquad.com/">Status</a>
           </li>
           <li className={styles.navBarLoginLi}>
-            <a
-              className={styles.btnLogin}
-              href="https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97"
-            >
+            <a className={styles.btnLogin} href={LOGIN_URL}>
               <button className={styles.btnLoginText}>
                 Sign In With GitHub
                 <img
