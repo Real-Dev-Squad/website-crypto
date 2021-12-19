@@ -63,7 +63,6 @@
 }
 
 .userGreet {
-  display: none;
   color: #ffffff;
   margin: 25px;
 }
@@ -174,7 +173,7 @@
   }
 
   .activeTab {
-    text-decoration: none;
+    text-decoration: none !important;
   }
 
   .navBar li {

@@ -1,21 +1,54 @@
 import Link from 'next/link';
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import styles from './navbar.module.css';
 import Image from 'next/image';
 import GenericClosePopUp from '../Close-popup/GenericClosePopUp';
-import { LOGIN_URL } from 'constants.js';
+import { USER_DATA_URL, LOGIN_URL } from 'constants.js';
 
-const NavBar = ({ personData: { photo } }) => {
+const NavBar = () => {
   const router = useRouter();
 
-  const RDSLogo = '/assets/Real-Dev-Squad1x.png';
+  const RDS_LOGO = '/assets/Real-Dev-Squad1x.png';
   const GITHUB_LOGO = '/assets/github.png';
+  const [userData, setUserData] = useState({});
   const [toggle, setToggle] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [mountedComponent, setMountedComponent] = useState(false);
   const navbarRef = useRef();
   GenericClosePopUp(navbarRef, () => {
     setToggle(false);
   });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      await fetch(USER_DATA_URL, { credentials: 'include' })
+        .then((response) => {
+          if (response.status === 401) {
+            setIsLoggedIn(false);
+          }
+          return response.json();
+        })
+        .then((responseJson) => {
+          if (responseJson.incompleteUserDetails) {
+            return window.location.replace(
+              'https://my.realdevsquad.com/signup'
+            );
+          }
+          setIsLoggedIn(true);
+          setUserData({
+            userName: responseJson.username,
+            firstName: responseJson.first_name,
+          });
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+      setMountedComponent(true);
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div className={styles.wrapper}>
@@ -29,8 +62,19 @@ const NavBar = ({ personData: { photo } }) => {
           <span className={styles.bar}></span>
           <span className={styles.bar}></span>
         </div>
-        <div className={styles.navBarLogin}>
-          <a className={styles.btnLogin} href={LOGIN_URL}>
+        <div
+          className={
+            mountedComponent
+              ? `${styles.navBarLogin}`
+              : `${styles.navBarLogin} d-none`
+          }
+        >
+          <a
+            className={
+              isLoggedIn ? `${styles.btnLogin} d-none` : `${styles.btnLogin}`
+            }
+            href={LOGIN_URL}
+          >
             <button className={styles.btnLoginText}>
               Sign In
               <img
@@ -42,9 +86,25 @@ const NavBar = ({ personData: { photo } }) => {
               />
             </button>
           </a>
-          <div className={styles.userGreet}>
-            <div className={styles.userGreetMsg}>Hello, User!</div>
-            <img className={styles.userProfilePic} />
+          <div
+            className={
+              isLoggedIn ? `${styles.userGreet}` : `${styles.userGreet} d-none`
+            }
+          >
+            <div className={styles.userGreetMsg}>
+              {isLoggedIn
+                ? `Hello, ${userData.firstName}
+              `
+                : `Hello, User!`}
+            </div>
+            <img
+              className={styles.userProfilePic}
+              src={
+                isLoggedIn
+                  ? `https://raw.githubusercontent.com/Real-Dev-Squad/website-static/main/members/${userData.userName}/img.png`
+                  : ``
+              }
+            />
           </div>
         </div>
         <ul
@@ -55,7 +115,7 @@ const NavBar = ({ personData: { photo } }) => {
           <li className={styles.navBarLogoLi}>
             <a href="https://www.realdevsquad.com/">
               <img
-                src={RDSLogo}
+                src={RDS_LOGO}
                 alt="home nav logo"
                 height="50px"
                 width="50px"
@@ -85,8 +145,19 @@ const NavBar = ({ personData: { photo } }) => {
           <li>
             <a href="https://status.realdevsquad.com/">Status</a>
           </li>
-          <li className={styles.navBarLoginLi}>
-            <a className={styles.btnLogin} href={LOGIN_URL}>
+          <li
+            className={
+              mountedComponent
+                ? `${styles.navBarLoginLi}`
+                : `${styles.navBarLoginLi} d-none`
+            }
+          >
+            <a
+              className={
+                isLoggedIn ? `${styles.btnLogin} d-none` : `${styles.btnLogin}`
+              }
+              href={LOGIN_URL}
+            >
               <button className={styles.btnLoginText}>
                 Sign In With GitHub
                 <img
@@ -98,9 +169,27 @@ const NavBar = ({ personData: { photo } }) => {
                 />
               </button>
             </a>
-            <div className={styles.userGreet}>
-              <div className={styles.userGreetMsg}>Hello, User!</div>
-              <img className={styles.userProfilePic} />
+            <div
+              className={
+                isLoggedIn
+                  ? `${styles.userGreet}`
+                  : `${styles.userGreet} d-none`
+              }
+            >
+              <div className={styles.userGreetMsg}>
+                {isLoggedIn
+                  ? `Hello, ${userData.firstName}
+              `
+                  : `Hello, User!`}
+              </div>
+              <img
+                className={styles.userProfilePic}
+                src={
+                  isLoggedIn
+                    ? `https://raw.githubusercontent.com/Real-Dev-Squad/website-static/main/members/${userData.userName}/img.png`
+                    : ``
+                }
+              />
             </div>
           </li>
         </ul>
