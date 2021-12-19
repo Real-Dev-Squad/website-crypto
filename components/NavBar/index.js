@@ -1,7 +1,7 @@
-import Link from 'next/link';
 import React, { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import styles from './navbar.module.css';
+import Link from 'next/link';
 import Image from 'next/image';
 import GenericClosePopUp from '../Close-popup/GenericClosePopUp';
 import { USER_DATA_URL, LOGIN_URL } from 'constants.js';
@@ -67,23 +67,24 @@ const NavBar = () => {
               : `${styles.navBarLogin} d-none`
           }
         >
-          <a
-            className={
-              isLoggedIn ? `${styles.btnLogin} d-none` : `${styles.btnLogin}`
-            }
-            href={LOGIN_URL}
-          >
-            <button className={styles.btnLoginText}>
-              Sign In
-              <img
-                className={styles.githubLogo}
-                src={GITHUB_LOGO}
-                alt="GitHub Icon"
-                height="15px"
-                width="15px"
-              />
-            </button>
-          </a>
+          <Link href={LOGIN_URL}>
+            <a
+              className={
+                isLoggedIn ? `${styles.btnLogin} d-none` : `${styles.btnLogin}`
+              }
+            >
+              <button className={styles.btnLoginText}>
+                Sign In
+                <img
+                  className={styles.githubLogo}
+                  src={GITHUB_LOGO}
+                  alt="GitHub Icon"
+                  height="15px"
+                  width="15px"
+                />
+              </button>
+            </a>
+          </Link>
           <div
             className={
               isLoggedIn ? `${styles.userGreet}` : `${styles.userGreet} d-none`
@@ -111,37 +112,36 @@ const NavBar = () => {
           }
         >
           <li className={styles.navBarLogoLi}>
-            <a href="https://www.realdevsquad.com/">
-              <img
-                src={RDS_LOGO}
-                alt="home nav logo"
-                height="50px"
-                width="50px"
-              />
-            </a>
+            <Link href="https://www.realdevsquad.com/">
+              <a>
+                <img
+                  src={RDS_LOGO}
+                  alt="home nav logo"
+                  height="50px"
+                  width="50px"
+                />
+              </a>
+            </Link>
           </li>
           <li className={styles.homeTab}>
-            <a href="https://www.realdevsquad.com/">Home</a>
+            <Link href="https://www.realdevsquad.com/">Home</Link>
           </li>
           <li>
-            <a href="https://welcome.realdevsquad.com/">Welcome</a>
+            <Link href="https://welcome.realdevsquad.com/">Welcome</Link>
           </li>
           <li>
-            <a href="https://www.realdevsquad.com/events.html">Events</a>
+            <Link href="https://www.realdevsquad.com/events.html">Events</Link>
           </li>
           <li>
-            <a href="https://members.realdevsquad.com/">Members</a>
+            <Link href="https://members.realdevsquad.com/">Members</Link>
           </li>
           <li>
-            <a
-              className={styles.activeTab}
-              href="https://crypto.realdevsquad.com/"
-            >
-              Crypto
-            </a>
+            <Link href="https://crypto.realdevsquad.com/">
+              <a className={styles.activeTab}>Crypto</a>
+            </Link>
           </li>
           <li>
-            <a href="https://status.realdevsquad.com/">Status</a>
+            <Link href="https://status.realdevsquad.com/">Status</Link>
           </li>
           <li
             className={
@@ -150,23 +150,26 @@ const NavBar = () => {
                 : `${styles.navBarLoginLi} d-none`
             }
           >
-            <a
-              className={
-                isLoggedIn ? `${styles.btnLogin} d-none` : `${styles.btnLogin}`
-              }
-              href={LOGIN_URL}
-            >
-              <button className={styles.btnLoginText}>
-                Sign In With GitHub
-                <img
-                  className={styles.githubLogo}
-                  src={GITHUB_LOGO}
-                  alt="GitHub Icon"
-                  height="15px"
-                  width="15px"
-                />
-              </button>
-            </a>
+            <Link href={LOGIN_URL}>
+              <a
+                className={
+                  isLoggedIn
+                    ? `${styles.btnLogin} d-none`
+                    : `${styles.btnLogin}`
+                }
+              >
+                <button className={styles.btnLoginText}>
+                  Sign In With GitHub
+                  <img
+                    className={styles.githubLogo}
+                    src={GITHUB_LOGO}
+                    alt="GitHub Icon"
+                    height="15px"
+                    width="15px"
+                  />
+                </button>
+              </a>
+            </Link>
             <div
               className={
                 isLoggedIn
@@ -193,29 +196,33 @@ const NavBar = () => {
         </ul>
       </nav>
       <div className={styles.header}>
-        <a href="/auction">
-          <button
-            type="button"
-            tabIndex="0"
-            className={`${styles.link} ${
-              router.pathname === '/auction' ? styles.active : ''
-            }`}
-          >
-            Auctions
-          </button>
-        </a>
+        <Link href="/auction">
+          <a>
+            <button
+              type="button"
+              tabIndex="0"
+              className={`${styles.link} ${
+                router.pathname === '/auction' ? styles.active : ''
+              }`}
+            >
+              Auctions
+            </button>
+          </a>
+        </Link>
         |
-        <a href="/trading">
-          <button
-            type="button"
-            tabIndex="0"
-            className={`${styles.link} ${
-              router.pathname === '/trading' ? styles.active : ''
-            }`}
-          >
-            Stocks
-          </button>
-        </a>
+        <Link href="/trading">
+          <a>
+            <button
+              type="button"
+              tabIndex="0"
+              className={`${styles.link} ${
+                router.pathname === '/trading' ? styles.active : ''
+              }`}
+            >
+              Stocks
+            </button>
+          </a>
+        </Link>
       </div>
     </div>
   );
