@@ -23,19 +23,17 @@ const NavBar = () => {
   useEffect(() => {
     const fetchData = async () => {
       await fetch(USER_DATA_URL, { credentials: 'include' })
-        .then((response) => {
-          if (response.status === 401) {
-            setIsLoggedIn(false);
-          }
-          return response.json();
-        })
+        .then((response) => response.json())
         .then((responseJson) => {
           if (responseJson.incompleteUserDetails) {
             return window.location.replace(
               'https://my.realdevsquad.com/signup'
             );
           }
-          setIsLoggedIn(true);
+          responseJson.statusCode === 401
+            ? setIsLoggedIn(false)
+            : setIsLoggedIn(true);
+
           setUserData({
             userName: responseJson.username,
             firstName: responseJson.first_name,
