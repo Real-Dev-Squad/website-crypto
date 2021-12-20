@@ -98,7 +98,7 @@
   background-color: #fff;
 }
 
-.githubLogo{
+.githubLogo {
   margin-left: 4px;
 }
 
@@ -122,7 +122,7 @@
 }
 
 .active {
-  color: #E30464;
+  color: #e30464;
 }
 
 @media screen and (max-width: 970px) {
