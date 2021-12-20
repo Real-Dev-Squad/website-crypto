@@ -1,7 +1,5 @@
 .wrapper {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 700;
-  font-size: 16px;
+  font: 700 16px 'Roboto', sans-serif;
   margin-bottom: 25px;
 }
 
