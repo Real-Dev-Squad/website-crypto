@@ -33,17 +33,17 @@
   padding: 14px 20px;
 }
 
-.navBarLogoLi a {
-  margin: 0px !important;
-  padding: 0px !important;
+.navBar li.navBarLogoLi a {
+  margin: 0px;
+  padding: 0px;
 }
 
-.navBarLoginLi {
-  float: right !important;
+.navBar li.navBarLoginLi {
+  float: right;
 }
 
-.navBarLoginLi a {
-  padding: 16px !important;
+.navBar li.navBarLoginLi a {
+  padding: 16px;
 }
 
 .navBarLogin,
@@ -79,11 +79,11 @@
   margin-right: 10px;
 }
 
-.activeTab {
-  color: #49a82e !important;
-  text-decoration: underline !important;
-  text-decoration-thickness: 3px !important;
-  text-underline-offset: 10px !important;
+.navBar li a.activeTab {
+  color: #49a82e;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 10px;
 }
 
 .hamburger {
@@ -170,8 +170,8 @@
     display: none;
   }
 
-  .activeTab {
-    text-decoration: none !important;
+  .navBar li a.activeTab {
+    text-decoration: none;
   }
 
   .navBar li {
