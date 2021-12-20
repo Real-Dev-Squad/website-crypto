@@ -7,6 +7,14 @@ const CURRENCIES = {
   NEELAM: 'neelam',
   DINERO: 'dinero',
 };
+const PATHS = {
+  HOME: 'https://www.realdevsquad.com',
+  WELCOME: 'https://welcome.realdevsquad.com/',
+  EVENTS: 'https://www.realdevsquad.com/events.html',
+  MEMBERS: 'https://members.realdevsquad.com/',
+  CRYPTO: 'https://crypto.realdevsquad.com/',
+  STATUS: 'https://status.realdevsquad.com/',
+};
 const LOGIN_URL =
   'https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97';
 export {
@@ -16,4 +24,5 @@ export {
   WALLET_URL,
   CURRENCIES,
   LOGIN_URL,
+  PATHS,
 };

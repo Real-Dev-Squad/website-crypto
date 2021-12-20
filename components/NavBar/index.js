@@ -4,7 +4,7 @@ import styles from './navbar.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
 import GenericClosePopUp from '../Close-popup/GenericClosePopUp';
-import { USER_DATA_URL, LOGIN_URL } from 'constants.js';
+import { USER_DATA_URL, LOGIN_URL, PATHS } from 'constants.js';
 
 const NavBar = () => {
   const router = useRouter();
@@ -112,7 +112,7 @@ const NavBar = () => {
           }
         >
           <li className={styles.navBarLogoLi}>
-            <Link href="https://www.realdevsquad.com/">
+            <Link href={PATHS.HOME}>
               <a>
                 <img
                   src={RDS_LOGO}
@@ -124,24 +124,24 @@ const NavBar = () => {
             </Link>
           </li>
           <li className={styles.homeTab}>
-            <Link href="https://www.realdevsquad.com/">Home</Link>
+            <Link href={PATHS.HOME}>Home</Link>
           </li>
           <li>
-            <Link href="https://welcome.realdevsquad.com/">Welcome</Link>
+            <Link href={PATHS.WELCOME}>Welcome</Link>
           </li>
           <li>
-            <Link href="https://www.realdevsquad.com/events.html">Events</Link>
+            <Link href={PATHS.EVENTS}>Events</Link>
           </li>
           <li>
-            <Link href="https://members.realdevsquad.com/">Members</Link>
+            <Link href={PATHS.MEMBERS}>Members</Link>
           </li>
           <li>
-            <Link href="https://crypto.realdevsquad.com/">
+            <Link href={PATHS.CRYPTO}>
               <a className={styles.activeTab}>Crypto</a>
             </Link>
           </li>
           <li>
-            <Link href="https://status.realdevsquad.com/">Status</Link>
+            <Link href={PATHS.STATUS}>Status</Link>
           </li>
           <li
             className={
