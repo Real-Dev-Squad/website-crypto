@@ -30,7 +30,7 @@
 }
 
 .navBarLogoLi {
-  padding: 14px 20px;
+  padding: 12px 20px;
 }
 
 .navBar li.navBarLogoLi a {
@@ -43,7 +43,7 @@
 }
 
 .navBar li.navBarLoginLi a {
-  padding: 16px;
+  padding: 12px;
 }
 
 .navBarLogin,

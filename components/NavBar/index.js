@@ -91,10 +91,7 @@ const NavBar = () => {
             }
           >
             <div className={styles.userGreetMsg}>
-              {isLoggedIn
-                ? `Hello, ${userData.firstName}
-              `
-                : `Hello, User!`}
+              {isLoggedIn ? `Hello, ${userData.firstName}!` : `Hello, User!`}
             </div>
             <img
               className={styles.userProfilePic}
@@ -178,10 +175,7 @@ const NavBar = () => {
               }
             >
               <div className={styles.userGreetMsg}>
-                {isLoggedIn
-                  ? `Hello, ${userData.firstName}
-              `
-                  : `Hello, User!`}
+                {isLoggedIn ? `Hello, ${userData.firstName}!` : `Hello, User!`}
               </div>
               <img
                 className={styles.userProfilePic}
