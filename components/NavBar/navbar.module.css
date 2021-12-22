@@ -62,7 +62,7 @@
 
 .userGreet {
   color: #ffffff;
-  margin: 25px;
+  margin: 23px;
 }
 
 .userProfilePic {
@@ -153,8 +153,6 @@
     padding: 10px 40px;
     text-align: left;
     color: #1d1283;
-    text-decoration: none;
-    display: block;
   }
 
   .navBarLogin {
