@@ -11,6 +11,7 @@ const NavBar = () => {
 
   const RDS_LOGO = '/assets/Real-Dev-Squad1x.png';
   const GITHUB_LOGO = '/assets/github.png';
+  const DEFAULT_AVATAR = '/assets/default_avatar.jpg';
   const [userData, setUserData] = useState({});
   const [toggle, setToggle] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -98,8 +99,9 @@ const NavBar = () => {
               src={
                 isLoggedIn
                   ? `https://raw.githubusercontent.com/Real-Dev-Squad/website-static/main/members/${userData.userName}/img.png`
-                  : ``
+                  : `${DEFAULT_AVATAR}`
               }
+              alt="Profile Picture"
             />
           </div>
         </div>
@@ -182,8 +184,9 @@ const NavBar = () => {
                 src={
                   isLoggedIn
                     ? `https://raw.githubusercontent.com/Real-Dev-Squad/website-static/main/members/${userData.userName}/img.png`
-                    : ``
+                    : `${DEFAULT_AVATAR}`
                 }
+                alt="Profile Picture"
               />
             </div>
           </li>
