@@ -42,8 +42,9 @@
   float: right;
 }
 
-.navBar li.navBarLoginLi a {
-  padding: 12px;
+.navBar li.navBarLoginLi .btnLogin {
+  padding: 0px;
+  margin: 22px;
 }
 
 .navBarLogin,
@@ -63,6 +64,10 @@
 .userGreet {
   color: #ffffff;
   margin: 23px;
+}
+
+.navBarLoginLi .userGreet a{
+  padding: 0px;
 }
 
 .userProfilePic {

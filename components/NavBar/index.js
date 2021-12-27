@@ -4,7 +4,12 @@ import styles from './navbar.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
 import GenericClosePopUp from '../Close-popup/GenericClosePopUp';
-import { USER_DATA_URL, LOGIN_URL, PATHS } from 'constants.js';
+import {
+  USER_DATA_URL,
+  LOGIN_URL,
+  USER_PROFILE_URL,
+  PATHS,
+} from 'constants.js';
 
 const NavBar = () => {
   const router = useRouter();
@@ -24,17 +29,20 @@ const NavBar = () => {
   useEffect(() => {
     const fetchData = async () => {
       await fetch(USER_DATA_URL, { credentials: 'include' })
-        .then((response) => response.json())
+        .then((response) => {
+          if (!response.ok) {
+            setIsLoggedIn(false);
+            throw new Error(`${response.status} (${response.statusText})`);
+          }
+          return response.json();
+        })
         .then((responseJson) => {
           if (responseJson.incompleteUserDetails) {
             return window.location.replace(
               'https://my.realdevsquad.com/signup'
             );
           }
-          responseJson.statusCode === 401
-            ? setIsLoggedIn(false)
-            : setIsLoggedIn(true);
-
+          setIsLoggedIn(true);
           setUserData({
             userName: responseJson.username,
             firstName: responseJson.first_name,
@@ -91,18 +99,24 @@ const NavBar = () => {
               isLoggedIn ? `${styles.userGreet}` : `${styles.userGreet} d-none`
             }
           >
-            <div className={styles.userGreetMsg}>
-              {isLoggedIn ? `Hello, ${userData.firstName}!` : `Hello, User!`}
-            </div>
-            <img
-              className={styles.userProfilePic}
-              src={
-                isLoggedIn
-                  ? `https://raw.githubusercontent.com/Real-Dev-Squad/website-static/main/members/${userData.userName}/img.png`
-                  : `${DEFAULT_AVATAR}`
-              }
-              alt="Profile Picture"
-            />
+            <Link href={USER_PROFILE_URL}>
+              <a>
+                <div className={styles.userGreetMsg}>
+                  {isLoggedIn
+                    ? `Hello, ${userData.firstName}!`
+                    : `Hello, User!`}
+                </div>
+                <img
+                  className={styles.userProfilePic}
+                  src={
+                    isLoggedIn
+                      ? `https://raw.githubusercontent.com/Real-Dev-Squad/website-static/main/members/${userData.userName}/img.png`
+                      : `${DEFAULT_AVATAR}`
+                  }
+                  alt="Profile Picture"
+                />
+              </a>
+            </Link>
           </div>
         </div>
         <ul
@@ -176,18 +190,24 @@ const NavBar = () => {
                   : `${styles.userGreet} d-none`
               }
             >
-              <div className={styles.userGreetMsg}>
-                {isLoggedIn ? `Hello, ${userData.firstName}!` : `Hello, User!`}
-              </div>
-              <img
-                className={styles.userProfilePic}
-                src={
-                  isLoggedIn
-                    ? `https://raw.githubusercontent.com/Real-Dev-Squad/website-static/main/members/${userData.userName}/img.png`
-                    : `${DEFAULT_AVATAR}`
-                }
-                alt="Profile Picture"
-              />
+              <Link href={USER_PROFILE_URL}>
+                <a>
+                  <div className={styles.userGreetMsg}>
+                    {isLoggedIn
+                      ? `Hello, ${userData.firstName}!`
+                      : `Hello, User!`}
+                  </div>
+                  <img
+                    className={styles.userProfilePic}
+                    src={
+                      isLoggedIn
+                        ? `https://raw.githubusercontent.com/Real-Dev-Squad/website-static/main/members/${userData.userName}/img.png`
+                        : `${DEFAULT_AVATAR}`
+                    }
+                    alt="Profile Picture"
+                  />
+                </a>
+              </Link>
             </div>
           </li>
         </ul>
