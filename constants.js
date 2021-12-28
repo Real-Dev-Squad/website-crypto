@@ -14,10 +14,10 @@ const PATHS = {
   MEMBERS: 'https://members.realdevsquad.com/',
   CRYPTO: 'https://crypto.realdevsquad.com/',
   STATUS: 'https://status.realdevsquad.com/',
+  PROFILE: 'https://my.realdevsquad.com/',
 };
 const LOGIN_URL =
   'https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97';
-const USER_PROFILE_URL = 'https://my.realdevsquad.com/profile';
 export {
   BASE_IMAGE_URL,
   BASE_API_URL,
@@ -25,6 +25,5 @@ export {
   WALLET_URL,
   CURRENCIES,
   LOGIN_URL,
-  USER_PROFILE_URL,
   PATHS,
 };

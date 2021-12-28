@@ -4,12 +4,7 @@ import styles from './navbar.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
 import GenericClosePopUp from '../Close-popup/GenericClosePopUp';
-import {
-  USER_DATA_URL,
-  LOGIN_URL,
-  USER_PROFILE_URL,
-  PATHS,
-} from 'constants.js';
+import { USER_DATA_URL, LOGIN_URL, PATHS } from 'constants.js';
 
 const NavBar = () => {
   const router = useRouter();
@@ -99,7 +94,7 @@ const NavBar = () => {
               isLoggedIn ? `${styles.userGreet}` : `${styles.userGreet} d-none`
             }
           >
-            <Link href={USER_PROFILE_URL}>
+            <Link href={PATHS.PROFILE}>
               <a>
                 <div className={styles.userGreetMsg}>
                   {isLoggedIn
@@ -190,7 +185,7 @@ const NavBar = () => {
                   : `${styles.userGreet} d-none`
               }
             >
-              <Link href={USER_PROFILE_URL}>
+              <Link href={PATHS.PROFILE}>
                 <a>
                   <div className={styles.userGreetMsg}>
                     {isLoggedIn
