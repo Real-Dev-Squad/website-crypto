@@ -9,13 +9,41 @@ const CURRENCIES = {
 };
 const PATHS = {
   HOME: 'https://www.realdevsquad.com',
-  WELCOME: 'https://welcome.realdevsquad.com/',
-  EVENTS: 'https://www.realdevsquad.com/events.html',
-  MEMBERS: 'https://members.realdevsquad.com/',
-  CRYPTO: 'https://crypto.realdevsquad.com/',
-  STATUS: 'https://status.realdevsquad.com/',
   PROFILE: 'https://my.realdevsquad.com/',
 };
+const NAV_MENU = [
+  {
+    name: 'Home',
+    url: 'https://www.realdevsquad.com/',
+    isActive: false,
+  },
+  {
+    name: 'Welcome',
+    url: 'https://welcome.realdevsquad.com/',
+    isActive: false,
+  },
+  {
+    name: 'Events',
+    url: 'http://realdevsquad.com/events.html',
+    isActive: false,
+  },
+  {
+    name: 'Members',
+    url: 'https://members.realdevsquad.com/',
+    isActive: false,
+  },
+  {
+    name: 'Crypto',
+    url: 'https://crypto.realdevsquad.com/',
+    isActive: true,
+  },
+  {
+    name: 'Status',
+    url: 'https://status.realdevsquad.com/',
+    isActive: false,
+  },
+];
+
 const LOGIN_URL =
   'https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97';
 export {
@@ -26,4 +54,5 @@ export {
   CURRENCIES,
   LOGIN_URL,
   PATHS,
+  NAV_MENU,
 };
