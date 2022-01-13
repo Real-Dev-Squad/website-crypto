@@ -122,11 +122,11 @@ const NavBar = () => {
               </a>
             </Link>
           </li>
-          {NAV_MENU.map((navTab) => {
+          {NAV_MENU.map((navTab, index) => {
             return (
               <li
                 className={navTab.name === 'Home' ? `${styles.homeTab}` : ``}
-                key
+                key={index}
               >
                 <Link href={navTab.url}>
                   <a className={navTab.isActive ? `${styles.activeTab}` : ``}>
