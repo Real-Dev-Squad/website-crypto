@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useLayoutEffect } from 'react';
 import { useRouter } from 'next/router';
 import styles from './navbar.module.css';
 import Link from 'next/link';
@@ -15,13 +15,12 @@ const NavBar = () => {
   const [userData, setUserData] = useState({});
   const [toggle, setToggle] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [mountedComponent, setMountedComponent] = useState(false);
   const navbarRef = useRef();
   GenericClosePopUp(navbarRef, () => {
     setToggle(false);
   });
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const fetchData = async () => {
       await fetch(USER_DATA_URL, { credentials: 'include' })
         .then((response) => {
@@ -47,7 +46,6 @@ const NavBar = () => {
         .catch((err) => {
           console.error(err);
         });
-      setMountedComponent(true);
     };
 
     fetchData();
@@ -65,13 +63,7 @@ const NavBar = () => {
           <span className={styles.bar}></span>
           <span className={styles.bar}></span>
         </div>
-        <div
-          className={
-            mountedComponent
-              ? `${styles.navBarLogin}`
-              : `${styles.navBarLogin} d-none`
-          }
-        >
+        <div className={`${styles.navBarLogin} ${isLoggedIn ? '' : 'd-none'}`}>
           <Link href={LOGIN_URL}>
             <a className={`${styles.btnLogin} ${isLoggedIn ? 'd-none' : ''}`}>
               <button className={styles.btnLoginText}>
@@ -137,9 +129,7 @@ const NavBar = () => {
             );
           })}
           <li
-            className={`${styles.navBarLoginLi} ${
-              mountedComponent ? '' : 'd-none'
-            }`}
+            className={`${styles.navBarLoginLi} ${isLoggedIn ? '' : 'd-none'}`}
           >
             <Link href={LOGIN_URL}>
               <a className={`${styles.btnLogin} ${isLoggedIn ? 'd-none' : ''}`}>
