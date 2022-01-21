@@ -38,9 +38,7 @@ const NavBar = () => {
           setUserData({
             userName: responseJson.username,
             firstName: responseJson.first_name,
-            profilePicture: responseJson.picture
-              ? responseJson.picture.url
-              : DEFAULT_AVATAR,
+            profilePicture: responseJson.picture?.url ?? DEFAULT_AVATAR,
           });
         })
         .catch((err) => {
