@@ -53,6 +53,7 @@
 }
 
 .btnLoginText {
+  display: flex;
   border-radius: 6px;
   padding: 5px;
   background-color: #1d1283;

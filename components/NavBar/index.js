@@ -4,7 +4,7 @@ import styles from './navbar.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
 import GenericClosePopUp from '../Close-popup/GenericClosePopUp';
-import { USER_DATA_URL, LOGIN_URL, PATHS } from 'constants.js';
+import { USER_DATA_URL, LOGIN_URL, PATHS, NAV_MENU } from 'constants.js';
 
 const NavBar = () => {
   const router = useRouter();
@@ -33,14 +33,13 @@ const NavBar = () => {
         })
         .then((responseJson) => {
           if (responseJson.incompleteUserDetails) {
-            return window.location.replace(
-              'https://my.realdevsquad.com/signup'
-            );
+            window.open('https://my.realdevsquad.com/signup', '_blank');
           }
           setIsLoggedIn(true);
           setUserData({
             userName: responseJson.username,
             firstName: responseJson.first_name,
+            profilePicture: responseJson.picture?.url ?? DEFAULT_AVATAR,
           });
         })
         .catch((err) => {
@@ -65,18 +64,12 @@ const NavBar = () => {
           <span className={styles.bar}></span>
         </div>
         <div
-          className={
-            mountedComponent
-              ? `${styles.navBarLogin}`
-              : `${styles.navBarLogin} d-none`
-          }
+          className={`${styles.navBarLogin} ${
+            mountedComponent ? '' : 'd-none'
+          }`}
         >
           <Link href={LOGIN_URL}>
-            <a
-              className={
-                isLoggedIn ? `${styles.btnLogin} d-none` : `${styles.btnLogin}`
-              }
-            >
+            <a className={`${styles.btnLogin} ${isLoggedIn ? 'd-none' : ''}`}>
               <button className={styles.btnLoginText}>
                 Sign In
                 <img
@@ -89,23 +82,17 @@ const NavBar = () => {
               </button>
             </a>
           </Link>
-          <div
-            className={
-              isLoggedIn ? `${styles.userGreet}` : `${styles.userGreet} d-none`
-            }
-          >
+          <div className={`${styles.userGreet} ${isLoggedIn ? '' : 'd-none'}`}>
             <Link href={PATHS.PROFILE}>
               <a>
                 <div className={styles.userGreetMsg}>
-                  {isLoggedIn
-                    ? `Hello, ${userData.firstName}!`
-                    : `Hello, User!`}
+                  {`Hello ${isLoggedIn ? `${userData.firstName}` : 'User'}!`}
                 </div>
                 <img
                   className={styles.userProfilePic}
                   src={
                     isLoggedIn
-                      ? `https://raw.githubusercontent.com/Real-Dev-Squad/website-static/main/members/${userData.userName}/img.png`
+                      ? `${userData.profilePicture}`
                       : `${DEFAULT_AVATAR}`
                   }
                   alt="Profile Picture"
@@ -131,41 +118,27 @@ const NavBar = () => {
               </a>
             </Link>
           </li>
-          <li className={styles.homeTab}>
-            <Link href={PATHS.HOME}>Home</Link>
-          </li>
-          <li>
-            <Link href={PATHS.WELCOME}>Welcome</Link>
-          </li>
-          <li>
-            <Link href={PATHS.EVENTS}>Events</Link>
-          </li>
-          <li>
-            <Link href={PATHS.MEMBERS}>Members</Link>
-          </li>
-          <li>
-            <Link href={PATHS.CRYPTO}>
-              <a className={styles.activeTab}>Crypto</a>
-            </Link>
-          </li>
-          <li>
-            <Link href={PATHS.STATUS}>Status</Link>
-          </li>
+          {NAV_MENU.map((navTab, index) => {
+            return (
+              <li
+                className={navTab.name === 'Home' ? `${styles.homeTab}` : ``}
+                key={index}
+              >
+                <Link href={navTab.url}>
+                  <a className={navTab.isActive ? `${styles.activeTab}` : ``}>
+                    {navTab.name}
+                  </a>
+                </Link>
+              </li>
+            );
+          })}
           <li
-            className={
-              mountedComponent
-                ? `${styles.navBarLoginLi}`
-                : `${styles.navBarLoginLi} d-none`
-            }
+            className={`${styles.navBarLoginLi} ${
+              mountedComponent ? '' : 'd-none'
+            }`}
           >
             <Link href={LOGIN_URL}>
-              <a
-                className={
-                  isLoggedIn
-                    ? `${styles.btnLogin} d-none`
-                    : `${styles.btnLogin}`
-                }
-              >
+              <a className={`${styles.btnLogin} ${isLoggedIn ? 'd-none' : ''}`}>
                 <button className={styles.btnLoginText}>
                   Sign In With GitHub
                   <img
@@ -179,24 +152,18 @@ const NavBar = () => {
               </a>
             </Link>
             <div
-              className={
-                isLoggedIn
-                  ? `${styles.userGreet}`
-                  : `${styles.userGreet} d-none`
-              }
+              className={`${styles.userGreet} ${isLoggedIn ? '' : 'd-none'}`}
             >
               <Link href={PATHS.PROFILE}>
                 <a>
                   <div className={styles.userGreetMsg}>
-                    {isLoggedIn
-                      ? `Hello, ${userData.firstName}!`
-                      : `Hello, User!`}
+                    {`Hello ${isLoggedIn ? `${userData.firstName}` : 'User'}!`}
                   </div>
                   <img
                     className={styles.userProfilePic}
                     src={
                       isLoggedIn
-                        ? `https://raw.githubusercontent.com/Real-Dev-Squad/website-static/main/members/${userData.userName}/img.png`
+                        ? `${userData.profilePicture}`
                         : `${DEFAULT_AVATAR}`
                     }
                     alt="Profile Picture"

@@ -4,7 +4,7 @@
       "commonjs": true,
       "es6": true,
       "node": true,
-      "jest": true,
+      "jest": true
     },
     "plugins": [
       "react",
@@ -15,7 +15,7 @@
     "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:prettier/recommended"],
     "parserOptions": {
       "sourceType": "module",
-      "ecmaVersion": 2018
+      "ecmaVersion": 12
     },
     "settings": {
       "react": {
