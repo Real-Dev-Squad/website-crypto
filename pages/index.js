@@ -19,6 +19,7 @@ export default function Home() {
         <title>Bank Dashboard</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <NavBar personData={personData} />
       <main className={styles.mainBody}>
         <div className={styles.leftSection}>
           <div className={styles.homeUser}>
