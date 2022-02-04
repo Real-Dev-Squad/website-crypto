@@ -153,9 +153,7 @@ Once we're in our branch, we **rebase** our branch on top of the current develop
 ```
 git rebase develop
 ```
-
 You should solve the merge conflicts, if any.
-```
 
 8. **Pushing your code**
 
