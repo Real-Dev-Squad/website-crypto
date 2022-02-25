@@ -19,6 +19,8 @@ export const lightTheme = {
   colorChartBackground: 'white',
   colorChartBorder: 'white',
   colorStockText: '#540075',
+  colorNavbarLink: '#041484',
+  colorActiveLink: '#e30464',
 };
 export const darkTheme = {
   colorBackgroundLight: '#27262D',
@@ -41,4 +43,6 @@ export const darkTheme = {
   colorChartBackground: '#241212',
   colorChartBorder: '#34383a',
   colorStockText: '#cf56ff',
+  colorNavbarLink: '#7eb2fb',
+  colorActiveLink: '#fb2e86',
 };

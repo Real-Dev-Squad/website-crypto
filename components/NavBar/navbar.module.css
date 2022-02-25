@@ -29,8 +29,9 @@
   background-color: #1d1283;
 }
 .darkTheme {
+  padding: 19px 16px;
+  margin: 10px;
   display: none;
-  padding: 14px 16px;
 }
 
 .navBarLogoLi {
@@ -125,14 +126,14 @@
   margin-top: 2px;
   text-decoration: none;
   font-weight: bold;
-  color: #041484;
+  color: var(--colorNavbarLink);
   cursor: pointer;
   background: none;
   border: none;
 }
 
 .active {
-  color: #e30464;
+  color: var(--colorActiveLink);
 }
 
 @media screen and (max-width: 970px) {
