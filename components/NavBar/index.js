@@ -135,9 +135,9 @@ const NavBar = () => {
               </li>
             );
           })}
-          <div className={styles.darkTheme}>
+          <li className={styles.darkTheme}>
             <DarkThemeIcon theme={theme} themeToggleHandler={themeToggler} />
-          </div>
+          </li>
           <li
             className={`${styles.navBarLoginLi} ${
               mountedComponent ? '' : 'd-none'
