@@ -67,3 +67,6 @@ footer a {
   min-height: 92vh;
   padding-bottom: 50px;
 }
+.d-none {
+  display: none !important;
+}
