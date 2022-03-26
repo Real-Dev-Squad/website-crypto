@@ -1,8 +1,10 @@
-# How can I contribute?
+# HOW CAN I CONTRIBUTE TO THE PROJECT?
 
-- You can style the pages using CSS.
-- If you find a bug anywhere, you can fix it.
-- You can add a feature once you get approval from the community.
+- Check out Real-Dev-Squad on github. You will find many repositories there(e.g. website-crypto, website-my etc.)
+- Click on any repository. You will find [issues](https://github.com/Real-Dev-Squad/website-crypto/issues) there. Clicking on assignee and filter by selecting **Assigned to nobody**
+- **Comment** on the issue that you would like to get assigned to you. (Remember: Do not work on issues assigned to someone else and do not work on any issue without having it assigned to you.)
+- Create issue if you see any bug and then once you get approved from the admins, you can assign yourself and start working on it.
+
 
 # File Structure
 
@@ -43,7 +45,11 @@
 ├── package.json
 ```
 
-# How can you make your first **Pull Request**
+# How can you make a **Pull Request** (PR)
+
+If you get an issue assigned to you, consider following steps mentioned below.
+
+**Note**: Steps 1, 2 and 3 are **one-time** steps required for setup. If you have already cloned the repo and added upstream, consider following this documentation from step 4.
 
 1. **Forking repository**
 
@@ -59,6 +65,12 @@ Clone your forked repository, this will download your copy of repository in your
 git clone <link which you copied in the step 1>
 ```
 
+Once you have cloned the repository, now you should go into the folder containing the repository. You can do that with:
+
+```
+cd website-crypto
+```
+
 3. **Adding remote repository**
 
 Add the original repository as a remote repository, so that you can anytime pull the latest changes from the main repository which is being deployed. This needs to be done only for the first time.
@@ -67,31 +79,45 @@ Add the original repository as a remote repository, so that you can anytime pull
 git remote add upstream https://github.com/Real-Dev-Squad/website-crypto/
 ```
 
-To make sure you always have the latest copy of the main repository before starting with your changes, execute the following command:
-
-```
-git pull upstream main
-```
-
 4. **Creating a branch**
 
-Create a new branch to work on. We require a different branch so that we always have a stable, working version in the default (main) branch.
+If it's been quite a while after you have cloned the repo/made the last pull request, it's recommended to take a pull from the develop branch. Reason being, there may be some changes which could have merged after you had cloned the repo/made the last pull request.
+
+To do so, make sure you're in the develop branch by checking out to the **develop** branch:
+
+```
+git checkout develop
+```
+
+Once you're in the **develop** branch, it's time to take a pull:
+
+```
+git pull upstream develop
+```
+
+Now that you've made sure that you've got latest changes, we can proceed to creating our branch
+
+5. **Creating a new branch**
+
+Let's create a new branch to work on. We require a different branch so that we always have a stable, working version in the default (develop) branch. We're not supposed to touch the **main** branch as it is the one getting deployed on production.
 
 ```
 git checkout -b <branch-name>
 ```
 
-For example, if I want to name my branch as **develop**, I'll enter the following command:
+We will try to name the branch according to the task we are going to perform in it. If it is going to be a `feature`, the branch name should begin with `feat` or `feature`. If it is going to be a `fix`, the branch name should begin with `fix` or `bugfix`. The branch name should be self-explanatory.
+For example, if I want to work on a `feature` called `login-form`, the branch name will be **feature/login-form**. If it is going to be a `fix` in `navbar`, the branch name will be `fix/navbar`.
+Command example:
 
 ```
-git checkout -b develop
+git checkout -b feature/login-form
 ```
 
-5. **Just do it!**
+6. **Just do it!**
 
 Perform the tasks you wanted to, can be anything, ranging from fixing simple typo to re-designing the whole page!
 
-6. **Committing your changes**
+7. **Committing your changes**
 
 Now you have made the changes, though they are saved in your system, Git doesn't know what changes you've done. So you have to **commit** your changes. First step is to add the files which you want to add to the staging area, the dot after **add** in the first command tells Git to check for changes in all the files. The second step is about committing your changes. The message part is short description of your commit, like "merge branch".
 
@@ -100,31 +126,34 @@ git add .
 git commit -m "Write message about your commit"
 ```
 
-7. **Merging your branch into main branch**
+8. **Making sure you have the latest changes from the develop branch**
 
-Now your branch (develop, in my case) has the changes you made, once you're sure that your code is stable, it's time to merge the changes into the main branch of your local machine. The following command takes you to the main branch:
+It may so happen that since the last time you cloned the repo/took a pull from develop, some changes may be merged in the develop branch. So to be on the safer side, we should have those changes as well.
 
-```
-git checkout main
-```
-
-It's recommended that you have the latest copy of the original repo into your main before you merge your changes into it. So pull the latest changes again:
+In order to do that, we first checkout to **develop** branch by:
 
 ```
-git pull upstream main
+git checkout develop
 ```
 
-Now you can merge your branch into the main branch.
+Once we're in develop, it's time to take a pull:
 
 ```
-git merge <branch-name>
+git pull upstream develop
 ```
 
-For example, if the branch name is develop:
+Now that our **local** develop branch is in sync with **remote** develop branch (of the Real Dev Squad Repository), we should let our branch know about the changes from the develop branch (if any). To do so we first checkout to our branch:
 
 ```
-git merge develop
+git checkout <branch-name>
 ```
+
+Once we're in our branch, we **rebase** our branch on top of the current develop branch (we change the base of our branch, so that it appears as if we have worked from the time the latest changes were merged in the develop branch). To do so:
+
+```
+git rebase develop
+```
+You should solve the merge conflicts, if any.
 
 8. **Pushing your code**
 
@@ -136,12 +165,41 @@ git push origin
 
 9. **Pull request**
 
-Now go to your forked repository and you'll see that **This branch is xx commits ahead of Real-Dev-Squad:main.** Right next to it will be an option to **Pull Request**. Click on it, submit your pull request (also known as _PR_) explaining what you've done.
+Now that we have made our changes plus we have the latest changes made by other contributors, we should push our code from **local** branch to the same branch on our **GitHub fork**. We do so by:
+
+```
+git push origin <branch-name>
+```
+
+For example, if the branch name is `feat/login-form`, we enter `git push origin feat/login-form`
+
+The **origin** refers to your GitHub fork. You can check it by entering `git remote -v`, you should the link to your fork against **origin**.
+
+10. **Making a pull request**
+
+Your GitHub fork now has the changes, but you want those changes to be merged in the Real Dev Squad repository, right? There's a twist, you can't directly merge your code in the Real Dev Squad. Imagine you own a company whose code is open sourced, would you like if anyone could code make changes in the directly without asking you? For the same reason, **Pull Requests** exist. You `request` the repository maintainers/admins to `pull` your code in their repository.
+
+To make a pull request, go to your **forked repository** and you'll see **<branch-name> had recent pushes less than a minute ago** . Right next to it will be an option to **Compare & pull request**. Click on it, submit your pull request (also known as _PR_) explaining what you've done. Again, the PR title should be self-explanatory but concise. If you want to write details, you can add it in the description. If you're making some UI (User Interface) changes, please make sure to add a short screen recording. If that's not possible, at least add some screenshots.
 
 ![how-to-open-pull-request](https://i.imgur.com/NMAeWc2.png)
 
-10. **Review stage**
+**Before making a pull request**
 
-Wait for it to get reviewed, make the changes required (if any) , commit your changes and hit **Pull Request** again, your commits will be added to the same pull request you had opened earlier (if it is NOT closed).
+If an issue doesn't exist for a while..
+
+- Talk to your AO and decide whether an issue should be created🤔
+
+Otherwise make sure that the below points are chekced! ⬇
+
+- Changes running locally ✅
+- PR is linked to an issue. ✅
+- Description in your PR to make your reviewer's life easy.😌
+- Screenshot(s) of UI changes attached if required ✅
+- Reviewers and Assignees added to PR/Issue ✅
+- Labels added (makes it easy to filter PRs and they're very beautiful) ✅
+
+All the above points make the PRs and issues easier to maintain, so make sure each one of them is checked! ✅✅
+
+Now the maintainers/admins will review your pull request. They might suggest some changes if required. You should then make the required changes in the **same branch**, commit them and push your changes to the **same branch** (follow the steps 8, 9 and 10 for the same).
 
 11. **Congratulations on making your first Pull Request! 🎉**
