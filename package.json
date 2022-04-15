@@ -24,6 +24,7 @@
     "next": "^10.2.3",
     "next-redux-wrapper": "^6.0.2",
     "path-browserify": "^1.0.1",
+    "postcss": "8",
     "prop-types": "^15.8.1",
     "react": "17.0.1",
     "react-chartjs-2": "2.11.1",
