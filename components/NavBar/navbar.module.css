@@ -187,6 +187,10 @@
     float: none;
   }
 
+  .darkTheme {
+    padding: 10px 40px;
+  }
+
   .mainBanner,
   .logoImg {
     margin-top: 40px;
