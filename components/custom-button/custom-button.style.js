@@ -47,7 +47,7 @@ const selectButton = (props) => {
 
   return props.inverted ? InvertedButtonStles : BaseButtonStyles;
 };
-// console.log(selectButton(props));
+
 export const CustomButtonContainer = styled.button`
   border-radius: 6px;
   cursor: pointer;
