@@ -27,6 +27,11 @@ Visit our site at https://crypto.realdevsquad.com
 - `cd website-crypto`
 - `npm install`
 
+## Installation 0.1 
+[Why Volta?](https://docs.volta.sh/guide/#why-volta)
+
+To install Volta, please follow the [process](https://docs.volta.sh/guide/getting-started)
+
 ## Running/Development
 
 Setup `dev.realdevsquad.com` for development by following the instructions here - [Avoiding CORS during development](https://github.com/Real-Dev-Squad/docs/tree/main/docs/dev/https-dev-url-cors)
@@ -35,5 +40,6 @@ Setup `dev.realdevsquad.com` for development by following the instructions here 
 - Visit your app at https://dev.realdevsquad.com.
 - To build: `npm run build`
 - To serve the production build: `npm run start`
+
 
 
