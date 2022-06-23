@@ -50,7 +50,7 @@
   .label {
     font-weight: bold;
     margin: 0.5rem 0;
-    color: var(--colorStockLablel);
+    color: var(--colorStockLabel);
   }
   
   .select {
