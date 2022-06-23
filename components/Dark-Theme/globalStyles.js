@@ -3,13 +3,13 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyles = createGlobalStyle`
   :root{
   ${({ theme }) => {
-    let s = ``;
-    for (var prop in theme) {
-      if (prop in theme) {
-        s += `--${prop}: ${theme[prop]};`;
+    let style = ``;
+    for (const variableName in theme) {
+      if (variableName in theme) {
+        style += `--${variableName}: ${theme[variableName]};`;
       }
     }
-    return s;
+    return style;
   }}
   }
   body{
