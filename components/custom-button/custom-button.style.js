@@ -18,14 +18,14 @@ const InvertedButtonStles = css`
 
 const primaryStyle = css`
   -webkit-transition: background 0.2s; /* For Safari 3.0 to 6.0 */
-  background-color: #ee1a75; /* For modern browsers */
-  border: 1px solid white;
+  background-color: var(--colorButtonPink); /* For modern browsers */
+  border: 1px solid var(--colorButtonBorder);
   color: white;
   transition: background 0.2s;
   &:hover {
-    background: white;
-    border: 1px solid #ee1a75;
-    color: #ee1a75;
+    background: var(--colorBackgroundLight);
+    border: 1px solid var(--colorButtonPink);
+    color: var(--colorButtonPink);
   }
 `;
 const BaseButtonStyles = css`
@@ -47,6 +47,7 @@ const selectButton = (props) => {
 
   return props.inverted ? InvertedButtonStles : BaseButtonStyles;
 };
+
 export const CustomButtonContainer = styled.button`
   border-radius: 6px;
   cursor: pointer;

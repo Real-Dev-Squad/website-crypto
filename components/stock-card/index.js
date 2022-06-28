@@ -63,7 +63,7 @@ export const Card = ({ stock, operationType }) => {
             min-width: 300px;
             border-radius: 4px;
             transition: 0.2s;
-            background: #ffffff;
+            background: var(--colorBackgroundMedium);
           }
           .stock-card:hover {
             box-shadow: 0px 4px 10px #ccc;
@@ -77,13 +77,13 @@ export const Card = ({ stock, operationType }) => {
             text-align: center;
             width: 100%;
             padding: 1rem;
-            background-color: #ffffff;
+            background-color: var(--colorBackgroundMedium);
           }
 
           .stock-card-product-name {
             font-weight: bold;
             font-size: 1.3em;
-            color: #540075;
+            color: var(--colorStockText);
           }
           p {
             margin-block-start: 0.5rem;
@@ -96,7 +96,7 @@ export const Card = ({ stock, operationType }) => {
           }
           .stock-card-product-quantity {
             font-size: 1.3em;
-            color: #540075;
+            color: var(--colorStockText);
           }
         `}
       </style>

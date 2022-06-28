@@ -2,7 +2,7 @@
   font-weight: 500;
   display: flex;
   justify-content: space-between;
-  background-color: aliceblue;
+  background-color: var(--colorExchangeBackground);
   margin: 5px;
   padding: 5px;
   border-radius: 6px;

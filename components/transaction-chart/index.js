@@ -38,7 +38,7 @@ function getDataset(transactionData) {
   };
 }
 
-const TransactionChart = ({ transactionChartData }) => {
+const TransactionChart = ({ transactionChartData, theme }) => {
   const [chartData, setChartData] = useState({});
   useEffect(() => {
     const chart = () => {
@@ -62,6 +62,7 @@ const TransactionChart = ({ transactionChartData }) => {
               {
                 ticks: {
                   autoSkip: true,
+                  fontColor: theme === 'light' ? '#666' : '#fff',
                 },
                 gridLines: {
                   display: true,
@@ -70,6 +71,9 @@ const TransactionChart = ({ transactionChartData }) => {
             ],
             xAxes: [
               {
+                ticks: {
+                  fontColor: theme === 'light' ? '#666' : '#fff',
+                },
                 gridLines: {
                   display: true,
                 },

@@ -4,6 +4,8 @@ import styles from './navbar.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
 import GenericClosePopUp from '../Close-popup/GenericClosePopUp';
+import DarkThemeIcon from '../dark-theme-icon/index';
+import { useDarkModeContext } from 'stores/dark-mode-context';
 import { USER_DATA_URL, LOGIN_URL, PATHS, NAV_MENU } from 'constants.js';
 
 const NavBar = () => {
@@ -12,6 +14,7 @@ const NavBar = () => {
   const RDS_LOGO = '/assets/Real-Dev-Squad1x.png';
   const GITHUB_LOGO = '/assets/github.png';
   const DEFAULT_AVATAR = '/assets/default_avatar.jpg';
+  const [theme, themeData, themeToggler] = useDarkModeContext();
   const [userData, setUserData] = useState({});
   const [toggle, setToggle] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -132,6 +135,9 @@ const NavBar = () => {
               </li>
             );
           })}
+          <li className={styles.darkTheme}>
+            <DarkThemeIcon theme={theme} themeToggleHandler={themeToggler} />
+          </li>
           <li
             className={`${styles.navBarLoginLi} ${
               mountedComponent ? '' : 'd-none'

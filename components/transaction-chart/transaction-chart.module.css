@@ -2,8 +2,8 @@
   display: flex;
   justify-content: center;
   width: calc(50em/2);
-  background-color: #fdfbfb;
-  border: 1px solid #f4f1f1;
+  background-color: var(--colorChartBackground);
+  border: 1px solid var(--colorChartBorder);
   cursor: pointer;
   font-size: 20px;
 }

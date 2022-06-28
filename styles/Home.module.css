@@ -24,20 +24,20 @@
   width: 7rem;
 }
 .greenButton {
-  background-color: #2ecc71;
+  background-color: var(--colorButtonGreen);
   text-align: center;
   border: none;
 }
 .redButton {
-  background-color: #ff3838;
+  background-color: var(--colorButtonRed);
   text-align: center;
   border: none;
 }
 .card {
-  border: 1px solid #f4f4f4;
+  border: 1px solid var(--colorCardBorder);
   border-radius: 5px;
   padding: 1px;
-  background: white;
+  background: var(--colorBackgroundLight);
   font-size: 20px;
   margin-top: 10px;
 }
@@ -79,7 +79,7 @@
   margin: 0;
   padding: 1rem;
   display: block;
-  color:#540075;
+  color: var(--colorStockText);
   font-weight: bold;
   font-size: 1.2rem;
   cursor: pointer;
