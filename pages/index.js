@@ -12,6 +12,7 @@ import TransactionOperationModal from '@components/transaction-operation-modal';
 import NavBar from '@components/NavBar';
 import CustomButton from 'components/custom-button';
 import { useRouter } from 'next/router';
+import Widget from '@components/widget/Widget';
 export default function Home() {
   const router = useRouter();
   return (
@@ -27,6 +28,10 @@ export default function Home() {
             <CoinsStatus coins={coinsData} />
             <TransactionOperationModal personData={personData} />
           </div>
+        </div>
+        <div className='feature'>
+          <Featured/>
+          <Featured/>
         </div>
         <div className={styles.rightSection}>
           <CustomButton
