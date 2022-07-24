@@ -1,8 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import NavBar from '@components/NavBar';
 import { Footer } from '@components/footer';
-import personData from '../../mock/person.json';
 import { Card } from '@components/stock-card';
 import Link from 'next/link';
 import { getUserStocks } from '../../redux/action';
@@ -43,7 +41,6 @@ const SellStocks = () => {
     "You don't have any stocks yet. Click below to buy some";
   return (
     <>
-      <NavBar personData={personData} />
       <div className="main-container">
         <div className="layout">
           {userStocksData.isLoggedIn && (
