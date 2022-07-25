@@ -2,8 +2,6 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Card } from '@components/stock-card';
 import { Footer } from '@components/footer';
-import personData from '../../mock/person.json';
-import NavBar from '@components/NavBar';
 import Link from 'next/link';
 import { getStocks } from '../../redux/action';
 import styles from '../../styles/Home.module.css';
@@ -23,7 +21,6 @@ const Invest = () => {
 
   return (
     <>
-      <NavBar personData={personData} />
       <div className="main-container">
         <div className="layout">
           <div className="content">

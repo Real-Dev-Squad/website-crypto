@@ -11,8 +11,6 @@ import {
 // import Header from '@components/header';
 import { Footer } from '@components/footer';
 import productData from '../../mock/products.json';
-import personData from '../../mock/person.json';
-import NavBar from '@components/NavBar';
 
 const products = Object.keys(productData);
 const Shop = (props) => {
@@ -20,7 +18,6 @@ const Shop = (props) => {
   const { delCartItem, delShopListItem } = props;
   return (
     <>
-      <NavBar personData={personData} />
       <div className="main-container">
         <div className="layout">
           <div className="content">
