@@ -17,6 +17,18 @@ const stocksDetails = (state = initialState, action) => {
         userStocksData: action.payload.userStocksData,
       };
     }
+    case 'GET_RDS_USER_ID': {
+      return {
+        ...state,
+        rdsUserId: action.payload.rdsUserId,
+      };
+    }
+    case 'ADD_STOCKS': {
+      return {
+        ...state,
+        stocks: action.payload.stocks,
+      };
+    }
     default: {
       return state;
     }

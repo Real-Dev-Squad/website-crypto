@@ -3,8 +3,10 @@ import { useRouter } from 'next/router';
 import styles from './navbar.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
+import { getUserStocks, addRdsId, addStocks } from '../../redux/action';
 import GenericClosePopUp from '../Close-popup/GenericClosePopUp';
 import { USER_DATA_URL, LOGIN_URL, PATHS, NAV_MENU } from 'constants.js';
+import { useDispatch, useSelector } from 'react-redux';
 
 const NavBar = () => {
   const router = useRouter();
@@ -16,7 +18,9 @@ const NavBar = () => {
   const [toggle, setToggle] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [mountedComponent, setMountedComponent] = useState(false);
+  const [stocks, setStocks] = useState([]);
   const navbarRef = useRef();
+  const dispatch = useDispatch();
   GenericClosePopUp(navbarRef, () => {
     setToggle(false);
   });
@@ -41,6 +45,14 @@ const NavBar = () => {
             firstName: responseJson.first_name,
             profilePicture: responseJson.picture?.url ?? DEFAULT_AVATAR,
           });
+          const actionPayload = addRdsId(responseJson);
+          dispatch(actionPayload);
+          return responseJson;
+        })
+        .then((res) => {
+          console.log(res.id);
+          const actionPayload = getUserStocks(res.id);
+          dispatch(actionPayload);
         })
         .catch((err) => {
           console.error(err);
@@ -49,7 +61,32 @@ const NavBar = () => {
     };
 
     fetchData();
+  }, [dispatch]);
+
+  // const rdsid = useSelector((state) => state.stocksDetails?.rdsUserId?.id);
+
+  const updateStockPrices = (data) => {
+    setStocks(data);
+    const actionPayload = addStocks(data);
+    dispatch(actionPayload);
+  };
+
+  useEffect(() => {
+    let sse = new EventSource('http://localhost:8090/api/stocks');
+
+    sse.onmessage = (e) => {
+      updateStockPrices(JSON.parse(e.data));
+    };
+    return () => {
+      sse.close();
+    };
   }, []);
+
+  console.log(
+    useSelector((state) => {
+      return state;
+    })
+  );
 
   return (
     <div className={styles.wrapper}>

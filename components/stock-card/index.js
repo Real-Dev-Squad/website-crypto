@@ -1,22 +1,24 @@
 import path from 'path';
 import Image from 'next/image';
 import StockOperation from '@components/stock-operation';
+import { useSelector } from 'react-redux';
 
 export const Card = ({ stock, operationType }) => {
-  const {
-    id,
-    stockId,
-    name,
-    stockName,
-    price,
-    quantity,
-    initialStockValue,
-  } = stock;
+  const { id, stockId, name, stockName, marketValue, stockQuantity } = stock;
 
-  const finalPrice = operationType == 'BUY' ? price : initialStockValue;
+  const allStocks = useSelector((state) => state.stocksDetails.stocks);
+
+  const getStockPrice = (listedStocks, ownedStock) => {
+    const myStock = listedStocks.filter(
+      (stock) => stock.id == ownedStock.stockId
+    )[0]?.marketValue;
+    return myStock?.toFixed(3);
+  };
+
+  const finalPrice =
+    operationType == 'BUY' ? marketValue : getStockPrice(allStocks, stock);
   const finalName = operationType == 'BUY' ? name : stockName;
   const finalId = operationType == 'BUY' ? id : stockId;
-
   return (
     <div className="stock-card">
       <Image
@@ -33,18 +35,23 @@ export const Card = ({ stock, operationType }) => {
           {stock.name || stock.stockName}
         </p>
         <p className="stock-card-product-price">
-          {stock.price || stock.initialStockValue} 💲
+          {stock.marketValue ||
+            (getStockPrice(allStocks, stock) * stock.stockQuantity).toFixed(
+              3
+            ) ||
+            stock.price}{' '}
+          💲
         </p>
         <p className="stock-card-product-quantity">
           {' '}
-          Quantity : {stock.quantity}
+          Quantity : {stock.quantity || stock.stockQuantity || 10000}
         </p>
         <div>
           <StockOperation
             stockId={finalId}
             name={finalName}
             price={finalPrice}
-            availableQty={quantity}
+            availableQty={stockQuantity}
           />
         </div>
       </div>

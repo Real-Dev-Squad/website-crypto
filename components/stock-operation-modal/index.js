@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import styles from '../stock-operation-modal/stock-operation.module.css';
 import fetchSelfDetails from '../../utils/fetchSelfDetails';
 import fetchData from '../../utils/fetchData';
@@ -15,6 +16,8 @@ const StockOperationModal = (props) => {
     stockId,
     availableQty,
   } = props;
+
+  const rdsUserId = useSelector((state) => state.stocksDetails?.rdsUserId?.id);
 
   const [quantity, setQuantity] = useState('');
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
@@ -73,34 +76,37 @@ const StockOperationModal = (props) => {
       alert('You do not have enough money!');
     } else {
       const body = {
-        tradeType: transactionType,
-        stockName: nameOfStock,
         stockId,
         quantity,
-        listedPrice: listedPriceOfStock,
-        totalPrice: quantity * listedPriceOfStock,
+        rdsUserId,
       };
-
-      fetch(`${BASE_API_URL}/trade/stock/new/self`, {
-        credentials: 'include',
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json',
-        },
-        body: JSON.stringify(body),
-      })
+      console.log(body);
+      fetch(
+        `http://localhost:8090/api/buyOrSellStocks/${transactionType.toLowerCase()}`,
+        {
+          method: 'PUT',
+          headers: {
+            'content-type': 'application/json',
+          },
+          body: JSON.stringify(body),
+        }
+      )
         .then((response) => {
+          console.log(response);
           if (response.status === 200) {
             return response.json();
           } else {
             throw new Error(response.statusText);
           }
         })
-        .then((data) =>
+        .then((data) => {
+          console.log(data);
           alert(
-            `Trading Successful! Your balance is ${data.userBalance} Dineros`
-          )
-        )
+            `Trading Successful! Your balance is ${data.balance} Dineros \n
+            TRANSACTION ID: ${data.transactionId}`
+          );
+          location.reload();
+        })
         .catch((err) => {
           alert(err.message);
         });

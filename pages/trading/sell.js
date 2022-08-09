@@ -10,12 +10,13 @@ const SellStocks = () => {
   const userStocksData = useSelector(
     (state) => state.stocksDetails.userStocksData
   );
+  const rdsid = useSelector((state) => state.stocksDetails?.rdsUserId?.id);
   const userStocks = userStocksData.stocks;
   const dispatch = useDispatch();
-
   useEffect(() => {
+    console.log(rdsid);
     const fetchData = async () => {
-      const actionPayload = await getUserStocks();
+      const actionPayload = await getUserStocks(rdsid);
       dispatch(actionPayload);
     };
 
@@ -33,7 +34,7 @@ const SellStocks = () => {
   };
 
   const availableStocks = userStocks
-    .filter((itemName) => itemName.quantity)
+    .filter((itemName) => parseFloat(itemName.stockQuantity) > 0)
     .map((itemName) => (
       <Card key={itemName.id} stock={itemName} operationType={'SELL'} />
     ));

@@ -6,11 +6,14 @@ import {
   SAVE_FOR_LATER,
   DELETE_FROM_CART,
   DEL_FROM_SAVELATER,
+  GET_RDS_USER_ID,
+  ADD_STOCKS,
 } from './actionTypes';
 
 import { GET_STOCKS, GET_USER_STOCKS } from '../constants/trading';
 
 const BASE_API_URL = process.env.NEXT_PUBLIC_BASE_API_URL;
+const BASE_API_URL_TEMP = process.env.NEXT_PUBLIC_BASE_API_URL_TEMP;
 
 //TODO : Move all export at bottom of file (named export)
 export const addCartItem = (item) => {
@@ -87,7 +90,9 @@ export const delFromCart = (item, quantity) => {
 };
 
 export const getStocks = async () => {
-  const response = await fetch(`${BASE_API_URL}/stocks`);
+  // const response = await fetch(`${BASE_API_URL}/stocks`);
+  const response = await fetch(`http://localhost:8090/api/stocks`);
+
   const data = await response.json();
 
   return {
@@ -98,13 +103,30 @@ export const getStocks = async () => {
   };
 };
 
-export const getUserStocks = async () => {
-  const response = await fetch(`${BASE_API_URL}/stocks/user/self`, {
-    credentials: 'include',
-  });
+export const addStocks = (body) => {
+  return {
+    type: ADD_STOCKS,
+    payload: {
+      stocks: body,
+    },
+  };
+};
+export const addRdsId = (body) => {
+  return {
+    type: GET_RDS_USER_ID,
+    payload: {
+      rdsUserId: body,
+    },
+  };
+};
+
+export const getUserStocks = async (rdsid) => {
+  const response = await fetch(
+    `http://localhost:8090/api/rdsUser/getInvestorByRdsId/${rdsid}`
+  );
   const data = await response.json();
   const userStocksData = {
-    stocks: data.userStocks,
+    stocks: data.ownedStocks,
     isLoggedIn: !(response.status == 401),
   };
 

@@ -1,23 +1,12 @@
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Card } from '@components/stock-card';
 import { Footer } from '@components/footer';
 import Link from 'next/link';
-import { getStocks } from '../../redux/action';
 import styles from '../../styles/Home.module.css';
 
 const Invest = () => {
   const stocks = useSelector((state) => state.stocksDetails.stocks);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const actionPayload = await getStocks();
-      dispatch(actionPayload);
-    };
-
-    fetchData();
-  }, []);
 
   return (
     <>
@@ -34,7 +23,12 @@ const Invest = () => {
               ))}
             </div>
             <div>
-              <Link href="/trading/sell">
+              <Link
+                href={{
+                  pathname: '/trading/sell',
+                  query: { data: JSON.stringify(stocks) },
+                }}
+              >
                 <div className={`${styles.trade}`}>Sell Stocks</div>
               </Link>
             </div>
