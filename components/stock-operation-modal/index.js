@@ -80,7 +80,6 @@ const StockOperationModal = (props) => {
         quantity,
         rdsUserId,
       };
-      console.log(body);
       fetch(
         `http://localhost:8090/api/buyOrSellStocks/${transactionType.toLowerCase()}`,
         {
@@ -92,7 +91,6 @@ const StockOperationModal = (props) => {
         }
       )
         .then((response) => {
-          console.log(response);
           if (response.status === 200) {
             return response.json();
           } else {
@@ -100,7 +98,6 @@ const StockOperationModal = (props) => {
           }
         })
         .then((data) => {
-          console.log(data);
           alert(
             `Trading Successful! Your balance is ${data.balance} Dineros \n
             TRANSACTION ID: ${data.transactionId}`

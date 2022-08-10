@@ -14,7 +14,6 @@ const SellStocks = () => {
   const userStocks = userStocksData.stocks;
   const dispatch = useDispatch();
   useEffect(() => {
-    console.log(rdsid);
     const fetchData = async () => {
       const actionPayload = await getUserStocks(rdsid);
       dispatch(actionPayload);

@@ -7,6 +7,7 @@ import { getUserStocks, addRdsId, addStocks } from '../../redux/action';
 import GenericClosePopUp from '../Close-popup/GenericClosePopUp';
 import { USER_DATA_URL, LOGIN_URL, PATHS, NAV_MENU } from 'constants.js';
 import { useDispatch, useSelector } from 'react-redux';
+import fetchData from 'utils/fetchData';
 
 const NavBar = () => {
   const router = useRouter();
@@ -45,14 +46,7 @@ const NavBar = () => {
             firstName: responseJson.first_name,
             profilePicture: responseJson.picture?.url ?? DEFAULT_AVATAR,
           });
-          const actionPayload = addRdsId(responseJson);
-          dispatch(actionPayload);
-          return responseJson;
-        })
-        .then((res) => {
-          console.log(res.id);
-          const actionPayload = getUserStocks(res.id);
-          dispatch(actionPayload);
+          dispatch(addRdsId(responseJson));
         })
         .catch((err) => {
           console.error(err);
@@ -63,13 +57,21 @@ const NavBar = () => {
     fetchData();
   }, [dispatch]);
 
-  // const rdsid = useSelector((state) => state.stocksDetails?.rdsUserId?.id);
+  const rdsid = useSelector((state) => state.stocksDetails?.rdsUserId?.id);
 
   const updateStockPrices = (data) => {
     setStocks(data);
     const actionPayload = addStocks(data);
     dispatch(actionPayload);
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const actionPayload = await getUserStocks(rdsid);
+      dispatch(actionPayload);
+    };
+    fetchData();
+  }, [dispatch, rdsid]);
 
   useEffect(() => {
     let sse = new EventSource('http://localhost:8090/api/stocks');
@@ -81,12 +83,6 @@ const NavBar = () => {
       sse.close();
     };
   }, []);
-
-  console.log(
-    useSelector((state) => {
-      return state;
-    })
-  );
 
   return (
     <div className={styles.wrapper}>
