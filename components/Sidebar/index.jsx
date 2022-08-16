@@ -8,7 +8,7 @@ const Sidebar = () => {
   const navigateTo = (url) => router.push(url);
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} data-testid="sidebar-notification">
       <aside className={styles.sidebar}>
         <span className={styles.heading}>
           <Image src={'/assets/Real-Dev-Squad1x.png'} width={50} height={50} />
@@ -44,6 +44,12 @@ const Sidebar = () => {
         </div>
 
         <div className={styles.buttonWrapper}>
+          {router.pathname !== '/currency-exchange' && (
+            <button className={styles.button}>
+              <Image src="/assets/InfoSquare.svg" width={25} height={25} />
+              Trade Now
+            </button>
+          )}
           <button className={styles.button}>
             <Image src="/assets/InfoSquare.svg" width={25} height={25} />
             Guide
