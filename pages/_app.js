@@ -4,11 +4,15 @@ import personData from '../mock/person.json';
 
 import { wrapper } from '../redux/store';
 import '../styles/globals.css';
+import Sidebar from '@components/Sidebar';
 
 const MyApp = ({ Component, pageProps }) => (
   <>
     <NavBar personData={personData} />
-    <Component {...pageProps} />;
+    <div className="main_app">
+      <Sidebar />
+      <Component {...pageProps} />;
+    </div>
   </>
 );
 
