@@ -70,3 +70,7 @@ footer a {
 .d-none {
   display: none !important;
 }
+.main_app {
+  width: 100vw;
+  display: flex;
+}
