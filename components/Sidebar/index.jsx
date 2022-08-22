@@ -7,6 +7,14 @@ const Sidebar = () => {
   const router = useRouter();
   const navigateTo = (url) => router.push(url);
 
+  const basePath = router.pathname;
+  const pagePath = router.pathname.split('/')[1];
+
+  const activeOptionClass = (optionURL) =>
+    pagePath === optionURL || (basePath === '/' && '/' === optionURL)
+      ? ' ' + styles.option_active
+      : '';
+
   return (
     <div className={styles.wrapper} data-testid="sidebar-notification">
       <aside className={styles.sidebar}>
@@ -16,19 +24,14 @@ const Sidebar = () => {
         </span>
         <div className={styles.options}>
           {sidebarMenuOptions.map((option, index) => {
+            const optionPath = option.urlPath;
             return (
               <span
                 key={index}
                 // this code below insure even if we are in nested path like currency-exchange/**/
                 //even then the link is active
-                className={
-                  styles.option +
-                  (router.pathname.split('/')[1] === option.urlPath ||
-                  (router.pathname === '/' && '/' === option.urlPath)
-                    ? ' ' + styles.option_active
-                    : '')
-                }
-                onClick={() => navigateTo(option.urlPath)}
+                className={styles.option + activeOptionClass(optionPath)}
+                onClick={() => navigateTo(optionPath)}
               >
                 <Image
                   src={option.iconPath}
