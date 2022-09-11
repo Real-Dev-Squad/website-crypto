@@ -69,14 +69,14 @@
   },
   "lint-staged": {
     "./**/*.{js,jsx,ts,tsx}": [
-      "npm run lint"
+      "yarn run lint"
     ],
     "./**/*.{js,jsx,ts,tsx,scss}": [
-      "npm run format"
+      "yarn run format"
     ]
   },
   "volta": {
     "node": "14.19.1",
-    "npm": "6.14.16"
+    "yarn": "1.22.19"
   }
 }
