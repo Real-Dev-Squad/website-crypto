@@ -9,7 +9,6 @@ import { Footer } from '@components/footer';
 import styles from '../styles/Home.module.css';
 import TransactionChart from '@components/transaction-chart';
 import TransactionOperationModal from '@components/transaction-operation-modal';
-import NavBar from '@components/NavBar';
 import CustomButton from 'components/custom-button';
 import { useRouter } from 'next/router';
 export default function Home() {
@@ -20,7 +19,6 @@ export default function Home() {
         <title>Bank Dashboard</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <NavBar personData={personData} />
       <main className={styles.mainBody}>
         <div className={styles.leftSection}>
           <div className={styles.homeUser}>
