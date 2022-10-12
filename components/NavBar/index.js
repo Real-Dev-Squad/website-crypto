@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import GenericClosePopUp from '../Close-popup/GenericClosePopUp';
 import { USER_DATA_URL, LOGIN_URL, PATHS, NAV_MENU } from 'constants.js';
+import Dropdown from '@components/dropdown';
 
 const NavBar = () => {
   const router = useRouter();
@@ -20,6 +21,7 @@ const NavBar = () => {
   GenericClosePopUp(navbarRef, () => {
     setToggle(false);
   });
+  const [dropdownVisiblity, setDropdownVisibility] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -151,25 +153,26 @@ const NavBar = () => {
                 </button>
               </a>
             </Link>
+
+            {isLoggedIn && dropdownVisiblity && <Dropdown />}
             <div
+              onClick={() => {
+                setDropdownVisibility(!dropdownVisiblity);
+              }}
               className={`${styles.userGreet} ${isLoggedIn ? '' : 'd-none'}`}
             >
-              <Link href={PATHS.PROFILE}>
-                <a>
-                  <div className={styles.userGreetMsg}>
-                    {`Hello ${isLoggedIn ? `${userData.firstName}` : 'User'}!`}
-                  </div>
-                  <img
-                    className={styles.userProfilePic}
-                    src={
-                      isLoggedIn
-                        ? `${userData.profilePicture}`
-                        : `${DEFAULT_AVATAR}`
-                    }
-                    alt="Profile Picture"
-                  />
-                </a>
-              </Link>
+              <div className={styles.userGreetMsg}>
+                {`Hello ${isLoggedIn ? `${userData.firstName}` : 'User'}!`}
+              </div>
+              <img
+                className={styles.userProfilePic}
+                src={
+                  isLoggedIn
+                    ? `${userData.profilePicture}`
+                    : `${DEFAULT_AVATAR}`
+                }
+                alt="Profile Picture"
+              />
             </div>
           </li>
         </ul>

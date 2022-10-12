@@ -65,6 +65,10 @@
 .userGreet {
   color: #ffffff;
   margin: 23px;
+  cursor: pointer;
+}
+.userGreet:hover {
+  color: #49a82e;
 }
 
 .navBarLoginLi .userGreet a{
