@@ -1,9 +1,8 @@
 import { PATHS } from 'constants.js';
 import React from 'react';
-import s from './s.module.css';
+import colors from '../../color/color.json';
 import Link from 'next/link';
 
-PATHS;
 const Dropdown = () => {
   const signout = () => {
     fetch('https://api.realdevsquad.com/auth/signout', {
@@ -12,27 +11,77 @@ const Dropdown = () => {
     }).then(() => {
       location.reload();
     });
-    console.log(location);
   };
   return (
-    <div className={`${s.dropdown}`}>
-      <ul className={s['dropdown-list']}>
-        <li className={`${s['dropdown-item']} `}>
+    <div className="dropdown">
+      <ul className="dropdownList">
+        <li className="dropdownItem">
           <Link href={PATHS.PROFILE}>
-            <p className={`${s['profile-link']}`}>My profile</p>
+            <p className="profileLink">My Profile</p>
           </Link>
         </li>
-        <hr className={s.line} />
+        <hr className="line" />
         <li
           onClick={() => {
             signout();
           }}
-          className={`${s['dropdown-item']}`}
-          id={s['signout-option']}
+          className="dropdownItem"
         >
-          Sign out
+          <p className="signoutOption">Sign out</p>
         </li>
       </ul>
+      <style jsx>
+        {`
+          .dropdown {
+            width: 180px;
+            background-color: ${colors.white};
+            border: 2px solid ${colors.black};
+            border-radius: 0.5rem;
+            color: ${colors.black};
+            position: absolute;
+            top: 58px;
+            right: 16px;
+            z-index: 100;
+          }
+
+          .dropdownList {
+            display: flex;
+            flex-direction: column;
+          }
+
+          .profileLink {
+            color: ${colors.black};
+            padding: 1rem;
+            text-align: left;
+            font-weight: 100;
+          }
+          .profileLink:hover {
+            background-color: ${colors.grey.light};
+            border-radius: 0.5rem 0.5rem 0 0;
+          }
+
+          .line {
+            border: none;
+            border-bottom: 2px solid ${colors.black};
+            margin: 0;
+          }
+
+          .dropdownItem {
+            list-style-type: none;
+            cursor: pointer;
+          }
+
+          .signoutOption {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 100;
+          }
+          .signoutOption:hover {
+            background-color: ${colors.grey.light};
+            border-radius: 0 0 0.5rem 0.5rem;
+          }
+        `}
+      </style>
     </div>
   );
 };
