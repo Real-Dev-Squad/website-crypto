@@ -75,6 +75,12 @@ footer a {
   display: none !important;
 }
 .main_app {
-  width: 100vw;
   display: flex;
+}
+
+/* Responsive CSS */
+@media screen and (max-width: 970px) {
+  .main_app{
+    flex-direction: column;
+  }
 }
