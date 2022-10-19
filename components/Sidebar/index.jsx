@@ -2,8 +2,10 @@ import styles from './sidebar.module.css';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import sidebarMenuOptions from 'constants/sidebarMenuOptions';
+import { useState } from 'react';
 
 const Sidebar = () => {
+  const [mobileToggle, setMobileToggle] = useState(false);
   const router = useRouter();
   const navigateTo = (url) => router.push(url);
 
@@ -17,6 +19,17 @@ const Sidebar = () => {
 
   return (
     <div className={styles.wrapper} data-testid="sidebar-notification">
+      <div
+        className={
+          styles.mobileToggle +
+          ` ${mobileToggle ? styles['mobileToggle--active'] : ''}`
+        }
+        onClick={() => setMobileToggle((prev) => !prev)}
+      >
+        <h3>Menu</h3>
+        <Image src="/assets/MenuArrow.svg" width={25} height={25} />
+      </div>
+
       <aside className={styles.sidebar}>
         <span className={styles.heading}>
           <Image src={'/assets/Real-Dev-Squad1x.png'} width={50} height={50} />
