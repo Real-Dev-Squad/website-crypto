@@ -2,16 +2,9 @@ import { PATHS } from 'constants.js';
 import React from 'react';
 import colors from '../../color/color.json';
 import Link from 'next/link';
+import signOut from 'utils/signOut';
 
 const Dropdown = () => {
-  const signout = () => {
-    fetch('https://api.realdevsquad.com/auth/signout', {
-      method: 'GET',
-      credentials: 'include',
-    }).then(() => {
-      location.reload();
-    });
-  };
   return (
     <div className="dropdown">
       <ul className="dropdownList">
@@ -23,7 +16,7 @@ const Dropdown = () => {
         <hr className="line" />
         <li
           onClick={() => {
-            signout();
+            signOut();
           }}
           className="dropdownItem"
         >
