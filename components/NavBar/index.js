@@ -168,7 +168,11 @@ const NavBar = () => {
                 className={styles.userProfilePic}
                 src={
                   isLoggedIn
-                    ? `${userData.profilePicture}`
+                    ? `${
+                        userData.profilePicture
+                          ? userData.profilePicture
+                          : DEFAULT_AVATAR
+                      }`
                     : `${DEFAULT_AVATAR}`
                 }
                 alt="Profile Picture"
