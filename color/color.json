@@ -13,9 +13,9 @@
     "dark": ""
   },
   "green": {
-    "light": "#e4f7df",
-    "primary": "#88d870",
-    "dark": "#13380a"
+    "light":"#e4f7df",
+    "primary":"#88d870",
+    "dark":"#13380a"
   },
   "white": "#ffffff",
   "black":"#000000",
