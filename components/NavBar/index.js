@@ -153,7 +153,6 @@ const NavBar = () => {
                 </button>
               </a>
             </Link>
-
             {isLoggedIn && dropdownVisiblity && <Dropdown />}
             <div
               onClick={() => {
