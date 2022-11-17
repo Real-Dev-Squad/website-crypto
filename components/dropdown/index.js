@@ -14,12 +14,7 @@ const Dropdown = () => {
           </Link>
         </li>
         <hr className="line" />
-        <li
-          onClick={() => {
-            signOut();
-          }}
-          className="dropdownItem"
-        >
+        <li onClick={signOut} className="dropdownItem">
           <p className="signoutOption">Sign out</p>
         </li>
       </ul>
