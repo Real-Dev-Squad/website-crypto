@@ -54,7 +54,12 @@ const NavBar = () => {
   }, []);
 
   return (
-    <div className={styles.wrapper}>
+    <div
+      className={styles.wrapper}
+      onClick={() => {
+        setDropdownVisibility(false);
+      }}
+    >
       <nav className={styles.navBar}>
         <div
           className={styles.hamburger}
@@ -155,7 +160,8 @@ const NavBar = () => {
             </Link>
             {isLoggedIn && dropdownVisiblity && <Dropdown />}
             <div
-              onClick={() => {
+              onClick={(e) => {
+                e.stopPropagation();
                 setDropdownVisibility(!dropdownVisiblity);
               }}
               className={`${styles.userGreet} ${isLoggedIn ? '' : 'd-none'}`}
