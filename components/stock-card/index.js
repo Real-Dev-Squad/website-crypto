@@ -3,15 +3,8 @@ import Image from 'next/image';
 import StockOperation from '@components/stock-operation';
 
 export const Card = ({ stock, operationType }) => {
-  const {
-    id,
-    stockId,
-    name,
-    stockName,
-    price,
-    quantity,
-    initialStockValue,
-  } = stock;
+  const { id, stockId, name, stockName, price, quantity, initialStockValue } =
+    stock;
 
   const finalPrice = operationType == 'BUY' ? price : initialStockValue;
   const finalName = operationType == 'BUY' ? name : stockName;
