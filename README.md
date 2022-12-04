@@ -27,7 +27,8 @@ Visit our site at https://crypto.realdevsquad.com
 - `cd website-crypto`
 - `yarn`
 
-## Installation 0.1 
+## Installation 0.1
+
 [Why Volta?](https://docs.volta.sh/guide/#why-volta)
 
 To install Volta, please follow the [process](https://docs.volta.sh/guide/getting-started)
@@ -40,6 +41,3 @@ Setup `dev.realdevsquad.com` for development by following the instructions here 
 - Visit your app at https://dev.realdevsquad.com.
 - To build: `yarn run build`
 - To serve the production build: `yarn run start`
-
-
-

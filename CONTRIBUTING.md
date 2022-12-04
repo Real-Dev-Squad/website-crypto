@@ -5,7 +5,6 @@
 - **Comment** on the issue that you would like to get assigned to you. (Remember: Do not work on issues assigned to someone else and do not work on any issue without having it assigned to you.)
 - Create issue if you see any bug and then once you get approved from the admins, you can assign yourself and start working on it.
 
-
 # File Structure
 
 ```
@@ -153,6 +152,7 @@ Once we're in our branch, we **rebase** our branch on top of the current develop
 ```
 git rebase develop
 ```
+
 You should solve the merge conflicts, if any.
 
 8. **Pushing your code**
