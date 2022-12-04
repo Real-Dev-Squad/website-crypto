@@ -25,7 +25,7 @@ Visit our site at https://crypto.realdevsquad.com
 
 - `git clone<repository-url>` this repository
 - `cd website-crypto`
-- `npm install`
+- `yarn`
 
 ## Installation 0.1 
 [Why Volta?](https://docs.volta.sh/guide/#why-volta)
@@ -36,10 +36,10 @@ To install Volta, please follow the [process](https://docs.volta.sh/guide/gettin
 
 Setup `dev.realdevsquad.com` for development by following the instructions here - [Avoiding CORS during development](https://github.com/Real-Dev-Squad/docs/tree/main/docs/dev/https-dev-url-cors)
 
-- For development: `npm run dev`
+- For development: `yarn run dev`
 - Visit your app at https://dev.realdevsquad.com.
-- To build: `npm run build`
-- To serve the production build: `npm run start`
+- To build: `yarn run build`
+- To serve the production build: `yarn run start`
 
 
 
