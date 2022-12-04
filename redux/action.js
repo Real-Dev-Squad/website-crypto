@@ -6,6 +6,8 @@ import {
   SAVE_FOR_LATER,
   DELETE_FROM_CART,
   DEL_FROM_SAVELATER,
+  CLOSE_DROPDOWN,
+  OPEN_DROPDOWN,
 } from './actionTypes';
 
 import { GET_STOCKS, GET_USER_STOCKS } from '../constants/trading';
@@ -85,7 +87,16 @@ export const delFromCart = (item, quantity) => {
     },
   };
 };
-
+export const closeDropdown = () => {
+  return {
+    type: CLOSE_DROPDOWN,
+  };
+};
+export const openDropdown = () => {
+  return {
+    type: OPEN_DROPDOWN,
+  };
+};
 export const getStocks = async () => {
   const response = await fetch(`${BASE_API_URL}/stocks`);
   const data = await response.json();

@@ -1,15 +1,19 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
 import styles from './navbar.module.css';
 import Link from 'next/link';
-import Image from 'next/image';
 import GenericClosePopUp from '../Close-popup/GenericClosePopUp';
 import { USER_DATA_URL, LOGIN_URL, PATHS, NAV_MENU } from 'constants.js';
 import Dropdown from '@components/dropdown';
+import { CLOSE_DROPDOWN, OPEN_DROPDOWN } from 'redux/actionTypes';
+import { useDispatch, useSelector } from 'react-redux';
 
 const NavBar = () => {
   const router = useRouter();
-
+  const dispatch = useDispatch();
+  const dropdownIsOpened = useSelector(
+    (state) => state.dropdownToggle.dropdownIsOpened
+  );
   const RDS_LOGO = '/assets/Real-Dev-Squad1x.png';
   const GITHUB_LOGO = '/assets/github.png';
   const DEFAULT_AVATAR = '/assets/default_avatar.jpg';
@@ -21,7 +25,6 @@ const NavBar = () => {
   GenericClosePopUp(navbarRef, () => {
     setToggle(false);
   });
-  const [dropdownVisiblity, setDropdownVisibility] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -57,7 +60,7 @@ const NavBar = () => {
     <div
       className={styles.wrapper}
       onClick={() => {
-        setDropdownVisibility(false);
+        dispatch({ type: CLOSE_DROPDOWN });
       }}
     >
       <nav className={styles.navBar}>
@@ -158,11 +161,13 @@ const NavBar = () => {
                 </button>
               </a>
             </Link>
-            {isLoggedIn && dropdownVisiblity && <Dropdown />}
+            {isLoggedIn && dropdownIsOpened && <Dropdown />}
             <div
               onClick={(e) => {
                 e.stopPropagation();
-                setDropdownVisibility(!dropdownVisiblity);
+                dropdownIsOpened
+                  ? dispatch({ type: CLOSE_DROPDOWN })
+                  : dispatch({ type: OPEN_DROPDOWN });
               }}
               className={`${styles.userGreet} ${isLoggedIn ? '' : 'd-none'}`}
             >
