@@ -9,55 +9,65 @@
     "build": "next build",
     "start": "next start -p $PORT",
     "build-static": "next build && next export",
-    "test": "jest --coverage",
+    "cy:open": "cypress open",
+    "test:unit": "jest --coverage __tests__/unit",
     "test:watch": "jest --watch",
+    "test:cy": "cypress run",
+    "test": "npm run test:jest && npm run test:cy",
     "lint": "eslint --fix . && echo 'Lint complete.'",
     "format": "prettier --write \"./**/*.{js,jsx,ts,tsx,scss,md,json}\"",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@babel/plugin-transform-react-jsx": "^7.12.11",
+    "@babel/plugin-transform-react-jsx": "^7.17.3",
     "chart.js": "2.9.4",
-    "eslint-plugin-jest": "^24.1.3",
-    "framer-motion": "^2.9.4",
-    "next": "^10.0.7",
+    "eslint-plugin-jest": "^24.7.0",
+    "framer-motion": "^2.9.5",
+    "jest-mock-axios": "^4.6.1",
+    "next": "^10.2.3",
     "next-redux-wrapper": "^6.0.2",
     "path-browserify": "^1.0.1",
-    "prop-types": "^15.7.2",
+    "prop-types": "^15.8.1",
     "react": "17.0.1",
     "react-chartjs-2": "2.11.1",
-    "react-cookie": "^4.0.3",
+    "react-cookie": "^4.1.1",
     "react-dom": "17.0.1",
     "react-infinite-scroll-component": "^5.1.0",
-    "react-redux": "^7.2.2",
-    "redux": "^4.0.5",
+    "react-redux": "^7.2.8",
+    "redux": "^4.1.2",
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.10",
+    "@babel/core": "^7.17.9",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-    "@storybook/addon-actions": "^6.2.0-alpha.8",
-    "@storybook/addon-essentials": "^6.2.0-alpha.8",
-    "@storybook/addon-links": "^6.2.0-alpha.8",
-    "@storybook/react": "^6.2.0-alpha.8",
-    "@testing-library/react": "^11.2.2",
+    "@storybook/addon-actions": "^6.4.22",
+    "@storybook/addon-essentials": "^6.4.22",
+    "@storybook/addon-links": "^6.4.22",
+    "@storybook/react": "^6.4.22",
+    "@testing-library/react": "^11.2.7",
+    "autoprefixer": "^10.4.8",
     "babel-jest": "^26.6.3",
-    "babel-loader": "^8.2.2",
+    "babel-loader": "^8.2.4",
     "babel-preset-env": "^1.7.0",
-    "eslint": "^7.16.0",
-    "eslint-config-prettier": "^7.1.0",
+    "cypress": "^10.3.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-better-styled-components": "^1.1.2",
-    "eslint-plugin-prettier": "^3.3.0",
-    "eslint-plugin-react": "^7.21.5",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "eslint-plugin-react-with-styles": "^2.3.0",
-    "husky": "^4.3.6",
+    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-prettier": "^3.4.1",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.4.0",
+    "eslint-plugin-react-with-styles": "^2.4.0",
+    "husky": "^4.3.8",
     "jest": "^26.6.3",
-    "lint-staged": "^10.5.3",
+    "lint-staged": "^10.5.4",
     "local-ssl-proxy": "^1.3.0",
+    "msw": "^0.47.1",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.2.1"
+    "postcss": "^8.4.16",
+    "prettier": "^2.6.2",
+    "tailwindcss": "^3.1.8"
   },
   "husky": {
     "hooks": {
@@ -66,10 +76,14 @@
   },
   "lint-staged": {
     "./**/*.{js,jsx,ts,tsx}": [
-      "npm run lint"
+      "yarn run lint"
     ],
     "./**/*.{js,jsx,ts,tsx,scss}": [
-      "npm run format"
+      "yarn run format"
     ]
+  },
+  "volta": {
+    "node": "14.19.1",
+    "yarn": "1.22.19"
   }
 }

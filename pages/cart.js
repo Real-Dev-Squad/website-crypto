@@ -1,9 +1,7 @@
 import { useState, useRef } from 'react';
 import { connect } from 'react-redux';
 import Link from 'next/link';
-import personData from '../mock/person.json';
 import Header from '@components/header';
-import NavBar from '@components/NavBar';
 import { CartCard } from '@components/cartlist-card';
 import { CartSummary } from '@components/cart-summary';
 import SaveLater from '@components/save-later';
@@ -38,7 +36,6 @@ const Cart = (props) => {
   });
   return (
     <div>
-      <NavBar personData={personData} />
       <div className="main-content">
         <div className="cart-container">
           <div>
