@@ -28,9 +28,8 @@ const StateProvider = ({ children }) => {
     switch (action.type) {
       case ADD_SCRAPS: {
         const { payload: { username, newScraps = 0 } = {} } = action;
-        const {
-          [username]: { scraps: existingScrapsForUser = 0 } = {},
-        } = state;
+        const { [username]: { scraps: existingScrapsForUser = 0 } = {} } =
+          state;
         const newTotalScrapsForUser = existingScrapsForUser + newScraps;
         const newUserData = {
           scraps: newTotalScrapsForUser,
