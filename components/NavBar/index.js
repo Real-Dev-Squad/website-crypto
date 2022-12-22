@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useContext } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import styles from './navbar.module.css';
 import Link from 'next/link';
@@ -55,7 +55,12 @@ const NavBar = () => {
 
     fetchData();
   }, []);
-
+  function toggleDropdownDispatch(e, dropdownIsOpened) {
+    e.stopPropagation();
+    dropdownIsOpened
+      ? dispatch({ type: CLOSE_DROPDOWN })
+      : dispatch({ type: OPEN_DROPDOWN });
+  }
   return (
     <div
       className={styles.wrapper}
@@ -164,10 +169,7 @@ const NavBar = () => {
             {isLoggedIn && dropdownIsOpened && <Dropdown />}
             <div
               onClick={(e) => {
-                e.stopPropagation();
-                dropdownIsOpened
-                  ? dispatch({ type: CLOSE_DROPDOWN })
-                  : dispatch({ type: OPEN_DROPDOWN });
+                toggleDropdownDispatch(e, dropdownIsOpened);
               }}
               className={`${styles.userGreet} ${isLoggedIn ? '' : 'd-none'}`}
             >
