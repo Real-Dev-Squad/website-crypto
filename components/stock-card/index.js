@@ -13,7 +13,7 @@ export const Card = ({ stock, operationType }) => {
   return (
     <div className="stock-card">
       <Image
-        src={path.join('/assets', 'stocks.jpg')}
+        src={path.join('/assets', 'stock.png')}
         alt={stock.name || stock.stockName}
         width={100}
         height={100}
@@ -25,12 +25,12 @@ export const Card = ({ stock, operationType }) => {
         <p className="stock-card-product-name">
           {stock.name || stock.stockName}
         </p>
-        <p className="stock-card-product-price">
-          {stock.price || stock.initialStockValue} 💲
-        </p>
         <p className="stock-card-product-quantity">
           {' '}
           Quantity : {stock.quantity}
+        </p>
+        <p className="stock-card-product-price">
+          {stock.price || stock.initialStockValue} 💲
         </p>
         <div>
           <StockOperation
@@ -54,9 +54,9 @@ export const Card = ({ stock, operationType }) => {
             box-shadow: 0 2px 2px #ccc;
             text-align: center;
             min-width: 300px;
-            border-radius: 4px;
+            border-radius: 24px;
             transition: 0.2s;
-            background: #ffffff;
+            background: #F6FDFB;
           }
           .stock-card:hover {
             box-shadow: 0px 4px 10px #ccc;
@@ -70,7 +70,8 @@ export const Card = ({ stock, operationType }) => {
             text-align: center;
             width: 100%;
             padding: 1rem;
-            background-color: #ffffff;
+            background-color: #F6FDFB;
+            border-radius: 24px;
           }
 
           .stock-card-product-name {

@@ -21,7 +21,7 @@ const StockOperation = (props) => {
           className={`${styles.button} ${styles.greenButton}`}
           onClick={() => setTransaction('BUY')}
         >
-          BUY
+          Buy Now
         </div>
       )}
       {router.pathname == '/trading/sell' && (

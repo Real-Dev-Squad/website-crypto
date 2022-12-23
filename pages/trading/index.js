@@ -24,6 +24,11 @@ const Invest = () => {
       <div className="main-container">
         <div className="layout">
           <div className="content">
+          <div>
+              <Link href="/trading/sell">
+                <div className={`${styles.trade}`}>Sell Stocks</div>
+              </Link>
+            </div>
             <div className="shoppinglist-container">
               {stocks.map((itemName) => (
                 <Card
@@ -32,11 +37,6 @@ const Invest = () => {
                   operationType={'BUY'}
                 />
               ))}
-            </div>
-            <div>
-              <Link href="/trading/sell">
-                <div className={`${styles.trade}`}>Sell Stocks</div>
-              </Link>
             </div>
           </div>
           <Footer />
