@@ -22,6 +22,12 @@ const NavBar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [mountedComponent, setMountedComponent] = useState(false);
   const navbarRef = useRef();
+
+  let authUrl = LOGIN_URL;
+  if (typeof window !== 'undefined') {
+    authUrl = `${LOGIN_URL}&state=${window.location.href}`;
+  }
+
   GenericClosePopUp(navbarRef, () => {
     setToggle(false);
   });
@@ -83,7 +89,7 @@ const NavBar = () => {
             mountedComponent ? '' : 'd-none'
           }`}
         >
-          <Link href={LOGIN_URL}>
+          <Link href={authUrl}>
             <a className={`${styles.btnLogin} ${isLoggedIn ? 'd-none' : ''}`}>
               <button className={styles.btnLoginText}>
                 Sign In
@@ -152,7 +158,7 @@ const NavBar = () => {
               mountedComponent ? '' : 'd-none'
             }`}
           >
-            <Link href={LOGIN_URL}>
+            <Link href={authUrl}>
               <a className={`${styles.btnLogin} ${isLoggedIn ? 'd-none' : ''}`}>
                 <button className={styles.btnLoginText}>
                   Sign In With GitHub
