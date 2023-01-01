@@ -1,0 +1,39 @@
+.currency {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: 1px solid #c1bdd44a;
+  border-radius: 10px;
+  padding: 1rem 0;
+}
+
+.currency:nth-of-type(1) {
+  background-color: #53b9ea;
+  color: white;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.value {
+  font-weight: bold;
+}
+
+.value > span {
+  font-weight: 400;
+  font-size: 0.8rem;
+}
+
+.rate {
+  font-size: 0.7rem;
+  text-align: right;
+  margin-left: auto;
+  margin-top: 0.5rem;
+}
+
+.rate > span {
+  color: green;
+  font-weight: bold;
+}

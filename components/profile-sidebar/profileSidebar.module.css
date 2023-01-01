@@ -1,0 +1,85 @@
+.dashboard_profile {
+  padding: 2rem 1.5rem 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  height: calc(100vh - 78px);
+  position: sticky;
+  top: 0;
+}
+
+.profile_img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #c4c4c4;
+  margin: 0 auto;
+}
+
+.profile_name,
+.profile_email {
+  text-align: center;
+}
+
+.profile_name {
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+.profile_email {
+  color: #9381ff;
+  font-size: 0.9rem;
+}
+
+.profile_header {
+  font-weight: 700;
+}
+
+.account {
+  margin-top: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid #c1bdd427;
+}
+
+.assets {
+  padding-top: 1.5rem;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.more_assets {
+  margin-top: 1.5rem;
+  font-weight: 700;
+}
+
+.button {
+  width: 100%;
+  background-color: #041187;
+  height: 48px;
+  border-radius: 8px;
+  border: none;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font: 500 16px 'DM Sans', sans-serif;
+  margin-top: 1rem;
+}
+
+.cta {
+  margin-top: auto;
+}
+
+.subHeading {
+  font-weight: 500;
+}
+
+.row > p {
+  color: #9381ff;
+}

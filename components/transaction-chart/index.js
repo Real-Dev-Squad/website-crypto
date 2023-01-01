@@ -1,6 +1,5 @@
 import { Line } from 'react-chartjs-2';
 import { useState, useEffect } from 'react';
-import styles from './transaction-chart.module.css';
 
 function getDataset(transactionData) {
   let dataLabels = [];
@@ -48,37 +47,35 @@ const TransactionChart = ({ transactionChartData }) => {
   }, [transactionChartData]);
 
   return (
-    <div className={styles.transactionCard}>
-      <Line
-        width={500}
-        height={300}
-        data={chartData}
-        options={{
-          responsive: true,
-          maintainAspectRatio: false,
-          title: { text: 'RDS Transaction', display: true },
-          scales: {
-            yAxes: [
-              {
-                ticks: {
-                  autoSkip: true,
-                },
-                gridLines: {
-                  display: true,
-                },
+    <Line
+      width={500}
+      height={300}
+      data={chartData}
+      options={{
+        responsive: true,
+        maintainAspectRatio: false,
+        title: { text: 'RDS Transaction', display: false },
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                autoSkip: true,
               },
-            ],
-            xAxes: [
-              {
-                gridLines: {
-                  display: true,
-                },
+              gridLines: {
+                display: true,
               },
-            ],
-          },
-        }}
-      />
-    </div>
+            },
+          ],
+          xAxes: [
+            {
+              gridLines: {
+                display: true,
+              },
+            },
+          ],
+        },
+      }}
+    />
   );
 };
 

@@ -11,7 +11,7 @@ const MyApp = ({ Component, pageProps }) => (
     <NavBar personData={personData} />
     <div className="main_app">
       <Sidebar />
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </div>
   </>
 );
