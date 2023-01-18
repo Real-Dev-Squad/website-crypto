@@ -24,6 +24,12 @@ const Invest = () => {
       <div className="main-container">
         <div className="layout">
           <div className="content">
+          <div className="stocks-header">
+              <Link href="/trading/sell">
+                <div className={`${styles.trade}`}>Sell Stocks</div>
+              </Link>
+              <h2>Stocks</h2>
+            </div>
             <div className="shoppinglist-container">
               {stocks.map((itemName) => (
                 <Card
@@ -33,11 +39,6 @@ const Invest = () => {
                 />
               ))}
             </div>
-            <div>
-              <Link href="/trading/sell">
-                <div className={`${styles.trade}`}>Sell Stocks</div>
-              </Link>
-            </div>
           </div>
           <Footer />
         </div>
@@ -46,7 +47,6 @@ const Invest = () => {
             min-height: calc(100vh-58px);
             position: relative;
           }
-
           .content {
             min-height: 87vh;
             padding-bottom: 75px;
@@ -56,6 +56,17 @@ const Invest = () => {
             flex-wrap: wrap;
             justify-content: space-evenly;
             align-items: stretch;
+          }
+          .stocks-header{
+            display: flex;
+            flex-direction: column;
+            padding: 0rem 5rem;
+          }
+          .stocks-header h2{
+            font-family: 'Poppins';
+            font-weight: 600;
+            font-size: 1.375rem;
+            line-height: 2rem;
           }
         `}</style>
       </div>
