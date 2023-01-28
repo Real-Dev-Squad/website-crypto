@@ -19,7 +19,7 @@
 
 .currency_list {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr) 150px;
   margin-top: 1.25rem;
   gap: 1.5rem;
 }
@@ -31,5 +31,15 @@
   border: 1px dashed #c1bdd44a;
   border-radius: 10px;
   padding: 1rem 0;
+  max-width: 150px;
   color: #a5a2b8;
+}
+
+.currencyCardsContainer {
+  display: flex;
+  gap: 1rem;
+}
+
+.currencyCardsContainer > * {
+  flex: 1;
 }

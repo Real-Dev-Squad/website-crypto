@@ -1,0 +1,29 @@
+.transactionCard {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: #fdfbfb;
+  border: 1px solid #f4f1f1;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.transactionCard > canvas {
+  height: 500px !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .transactionCard {
+    font-size: 12px;
+  }
+
+  .transactionCard > canvas {
+    height: 200px !important;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .transactionCard > canvas {
+    height: 400px !important;
+  }
+}

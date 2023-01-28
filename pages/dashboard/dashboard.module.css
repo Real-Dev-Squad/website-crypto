@@ -27,7 +27,8 @@
   margin-top: 1rem;
 }
 
-.home_transaction > canvas {
-  width: 100% !important;
-  height: 500px !important;
+@media (max-width: 1400px) {
+  .dashboard {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }

@@ -9,9 +9,9 @@ const Wallets = () => {
         <button>More Assets →</button>
       </div>
       <div className={styles.currency_list}>
-        <CurrencyCard />
-        <CurrencyCard />
-        <CurrencyCard />
+        <div className={styles.currencyCardsContainer}>
+          <CurrencyCard />
+        </div>
         <div className={styles.add_currency}>
           <button>+ Add Currency</button>
         </div>

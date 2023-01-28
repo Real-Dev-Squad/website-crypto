@@ -5,11 +5,7 @@
   border: 1px solid #c1bdd44a;
   border-radius: 10px;
   padding: 1rem 0;
-}
-
-.currency:nth-of-type(1) {
-  background-color: #53b9ea;
-  color: white;
+  max-width: 150px;
 }
 
 .logo {
