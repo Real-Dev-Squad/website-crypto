@@ -1,5 +1,7 @@
 # Crypto Site
 
+# mehul is the APP owner
+
 This is a microtransaction application for RDS. Each member in RDS gets assigned to a certain amount of currencies based on various activities. You can shop for items, exchange money from the bank, send and request money.
 
 Visit our site at https://crypto.realdevsquad.com
