@@ -1,7 +1,7 @@
 import CurrencyCard from '@components/currency-card';
 import styles from './wallets.module.css';
 
-const Wallets = () => {
+const Wallets = ({ currencyData }) => {
   return (
     <div className={styles.wallets}>
       <div className={styles.header}>
@@ -10,7 +10,9 @@ const Wallets = () => {
       </div>
       <div className={styles.currency_list}>
         <div className={styles.currencyCardsContainer}>
-          <CurrencyCard />
+          {currencyData.map((currency) => {
+            return <CurrencyCard key={currency.name} {...currency} />;
+          })}
         </div>
         <div className={styles.add_currency}>
           <button>+ Add Currency</button>

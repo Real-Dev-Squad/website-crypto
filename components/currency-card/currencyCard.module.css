@@ -9,12 +9,12 @@
 }
 
 .logo {
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 1.25rem;
 }
 
 .value {
   font-weight: bold;
+  font-size: 1.5rem;
 }
 
 .value > span {

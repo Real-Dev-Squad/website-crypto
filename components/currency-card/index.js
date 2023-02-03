@@ -1,16 +1,11 @@
 import styles from './currencyCard.module.css';
 
-const CurrencyCard = () => {
+const CurrencyCard = ({ name, value }) => {
   return (
     <div className={styles.currency}>
-      <p className={styles.logo}>₿</p>
+      <p className={styles.logo}>{name}</p>
       <div>
-        <h3 className={styles.value}>
-          1.9678 <span>BTC</span>
-        </h3>
-        <p className={styles.rate}>
-          <span>↗</span> +12,5%
-        </p>
+        <h3 className={styles.value}>{value}</h3>
       </div>
     </div>
   );

@@ -2,6 +2,8 @@ import React from 'react';
 import Head from 'next/head';
 import styles from './dashboard.module.css';
 import transactionChartData from '../../mock/transaction-graph-data.json';
+import personData from '../../mock/person.json';
+import currencyData from '../../mock/coins.json';
 import TransactionChart from '@components/transaction-chart';
 import Breadcrumbs from '@components/breadcrumbs';
 import ProfileSidebar from '@components/profile-sidebar';
@@ -20,7 +22,7 @@ export default function Bank() {
       <div className={styles.dashboard}>
         <div className={styles.dashboard_main}>
           <Breadcrumbs links={links} />
-          <Wallets />
+          <Wallets currencyData={currencyData} />
           <div className={styles.chart}>
             <h2>RDS Transaction</h2>
             <ChartActions />
@@ -29,7 +31,7 @@ export default function Bank() {
             </div>
           </div>
         </div>
-        <ProfileSidebar />
+        <ProfileSidebar personData={personData} />
       </div>
     </div>
   );
