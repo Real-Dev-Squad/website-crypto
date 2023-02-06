@@ -1,8 +1,8 @@
+import { useState } from 'react';
 import styles from './sidebar.module.css';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import sidebarMenuOptions from 'constants/sidebarMenuOptions';
-import { useState } from 'react';
 
 const Sidebar = () => {
   const [mobileToggle, setMobileToggle] = useState(false);
@@ -12,7 +12,7 @@ const Sidebar = () => {
   const basePath = router.pathname;
   const pagePath = router.pathname.split('/')[1];
 
-  const activeOptionClass = (optionURL) =>
+  const addActiveOptionClass = (optionURL) =>
     pagePath === optionURL || (basePath === '/' && '/' === optionURL)
       ? ' ' + styles.option_active
       : '';
@@ -43,7 +43,7 @@ const Sidebar = () => {
                 key={index}
                 // this code below insure even if we are in nested path like currency-exchange/**/
                 //even then the link is active
-                className={styles.option + activeOptionClass(optionPath)}
+                className={styles.option + addActiveOptionClass(optionPath)}
                 onClick={() => navigateTo(optionPath)}
               >
                 <Image
@@ -77,5 +77,3 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
-
-//pure TDD
