@@ -3,12 +3,14 @@ import styles from './breadcrumbs.module.css';
 
 const Breadcrumb = ({ link, index, links }) => {
   return (
-    <Link key={link} href={`/${link !== 'home' ? link : ''}`}>
-      <p className={styles.links}>
-        {link}
+    <div className={styles.links}>
+      <Link key={link} href={`/${link !== 'home' ? link : ''}`}>
+        <span className={styles.link}>{link}</span>
+      </Link>
+      <span>
         {index !== links.length - 1 && <>&nbsp;&nbsp;&gt;&nbsp;&nbsp;</>}
-      </p>
-    </Link>
+      </span>
+    </div>
   );
 };
 

@@ -2,4 +2,9 @@
   color: #a5a2b8;
   text-transform: capitalize;
   display: inline;
+  user-select: none;
+}
+
+.link {
+  cursor: pointer;
 }
