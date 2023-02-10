@@ -4,7 +4,6 @@
     "primary": "#e30062",
     "dark": "#7a0436"
   },
-
   "blue": {
     "light": "#023c5c",
     "primary": "#041187",
@@ -14,5 +13,10 @@
     "light": "#e4f7df",
     "primary": "#88d870",
     "dark": "#13380a"
+  },
+  "white": "#ffffff",
+  "black": "#000000",
+  "grey": {
+    "light": "#ededed"
   }
 }

@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { useState } from 'react';
 import transactionData from '../mock/transaction.json';
 import personData from '../mock/person.json';
 import transactionChartData from '../mock/transaction-graph-data.json';
@@ -11,10 +12,19 @@ import TransactionChart from '@components/transaction-chart';
 import TransactionOperationModal from '@components/transaction-operation-modal';
 import CustomButton from 'components/custom-button';
 import { useRouter } from 'next/router';
+import { useDispatch } from 'react-redux';
+import { CLOSE_DROPDOWN } from 'redux/actionTypes';
+
 export default function Home() {
   const router = useRouter();
+  const dispatch = useDispatch();
   return (
-    <div className={styles.homeContainer}>
+    <div
+      onClick={() => {
+        dispatch({ type: CLOSE_DROPDOWN });
+      }}
+      className={styles.homeContainer}
+    >
       <Head>
         <title>Bank Dashboard</title>
         <link rel="icon" href="/favicon.ico" />
