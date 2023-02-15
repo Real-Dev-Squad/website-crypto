@@ -3,7 +3,7 @@ import styles from './wallets.module.css';
 
 const Wallets = ({ currencyData }) => {
   return (
-    <div className={styles.wallets}>
+    <div className={styles.wallets} data-testid="wallets">
       <div className={styles.header}>
         <h3>Wallets</h3>
         <button>More Assets →</button>

@@ -3,9 +3,9 @@ import styles from './breadcrumbs.module.css';
 
 const Breadcrumb = ({ link, index, links }) => {
   return (
-    <div className={styles.links}>
+    <div className={styles.links} data-testid="breadcrumbs">
       <Link key={link} href={`/${link !== 'home' ? link : ''}`}>
-        <span className={styles.link}>{link}</span>
+        {link}
       </Link>
       <span>
         {index !== links.length - 1 && <>&nbsp;&nbsp;&gt;&nbsp;&nbsp;</>}

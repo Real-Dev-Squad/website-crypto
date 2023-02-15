@@ -2,7 +2,7 @@ import styles from './profileSidebar.module.css';
 
 const ProfileSidebar = ({ personData }) => {
   return (
-    <div className={styles.dashboard_profile}>
+    <div className={styles.dashboard_profile} data-testid="profile-sidebar">
       <div>
         <div>
           <img

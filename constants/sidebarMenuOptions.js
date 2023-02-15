@@ -10,7 +10,7 @@ export default [
     urlPath: 'dashboard',
   },
   {
-    name: 'Curreny Exchange',
+    name: 'Currency Exchange',
     iconPath: '/assets/Swap.svg',
     urlPath: 'currency-exchange',
   },

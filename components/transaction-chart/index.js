@@ -48,7 +48,7 @@ const TransactionChart = ({ transactionChartData }) => {
   }, [transactionChartData]);
 
   return (
-    <div className={styles.transactionCard}>
+    <div className={styles.transactionCard} data-testid="transaction-chart">
       <Line
         width={500}
         height={300}
