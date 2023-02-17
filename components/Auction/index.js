@@ -9,8 +9,33 @@ const BASE_API_URL = process.env.NEXT_PUBLIC_BASE_API_URL;
 const AUCTIONS_URL = `${BASE_API_URL}/auctions`;
 const WALLET_URL = `${BASE_API_URL}/wallet`;
 
+const auctionMockData = [
+  {
+    id: '4e1S5xsuFA8XFm37We57',
+    start_time: 1615666096945,
+    item: 'Pigs',
+    end_time: 1903637296536,
+    highest_bid: '999999999',
+    highest_bidder: 'harshith',
+    quantity: '100',
+    seller: 'rajakvk',
+    bidders: ['rajakvk', 'prakash', 'ankush', 'harshith'],
+  },
+  {
+    id: '8ZXE6fMfpVRfEU74HeRV',
+    highest_bid: '9999999999999',
+    start_time: 1615666322572,
+    seller: 'ankush',
+    end_time: 2479666321898,
+    item: 'Monkeys',
+    quantity: '1000000000',
+    highest_bidder: 'deipayan',
+    bidders: ['harshith', 'prem', 'ankush', 'deipayan', 'prakash'],
+  },
+];
+
 const HandleAuctions = () => {
-  const [auctionsData, setAuctionsData] = useState([]);
+  const [auctionsData, setAuctionsData] = useState(auctionMockData);
   const [userBid, setUserBid] = useState();
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -39,7 +64,7 @@ const HandleAuctions = () => {
   const fetchAndSetAuctions = async () => {
     const response = await fetchData(AUCTIONS_URL);
     const json = await response.json();
-    setAuctionsData(json.auctions);
+    setAuctionsData((prev) => prev.concat(...json.auctions));
     setIsLoading(false);
   };
 
@@ -113,34 +138,53 @@ const HandleAuctions = () => {
     return (
       <div className={`${styles.auctionContainer} ${id}`} key={id}>
         <div className={styles.auctionSeller}>
-          <h2>Seller:</h2>
           <img
             className={styles.profilePhoto}
             src={`${BASE_IMAGE_URL}/${seller}/img.png`}
             onError={brokenImageHandler}
           />
         </div>
-        <div className={styles.auctionStats}>
-          <div className={styles.itemInfo}>
-            <h1>
-              {quantity} x {'  '}
-              <Image
-                className={styles.gemImage}
-                layout="fixed"
-                src="/assets/gem.png"
-                width={25}
-                height={25}
-              />
-            </h1>
+        <div>
+          <div className={styles.auctionStats}>
+            <div className={styles.itemInfo}>
+              <h1>
+                {quantity} x {'  '}
+                <Image
+                  className={styles.gemImage}
+                  layout="fixed"
+                  src="/assets/gem.png"
+                  width={25}
+                  height={25}
+                />
+              </h1>
+            </div>
+            <div className={styles.currentStatus}>
+              <h2>
+                Current Bid:
+                <div className={styles.currentBidPrice}>{highest_bid}</div>
+              </h2>
+            </div>
           </div>
-          <div className={styles.currentStatus}>
-            <h2>
-              Current Bid:
-              <div className={styles.currentBidPrice}>{highest_bid}</div>
-            </h2>
+          <div className={styles.bidders}>
+            {bidders.map((bidder) => {
+              return (
+                <div
+                  className={styles.biddersImg}
+                  key={bidder}
+                  data-columns={getColumns(bidders.length)}
+                  title={bidder}
+                >
+                  <img
+                    className={styles.profilePhoto}
+                    src={`${BASE_IMAGE_URL}/${bidder}/img.png`}
+                    onError={brokenImageHandler}
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
-        <div>
+        <div className={styles.auctionForm}>
           <form
             className={styles.bidOptions}
             onSubmit={(e) => handleNewBid(e, id)}
@@ -154,28 +198,13 @@ const HandleAuctions = () => {
                 validateBid(value, highest_bid)
               }
             />
-            <button type="submit" className={styles.bidBtn}>
+            <button
+              type="submit"
+              className={`${styles.auctionButton} ${styles.bidBtn}`}
+            >
               Bid
             </button>
           </form>
-        </div>
-        <div className={styles.bidders}>
-          {bidders.map((bidder) => {
-            return (
-              <div
-                className={styles.biddersImg}
-                key={bidder}
-                data-columns={getColumns(bidders.length)}
-                title={bidder}
-              >
-                <img
-                  className={styles.profilePhoto}
-                  src={`${BASE_IMAGE_URL}/${bidder}/img.png`}
-                  onError={brokenImageHandler}
-                />
-              </div>
-            );
-          })}
         </div>
       </div>
     );
@@ -183,8 +212,10 @@ const HandleAuctions = () => {
 
   return (
     <div className={styles.mainContainer}>
-      <h2>{isLoading ? 'Please wait...' : 'Ongoing Auctions:'}</h2>
-      {auctionHandler}
+      <h2 className={styles.autionsPageTitle}>
+        {isLoading ? 'Loading Please wait...' : 'Ongoing Auctions'}
+      </h2>
+      <div className={styles.auctionWrapper}>{auctionHandler}</div>
     </div>
   );
 };
