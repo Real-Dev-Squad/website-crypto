@@ -144,23 +144,23 @@ const HandleAuctions = () => {
             onError={brokenImageHandler}
           />
         </div>
-        <div>
+        <div className={styles.auctionStatsBidderWrapper}>
           <div className={styles.auctionStats}>
             <div className={styles.itemInfo}>
               <h1>
                 {quantity} x {'  '}
-                <Image
-                  className={styles.gemImage}
-                  layout="fixed"
-                  src="/assets/gem.png"
-                  width={25}
-                  height={25}
-                />
               </h1>
+              <Image
+                className={styles.gemImage}
+                layout="fixed"
+                src="/assets/gem.png"
+                width={25}
+                height={25}
+              />
             </div>
             <div className={styles.currentStatus}>
+              <h2>Current Bid:</h2>
               <h2>
-                Current Bid:
                 <div className={styles.currentBidPrice}>{highest_bid}</div>
               </h2>
             </div>

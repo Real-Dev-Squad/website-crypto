@@ -7,7 +7,7 @@ import styles from '@components/Auction/Auction.module.css';
 
 const Auctions = () => {
   return (
-    <div>
+    <div className={styles.auction}>
       <Head>
         <title>Auction | Crypto</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
