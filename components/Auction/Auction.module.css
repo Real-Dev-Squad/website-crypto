@@ -1,8 +1,8 @@
 .auction {
   display: flex;
   flex-direction: column;
-  padding: 24px;
-  gap: 16px;
+  padding: 1.5rem;
+  gap: 1rem;
 }
 
 .auctionButtonContainer {
@@ -34,7 +34,7 @@
 .mainContainer {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 2rem;
   margin-bottom: 100px;
 }
 
@@ -47,24 +47,27 @@
 
 .auctionWrapper {
   display: grid;
-  grid-template-columns: minmax(280px, 651px);
-  gap: 24px;
+  grid-template-columns: minmax(17.5rem, 40.6rem);
+  gap: 1.5rem;
 }
 
 .auctionContainer {
   background: #ffffff;
   border: 1px solid #ffffff;
   border-radius: 6px;
-  padding: 30px 32px;
+  padding: 1.875rem 2rem;
   display: grid;
-  grid-template-columns: 80px 1fr auto;
-  gap: 32px;
+  grid-template-columns: 5rem 1fr auto;
+  gap: 2rem;
+}
+
+.auctionContainer:hover {
   box-shadow: 0px 3px 6px rgba(75, 81, 91, 0.15),
     0px 1px 3px rgba(0, 0, 0, 0.15);
 }
 
 .auctionSeller {
-  width: 80px;
+  width: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -78,7 +81,7 @@
 .auctionStatsBidderWrapper {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 2.5rem;
 }
 
 .itemInfo {
@@ -96,19 +99,18 @@
 .itemInfo,
 .currentStatus {
   font-weight: 700;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 1.125rem;
   color: #373b53;
+  flex-wrap: wrap;
 }
 
 .gemImage {
-  margin-top: 20px;
+  margin-top: 1.125rem;
 }
 
 .currentBidPrice {
   font-weight: 900;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 1.125rem;
   color: #e30062;
 }
 
@@ -126,19 +128,19 @@
 .inputBid {
   border: 0.5px solid #ccc;
   border-radius: 5px;
-  padding: 10px;
-  margin-bottom: 15px;
+  padding: 0.625rem;
+  margin-bottom: 1rem;
   font-size: 1rem;
-  width: 150px;
+  width: 9.375rem;
 }
 
 .bidBtn {
-  width: 150px;
-  margin-top: 10px;
+  width: 9.375rem;
+  margin-top: 0.625rem;
 }
 
 .bidBtn:hover {
-  box-shadow: 0 0 15px - 7px rgba(0, 0, 0, 0.65);
+  box-shadow: 0 0 15px -7px rgba(0, 0, 0, 0.65);
 }
 
 @media (max-width: 620px) {
@@ -149,7 +151,8 @@
     grid-template-columns: auto;
     place-items: center;
   }
-  .itemInfo {
+  .itemInfo,
+  .currentStatus {
     justify-content: center;
   }
 }

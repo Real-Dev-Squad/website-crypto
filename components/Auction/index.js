@@ -9,33 +9,8 @@ const BASE_API_URL = process.env.NEXT_PUBLIC_BASE_API_URL;
 const AUCTIONS_URL = `${BASE_API_URL}/auctions`;
 const WALLET_URL = `${BASE_API_URL}/wallet`;
 
-const auctionMockData = [
-  {
-    id: '4e1S5xsuFA8XFm37We57',
-    start_time: 1615666096945,
-    item: 'Pigs',
-    end_time: 1903637296536,
-    highest_bid: '999999999',
-    highest_bidder: 'harshith',
-    quantity: '100',
-    seller: 'rajakvk',
-    bidders: ['rajakvk', 'prakash', 'ankush', 'harshith'],
-  },
-  {
-    id: '8ZXE6fMfpVRfEU74HeRV',
-    highest_bid: '9999999999999',
-    start_time: 1615666322572,
-    seller: 'ankush',
-    end_time: 2479666321898,
-    item: 'Monkeys',
-    quantity: '1000000000',
-    highest_bidder: 'deipayan',
-    bidders: ['harshith', 'prem', 'ankush', 'deipayan', 'prakash'],
-  },
-];
-
 const HandleAuctions = () => {
-  const [auctionsData, setAuctionsData] = useState(auctionMockData);
+  const [auctionsData, setAuctionsData] = useState([]);
   const [userBid, setUserBid] = useState();
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -64,7 +39,7 @@ const HandleAuctions = () => {
   const fetchAndSetAuctions = async () => {
     const response = await fetchData(AUCTIONS_URL);
     const json = await response.json();
-    setAuctionsData((prev) => prev.concat(...json.auctions));
+    setAuctionsData(json.auctions);
     setIsLoading(false);
   };
 
