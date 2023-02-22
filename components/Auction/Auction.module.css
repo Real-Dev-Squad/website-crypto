@@ -107,8 +107,7 @@ INFO: using px as unit for values less than 8
 
 .itemInfo,
 .currentStatus {
-  font-weight: 700;
-  font-size: 1.125rem;
+  font: 1.125rem bold;
   color: #373b53;
   flex-wrap: wrap;
 }
@@ -118,8 +117,7 @@ INFO: using px as unit for values less than 8
 }
 
 .currentBidPrice {
-  font-weight: 900;
-  font-size: 1.125rem;
+  font: 1.125rem bold;
   color: #e30062;
 }
 
