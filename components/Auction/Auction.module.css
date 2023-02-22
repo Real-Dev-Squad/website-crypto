@@ -1,11 +1,8 @@
 /*
 INFO: using px as unit for values less than 8
+INFO: not using color variables.
+TODO: Check With AO for using global css variables
 */
-
-:root {
-  --primary-auction: #0094b6;
-  --white: #ffffff;
-}
 
 .auction {
   display: flex;
@@ -24,8 +21,8 @@ INFO: using px as unit for values less than 8
   width: 100%;
   height: 3.125rem;
   padding: 2px 0.625rem;
-  color: var(--white);
-  background: var(--primary-auction);
+  color: #ffffff;
+  background: #0094b6;
   border: 1px solid;
   border-radius: 5px;
   font-weight: 700;
@@ -61,8 +58,8 @@ INFO: using px as unit for values less than 8
 }
 
 .auctionContainer {
-  background: var(--white);
-  border: 1px solid var(--white);
+  background: #ffffff;
+  border: 1px solid #ffffff;
   border-radius: 6px;
   padding: 1.875rem 2rem;
   display: grid;
