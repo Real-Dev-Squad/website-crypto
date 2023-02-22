@@ -116,6 +116,7 @@ const HandleAuctions = () => {
           <img
             className={styles.profilePhoto}
             src={`${BASE_IMAGE_URL}/${seller}/img.png`}
+            alt="Currency Seller Profile Image"
             onError={brokenImageHandler}
           />
         </div>

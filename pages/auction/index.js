@@ -17,7 +17,12 @@ const Auctions = () => {
         <div className={styles.auctionButtonContainer}>
           <button className={styles.auctionButton}>
             <div className={styles.auctionButtonContentWrapper}>
-              <Image width="18" height="20" src="/assets/white-plus-icon.svg" />
+              <Image
+                width="18"
+                height="20"
+                src="/assets/white-plus-icon.svg"
+                alt="Add Icon For Creating Auction"
+              />
               <p>Create New Auction</p>
             </div>
           </button>
