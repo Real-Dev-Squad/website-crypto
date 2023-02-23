@@ -113,17 +113,19 @@ const HandleAuctions = () => {
     return (
       <div className={`${styles.auctionContainer} ${id}`} key={id}>
         <div className={styles.auctionSeller}>
-          <h2>Seller:</h2>
           <img
             className={styles.profilePhoto}
             src={`${BASE_IMAGE_URL}/${seller}/img.png`}
+            alt="Currency Seller Profile Image"
             onError={brokenImageHandler}
           />
         </div>
-        <div className={styles.auctionStats}>
-          <div className={styles.itemInfo}>
-            <h1>
-              {quantity} x {'  '}
+        <div className={styles.auctionStatsBidderWrapper}>
+          <div className={styles.auctionStats}>
+            <div className={styles.itemInfo}>
+              <h1>
+                {quantity} x {'  '}
+              </h1>
               <Image
                 className={styles.gemImage}
                 layout="fixed"
@@ -131,16 +133,34 @@ const HandleAuctions = () => {
                 width={25}
                 height={25}
               />
-            </h1>
+            </div>
+            <div className={styles.currentStatus}>
+              <h2>Current Bid:</h2>
+              <h2>
+                <div className={styles.currentBidPrice}>{highest_bid}</div>
+              </h2>
+            </div>
           </div>
-          <div className={styles.currentStatus}>
-            <h2>
-              Current Bid:
-              <div className={styles.currentBidPrice}>{highest_bid}</div>
-            </h2>
+          <div className={styles.bidders}>
+            {bidders.map((bidder) => {
+              return (
+                <div
+                  className={styles.biddersImg}
+                  key={bidder}
+                  data-columns={getColumns(bidders.length)}
+                  title={bidder}
+                >
+                  <img
+                    className={styles.profilePhoto}
+                    src={`${BASE_IMAGE_URL}/${bidder}/img.png`}
+                    onError={brokenImageHandler}
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
-        <div>
+        <div className={styles.auctionForm}>
           <form
             className={styles.bidOptions}
             onSubmit={(e) => handleNewBid(e, id)}
@@ -154,28 +174,13 @@ const HandleAuctions = () => {
                 validateBid(value, highest_bid)
               }
             />
-            <button type="submit" className={styles.bidBtn}>
+            <button
+              type="submit"
+              className={`${styles.auctionButton} ${styles.bidBtn}`}
+            >
               Bid
             </button>
           </form>
-        </div>
-        <div className={styles.bidders}>
-          {bidders.map((bidder) => {
-            return (
-              <div
-                className={styles.biddersImg}
-                key={bidder}
-                data-columns={getColumns(bidders.length)}
-                title={bidder}
-              >
-                <img
-                  className={styles.profilePhoto}
-                  src={`${BASE_IMAGE_URL}/${bidder}/img.png`}
-                  onError={brokenImageHandler}
-                />
-              </div>
-            );
-          })}
         </div>
       </div>
     );
@@ -183,8 +188,10 @@ const HandleAuctions = () => {
 
   return (
     <div className={styles.mainContainer}>
-      <h2>{isLoading ? 'Please wait...' : 'Ongoing Auctions:'}</h2>
-      {auctionHandler}
+      <h2 className={styles.autionsPageTitle}>
+        {isLoading ? 'Loading Please wait...' : 'Ongoing Auctions'}
+      </h2>
+      <div className={styles.auctionWrapper}>{auctionHandler}</div>
     </div>
   );
 };
