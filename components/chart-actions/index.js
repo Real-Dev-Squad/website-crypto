@@ -1,19 +1,5 @@
 import styles from './chartActions.module.css';
-
-const monthsList = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'Sepetember',
-  'October',
-  'November',
-  'December',
-];
+import monthsList from '../../constants/months';
 
 const ChartActions = () => {
   return (

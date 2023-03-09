@@ -1,6 +1,6 @@
 .wrapper {
   font: 700 16px 'DM Sans', sans-serif;
-  margin-bottom: 25px;
+  margin-bottom: 1.5rem;
   width: 20vw;
   height: max-content;
   margin-right: auto;
@@ -9,7 +9,7 @@
 .sidebar {
   height: calc(100vh - 78px);
   overflow-y: scroll;
-  background-color: #f8f7ff;
+  background-color: var(--bg-light);
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -35,7 +35,7 @@
   gap: 10px;
 }
 
-.options{
+.options {
   gap: 1rem;
   display: flex;
   flex-direction: column;
@@ -48,27 +48,27 @@
   align-items: center;
   padding: 6px 9px;
   gap: 10px;
-  color: #a5a2b8;
+  color: var(--clr-light-200);
   cursor: pointer;
 }
 
 .option:hover {
-  color: #352e5bd0;
+  color: var(--clr-dark-200);
 }
 
 .option_image {
   position: static;
-  color: #352e5b;
+  color: var(--clr-dark-100);
 }
 
 .option_active {
-  color: #352e5b;
+  color: var(--clr-dark-100);
 }
 
 .option_bar {
   width: 3px;
   aspect-ratio: 1/6;
-  background-color: #9381ff;
+  background-color: var(--bg-blue-100);
   border-radius: 1px 0px 0px 1px;
   right: -1.2rem;
   position: absolute;
@@ -86,11 +86,11 @@
 
 .button {
   width: 100%;
-  background-color: #041187;
+  background-color: var(--bg-blue-200);
   height: 4rem;
   border-radius: 8px;
   border: none;
-  color: white;
+  color: var(--clr-light-100);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -99,57 +99,55 @@
   margin-top: 1rem;
 }
 
-.mobileToggle{
+.mobileToggle {
   display: none;
 }
 
 /* Responsive CSS */
 @media screen and (max-width: 970px) {
-  .wrapper{
+  .wrapper {
     width: 100vw;
   }
 
-  .mobileToggle{
+  .mobileToggle {
     display: flex;
     justify-content: space-between;
     padding: 1.6rem;
-    background-color: #1D1283;
-    color: white;
+    background-color: var(---bg-blue-300);
+    color: var(--clr-light-100);
   }
 
-  .mobileToggle img{
+  .mobileToggle img {
     transform: rotateZ(180deg);
     transition: all 300ms ease-in;
   }
 
-  .mobileToggle--active img{
+  .mobileToggle--active img {
     transform: rotateZ(0deg);
   }
 
-  .sidebar{
+  .sidebar {
     height: 0px;
     transition: all 300ms ease-in;
   }
 
-  .mobileToggle--active ~ .sidebar{
+  .mobileToggle--active ~ .sidebar {
     height: max-content;
     margin-top: 0rem;
-    animation: MobileMenuAnimation 300ms forwards ;
+    animation: MobileMenuAnimation 300ms forwards;
   }
 
-  .buttonWrapper{
+  .buttonWrapper {
     margin-top: 1rem;
   }
 }
 
-
-
 /* custom animations */
-@keyframes MobileMenuAnimation{
-  0%{
+@keyframes MobileMenuAnimation {
+  0% {
     margin-top: -5rem;
   }
-  100%{
+  100% {
     margin-top: 0rem;
   }
 }

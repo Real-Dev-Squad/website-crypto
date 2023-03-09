@@ -1,14 +1,14 @@
 import React from 'react';
 import Head from 'next/head';
-import styles from './dashboard.module.css';
-import transactionChartData from '../../mock/transaction-graph-data.json';
-import personData from '../../mock/person.json';
-import currencyData from '../../mock/coins.json';
 import TransactionChart from '@components/transaction-chart';
 import Breadcrumbs from '@components/breadcrumbs';
 import ProfileSidebar from '@components/profile-sidebar';
 import Wallets from '@components/wallets';
 import ChartActions from '@components/chart-actions';
+import transactionChartData from '../../mock/transaction-graph-data.json';
+import personData from '../../mock/person.json';
+import currencyData from '../../mock/coins.json';
+import styles from './dashboard.module.css';
 
 const links = ['home', 'dashboard'];
 

@@ -1,3 +1,4 @@
+import AssetsList from './AssetsList';
 import styles from './profileSidebar.module.css';
 
 const ProfileSidebar = ({ personData }) => {
@@ -22,14 +23,7 @@ const ProfileSidebar = ({ personData }) => {
         </div>
         <div className={styles.assets}>
           <h2 className={styles.profile_header}>Assets</h2>
-          {Object.entries(personData.coins).map(([name, amount]) => {
-            return (
-              <div key={name} className={styles.row}>
-                <h3 className={styles.subHeading}>{name}</h3>
-                <p>{amount}</p>
-              </div>
-            );
-          })}
+          <AssetsList personData={personData} />
           <button className={styles.more_assets}>More Assets...</button>
         </div>
       </div>

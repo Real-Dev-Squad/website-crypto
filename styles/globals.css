@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --bg-light: #f8f7ff;
+  --bg-blue-100: #9381ff;
+  --bg-blue-200: #041187;
+  --bg-blue-300: #1d1283;
+
+  --clr-light-100: #fff;
+  --clr-light-200: #a5a2b8;
+  --clr-dark-100: #352e5b;
+  --clr-dark-200: #352e5bd0;
+}
+
 html,
 body {
   padding: 0;
@@ -80,7 +92,7 @@ footer a {
 
 /* Responsive CSS */
 @media screen and (max-width: 970px) {
-  .main_app{
+  .main_app {
     flex-direction: column;
   }
 }
