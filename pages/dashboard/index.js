@@ -24,7 +24,7 @@ export default function Bank() {
           <Breadcrumbs links={links} />
           <Wallets currencyData={currencyData} />
           <div className={styles.chart}>
-            <h2>RDS Transaction</h2>
+            <h2 data-testid="trasaction-title">RDS Transaction</h2>
             <ChartActions />
             <div className={styles.home_transaction}>
               <TransactionChart transactionChartData={transactionChartData} />

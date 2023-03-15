@@ -8,8 +8,13 @@ const AssetsList = ({ personData }) => {
       {convertObjToArray(personData.coins).map(([name, amount]) => {
         return (
           <div key={name} className={styles.row}>
-            <h3 className={styles.subHeading}>{name}</h3>
-            <p>{amount}</p>
+            <h3
+              data-testid={`profile-sidebar-asset-${name}`}
+              className={styles.subHeading}
+            >
+              {name}
+            </h3>
+            <p data-testid={`profile-sidebar-asset-${amount}`}>{amount}</p>
           </div>
         );
       })}

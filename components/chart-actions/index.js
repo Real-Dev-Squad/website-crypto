@@ -8,17 +8,27 @@ const ChartActions = () => {
         <label htmlFor="month" className={styles.sr_only}>
           Select month
         </label>
-        <select id="month" className={styles.month_select}>
+        <select
+          data-testid="transaction-select-month"
+          id="month"
+          className={styles.month_select}
+        >
           {monthsList.map((month) => {
             return (
-              <option key={month} value={month}>
+              <option
+                data-testid={`transaction-select-month-${month}`}
+                key={month}
+                value={month}
+              >
                 {month}
               </option>
             );
           })}
         </select>
       </section>
-      <button className={styles.button}>Latest Transaction</button>
+      <button data-testid="latest-transaction-btn" className={styles.button}>
+        Latest Transaction
+      </button>
     </div>
   );
 };

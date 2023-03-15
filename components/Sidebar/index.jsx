@@ -39,8 +39,13 @@ const Sidebar = () => {
 
       <aside className={styles.sidebar}>
         <span className={styles.heading}>
-          <Image src={ICON_PATH_LOGO} width={50} height={50} />
-          <h3>RealDevSquad</h3>
+          <Image
+            data-testid="sidebar-logo"
+            src={ICON_PATH_LOGO}
+            width={50}
+            height={50}
+          />
+          <h3 data-testid="sidebar-title">RealDevSquad</h3>
         </span>
         <div className={styles.options}>
           {sidebarMenuOptions.map((option, index) => {
@@ -53,12 +58,15 @@ const Sidebar = () => {
                 onClick={() => navigateTo(option.urlPath)}
               >
                 <Image
+                  data-testid={`sidebar-menu-icon=${option.iconPath}`}
                   src={option.iconPath}
                   className={styles.option_image}
                   width={MENU_ICON_WIDTH}
                   height={MENU_ICON_HEIGHT}
                 />
-                <p>{option.name}</p>
+                <p data-testid={`sidebar-menu-title-${option.name}`}>
+                  {option.name}
+                </p>
                 <span className={styles.option_bar}></span>
               </span>
             );
@@ -67,8 +75,12 @@ const Sidebar = () => {
 
         <div className={styles.buttonWrapper}>
           {router.pathname !== '/currency-exchange' && (
-            <button className={styles.button}>
+            <button
+              data-testid="sidebar-trade-button"
+              className={styles.button}
+            >
               <Image
+                data-testid="sidebar-trade-button-icon"
                 src={ICON_PATH_INFO}
                 width={MENU_ICON_WIDTH}
                 height={MENU_ICON_HEIGHT}
@@ -76,8 +88,9 @@ const Sidebar = () => {
               Trade Now
             </button>
           )}
-          <button className={styles.button}>
+          <button data-testid="sidebar-guide-button" className={styles.button}>
             <Image
+              data-testid="sidebar-guide-button-icon"
               src={ICON_PATH_INFO}
               width={MENU_ICON_WIDTH}
               height={MENU_ICON_HEIGHT}
