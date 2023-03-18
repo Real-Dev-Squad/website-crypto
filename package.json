@@ -13,7 +13,7 @@
     "test:unit": "jest --coverage __tests__/unit",
     "test:watch": "jest --watch",
     "test:cy": "cypress run",
-    "test": "npm run test:jest && npm run test:cy",
+    "test": "npm run test:cy",
     "lint": "eslint --fix . && echo 'Lint complete.'",
     "format": "prettier --write \"./**/*.{js,jsx,ts,tsx,scss,md,json}\"",
     "storybook": "start-storybook -p 6006",

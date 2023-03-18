@@ -48,7 +48,7 @@ const TransactionChart = ({ transactionChartData }) => {
   }, [transactionChartData]);
 
   return (
-    <div className={styles.transactionCard}>
+    <div className={styles.transactionCard} data-testid="transaction-chart">
       <Line
         width={500}
         height={300}
@@ -56,7 +56,7 @@ const TransactionChart = ({ transactionChartData }) => {
         options={{
           responsive: true,
           maintainAspectRatio: false,
-          title: { text: 'RDS Transaction', display: true },
+          title: { text: 'RDS Transaction', display: false },
           scales: {
             yAxes: [
               {

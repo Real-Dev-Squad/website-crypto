@@ -1,0 +1,42 @@
+.chart_actions {
+  background-color: #f8f7ff;
+  padding: 0.8rem 1rem;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-top: 1rem;
+  display: flex;
+  gap: 2rem;
+}
+
+.button {
+  padding: 0.4rem 0.4rem;
+  color: white;
+  background-color: #2196f3;
+  border-radius: 4px;
+}
+
+.sr_only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.month_select {
+  height: 100%;
+  padding: 0 0.4rem;
+  color: white;
+  background-color: #2196f3;
+  border-radius: 4px;
+}
+
+@media (min-width: 600px) {
+  .month_select,
+  .button {
+    padding: 0.4rem 0.9rem;
+  }
+}

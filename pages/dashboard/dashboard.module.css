@@ -1,0 +1,34 @@
+.container {
+  flex: 1;
+  background-color: #fff;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 20%;
+}
+
+.dashboard_main {
+  border-right: 1px solid #c1bdd427;
+  padding: 2rem 1.5rem;
+}
+
+.chart {
+  margin-top: 3rem;
+}
+
+.chart > h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.home_transaction {
+  margin-top: 1rem;
+}
+
+@media (max-width: 1400px) {
+  .dashboard {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
