@@ -6,3 +6,5 @@ export const SAVE_FOR_LATER = ' SAVE_FOR_LATER';
 export const DELETE_FROM_CART = 'DELETE_FROM_CART';
 export const MOVE_TO_CART = ' MOVE_TO_CART';
 export const DEL_FROM_SAVELATER = 'DEL_FROM_SAVELATER';
+export const CLOSE_DROPDOWN = 'CLOSE_DROPDOWN';
+export const OPEN_DROPDOWN = 'OPEN_DROPDOWN';

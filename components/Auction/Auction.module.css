@@ -1,61 +1,127 @@
-.newAuctionBtnContainer {
-  text-align: center;
+/*
+INFO: using px as unit for values less than 8
+INFO: not using color variables.
+TODO: Check With AO for using global css variables
+*/
+
+.auction {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  gap: 1rem;
 }
 
-.newAuctionBtn {
-  font-weight: 550;
-  height: 50px;
-  font-size: 1.2rem;
-  width: 14rem;
-  border: none;
+.auctionButtonContainer {
   text-align: center;
-  padding: 2px 10px;
-  border-radius: 10px;
-  background-color: #101f92;
-  color: white;
+  margin-left: auto;
+}
+
+.auctionButton {
+  max-width: 13.125rem;
+  width: 100%;
+  height: 3.125rem;
+  padding: 2px 0.625rem;
+  color: #ffffff;
+  background: #0094b6;
+  border: 1px solid;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.auctionButtonContentWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
 }
 
 .mainContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-bottom: 100px;
+  gap: 2rem;
+  margin-bottom: 6.25rem;
+}
+
+.autionsPageTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 2rem;
+  color: #352e5b;
+}
+
+.auctionWrapper {
+  display: grid;
+  grid-template-columns: minmax(17.5rem, 40.6rem);
+  gap: 1.5rem;
 }
 
 .auctionContainer {
-  display: flex;
-  width: 70%;
-  background-color: rgb(245, 235, 235);
-  justify-content: space-around;
-  align-items: center;
-  border: 1px solid #f4f4f4;
-  border-radius: 20px;
-  box-shadow: 0 0 15px - 7px rgba(0, 0, 0, 0.65);
-  margin-bottom: 20px;
-  padding: 50px 0;
+  background: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 6px;
+  padding: 1.875rem 2rem;
+  display: grid;
+  grid-template-columns: 5rem 1fr auto;
+  gap: 2rem;
+}
+
+.auctionContainer:hover {
+  box-shadow: 0px 3px 6px rgba(75, 81, 91, 0.15),
+    0px 1px 3px rgba(0, 0, 0, 0.15);
 }
 
 .auctionSeller {
+  width: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.auctionSeller {
-  width: 100px;
+.profilePhoto {
+  border-radius: 50%;
+  width: 100%;
+}
+
+.auctionStatsBidderWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
 }
 
 .itemInfo {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  margin-bottom: 6px;
+  gap: 4px;
+}
+
+.currentStatus {
+  display: flex;
+  gap: 4px;
+}
+
+.itemInfo,
+.currentStatus {
+  font: 1.125rem bold;
+  color: #373b53;
+  flex-wrap: wrap;
 }
 
 .gemImage {
-  margin-top: 20px;
+  margin-top: 1.125rem;
 }
 
 .currentBidPrice {
-  font-weight: 400;
+  font: 1.125rem bold;
+  color: #e30062;
+}
+
+.bidders {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 50px);
+  gap: 4px;
 }
 
 .bidOptions {
@@ -66,102 +132,31 @@
 .inputBid {
   border: 0.5px solid #ccc;
   border-radius: 5px;
-  padding: 10px;
-  margin-bottom: 15px;
+  padding: 0.625rem;
+  margin-bottom: 1rem;
   font-size: 1rem;
-  width: 150px;
+  width: 9.375rem;
 }
 
 .bidBtn {
-  height: 50px;
-  width: 150px;
-  margin-top: 10px;
-  color: white;
-  border-color: rgba(27, 31, 35, 0.15);
-  border-radius: 6px;
-  background-color: #42a742;
+  width: 9.375rem;
+  margin-top: 0.625rem;
 }
 
 .bidBtn:hover {
-  height: 50px;
-  box-shadow: 0 0 15px - 7px rgba(0, 0, 0, 0.65);
-  cursor: pointer;
+  box-shadow: 0 0 15px -7px rgba(0, 0, 0, 0.65);
 }
 
-.bidders {
-  display: flex;
-  flex-wrap: wrap;
-  width: 25%;
-}
-
-.profilePhoto {
-  border-radius: 50%;
-  width: 100%;
-}
-
-.biddersImg {
-  margin-left: 10px;
-}
-
-.biddersImg[data-columns='2'] {
-  width: calc(160px / 2);
-}
-
-.biddersImg[data-columns='3'] {
-  width: calc(160px / 3);
-}
-
-.biddersImg[data-columns='4'] {
-  width: calc(160px / 4);
-}
-
-.biddersImg[data-columns='5'] {
-  width: calc(160px / 5);
-}
-
-.biddersImg[data-columns='6'] {
-  width: calc(160px / 6);
-}
-
-.biddersImg[data-columns='7'] {
-  width: calc(160px / 7);
-}
-
-@media only screen and (max-width: 1200px) {
+@media (max-width: 620px) {
+  .auctionWrapper {
+    margin: 0 auto;
+  }
   .auctionContainer {
-    width: 85%;
+    grid-template-columns: auto;
+    place-items: center;
   }
-  .bidBtn {
-    width: 100px;
-  }
-}
-
-@media only screen and (max-width: 800px) and (min-width: 900px) {
-  .bidders {
-    width: 30%;
-  }
-}
-
-@media only screen and (max-width: 800px) {
-  .auctionContainer {
-    flex-direction: column;
-    width: 60%;
-  }
-  .itemInfo {
+  .itemInfo,
+  .currentStatus {
     justify-content: center;
-  }
-  .bidBtn {
-    width: 150px;
-    margin-bottom: 20px;
-  }
-  .bidders {
-    width: 80%;
-    justify-content: center;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .auctionContainer {
-    width: 90%;
   }
 }
