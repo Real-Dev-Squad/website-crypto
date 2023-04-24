@@ -38,11 +38,20 @@ const StockOperationModal = (props) => {
   }, []);
 
   const getUserWallet = async () => {
+    const [apiResponse, setApiResponse] = useState(undefined);
+    if (apiResponse) {
+      const {
+        currencies: { dinero },
+      } = wallet;
+      setUserMoney(dinero);
+      return;
+    }
     const response = await fetchData(`${BASE_API_URL}/wallet`, 'GET', {
       credentials: 'include',
     });
     const { wallet } = await response.json();
     if (Object.keys(wallet).length === 0) return setUserMoney(0);
+    setApiResponse(wallet);
     const {
       currencies: { dinero },
     } = wallet;
