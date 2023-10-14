@@ -11,7 +11,7 @@ const NewAuction = () => {
         <title>Create New Auction | Crypto</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <Link href="/auction">
+      <Link legacyBehavior href="/auction">
         <a>
           <h2 className={styles.auctionPageNavigation}>Go Back</h2>
         </a>
