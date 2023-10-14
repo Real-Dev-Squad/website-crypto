@@ -89,7 +89,7 @@ const NavBar = () => {
             mountedComponent ? '' : 'd-none'
           }`}
         >
-          <Link href={authUrl}>
+          <Link legacyBehavior href={authUrl}>
             <a className={`${styles.btnLogin} ${isLoggedIn ? 'd-none' : ''}`}>
               <button className={styles.btnLoginText}>
                 Sign In
@@ -104,7 +104,7 @@ const NavBar = () => {
             </a>
           </Link>
           <div className={`${styles.userGreet} ${isLoggedIn ? '' : 'd-none'}`}>
-            <Link href={PATHS.PROFILE}>
+            <Link legacyBehavior href={PATHS.PROFILE}>
               <a>
                 <div className={styles.userGreetMsg}>
                   {`Hello ${isLoggedIn ? `${userData.firstName}` : 'User'}!`}
@@ -128,7 +128,7 @@ const NavBar = () => {
           }
         >
           <li className={styles.navBarLogoLi}>
-            <Link href={PATHS.HOME}>
+            <Link legacyBehavior href={PATHS.HOME}>
               <a>
                 <img
                   src={RDS_LOGO}
@@ -145,7 +145,7 @@ const NavBar = () => {
                 className={navTab.name === 'Home' ? `${styles.homeTab}` : ``}
                 key={index}
               >
-                <Link href={navTab.url}>
+                <Link legacyBehavior href={navTab.url}>
                   <a className={navTab.isActive ? `${styles.activeTab}` : ``}>
                     {navTab.name}
                   </a>
@@ -158,7 +158,7 @@ const NavBar = () => {
               mountedComponent ? '' : 'd-none'
             }`}
           >
-            <Link href={authUrl}>
+            <Link legacyBehavior href={authUrl}>
               <a className={`${styles.btnLogin} ${isLoggedIn ? 'd-none' : ''}`}>
                 <button className={styles.btnLoginText}>
                   Sign In With GitHub
@@ -200,7 +200,7 @@ const NavBar = () => {
         </ul>
       </nav>
       <div className={styles.header}>
-        <Link href="/auction">
+        <Link legacyBehavior href="/auction">
           <a>
             <button
               type="button"
@@ -214,7 +214,7 @@ const NavBar = () => {
           </a>
         </Link>
         |
-        <Link href="/trading">
+        <Link legacyBehavior href="/trading">
           <a>
             <button
               type="button"

@@ -23,7 +23,9 @@ export const CartSummary = ({ total }) => {
         <h1>Oops!!!</h1>
         <h2>You do not have sufficient coins to purchase items</h2>
         <button>
-          <Link href="/bank">Go to Bank</Link>
+          <Link legacyBehavior href="/bank">
+            Go to Bank
+          </Link>
         </button>
       </>
     );
